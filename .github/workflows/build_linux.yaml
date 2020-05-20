@@ -21,5 +21,5 @@ jobs:
           APIKEY: ${{ secrets.APIKEY }}
       - uses: actions/upload-artifact@v2
         with:
-          name: VirtualAnalog_Linux
-          path: ci/bin/VirtualAnalog_Linux.zip
+          name: Wavetable_Linux
+          path: ci/bin/Wavetable_Linux.zip
