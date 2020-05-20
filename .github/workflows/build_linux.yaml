@@ -1,0 +1,25 @@
+name: Build Linux
+on: [push]
+jobs:
+  build:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fix up git URLs
+        run: echo -e '[url "https://github.com/"]\n  insteadOf = "git@github.com:"' >> ~/.gitconfig
+        shell: bash
+      - uses: actions/checkout@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          submodules: true
+      - name: "Run script"
+        run: |
+          export OS="linux"
+          ./ci/build.sh
+        shell: bash
+        env:
+          APIKEY: ${{ secrets.APIKEY }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: VirtualAnalog_Linux
+          path: ci/bin/VirtualAnalog_Linux.zip

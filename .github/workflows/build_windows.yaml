@@ -1,0 +1,25 @@
+name: Build Windows
+on: [push]
+jobs:
+  build:
+    name: Build Windows
+    runs-on: windows-latest
+    steps:
+      - name: Fix up git URLs
+        run: echo -e '[url "https://github.com/"]\n  insteadOf = "git@github.com:"' >> ~/.gitconfig
+        shell: bash
+      - uses: actions/checkout@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          submodules: true
+      - name: "Run script"
+        run: |
+          export OS="win"
+          ./ci/build.sh
+        shell: bash
+        env:
+          APIKEY: ${{ secrets.APIKEY }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: VirtualAnalog_Win 
+          path: ci/bin/VirtualAnalog_Win.zip
