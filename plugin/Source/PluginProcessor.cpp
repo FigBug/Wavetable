@@ -107,6 +107,7 @@ void WavetableAudioProcessor::WTParams::setup (WavetableAudioProcessor& p, int i
     String nm = "WT" + String (idx + 1) + " ";
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, idx == 0 ? 1.0f : 0.0f, 0.0f);
+	table      = p.addExtParam (id + "table",      nm + "Table",       "Table",     "", { 0.0, 1.0, 0.0, 1.0 }, 0.0f, 0.0f);
     voices     = p.addIntParam (id + "unison",     nm + "Unison",      "Unison",    "", { 1.0, 8.0, 1.0, 1.0 }, 1.0, 0.0f);
     voicesTrns = p.addExtParam (id + "unisontrns", nm + "Unison Trns", "LTrans",    "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
@@ -125,7 +126,7 @@ void WavetableAudioProcessor::OSCParams::setup (WavetableAudioProcessor& p, int 
     String id = "osc" + String (idx + 1);
     String nm = "OSC" + String (idx + 1) + " ";
 
-    enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, idx == 0 ? 1.0f : 0.0f, 0.0f);
+    enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f);
     wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 1.0, 7.0, 1.0, 1.0 }, 1.0, 0.0f, waveTextFunction);
     voices     = p.addIntParam (id + "unison",     nm + "Unison",      "Unison",    "", { 1.0, 8.0, 1.0, 1.0 }, 1.0, 0.0f);
     voicesTrns = p.addExtParam (id + "unisontrns", nm + "Unison Trns", "LTrans",    "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
@@ -397,6 +398,8 @@ void WavetableAudioProcessor::LimiterParams::setup (WavetableAudioProcessor& p)
 //==============================================================================
 WavetableAudioProcessor::WavetableAudioProcessor()
 {
+	formatManager->registerBasicFormats();
+
     enableLegacyMode();
     setVoiceStealingEnabled (true);
 
@@ -440,6 +443,9 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     }
 
     setupModMatrix();
+
+	MemoryBlock mb (BinaryData::WINDOW_S_WAV, BinaryData::WINDOW_S_WAVSize);
+	updateWavetable (0, mb, 256);
 }
 
 WavetableAudioProcessor::~WavetableAudioProcessor()
@@ -848,6 +854,22 @@ void WavetableAudioProcessor::handleMidiEvent (const MidiMessage& m)
 void WavetableAudioProcessor::handleController ([[maybe_unused]] int ch, int num, int val)
 {
     modMatrix.setMonoValue (modSrcCC[num], val / 127.0f);
+}
+
+void WavetableAudioProcessor::updateWavetable (int idx, MemoryBlock& src, int tableSize)
+{
+	if (auto reader = std::unique_ptr<AudioFormatReader> (formatManager->createReaderFor (std::make_unique<MemoryInputStream> (src, false))))
+	{
+		AudioSampleBuffer buffer;
+		buffer.setSize (1, int (reader->lengthInSamples));
+		reader->read (&buffer, 0, int (reader->lengthInSamples), 0, true, false);
+
+		loadWavetables (waveTables[idx], buffer, reader->sampleRate, tableSize);
+
+		for (auto v : voices)
+			if (auto wtv = dynamic_cast<WavetableVoice*>(v))
+				wtv->setWavetable (idx, waveTables[idx]);
+	}
 }
 
 //==============================================================================

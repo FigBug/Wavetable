@@ -12,6 +12,11 @@ WavetableVoice::WavetableVoice (WavetableAudioProcessor& p, BandLimitedLookupTab
         f.setNumChannels (2);
 }
 
+void WavetableVoice::setWavetable (int idx, OwnedArray<BandLimitedLookupTable>& table)
+{
+	wtOscillators[idx].setWavetable (table);
+}
+
 void WavetableVoice::noteStarted()
 {
     fastKill = false;
@@ -51,7 +56,10 @@ void WavetableVoice::noteStarted()
     snapParams();
     updateParams (0);
     snapParams();
-    
+
+    for (auto& osc : wtOscillators)
+        osc.noteOn();
+
     for (auto& osc : oscillators)
         osc.noteOn();
 
@@ -90,6 +98,9 @@ void WavetableVoice::noteRetriggered()
     proc.modMatrix.setPolyValue (*this, proc.modSrcPressure, note.pressure.asUnsignedFloat());
     
     updateParams (0);
+
+    for (auto& osc : wtOscillators)
+        osc.noteOn();
 
     for (auto& osc : oscillators)
         osc.noteOn();
@@ -137,6 +148,9 @@ void WavetableVoice::setCurrentSampleRate (double newRate)
 {
     MPESynthesiserVoice::setCurrentSampleRate (newRate);
 
+    for (auto& osc : wtOscillators)
+        osc.setSampleRate (newRate);
+
     for (auto& osc : oscillators)
         osc.setSampleRate (newRate);
 
@@ -161,9 +175,13 @@ void WavetableVoice::renderNextBlock (AudioBuffer<float>& outputBuffer, int star
     // Run OSC
     ScratchBuffer buffer (2, numSamples);
 
+    for (int i = 0; i < Cfg::numWTs; i++)
+        if (proc.wtParams[i].enable->isOn())
+            wtOscillators[i].processAdding (currentMidiNotes[i], wtParams[i], buffer);
+
     for (int i = 0; i < Cfg::numOSCs; i++)
         if (proc.oscParams[i].enable->isOn())
-            oscillators[i].processAdding (currentMidiNotes[i], oscParams[i], buffer);
+            oscillators[i].processAdding (currentMidiNotes[Cfg::numWTs + i], oscParams[i], buffer);
 
     // Apply velocity
     float velocity = currentlyPlayingNote.noteOnVelocity.asUnsignedFloat();
@@ -196,14 +214,32 @@ void WavetableVoice::updateParams (int blockSize)
     
     proc.modMatrix.setPolyValue (*this, proc.modSrcNote, note.initialNote / 127.0f);
 
+    for (int i = 0; i < Cfg::numWTs; i++)
+    {
+        if (! proc.wtParams[i].enable->isOn()) continue;
+
+        currentMidiNotes[i] = noteSmoother.getCurrentValue() * 127.0f;
+        if (glideInfo.glissando) currentMidiNotes[i] = roundToInt (currentMidiNotes[i]);
+        currentMidiNotes[i] += float (note.totalPitchbendInSemitones);
+        currentMidiNotes[i] += getValue (proc.wtParams[i].tune) + getValue (proc.wtParams[i].finetune) / 100.0f;
+
+        wtParams[i].voices = int (proc.wtParams[i].voices->getProcValue());
+        wtParams[i].vcTrns = int (proc.wtParams[i].voicesTrns->getProcValue());
+		wtParams[i].pw     = getValue (proc.wtParams[i].table);
+        wtParams[i].pan    = getValue (proc.wtParams[i].pan);
+        wtParams[i].spread = getValue (proc.wtParams[i].spread) / 100.0f;
+        wtParams[i].detune = getValue (proc.wtParams[i].detune);
+        wtParams[i].gain   = getValue (proc.wtParams[i].level);
+    }
+
     for (int i = 0; i < Cfg::numOSCs; i++)
     {
         if (! proc.oscParams[i].enable->isOn()) continue;
         
-        currentMidiNotes[i] = noteSmoother.getCurrentValue() * 127.0f;
-        if (glideInfo.glissando) currentMidiNotes[i] = roundToInt (currentMidiNotes[i]);
-        currentMidiNotes[i] += float (note.totalPitchbendInSemitones);
-        currentMidiNotes[i] += getValue (proc.oscParams[i].tune) + getValue (proc.oscParams[i].finetune) / 100.0f;
+        currentMidiNotes[Cfg::numWTs + i] = noteSmoother.getCurrentValue() * 127.0f;
+        if (glideInfo.glissando) currentMidiNotes[Cfg::numWTs + i] = roundToInt (currentMidiNotes[Cfg::numWTs + i]);
+        currentMidiNotes[Cfg::numWTs + i] += float (note.totalPitchbendInSemitones);
+        currentMidiNotes[Cfg::numWTs + i] += getValue (proc.oscParams[i].tune) + getValue (proc.oscParams[i].finetune) / 100.0f;
 
         oscParams[i].wave   = (Wave) int (proc.oscParams[i].wave->getProcValue());
         oscParams[i].voices = int (proc.oscParams[i].voices->getProcValue());

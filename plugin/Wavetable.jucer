@@ -6,6 +6,11 @@
               pluginManufacturerCode="Soca" pluginCode="SLwt" pluginAUMainType="'aumu'"
               cppLanguageStandard="latest" pluginChannelConfigs="{0,2}" version="0.0.2">
   <MAINGROUP id="Hs1HPA" name="Wavetable">
+    <GROUP id="{64226C5F-B1F9-A1D8-F7EC-41424754AED6}" name="Resources">
+      <GROUP id="{46E1199A-9569-4016-DF2F-8CD2BDD4DB92}" name="Wavetables">
+        <FILE id="a6e9bN" name="WINDOW_S.WAV" compile="0" resource="1" file="Resources/Wavetables/WINDOW_S.WAV"/>
+      </GROUP>
+    </GROUP>
     <GROUP id="{0CE63D98-F319-7656-21CD-D7A21B4A4B6C}" name="Source">
       <FILE id="Ma3e0n" name="Cfg.h" compile="0" resource="0" file="Source/Cfg.h"/>
       <FILE id="f12Jxy" name="Boxes.h" compile="0" resource="0" file="Source/Boxes.h"/>

@@ -11,7 +11,9 @@ class WavetableVoice : public gin::SynthesiserVoice,
 {
 public:
     WavetableVoice (WavetableAudioProcessor& p, gin::BandLimitedLookupTables& bandLimitedLookupTables);
-    
+
+	void setWavetable (int idx, OwnedArray<gin::BandLimitedLookupTable>& table);
+
     void noteStarted() override;
     void noteRetriggered() override;
     void noteStopped (bool allowTailOff) override;
@@ -35,7 +37,8 @@ private:
     WavetableAudioProcessor& proc;
     gin::BandLimitedLookupTables& bandLimitedLookupTables;
 
-    gin::VoicedStereoOscillator oscillators[Cfg::numOSCs] =
+	gin::WTVoicedStereoOscillator	wtOscillators[Cfg::numWTs];
+    gin::BLLTVoicedStereoOscillator oscillators[Cfg::numOSCs] =
     {
         bandLimitedLookupTables,
     };
@@ -49,8 +52,10 @@ private:
 
     gin::AnalogADSR adsr;
 
-    float currentMidiNotes[Cfg::numOSCs];
-    gin::VoicedStereoOscillator::Params oscParams[Cfg::numOSCs];
+    float currentMidiNotes[Cfg::numWTs + Cfg::numOSCs];
+
+	gin::WTVoicedStereoOscillator::Params wtParams[Cfg::numWTs];
+    gin::BLLTVoicedStereoOscillator::Params oscParams[Cfg::numOSCs];
     
     gin::EasedValueSmoother<float> noteSmoother;
     

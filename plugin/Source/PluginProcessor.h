@@ -45,7 +45,7 @@ public:
     {
         WTParams() = default;
 
-        gin::Parameter::Ptr enable, voices, voicesTrns, tune, finetune,
+        gin::Parameter::Ptr enable, table, voices, voicesTrns, tune, finetune,
                             level, detune, spread, pan;
 
         void setup (WavetableAudioProcessor& p, int idx);
@@ -230,6 +230,9 @@ public:
         JUCE_DECLARE_NON_COPYABLE (LimiterParams)
     };
 
+	//==============================================================================
+	void updateWavetable (int idx, MemoryBlock& src, int tableSize);
+
     //==============================================================================
     gin::ModSrcId modSrcPressure, modSrcTimbre, modScrPitchBend,
                   modSrcNote, modSrcVelocity, modSrcStep, modSrcMonoStep;
@@ -237,6 +240,7 @@ public:
     Array<gin::ModSrcId> modSrcCC, modSrcMonoLFO, modSrcLFO, modSrcFilter, modSrcEnv;
 
     //==============================================================================
+	SharedResourcePointer<AudioFormatManager> formatManager;
 
 	WTParams wtParams[Cfg::numWTs];
     OSCParams oscParams[Cfg::numOSCs];
@@ -276,6 +280,8 @@ public:
     gin::StepLFO modStepLFO;
 
     AudioPlayHead* playhead = nullptr;
+
+	OwnedArray<gin::BandLimitedLookupTable> waveTables[Cfg::numWTs];
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableAudioProcessor)

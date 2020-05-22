@@ -59,6 +59,7 @@ public:
             addPage ("WT " + String (i + 1), 3, 4);
             addPageEnable (i * 2, wt.enable);
 
+			addControl (i * 2, new gin::Knob (wt.table), 0, 0);
             addControl (i * 2, new gin::Knob (wt.tune, true), 1, 0);
             addControl (i * 2, new gin::Knob (wt.finetune, true), 2, 0);
             addControl (i * 2, new gin::Knob (wt.pan, true), 0, 1);
@@ -78,7 +79,7 @@ public:
             auto& osc = proc.oscParams[i];
 
             addPage ("OSC " + String (i + 1), 3, 4);
-            addPageEnable (i * 2, osc.enable);
+            addPageEnable (Cfg::numWTs * 2 + i * 2, osc.enable);
 
             addControl (Cfg::numWTs * 2 + i * 2, new gin::Select (osc.wave), 0, 0);
             addControl (Cfg::numWTs * 2 + i * 2, new gin::Knob (osc.tune, true), 1, 0);
