@@ -331,11 +331,12 @@ public:
     ReverbBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Reverb"), proc (proc_)
     {
-        addControl (new gin::Knob (proc.reverbParams.damping), 0, 0);
-        addControl (new gin::Knob (proc.reverbParams.freezeMode), 1, 0);
-        addControl (new gin::Knob (proc.reverbParams.roomSize), 2, 0);
-        addControl (new gin::Knob (proc.reverbParams.width), 0.5f, 1.0f);
-        addControl (new gin::Knob (proc.reverbParams.mix), 1.5f, 1.0f);
+        addControl (new gin::Knob (proc.reverbParams.size), 0, 0);
+        addControl (new gin::Knob (proc.reverbParams.decay), 1, 0);
+        addControl (new gin::Knob (proc.reverbParams.lowpass), 2, 0);
+        addControl (new gin::Knob (proc.reverbParams.damping), 0, 1);
+        addControl (new gin::Knob (proc.reverbParams.predelay), 1, 1);
+        addControl (new gin::Knob (proc.reverbParams.mix), 2, 1);
 
         setSize (168, 163);
     }

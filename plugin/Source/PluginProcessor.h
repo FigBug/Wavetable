@@ -171,7 +171,7 @@ public:
     {
         ReverbParams() = default;
 
-        gin::Parameter::Ptr enable, damping, freezeMode, roomSize, width, mix;
+        gin::Parameter::Ptr enable, size, decay, lowpass, damping, predelay, mix;
 
         void setup (WavetableAudioProcessor& p);
 
@@ -206,7 +206,7 @@ public:
     gin::Modulation chorus { 0.5f };
     gin::Distortion distortion;
     gin::StereoDelay stereoDelay { 120.1 };
-    juce::Reverb reverb;
+    gin::PlateReverb<float, int> reverb;
     gin::GainProcessor outputGain;
     gin::AudioFifo fifo { 2, 44100 };
 

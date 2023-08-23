@@ -299,11 +299,12 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
 {
     enable     = p.addIntParam ("rvEnable",   "Enable",  "",   "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f);
 
-    damping    = p.addExtParam ("rvbDamping", "Damping", "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
-    freezeMode = p.addExtParam ("rvbFreeze",  "Freeze",  "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
-    roomSize   = p.addExtParam ("rvbSize",    "Size",    "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
-    width      = p.addExtParam ("rvbWidth",   "Width",   "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
-    mix        = p.addExtParam ("rvbMix",     "Mix",     "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
+    size        = p.addExtParam ("rvbSize",     "Size",     "",   "", {0.0f, 1.0f,    0.0f, 2.0f}, 0.0f, 0.0f);
+    decay       = p.addExtParam ("rvbDecay",    "Decay",    "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
+    lowpass     = p.addExtParam ("rvbLowpass",  "Lowpass",  "",   "", {0.0f, 1.0f,    16.0f, 20000.0f}, 0.0f, 0.0f);
+    damping     = p.addExtParam ("rvbDamping",  "Damping",  "",   "", {0.0f, 1.0f,    16.0f, 20000.0f}, 0.0f, 0.0f);
+    predelay    = p.addExtParam ("rvbPredelay", "Predelay", "",   "", {0.0f, 1.0f,    0.0f, 0.1f}, 0.0f, 0.0f);
+    mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
 //==============================================================================
@@ -438,7 +439,7 @@ void WavetableAudioProcessor::prepareToPlay (double newSampleRate, int newSample
     chorus.setSampleRate (newSampleRate);
     distortion.setSampleRate (newSampleRate);
     stereoDelay.setSampleRate (newSampleRate);
-    reverb.setSampleRate (newSampleRate);
+    reverb.setSampleRate (float (newSampleRate));
 
     for (auto& l : modLFOs)
         l.setSampleRate (newSampleRate);
@@ -529,7 +530,7 @@ void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
 
     // Apply Reverb
     if (reverbParams.enable->isOn())
-        reverb.processStereo (buffer.getWritePointer (0), buffer.getWritePointer (1), buffer.getNumSamples ());
+        reverb.process (buffer.getWritePointer (0), buffer.getWritePointer (1), buffer.getNumSamples ());
 
     // Output gain
     outputGain.process (buffer);
@@ -649,19 +650,13 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
     // Update Reverb
     if (reverbParams.enable->isOn())
     {
-        juce::Reverb::Parameters p;
+        reverb.setSize (modMatrix.getValue (reverbParams.size));
+        reverb.setDecay (modMatrix.getValue (reverbParams.decay));
+        reverb.setLowpass (modMatrix.getValue (reverbParams.lowpass));
+        reverb.setDamping (modMatrix.getValue (reverbParams.damping));
+        reverb.setPredelay (modMatrix.getValue (reverbParams.predelay));
+        reverb.setMix (modMatrix.getValue (reverbParams.mix));
 
-        auto mix = modMatrix.getValue (reverbParams.mix);
-        gin::WetDryMix wetDry (mix);
-
-        p.damping    = modMatrix.getValue (reverbParams.damping);
-        p.freezeMode = modMatrix.getValue (reverbParams.freezeMode);
-        p.roomSize   = modMatrix.getValue (reverbParams.roomSize);
-        p.width      = modMatrix.getValue (reverbParams.width);
-        p.dryLevel   = wetDry.dryGain;
-        p.wetLevel   = wetDry.wetGain;
-
-        reverb.setParameters (p);
     }
 
     // Output gain
