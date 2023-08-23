@@ -6,7 +6,7 @@
 
 //==============================================================================
 class WavetableAudioProcessor : public gin::Processor,
-                                    public gin::Synthesiser
+                                public gin::Synthesiser
 {
 public:
     //==============================================================================
@@ -21,10 +21,10 @@ public:
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
 
-    void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
+    void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
 
     //==============================================================================
-    AudioProcessorEditor* createEditor() override;
+    juce::AudioProcessorEditor* createEditor() override;
     bool hasEditor() const override;
 
     void updateParams (int blockSize);
@@ -33,25 +33,12 @@ public:
     gin::BandLimitedLookupTables bandLimitedLookupTables;
 
     //==============================================================================
-    void handleMidiEvent (const MidiMessage& m) override;
+    void handleMidiEvent (const juce::MidiMessage& m) override;
     void handleController (int ch, int num, int val) override;
     //==============================================================================
-    Array<float> getLiveFilterCutoff (int idx);
+    juce::Array<float> getLiveFilterCutoff (int idx);
 
-    void applyEffects (AudioSampleBuffer& buffer);
-
-    // WT Params
-    struct WTParams
-    {
-        WTParams() = default;
-
-        gin::Parameter::Ptr enable, table, voices, voicesTrns, tune, finetune,
-                            level, detune, spread, pan;
-
-        void setup (WavetableAudioProcessor& p, int idx);
-
-        JUCE_DECLARE_NON_COPYABLE (WTParams)
-    };
+    void applyEffects (juce::AudioSampleBuffer& buffer);
 
     // Voice Params
     struct OSCParams
@@ -230,19 +217,14 @@ public:
         JUCE_DECLARE_NON_COPYABLE (LimiterParams)
     };
 
-	//==============================================================================
-	void updateWavetable (int idx, MemoryBlock& src, int tableSize);
-
     //==============================================================================
     gin::ModSrcId modSrcPressure, modSrcTimbre, modScrPitchBend,
                   modSrcNote, modSrcVelocity, modSrcStep, modSrcMonoStep;
 
-    Array<gin::ModSrcId> modSrcCC, modSrcMonoLFO, modSrcLFO, modSrcFilter, modSrcEnv;
+    juce::Array<gin::ModSrcId> modSrcCC, modSrcMonoLFO, modSrcLFO, modSrcFilter, modSrcEnv;
 
     //==============================================================================
-	SharedResourcePointer<AudioFormatManager> formatManager;
 
-	WTParams wtParams[Cfg::numWTs];
     OSCParams oscParams[Cfg::numOSCs];
     FilterParams filterParams[Cfg::numFilters];
     EnvParams envParams[Cfg::numENVs];
@@ -269,7 +251,7 @@ public:
     gin::Dynamics compressor;
     gin::Dynamics limiter;
     gin::EQ eq {4};
-    Reverb reverb;
+    juce::Reverb reverb;
     gin::GainProcessor outputGain;
     gin::AudioFifo fifo { 2, 44100 };
 
@@ -279,9 +261,7 @@ public:
     gin::LFO modLFOs[Cfg::numLFOs];
     gin::StepLFO modStepLFO;
 
-    AudioPlayHead* playhead = nullptr;
-
-	OwnedArray<gin::BandLimitedLookupTable> waveTables[Cfg::numWTs];
+    juce::AudioPlayHead* playhead = nullptr;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableAudioProcessor)
