@@ -12,11 +12,11 @@ public:
         : proc ( proc_ )
     {
         for (auto& o : oscillators) addAndMakeVisible (o);
-        for (auto& f : filters)     addAndMakeVisible (f);
-        for (auto& a : fltADSR)     addAndMakeVisible (a);
         for (auto& l : lfos)        addAndMakeVisible (l);
         for (auto& l : lfoGraphs)   addAndMakeVisible (l);
 
+        addAndMakeVisible (filter);
+        addAndMakeVisible (fltADSR);
         addAndMakeVisible (mix);
 
         for (auto& i : modItems)
@@ -41,11 +41,8 @@ public:
         effects.addBox (&pattern);
         effects.addBox (&chorus);
         effects.addBox (&distort);
-        effects.addBox (&eq);
-        effects.addBox (&compress);
         effects.addBox (&delay);
         effects.addBox (&reverb);
-        effects.addBox (&limit);
         effects.addBox (&scope);
 
         addAndMakeVisible (effects);
@@ -80,11 +77,9 @@ public:
         rc.removeFromTop (1);
 
         auto rcFlt = rc.removeFromTop (163);
-        filters[0].setBounds (rcFlt.removeFromLeft (168));  rcFlt.removeFromLeft (1);
-        fltADSR[0].setBounds (rcFlt.removeFromLeft (186));  rcFlt.removeFromLeft (1);
+        filter.setBounds (rcFlt.removeFromLeft (168));  rcFlt.removeFromLeft (1);
+        fltADSR.setBounds (rcFlt.removeFromLeft (186));  rcFlt.removeFromLeft (1);
         mix.setBounds (rcFlt.removeFromLeft (187));         rcFlt.removeFromLeft (1);
-        fltADSR[1].setBounds (rcFlt.removeFromLeft (186));  rcFlt.removeFromLeft (1);
-        filters[1].setBounds (rcFlt.removeFromLeft (168));  rcFlt.removeFromLeft (1);
 
         auto rcB1 = rc.removeFromTop (26);
         modHeader.setBounds (rcB1);
@@ -101,12 +96,11 @@ public:
 
     WavetableAudioProcessor& proc;
 
-    OscillatorBox oscillators[Cfg::numOSCs] { { "oscillator 1", proc, 0 }, { "oscillator 2", proc, 1 },
-                                              { "oscillator 3", proc, 2 }, { "oscillator 4", proc, 3 } };
+    OscillatorBox oscillators[Cfg::numOSCs] { { "oscillator 1", proc, 0 }, { "oscillator 2", proc, 1 } };
 
-    FilterBox filters[Cfg::numFilters]      { { "filter 1", proc, 0 }, { "filter 2", proc, 1 } };
+    FilterBox filter                        { "filter 1", proc };
 
-    FilterADSRArea fltADSR[Cfg::numFilters] { { proc, 0 }, { proc, 1 } };
+    FilterADSRArea fltADSR                  { proc };
 
     MixBox mix                              { "osc mix", proc };
 
@@ -123,14 +117,11 @@ public:
                                               { "MIDI",  nullptr } };
     gin::HeaderRow modHeader;
 
-    gin::HeaderItem fxItems[8]              { { "GATE",     proc.gateParams.enable       },
+    gin::HeaderItem fxItems[5]              { { "GATE",     proc.gateParams.enable       },
                                               { "CHORUS",   proc.chorusParams.enable     },
                                               { "DISTORT",  proc.distortionParams.enable },
-                                              { "EQ",       proc.eqParams.enable         },
-                                              { "COMPRESS", proc.compressorParams.enable },
                                               { "DELAY",    proc.delayParams.enable      },
-                                              { "REVERB",   proc.reverbParams.enable     },
-                                              { "LIMIT",    proc.limiterParams.enable    } };
+                                              { "REVERB",   proc.reverbParams.enable     } };
 
     gin::HeaderRow fxHeader;
 
@@ -139,11 +130,8 @@ public:
     GateArea pattern { proc };
     ChorusBox chorus { proc };
     DistortBox distort { proc };
-    EQBox eq { proc };
-    CompressBox compress { proc };
     DelayBox delay { proc };
     ReverbBox reverb { proc };
-    LimitBox limit { proc };
     ScopeArea scope { proc };
 
     gin::BoxArea lfoBox;

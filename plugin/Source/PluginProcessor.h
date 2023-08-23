@@ -30,13 +30,11 @@ public:
     void updateParams (int blockSize);
     void setupModMatrix();
 
-    gin::BandLimitedLookupTables bandLimitedLookupTables;
-
     //==============================================================================
     void handleMidiEvent (const juce::MidiMessage& m) override;
     void handleController (int ch, int num, int val) override;
     //==============================================================================
-    juce::Array<float> getLiveFilterCutoff (int idx);
+    juce::Array<float> getLiveFilterCutoff();
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
 
@@ -61,7 +59,7 @@ public:
                             frequency, resonance, amount,
                             attack, decay, sustain, release;
 
-        void setup (WavetableAudioProcessor& p, int idx);
+        void setup (WavetableAudioProcessor& p);
 
         JUCE_DECLARE_NON_COPYABLE (FilterParams)
     };
@@ -158,32 +156,6 @@ public:
         JUCE_DECLARE_NON_COPYABLE (DistortionParams)
     };
 
-    struct EQParams
-    {
-        EQParams() = default;
-
-        gin::Parameter::Ptr enable,
-                            loFreq, loGain, loQ,
-                            mid1Freq, mid1Gain, mid1Q,
-                            mid2Freq, mid2Gain, mid2Q,
-                            hiFreq, hiGain, hiQ;
-
-        void setup (WavetableAudioProcessor& p);
-
-        JUCE_DECLARE_NON_COPYABLE (EQParams)
-    };
-
-    struct CompressorParams
-    {
-        CompressorParams() = default;
-
-        gin::Parameter::Ptr enable, attack, release, ratio, threshold, gain;
-
-        void setup (WavetableAudioProcessor& p);
-
-        JUCE_DECLARE_NON_COPYABLE (CompressorParams)
-    };
-
     struct DelayParams
     {
         DelayParams() = default;
@@ -206,27 +178,16 @@ public:
         JUCE_DECLARE_NON_COPYABLE (ReverbParams)
     };
 
-    struct LimiterParams
-    {
-        LimiterParams() = default;
-
-        gin::Parameter::Ptr enable, attack, release, threshold, gain;
-
-        void setup (WavetableAudioProcessor& p);
-
-        JUCE_DECLARE_NON_COPYABLE (LimiterParams)
-    };
-
     //==============================================================================
-    gin::ModSrcId modSrcPressure, modSrcTimbre, modScrPitchBend,
+    gin::ModSrcId modSrcPressure, modSrcTimbre, modScrPitchBend, modSrcFilter,
                   modSrcNote, modSrcVelocity, modSrcStep, modSrcMonoStep;
 
-    juce::Array<gin::ModSrcId> modSrcCC, modSrcMonoLFO, modSrcLFO, modSrcFilter, modSrcEnv;
+    juce::Array<gin::ModSrcId> modSrcCC, modSrcMonoLFO, modSrcLFO, modSrcEnv;
 
     //==============================================================================
 
     OSCParams oscParams[Cfg::numOSCs];
-    FilterParams filterParams[Cfg::numFilters];
+    FilterParams filterParams;
     EnvParams envParams[Cfg::numENVs];
     LFOParams lfoParams[Cfg::numLFOs];
     StepLFOParams stepLfoParams;
@@ -237,20 +198,14 @@ public:
     GateParams gateParams;
     ChorusParams chorusParams;
     DistortionParams distortionParams;
-    EQParams eqParams;
-    CompressorParams compressorParams;
     DelayParams delayParams;
     ReverbParams reverbParams;
-    LimiterParams limiterParams;
 
     //==============================================================================
     gin::GateEffect gate;
     gin::Modulation chorus { 0.5f };
     gin::Distortion distortion;
     gin::StereoDelay stereoDelay { 120.1 };
-    gin::Dynamics compressor;
-    gin::Dynamics limiter;
-    gin::EQ eq {4};
     juce::Reverb reverb;
     gin::GainProcessor outputGain;
     gin::AudioFifo fifo { 2, 44100 };

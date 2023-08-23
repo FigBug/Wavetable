@@ -2,12 +2,10 @@
 #include "PluginProcessor.h"
 
 //==============================================================================
-WavetableVoice::WavetableVoice (WavetableAudioProcessor& p, gin::BandLimitedLookupTables& bllt)
+WavetableVoice::WavetableVoice (WavetableAudioProcessor& p)
     : proc (p)
-    , bandLimitedLookupTables (bllt)
 {
-    for (auto& f : filters)
-        f.setNumChannels (2);
+    filter.setNumChannels (2);
 }
 
 void WavetableVoice::noteStarted()
@@ -33,11 +31,8 @@ void WavetableVoice::noteStarted()
 
     juce::ScopedValueSetter<bool> svs (disableSmoothing, true);
 
-    for (auto& f : filters)
-        f.reset();
-
-    for (auto& a : filterADSRs)
-        a.reset();
+    filter.reset();
+    filterADSR.reset();
 
     for (auto& a : modADSRs)
          a.noteOn();
@@ -53,8 +48,7 @@ void WavetableVoice::noteStarted()
     for (auto& osc : oscillators)
         osc.noteOn();
 
-    for (auto& a : filterADSRs)
-        a.noteOn();
+    filterADSR.noteOn();
 
     for (auto& a : modADSRs)
          a.noteOn();
@@ -92,8 +86,7 @@ void WavetableVoice::noteRetriggered()
     for (auto& osc : oscillators)
         osc.noteOn();
 
-    for (auto& a : filterADSRs)
-        a.noteOn();
+    filterADSR.noteOn();
 
     for (auto& a : modADSRs)
          a.noteOn();
@@ -105,9 +98,7 @@ void WavetableVoice::noteRetriggered()
 void WavetableVoice::noteStopped (bool allowTailOff)
 {
     adsr.noteOff();
-
-    for (auto& a : filterADSRs)
-        a.noteOff();
+    filterADSR.noteOff();
 
     for (auto& a : modADSRs)
         a.noteOff();
@@ -138,11 +129,9 @@ void WavetableVoice::setCurrentSampleRate (double newRate)
     for (auto& osc : oscillators)
         osc.setSampleRate (newRate);
 
-    for (auto& f : filters)
-        f.setSampleRate (newRate);
+    filter.setSampleRate (newRate);
 
-    for (auto& a : filterADSRs)
-        a.setSampleRate (newRate);
+    filterADSR.setSampleRate (newRate);
     
     for (auto& l : modLFOs)
         l.setSampleRate (newRate);
@@ -168,9 +157,8 @@ void WavetableVoice::renderNextBlock (juce::AudioBuffer<float>& outputBuffer, in
     buffer.applyGain (gin::velocityToGain (velocity, ampKeyTrack));
 
     // Apply filters
-    for (int i = 0; i < juce::numElementsInArray (filters); i++)
-        if (proc.filterParams[i].enable->isOn())
-            filters[i].process (buffer);
+    if (proc.filterParams.enable->isOn())
+        filter.process (buffer);
     
     // Run ADSR
     adsr.processMultiplying (buffer);
@@ -215,75 +203,73 @@ void WavetableVoice::updateParams (int blockSize)
     
     ampKeyTrack = getValue (proc.adsrParams.velocityTracking);
 
-    for (int i = 0; i < Cfg::numFilters; i++)
+    if (! proc.filterParams.enable->isOn())
     {
-        if (! proc.filterParams[i].enable->isOn())
-        {
-            proc.modMatrix.setPolyValue (*this, proc.modSrcFilter[i], 0);
-            continue;
-        }
-        
-        filterADSRs[i].setAttack (getValue (proc.filterParams[i].attack));
-        filterADSRs[i].setSustainLevel (getValue (proc.filterParams[i].sustain));
-        filterADSRs[i].setDecay (getValue (proc.filterParams[i].decay));
-        filterADSRs[i].setRelease (getValue (proc.filterParams[i].release));
+        proc.modMatrix.setPolyValue (*this, proc.modSrcFilter, 0);
+    }
+    else
+    {
+        filterADSR.setAttack (getValue (proc.filterParams.attack));
+        filterADSR.setSustainLevel (getValue (proc.filterParams.sustain));
+        filterADSR.setDecay (getValue (proc.filterParams.decay));
+        filterADSR.setRelease (getValue (proc.filterParams.release));
 
-        filterADSRs[i].process (blockSize);
+        filterADSR.process (blockSize);
 
         float filterWidth = float (gin::getMidiNoteFromHertz (20000.0));
-        float filterEnv   = filterADSRs[i].getOutput();
-        float filterSens = getValue (proc.filterParams[i].velocityTracking);
+        float filterEnv   = filterADSR.getOutput();
+        float filterSens = getValue (proc.filterParams.velocityTracking);
         filterSens = currentlyPlayingNote.noteOnVelocity.asUnsignedFloat() * filterSens + 1.0f - filterSens;
 
-        float n = getValue (proc.filterParams[i].frequency);
-        n += (currentlyPlayingNote.initialNote - 60) * getValue (proc.filterParams[i].keyTracking);
-        n += filterEnv * filterSens * getValue (proc.filterParams[i].amount) * filterWidth;
+        float n = getValue (proc.filterParams.frequency);
+        n += (currentlyPlayingNote.initialNote - 60) * getValue (proc.filterParams.keyTracking);
+        n += filterEnv * filterSens * getValue (proc.filterParams.amount) * filterWidth;
 
         float f = gin::getMidiNoteInHertz (n);
         float maxFreq = std::min (20000.0f, float (getSampleRate() / 2));
         f = juce::jlimit (4.0f, maxFreq, f);
 
-        float q = gin::Q / (1.0f - (getValue (proc.filterParams[i].resonance) / 100.0f) * 0.99f);
+        float q = gin::Q / (1.0f - (getValue (proc.filterParams.resonance) / 100.0f) * 0.99f);
 
-        switch (int (proc.filterParams[i].type->getProcValue()))
+        switch (int (proc.filterParams.type->getProcValue()))
         {
             case 0:
-                filters[i].setType (gin::Filter::lowpass);
-                filters[i].setSlope (gin::Filter::db12);
+                filter.setType (gin::Filter::lowpass);
+                filter.setSlope (gin::Filter::db12);
                 break;
             case 1:
-                filters[i].setType (gin::Filter::lowpass);
-                filters[i].setSlope (gin::Filter::db24);
+                filter.setType (gin::Filter::lowpass);
+                filter.setSlope (gin::Filter::db24);
                 break;
             case 2:
-                filters[i].setType (gin::Filter::highpass);
-                filters[i].setSlope (gin::Filter::db12);
+                filter.setType (gin::Filter::highpass);
+                filter.setSlope (gin::Filter::db12);
                 break;
             case 3:
-                filters[i].setType (gin::Filter::highpass);
-                filters[i].setSlope (gin::Filter::db24);
+                filter.setType (gin::Filter::highpass);
+                filter.setSlope (gin::Filter::db24);
                 break;
             case 4:
-                filters[i].setType (gin::Filter::bandpass);
-                filters[i].setSlope (gin::Filter::db12);
+                filter.setType (gin::Filter::bandpass);
+                filter.setSlope (gin::Filter::db12);
                 break;
             case 5:
-                filters[i].setType (gin::Filter::bandpass);
-                filters[i].setSlope (gin::Filter::db24);
+                filter.setType (gin::Filter::bandpass);
+                filter.setSlope (gin::Filter::db24);
                 break;
             case 6:
-                filters[i].setType (gin::Filter::notch);
-                filters[i].setSlope (gin::Filter::db12);
+                filter.setType (gin::Filter::notch);
+                filter.setSlope (gin::Filter::db12);
                 break;
             case 7:
-                filters[i].setType (gin::Filter::notch);
-                filters[i].setSlope (gin::Filter::db24);
+                filter.setType (gin::Filter::notch);
+                filter.setSlope (gin::Filter::db24);
                 break;
         }
-        
-        filters[i].setParams (f, q);
 
-        proc.modMatrix.setPolyValue (*this, proc.modSrcFilter[i], filterADSRs[i].getOutput());
+        filter.setParams (f, q);
+
+        proc.modMatrix.setPolyValue (*this, proc.modSrcFilter, filterADSR.getOutput());
     }
 
     for (int i = 0; i < Cfg::numENVs; i++)
@@ -370,8 +356,8 @@ bool WavetableVoice::isVoiceActive()
     return isActive();
 }
 
-float WavetableVoice::getFilterCutoffNormalized (int idx)
+float WavetableVoice::getFilterCutoffNormalized()
 {
-    float freq = filters[idx].getFrequency();
-    return proc.filterParams[idx].frequency->getUserRange().convertTo0to1 (gin::getMidiNoteFromHertz (freq));
+    float freq = filter.getFrequency();
+    return proc.filterParams.frequency->getUserRange().convertTo0to1 (gin::getMidiNoteFromHertz (freq));
 }

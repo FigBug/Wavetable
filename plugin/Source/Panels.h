@@ -50,10 +50,10 @@ public:
 class FilterBox : public gin::ParamBox
 {
 public:
-    FilterBox (const juce::String& name, WavetableAudioProcessor& proc_, int idx_)
-        : gin::ParamBox (name), proc (proc_), idx (idx_)
+    FilterBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
     {
-        auto& flt = proc.filterParams[idx];
+        auto& flt = proc.filterParams;
 
         addEnable (flt.enable);
 
@@ -67,11 +67,11 @@ public:
         addControl (v = new gin::Knob (flt.velocityTracking), 2, 1);
 
         freq->setLiveValuesCallback ([this] ()
-                                     {
-            if (proc.filterParams[idx].amount->getUserValue()      != 0.0f ||
-                proc.filterParams[idx].keyTracking->getUserValue() != 0.0f ||
-                proc.modMatrix.isModulated (gin::ModDstId (proc.filterParams[idx].frequency->getModIndex())))
-                return proc.getLiveFilterCutoff (idx);
+        {
+            if (proc.filterParams.amount->getUserValue()      != 0.0f ||
+                proc.filterParams.keyTracking->getUserValue() != 0.0f ||
+                proc.modMatrix.isModulated (gin::ModDstId (proc.filterParams.frequency->getModIndex())))
+                return proc.getLiveFilterCutoff();
             return juce::Array<float>();
         });
     }
@@ -80,12 +80,11 @@ public:
     {
         gin::ParamBox::paramChanged ();
 
-        auto& flt = proc.filterParams[idx];
+        auto& flt = proc.filterParams;
         v->setEnabled (flt.amount->getUserValue() != 0.0f);
     }
 
     WavetableAudioProcessor& proc;
-    int idx = 0;
     gin::ParamComponent::Ptr v;
 };
 
@@ -93,10 +92,10 @@ public:
 class FilterADSRArea : public gin::ParamArea
 {
 public:
-    FilterADSRArea (WavetableAudioProcessor& proc_, int idx_)
-        : proc (proc_), idx (idx_)
+    FilterADSRArea (WavetableAudioProcessor& proc_)
+        : proc (proc_)
     {
-        auto& flt = proc.filterParams[idx];
+        auto& flt = proc.filterParams;
 
         adsr = new gin::ADSRComponent ();
         adsr->setParams (flt.attack, flt.decay, flt.sustain, flt.release);
@@ -114,7 +113,7 @@ public:
     {
         gin::ParamArea::paramChanged ();
 
-        auto& flt = proc.filterParams[idx];
+        auto& flt = proc.filterParams;
         a->setEnabled (flt.amount->getUserValue() != 0.0f);
         d->setEnabled (flt.amount->getUserValue() != 0.0f);
         s->setEnabled (flt.amount->getUserValue() != 0.0f);
@@ -123,7 +122,6 @@ public:
     }
 
     WavetableAudioProcessor& proc;
-    int idx;
     gin::ParamComponent::Ptr a, d, s, r;
     gin::ADSRComponent* adsr;
 };
@@ -295,52 +293,6 @@ public:
 };
 
 //==============================================================================
-class EQBox : public gin::ParamBox
-{
-public:
-    EQBox (WavetableAudioProcessor& proc_)
-        : gin::ParamBox ("EQ"), proc (proc_)
-    {
-        addControl (new gin::Knob (proc.eqParams.loFreq), 0, 0);
-        addControl (new gin::Knob (proc.eqParams.loGain), 1, 0);
-        addControl (new gin::Knob (proc.eqParams.loQ), 2, 0);
-        addControl (new gin::Knob (proc.eqParams.mid1Freq), 3, 0);
-        addControl (new gin::Knob (proc.eqParams.mid1Gain), 4, 0);
-        addControl (new gin::Knob (proc.eqParams.mid1Q), 5, 0);
-        addControl (new gin::Knob (proc.eqParams.mid2Freq), 0, 1);
-        addControl (new gin::Knob (proc.eqParams.mid2Gain), 1, 1);
-        addControl (new gin::Knob (proc.eqParams.mid2Q), 2, 1);
-        addControl (new gin::Knob (proc.eqParams.hiFreq), 3, 1);
-        addControl (new gin::Knob (proc.eqParams.hiGain), 4, 1);
-        addControl (new gin::Knob (proc.eqParams.hiQ), 5, 1);
-
-        setSize (308, 163);
-    }
-
-    WavetableAudioProcessor& proc;
-};
-
-//==============================================================================
-class CompressBox : public gin::ParamBox
-{
-public:
-    CompressBox (WavetableAudioProcessor& proc_)
-        : gin::ParamBox ("Compress"), proc (proc_)
-    {
-        addControl (new gin::Knob (proc.compressorParams.ratio), 0, 0);
-        addControl (new gin::Knob (proc.compressorParams.threshold), 1, 0);
-        addControl (new gin::Knob (proc.compressorParams.gain), 2, 0);
-
-        addControl (new gin::Knob (proc.compressorParams.attack), 0.5f, 1.0f);
-        addControl (new gin::Knob (proc.compressorParams.release), 1.5f, 1.0f);
-
-        setSize (168, 163);
-    }
-
-    WavetableAudioProcessor& proc;
-};
-
-//==============================================================================
 class DelayBox : public gin::ParamBox
 {
 public:
@@ -386,24 +338,6 @@ public:
         addControl (new gin::Knob (proc.reverbParams.mix), 1.5f, 1.0f);
 
         setSize (168, 163);
-    }
-
-    WavetableAudioProcessor& proc;
-};
-
-//==============================================================================
-class LimitBox : public gin::ParamBox
-{
-public:
-    LimitBox (WavetableAudioProcessor& proc_)
-        : gin::ParamBox (""), proc (proc_)
-    {
-        addControl (new gin::Knob (proc.limiterParams.attack), 0, 0);
-        addControl (new gin::Knob (proc.limiterParams.release), 1, 0);
-        addControl (new gin::Knob (proc.limiterParams.threshold), 0, 1);
-        addControl (new gin::Knob (proc.limiterParams.gain), 1, 1);
-
-        setSize (112, 163);
     }
 
     WavetableAudioProcessor& proc;

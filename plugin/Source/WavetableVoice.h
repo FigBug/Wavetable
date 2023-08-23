@@ -10,7 +10,7 @@ class WavetableVoice : public gin::SynthesiserVoice,
                        public gin::ModVoice
 {
 public:
-    WavetableVoice (WavetableAudioProcessor& p, gin::BandLimitedLookupTables& bandLimitedLookupTables);
+    WavetableVoice (WavetableAudioProcessor& p);
     
     void noteStarted() override;
     void noteRetriggered() override;
@@ -27,24 +27,17 @@ public:
 
     bool isVoiceActive() override;
 
-    float getFilterCutoffNormalized (int idx);
+    float getFilterCutoffNormalized();
 
 private:
     void updateParams (int blockSize);
 
     WavetableAudioProcessor& proc;
-    gin::BandLimitedLookupTables& bandLimitedLookupTables;
 
-    gin::BLLTVoicedStereoOscillator oscillators[Cfg::numOSCs] =
-    {
-        bandLimitedLookupTables,
-        bandLimitedLookupTables,
-        bandLimitedLookupTables,
-        bandLimitedLookupTables,
-    };
+    gin::WTVoicedStereoOscillator oscillators[Cfg::numOSCs];
 
-    gin::Filter filters[Cfg::numFilters];
-    gin::ADSR filterADSRs[Cfg::numFilters];
+    gin::Filter filter;
+    gin::ADSR filterADSR;
     
     gin::ADSR modADSRs[Cfg::numENVs];
     gin::LFO modLFOs[Cfg::numLFOs];
@@ -53,7 +46,7 @@ private:
     gin::AnalogADSR adsr;
 
     float currentMidiNotes[Cfg::numOSCs];
-    gin::BLLTVoicedStereoOscillator::Params oscParams[Cfg::numOSCs];
+    gin::WTVoicedStereoOscillator::Params oscParams[Cfg::numOSCs];
     
     gin::EasedValueSmoother<float> noteSmoother;
     

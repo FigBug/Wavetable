@@ -122,14 +122,14 @@ void WavetableAudioProcessor::OSCParams::setup (WavetableAudioProcessor& p, int 
 }
 
 //==============================================================================
-void WavetableAudioProcessor::FilterParams::setup (WavetableAudioProcessor& p, int idx)
+void WavetableAudioProcessor::FilterParams::setup (WavetableAudioProcessor& p)
 {
-    juce::String id = "flt" + juce::String (idx + 1);
-    juce::String nm = "FLT" + juce::String (idx + 1) + " ";
+    juce::String id = "flt";
+    juce::String nm = "FLT ";
 
     float maxFreq = float (gin::getMidiNoteFromHertz (20000.0));
 
-    enable           = p.addIntParam (id + "enable",  nm + "Enable",  "",      "", { 0.0, 1.0, 1.0, 1.0 }, idx == 0 ? 1.0f : 0.0f, 0.0f);
+    enable           = p.addIntParam (id + "enable",  nm + "Enable",  "",      "", { 0.0, 1.0, 1.0, 1.0 }, 1.0f, 0.0f);
     type             = p.addIntParam (id + "type",    nm + "Type",    "Type",  "", { 0.0, 7.0, 1.0, 1.0 }, 0.0, 0.0f, filterTextFunction);
     keyTracking      = p.addExtParam (id + "key",     nm + "Key",     "Key",   "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
     velocityTracking = p.addExtParam (id + "vel",     nm + "Vel",     "Vel",   "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
@@ -274,60 +274,6 @@ void WavetableAudioProcessor::DistortionParams::setup (WavetableAudioProcessor& 
 }
 
 //==============================================================================
-void WavetableAudioProcessor::EQParams::setup (WavetableAudioProcessor& p)
-{
-    float maxFreq = float (gin::getMidiNoteFromHertz (20000.0));
-    float d1 = float (gin::getMidiNoteFromHertz (80.0));
-    float d2 = float (gin::getMidiNoteFromHertz (3000.0));
-    float d3 = float (gin::getMidiNoteFromHertz (5000.0));
-    float d4 = float (gin::getMidiNoteFromHertz (17000.0));
-
-    enable   = p.addIntParam ("eqEnable",    "Enable",      "",     "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
-
-    loFreq   = p.addExtParam ("eqLoFreq",    "Lo Freq",     "Freq", "Hz", { 0.0, maxFreq, 0.0, 1.0 }, d1, 0.0f, freqTextFunction);
-    loQ      = p.addExtParam ("eqLoQ",       "Lo Q",        "Q",    "", { 0.025f, 40.0f, 0.0, 0.2f }, 1.0f, 0.0f);
-    loGain   = p.addExtParam ("eqLoGain",    "Lo Gain",     "Gain", "dB", { -20.0f, 20.0f, 0.0, 1.0 }, 0.0f, 0.0f);
-
-    mid1Freq = p.addExtParam ("eqM1Freq",    "Min 1 Freq",  "Freq", "Hz", { 0.0, maxFreq, 0.0, 1.0 }, d2, 0.0f, freqTextFunction);
-    mid1Q    = p.addExtParam ("eqM1Q",       "Min 1 Q",     "Q",    "", { 0.025f, 40.0f, 0.0, 0.2f }, 1.0f, 0.0f);
-    mid1Gain = p.addExtParam ("eqM1Gain",    "Min 1 Gain",  "Gain", "dB", { -20.0f, 20.0f, 0.0, 1.0 }, 0.0f, 0.0f);
-
-    mid2Freq = p.addExtParam ("eqM2Freq",    "Mid 2 Freq",  "Freq", "Hz", { 0.0, maxFreq, 0.0, 1.0 }, d3, 0.0f, freqTextFunction);
-    mid2Q    = p.addExtParam ("eqM2Q",       "Mid 2 Q",     "Q",    "", { 0.025f, 40.0f, 0.0, 0.2f }, 1.0f, 0.0f);
-    mid2Gain = p.addExtParam ("eqM2Gain",    "Mid 2 Gain",  "Gain", "dB", { -20.0f, 20.0f, 0.0, 1.0 }, 0.0f, 0.0f);
-
-    hiFreq   = p.addExtParam ("eqHiFreq",    "Hi Freq",     "Freq", "Hz", { 0.0, maxFreq, 0.0, 1.0 }, d4, 0.0f, freqTextFunction);
-    hiQ      = p.addExtParam ("eqHiQ",       "Hi Q",        "Q",    "", { 0.025f, 40.0f, 0.0, 0.2f }, 1.0f, 0.0f);
-    hiGain   = p.addExtParam ("eqHiGain",    "Hi Gain",     "Gain", "dB", { -20.0f, 20.0f, 0.0, 1.0 }, 0.0f, 0.0f);
-
-    loFreq->conversionFunction   = [] (float in) { return gin::getMidiNoteInHertz (in); };
-    mid1Freq->conversionFunction = [] (float in) { return gin::getMidiNoteInHertz (in); };
-    mid2Freq->conversionFunction = [] (float in) { return gin::getMidiNoteInHertz (in); };
-    hiFreq->conversionFunction   = [] (float in) { return gin::getMidiNoteInHertz (in); };
-
-    loGain->conversionFunction   = [] (float in) { return juce::Decibels::decibelsToGain (in); };
-    mid1Gain->conversionFunction = [] (float in) { return juce::Decibels::decibelsToGain (in); };
-    mid2Gain->conversionFunction = [] (float in) { return juce::Decibels::decibelsToGain (in); };
-    hiGain->conversionFunction   = [] (float in) { return juce::Decibels::decibelsToGain (in); };
-}
-
-//==============================================================================
-void WavetableAudioProcessor::CompressorParams::setup (WavetableAudioProcessor& p)
-{
-    enable    = p.addIntParam ("cpEnable",    "Enable",    "", "",     { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
-
-    attack    = p.addExtParam ("cpAttack",    "Attack",    "", "ms",   { 1.0f,   200.0f, 0.0f, 0.4f},    1.0f, 0.1f);
-    release   = p.addExtParam ("cpRelease",   "Release",   "", "ms",   { 1.0f,  2000.0f, 0.0f, 0.4f},    5.0f, 0.1f);
-    ratio     = p.addExtParam ("cpRatio",     "Ratio",     "", "",     { 1.0f,    30.0f, 0.0f, 0.4f},    5.0f, 0.1f);
-    threshold = p.addExtParam ("cpThreshold", "Thresh",    "", "dB",     { -60.0f,   0.0f, 0.0f, 1.0f},  -30.0f, 0.1f);
-    gain      = p.addExtParam ("cpGain",      "Gain",      "", "dB",     { -30.0f,  30.0f, 0.0f, 1.0f},    0.0f, 0.1f);
-
-    attack->conversionFunction  = [] (float in) { return in / 1000.0f; };
-    release->conversionFunction = [] (float in) { return in / 1000.0f; };
-    gain->conversionFunction    = [] (float in) { return juce::Decibels::decibelsToGain (in); };
-}
-
-//==============================================================================
 void WavetableAudioProcessor::DelayParams::setup (WavetableAudioProcessor& p)
 {
     enable = p.addIntParam ("dlEnable",    "Enable",     "",   "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
@@ -361,21 +307,6 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
 }
 
 //==============================================================================
-void WavetableAudioProcessor::LimiterParams::setup (WavetableAudioProcessor& p)
-{
-    enable    = p.addIntParam ("lmEnable",    "Enable",    "", "",     { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f);
-
-    attack    = p.addExtParam ("lmAttack",    "Attack",    "", "ms",   { 1.0f,     5.0f, 0.0f, 0.4f},    1.0f, 0.1f);
-    release   = p.addExtParam ("lmRelease",   "Release",   "", "ms",   { 1.0f,   100.0f, 0.0f, 0.4f},    5.0f, 0.1f);
-    threshold = p.addExtParam ("lmThreshold", "Ceil",      "", "dB",   { -60.0f,   0.0f, 0.0f, 1.0f},  -30.0f, 0.1f);
-    gain      = p.addExtParam ("lmGain",      "Gain",      "", "dB",   { -30.0f,  30.0f, 0.0f, 1.0f},    0.0f, 0.1f);
-
-    attack->conversionFunction  = [] (float in) { return in / 1000.0f; };
-    release->conversionFunction = [] (float in) { return in / 1000.0f; };
-    gain->conversionFunction    = [] (float in) { return juce::Decibels::decibelsToGain (in); };
-}
-
-//==============================================================================
 WavetableAudioProcessor::WavetableAudioProcessor()
 {
     lf = std::make_unique<gin::CopperLookAndFeel>();
@@ -386,8 +317,7 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     for (int i = 0; i < juce::numElementsInArray (oscParams); i++)
         oscParams[i].setup (*this, i);
 
-    for (int i = 0; i < juce::numElementsInArray (filterParams); i++)
-        filterParams[i].setup (*this, i);
+    filterParams.setup (*this);
 
     for (int i = 0; i < juce::numElementsInArray (envParams); i++)
         envParams[i].setup (*this, i);
@@ -402,19 +332,12 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     gateParams.setup (*this);
     chorusParams.setup (*this);
     distortionParams.setup (*this);
-    eqParams.setup (*this);
-    compressorParams.setup (*this);
     delayParams.setup (*this);
     reverbParams.setup (*this);
-    limiterParams.setup (*this);
-
-    eq.setNumChannels (2);
-    compressor.setNumChannels (2);
-    limiter.setNumChannels (2);
 
     for (int i = 0; i < 50; i++)
     {
-        auto voice = new WavetableVoice (*this, bandLimitedLookupTables);
+        auto voice = new WavetableVoice (*this);
         modMatrix.addVoice (voice);
         addVoice (voice);
     }
@@ -465,9 +388,7 @@ void WavetableAudioProcessor::setupModMatrix()
 
     modSrcMonoStep = modMatrix.addMonoModSource ("mstep", "Step LFO (Mono)", true);
     modSrcStep     = modMatrix.addPolyModSource ("step", "Step LFO", true);
-
-    for (int i = 0; i < Cfg::numFilters; i++)
-        modSrcFilter.add (modMatrix.addPolyModSource (juce::String::formatted ("fenv%d", i + 1), juce::String::formatted ("Filter Envelope %d", i + 1), false));
+    modSrcFilter   = modMatrix.addPolyModSource ("fenv", "Filter Envelope", false);
 
     for (int i = 0; i < Cfg::numENVs; i++)
         modSrcEnv.add (modMatrix.addPolyModSource (juce::String::formatted ("env%d", i + 1), juce::String::formatted ("Envelope %d", i + 1), false));
@@ -496,10 +417,6 @@ void WavetableAudioProcessor::reset()
     chorus.reset();
     distortion.reset();
     stereoDelay.reset();
-    compressor.reset();
-    limiter.reset();
-
-    eq.reset();
 
     reverb.reset();
 
@@ -513,7 +430,6 @@ void WavetableAudioProcessor::prepareToPlay (double newSampleRate, int newSample
 {
     Processor::prepareToPlay (newSampleRate, newSamplesPerBlock);
 
-    bandLimitedLookupTables.setSampleRate (newSampleRate);
     setCurrentPlaybackSampleRate (newSampleRate);
 
     modMatrix.setSampleRate (newSampleRate);
@@ -522,11 +438,6 @@ void WavetableAudioProcessor::prepareToPlay (double newSampleRate, int newSample
     chorus.setSampleRate (newSampleRate);
     distortion.setSampleRate (newSampleRate);
     stereoDelay.setSampleRate (newSampleRate);
-    compressor.setSampleRate (newSampleRate);
-    limiter.setSampleRate (newSampleRate);
-
-    eq.setSampleRate (newSampleRate);
-
     reverb.setSampleRate (newSampleRate);
 
     for (auto& l : modLFOs)
@@ -583,7 +494,7 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     endBlock (buffer.getNumSamples());
 }
 
-juce::Array<float> WavetableAudioProcessor::getLiveFilterCutoff (int i)
+juce::Array<float> WavetableAudioProcessor::getLiveFilterCutoff()
 {
     juce::Array<float> values;
 
@@ -592,7 +503,7 @@ juce::Array<float> WavetableAudioProcessor::getLiveFilterCutoff (int i)
         if (v->isActive())
         {
             auto vav = dynamic_cast<WavetableVoice*>(v);
-            values.add (vav->getFilterCutoffNormalized (i));
+            values.add (vav->getFilterCutoffNormalized());
         }
     }
     return values;
@@ -612,14 +523,6 @@ void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
     if (distortionParams.enable->isOn())
         distortion.process (buffer);
 
-    // Apply EQ
-    if (eqParams.enable->isOn())
-        eq.process (buffer);
-
-    // Apply Compressor
-    if (compressorParams.enable->isOn())
-        compressor.process (buffer);
-
     // Apply Delay
     if (delayParams.enable->isOn())
         stereoDelay.process (buffer);
@@ -627,10 +530,6 @@ void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
     // Apply Reverb
     if (reverbParams.enable->isOn())
         reverb.processStereo (buffer.getWritePointer (0), buffer.getWritePointer (1), buffer.getNumSamples ());
-
-    // Apply Limiter
-    if (limiterParams.enable->isOn())
-        limiter.process (buffer);
 
     // Output gain
     outputGain.process (buffer);
@@ -727,44 +626,6 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
                               modMatrix.getValue (distortionParams.mix));
     }
 
-
-    // Update EQ
-    if (eqParams.enable->isOn())
-    {
-        eq.setParams (0, gin::EQ::lowshelf,
-                      modMatrix.getValue (eqParams.loFreq),
-                      modMatrix.getValue (eqParams.loQ),
-                      modMatrix.getValue (eqParams.loGain));
-
-        eq.setParams (1, gin::EQ::peak,
-                      modMatrix.getValue (eqParams.mid1Freq),
-                      modMatrix.getValue (eqParams.mid1Q),
-                      modMatrix.getValue (eqParams.mid1Gain));
-
-        eq.setParams (2, gin::EQ::peak,
-                      modMatrix.getValue (eqParams.mid2Freq),
-                      modMatrix.getValue (eqParams.mid2Q),
-                      modMatrix.getValue (eqParams.mid2Gain));
-
-        eq.setParams (3, gin::EQ::highshelf,
-                      modMatrix.getValue (eqParams.hiFreq),
-                      modMatrix.getValue (eqParams.hiQ),
-                      modMatrix.getValue (eqParams.hiGain));
-    }
-
-    // Update Compressor
-    if (compressorParams.enable->isOn())
-    {
-        compressor.setInputGain (1.0f);
-        compressor.setOutputGain (modMatrix.getValue (compressorParams.gain));
-        compressor.setParams (modMatrix.getValue (compressorParams.attack),
-                              0,
-                              modMatrix.getValue (compressorParams.release),
-                              modMatrix.getValue (compressorParams.threshold),
-                              modMatrix.getValue (compressorParams.ratio),
-                              6);
-    }
-
     // Update Delay
     if (delayParams.enable->isOn())
     {
@@ -801,18 +662,6 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
         p.wetLevel   = wetDry.wetGain;
 
         reverb.setParameters (p);
-    }
-
-    // Update Limiter
-    if (limiterParams.enable->isOn())
-    {
-        limiter.setInputGain (1.0f);
-        limiter.setOutputGain (modMatrix.getValue (limiterParams.gain));
-        limiter.setParams (modMatrix.getValue (limiterParams.attack),
-                           0,
-                           modMatrix.getValue (limiterParams.release),
-                           modMatrix.getValue (limiterParams.threshold),
-                           100, 6);
     }
 
     // Output gain
