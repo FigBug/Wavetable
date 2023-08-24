@@ -11,21 +11,21 @@ public:
     OscillatorBox (const juce::String& name, WavetableAudioProcessor& proc_, int idx_)
         : gin::ParamBox (name), proc (proc_), idx (idx_)
     {
+        setName ( "osc" + juce::String ( idx + 1 ) );
+
         auto& osc = proc.oscParams[idx];
 
         addEnable (osc.enable);
 
-        addControl (new gin::Select (osc.wave), 0, 0);
         addControl (new gin::Knob (osc.tune, true), 1, 0);
         addControl (new gin::Select (osc.voices), 2, 0);
         addControl (detune = new gin::Knob (osc.detune), 3, 0);
 
-        addControl (pw = new gin::Knob (osc.pulsewidth), 0, 1);
+        addControl (new gin::Knob (osc.pos), 0, 1);
         addControl (new gin::Knob (osc.finetune, true), 1, 1);
         addControl (spread = new gin::Knob (osc.spread), 2, 1);
         addControl (trans = new gin::Knob (osc.voicesTrns, true), 3, 1);
 
-        watchParam (osc.wave);
         watchParam (osc.voices);
     }
 
@@ -34,7 +34,6 @@ public:
         gin::ParamBox::paramChanged();
 
         auto& osc = proc.oscParams[idx];
-        pw->setEnabled ((gin::Wave) int (osc.wave->getProcValue()) == gin::Wave::pulse);
 
         trans->setEnabled (osc.voices->getProcValue() > 1);
         detune->setEnabled (osc.voices->getProcValue() > 1);
@@ -43,7 +42,7 @@ public:
 
     WavetableAudioProcessor& proc;
     int idx = 0;
-    gin::ParamComponent::Ptr pw, trans, detune, spread;
+    gin::ParamComponent::Ptr trans, detune, spread;
 };
 
 //==============================================================================
@@ -53,6 +52,8 @@ public:
     FilterBox (const juce::String& name, WavetableAudioProcessor& proc_)
         : gin::ParamBox (name), proc (proc_)
     {
+        setName ( "flt" );
+
         auto& flt = proc.filterParams;
 
         addEnable (flt.enable);
@@ -95,6 +96,8 @@ public:
     FilterADSRArea (WavetableAudioProcessor& proc_)
         : proc (proc_)
     {
+        setName ( "fltAdsr" );
+
         auto& flt = proc.filterParams;
 
         adsr = new gin::ADSRComponent ();
@@ -127,28 +130,14 @@ public:
 };
 
 //==============================================================================
-class MixBox : public gin::ParamBox
-{
-public:
-    MixBox (const juce::String& name, WavetableAudioProcessor& proc_)
-        : gin::ParamBox (name), proc (proc_)
-    {
-    }
-
-    void paramChanged () override
-    {
-    }
-
-    WavetableAudioProcessor& proc;
-};
-
-//==============================================================================
 class LFOBox : public gin::ParamBox
 {
 public:
     LFOBox (const juce::String& name, WavetableAudioProcessor& proc_, int idx_)
         : gin::ParamBox (name), proc (proc_), idx (idx_)
     {
+        setName ( "lfo" + juce::String ( idx + 1 ) );
+
         auto& lfo = proc.lfoParams[idx];
 
         addEnable (lfo.enable);
@@ -185,6 +174,8 @@ public:
     LFOArea (WavetableAudioProcessor& proc_, int idx_)
         : proc (proc_), idx (idx_)
     {
+        setName ( "lfoArea" + juce::String ( idx + 1 ) );
+
         auto& lfo = proc.lfoParams[idx];
 
         addControl (new gin::Select (lfo.wave));
@@ -215,6 +206,8 @@ public:
     GateBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Gate"), proc (proc_)
     {
+        setName ( "gate" );
+
         addControl (new gin::Select (proc.gateParams.beat), 0, 0);
         addControl (new gin::Knob (proc.gateParams.length), 1, 0);
         addControl (new gin::Knob (proc.gateParams.attack), 0, 1);
@@ -233,6 +226,8 @@ public:
     GateArea (WavetableAudioProcessor& proc_)
         : gin::ParamArea ("Pattern"), proc (proc_)
     {
+        setName ( "gatePattern" );
+
         g = new gin::GateEffectComponent();
         g->setParams (proc.gateParams.length, proc.gateParams.l, proc.gateParams.r, proc.gateParams.enable);
         addControl (g);
@@ -261,6 +256,8 @@ public:
     ChorusBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Chorus"), proc (proc_)
     {
+        setName ( "chorus" );
+
         addControl (new gin::Knob (proc.chorusParams.delay), 0, 0);
         addControl (new gin::Knob (proc.chorusParams.rate), 1, 0);
         addControl (new gin::Knob (proc.chorusParams.mix), 2, 0);
@@ -281,6 +278,8 @@ public:
     DistortBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Distort"), proc (proc_)
     {
+        setName ( "distort" );
+
         addControl (new gin::Knob (proc.distortionParams.amount), 0, 0);
         addControl (new gin::Knob (proc.distortionParams.highpass), 1, 0);
         addControl (new gin::Knob (proc.distortionParams.output), 0, 1);
@@ -299,6 +298,8 @@ public:
     DelayBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Delay"), proc (proc_)
     {
+        setName ( "delay" );
+
         addControl (t = new gin::Knob (proc.delayParams.time), 0, 0);
         addControl (b = new gin::Select (proc.delayParams.beat), 0, 0);
         addControl (new gin::Knob (proc.delayParams.fb), 1, 0);
@@ -331,6 +332,8 @@ public:
     ReverbBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Reverb"), proc (proc_)
     {
+        setName ( "reverb" );
+
         addControl (new gin::Knob (proc.reverbParams.size), 0, 0);
         addControl (new gin::Knob (proc.reverbParams.decay), 1, 0);
         addControl (new gin::Knob (proc.reverbParams.lowpass), 2, 0);
@@ -351,6 +354,8 @@ public:
     ScopeArea (WavetableAudioProcessor& proc_)
         : gin::ParamArea ("Scope"), proc (proc_)
     {
+        setName ( "scope" );
+
         scope = new gin::TriggeredScope (proc.fifo);
         scope->setNumChannels (2);
         scope->setTriggerMode (gin::TriggeredScope::TriggerMode::Up);

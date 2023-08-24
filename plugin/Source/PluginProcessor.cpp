@@ -107,15 +107,42 @@ void WavetableAudioProcessor::OSCParams::setup (WavetableAudioProcessor& p, int 
     juce::String nm = "OSC" + juce::String (idx + 1) + " ";
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, idx == 0 ? 1.0f : 0.0f, 0.0f);
-    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 1.0, 7.0, 1.0, 1.0 }, 1.0, 0.0f, waveTextFunction);
     voices     = p.addIntParam (id + "unison",     nm + "Unison",      "Unison",    "", { 1.0, 8.0, 1.0, 1.0 }, 1.0, 0.0f);
     voicesTrns = p.addExtParam (id + "unisontrns", nm + "Unison Trns", "LTrans",    "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     finetune   = p.addExtParam (id + "finetune",   nm + "Fine Tune",   "Fine",      "ct", { -100.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
-    pulsewidth = p.addExtParam (id + "pulsewidth", nm + "Pulse Width", "PW",        "%", { 1.0, 99.0, 0.0, 1.0 }, 50.0, 0.0f);
+    pos        = p.addExtParam (id + "pos",        nm + "Pos",         "Pos",       "%", { 0.0, 100.0, 0.0, 1.0 }, 00.0, 0.0f);
     detune     = p.addExtParam (id + "detune",     nm + "Detune",      "Detune",    "", { 0.0, 0.5, 0.0, 1.0 }, 0.0, 0.0f);
     spread     = p.addExtParam (id + "spread",     nm + "Spread",      "Spread",    "%", { -100.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
+    pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
+
+    level->conversionFunction = [] (float in)   { return juce::Decibels::decibelsToGain (in); };
+}
+
+//==============================================================================
+void WavetableAudioProcessor::SubParams::setup (WavetableAudioProcessor& p)
+{
+    juce::String id = "sub";
+    juce::String nm = "SUB ";
+
+    enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f);
+    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 1.0, 7.0, 1.0, 1.0 }, 1.0, 0.0f, waveTextFunction);
+    tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
+    level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
+    pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
+
+    level->conversionFunction = [] (float in)   { return juce::Decibels::decibelsToGain (in); };
+}
+
+//==============================================================================
+void WavetableAudioProcessor::NoiseParams::setup (WavetableAudioProcessor& p)
+{
+    juce::String id = "noise";
+    juce::String nm = "Noise ";
+
+    enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f);
+    level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
     pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
 
     level->conversionFunction = [] (float in)   { return juce::Decibels::decibelsToGain (in); };
@@ -318,6 +345,8 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     for (int i = 0; i < juce::numElementsInArray (oscParams); i++)
         oscParams[i].setup (*this, i);
 
+    subParams.setup (*this);
+    noiseParams.setup (*this);
     filterParams.setup (*this);
 
     for (int i = 0; i < juce::numElementsInArray (envParams); i++)

@@ -43,12 +43,34 @@ public:
     {
         OSCParams() = default;
 
-        gin::Parameter::Ptr enable , wave, voices, voicesTrns, tune, finetune,
-                            level, pulsewidth, detune, spread, pan;
+        gin::Parameter::Ptr enable, voices, voicesTrns, tune, finetune,
+                            level, pos, detune, spread, pan;
 
         void setup (WavetableAudioProcessor& p, int idx);
 
         JUCE_DECLARE_NON_COPYABLE (OSCParams)
+    };
+
+    struct SubParams
+    {
+        SubParams() = default;
+
+        gin::Parameter::Ptr enable, wave, tune, level, pan;
+
+        void setup (WavetableAudioProcessor& p);
+
+        JUCE_DECLARE_NON_COPYABLE (SubParams)
+    };
+
+    struct NoiseParams
+    {
+        NoiseParams() = default;
+        
+        gin::Parameter::Ptr enable, level, pan;
+
+        void setup (WavetableAudioProcessor& p);
+
+        JUCE_DECLARE_NON_COPYABLE (NoiseParams)
     };
 
     struct FilterParams
@@ -187,6 +209,8 @@ public:
     //==============================================================================
 
     OSCParams oscParams[Cfg::numOSCs];
+    SubParams subParams;
+    NoiseParams noiseParams;
     FilterParams filterParams;
     EnvParams envParams[Cfg::numENVs];
     LFOParams lfoParams[Cfg::numLFOs];

@@ -191,10 +191,10 @@ void WavetableVoice::updateParams (int blockSize)
         currentMidiNotes[i] += float (note.totalPitchbendInSemitones);
         currentMidiNotes[i] += getValue (proc.oscParams[i].tune) + getValue (proc.oscParams[i].finetune) / 100.0f;
 
-        oscParams[i].wave   = (gin::Wave) int (proc.oscParams[i].wave->getProcValue());
+        oscParams[i].wave   = gin::Wave::silence;
         oscParams[i].voices = int (proc.oscParams[i].voices->getProcValue());
         oscParams[i].vcTrns = int (proc.oscParams[i].voicesTrns->getProcValue());
-        oscParams[i].pw     = getValue (proc.oscParams[i].pulsewidth) / 100.0f;
+        oscParams[i].pw     = getValue (proc.oscParams[i].pos) / 100.0f;
         oscParams[i].pan    = getValue (proc.oscParams[i].pan);
         oscParams[i].spread = getValue (proc.oscParams[i].spread) / 100.0f;
         oscParams[i].detune = getValue (proc.oscParams[i].detune);
