@@ -51,6 +51,7 @@ public:
         auto& h = getHeader();
         h.addAndMakeVisible (nextButton);
         h.addAndMakeVisible (prevButton);
+        h.addMouseListener (this, false);
         nextButton.onClick = [this] { proc.incWavetable (idx, +1); };
         prevButton.onClick = [this] { proc.incWavetable (idx, -1); };
     }
@@ -61,6 +62,44 @@ public:
             proc.osc1Table.removeListener (this);
         else
             proc.osc2Table.removeListener (this);
+    }
+
+    void mouseUp (const juce::MouseEvent& e) override
+    {
+        auto& h = getHeader();
+        if (e.originalComponent == &h && e.mouseWasClicked())
+        {
+            juce::StringArray tables;
+            for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
+                if (juce::String (BinaryData::originalFilenames[i]).endsWith (".wav"))
+                    tables.add (juce::String (BinaryData::originalFilenames[i]).upToLastOccurrenceOf (".wav", false, false));
+
+            tables.sortNatural();
+
+            std::map<juce::String, juce::PopupMenu> menus;
+
+            for (auto t : tables)
+            {
+                auto prefix = t.upToFirstOccurrenceOf (" ", false, false);
+                auto suffix = t.fromFirstOccurrenceOf (" ", false, false);
+
+                menus[prefix].addItem (t, [this, t]
+                {
+                    if (idx == 0)
+                        proc.osc1Table = t;
+                    else
+                        proc.osc2Table = t;
+
+                    proc.reloadWavetables();
+                });
+            }
+
+            juce::PopupMenu m;
+            for (auto itr : menus)
+                m.addSubMenu (itr.first, itr.second);
+
+            m.showMenuAsync ({});
+        }
     }
 
     void resized() override
