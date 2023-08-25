@@ -334,7 +334,7 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
-static void loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, const juce::MemoryBlock& wav)
+static void loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav)
 {
     auto is = new juce::MemoryInputStream (wav, false);
     if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
@@ -342,7 +342,7 @@ static void loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table,
         juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
         reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
 
-        loadWavetables (table, buf, reader->sampleRate, gin::getWavetableSize (wav));
+        loadWavetables (table, sr, buf, reader->sampleRate, gin::getWavetableSize (wav));
     }
 }
 
@@ -412,11 +412,28 @@ void WavetableAudioProcessor::reloadWavetables()
         return {};
     };
 
+    auto shouldLoad = [&] (int osc, const juce::String& name, double sr)
+    {
+        auto& v = curTables[osc];
+        if (v.name == name && gin::almostEqual (v.sampleRate, sr))
+            return false;
+
+        v.name = name;
+        v.sampleRate = sr;
+        return true;
+    };
+
+    auto sr = gin::Processor::getSampleRate();
+    if (sr == 0)
+        return;
+
     if (auto mb = loadMemory (osc1Table.toString()); mb.getSize() > 0)
-        loadWaveTable (osc1Tables, mb);
+        if (shouldLoad (0, osc1Table.toString(), sr))
+            loadWaveTable (osc1Tables, sr, mb);
 
     if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
-        loadWaveTable (osc2Tables, mb);
+        if (shouldLoad (1, osc2Table.toString(), sr))
+            loadWaveTable (osc2Tables, sr, mb);
 }
 
 void WavetableAudioProcessor::incWavetable (int osc, int delta)

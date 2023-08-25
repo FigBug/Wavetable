@@ -251,6 +251,14 @@ public:
 
     juce::AudioPlayHead* playhead = nullptr;
 
+    struct CurTable
+    {
+        juce::String name;
+        double sampleRate = 0.0;
+    };
+
+    CurTable curTables[Cfg::numOSCs];
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableAudioProcessor)
 };
