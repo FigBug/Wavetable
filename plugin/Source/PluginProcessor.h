@@ -37,6 +37,9 @@ public:
     juce::Array<float> getLiveFilterCutoff();
     gin::WTOscillator::Params getLiveWTParams (int osc);
 
+    void reloadWavetables();
+    void incWavetable (int osc, int delta);
+
     void applyEffects (juce::AudioSampleBuffer& buffer);
 
     // Voice Params
@@ -233,10 +236,12 @@ public:
     gin::StereoDelay stereoDelay { 120.1 };
     gin::PlateReverb<float, int> reverb;
     gin::GainProcessor outputGain;
-    gin::AudioFifo fifo { 2, 44100 };
+    gin::AudioFifo scopeFifo { 2, 44100 };
 
     juce::OwnedArray<gin::BandLimitedLookupTable> osc1Tables;
     juce::OwnedArray<gin::BandLimitedLookupTable> osc2Tables;
+
+    juce::Value osc1Table, osc2Table;
 
     //==============================================================================
     gin::ModMatrix modMatrix;

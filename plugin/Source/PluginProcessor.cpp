@@ -328,9 +328,9 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
 
     size        = p.addExtParam ("rvbSize",     "Size",     "",   "", {0.0f, 1.0f,    0.0f, 2.0f}, 0.0f, 0.0f);
     decay       = p.addExtParam ("rvbDecay",    "Decay",    "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
-    lowpass     = p.addExtParam ("rvbLowpass",  "Lowpass",  "",   "", {0.0f, 1.0f,    16.0f, 20000.0f}, 0.0f, 0.0f);
-    damping     = p.addExtParam ("rvbDamping",  "Damping",  "",   "", {0.0f, 1.0f,    16.0f, 20000.0f}, 0.0f, 0.0f);
-    predelay    = p.addExtParam ("rvbPredelay", "Predelay", "",   "", {0.0f, 1.0f,    0.0f, 0.1f}, 0.0f, 0.0f);
+    lowpass     = p.addExtParam ("rvbLowpass",  "Lowpass",  "",   "", {16.0f, 20000.0f, 0.0f, 0.3f}, 10000.0f, 0.0f);
+    damping     = p.addExtParam ("rvbDamping",  "Damping",  "",   "", {16.0f, 20000.0f, 0.0f, 0.3f}, 10000.0f, 0.0f);
+    predelay    = p.addExtParam ("rvbPredelay", "Predelay", "",   "", {0.0f, 0.1f,    0.0f, 1.0f}, 0.0f, 0.0f);
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
@@ -354,8 +354,10 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     enableLegacyMode();
     setVoiceStealingEnabled (true);
 
-    loadWaveTable (osc1Tables, juce::MemoryBlock (BinaryData::Analog_PWM_Square_01_wav, BinaryData::Analog_PWM_Square_01_wavSize));
-    loadWaveTable (osc2Tables, juce::MemoryBlock (BinaryData::Analog_PWM_Saw_01_wav, BinaryData::Analog_PWM_Saw_01_wavSize));
+    osc1Table = "Analog PWM Square 01";
+    osc2Table = "Analog PWM Saw 01";
+
+    reloadWavetables();
 
     for (int i = 0; i < juce::numElementsInArray (oscParams); i++)
         oscParams[i].setup (*this, i);
@@ -394,15 +396,68 @@ WavetableAudioProcessor::~WavetableAudioProcessor()
 {
 }
 
+void WavetableAudioProcessor::reloadWavetables()
+{
+    auto loadMemory = [&] (const juce::String& name) -> juce::MemoryBlock
+    {
+        for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
+        {
+            if ((name + ".wav").equalsIgnoreCase (BinaryData::originalFilenames[i]))
+            {
+                int sz = 0;
+                if (auto data = BinaryData::getNamedResource (BinaryData::namedResourceList[i], sz))
+                    return juce::MemoryBlock (data, sz);
+            }
+        }
+        return {};
+    };
+
+    if (auto mb = loadMemory (osc1Table.toString()); mb.getSize() > 0)
+        loadWaveTable (osc1Tables, mb);
+
+    if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
+        loadWaveTable (osc2Tables, mb);
+}
+
+void WavetableAudioProcessor::incWavetable (int osc, int delta)
+{
+    auto& table = osc == 0 ? osc1Table : osc2Table;
+
+    juce::StringArray tables;
+    for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
+        if (juce::String (BinaryData::originalFilenames[i]).endsWith (".wav"))
+            tables.add (juce::String (BinaryData::originalFilenames[i]).upToLastOccurrenceOf (".wav", false, false));
+
+    tables.sortNatural();
+
+    auto idx = tables.indexOf (table.toString());
+
+    idx += delta;
+    if (idx < 0) idx = tables.size() - 1;
+    if (idx >= tables.size()) idx = 0;
+
+    table = tables[idx];
+
+    reloadWavetables();
+}
+
 //==============================================================================
 void WavetableAudioProcessor::stateUpdated()
 {
     modMatrix.stateUpdated (state);
+
+    osc1Table = state.getProperty ("wt1");
+    osc2Table = state.getProperty ("wt2");
+
+    reloadWavetables();
 }
 
 void WavetableAudioProcessor::updateState()
 {
     modMatrix.updateState (state);
+
+    state.setProperty ("wt1", osc1Table, nullptr);
+    state.setProperty ("wt2", osc2Table, nullptr);
 }
 
 //==============================================================================
@@ -469,6 +524,8 @@ void WavetableAudioProcessor::reset()
         l.reset();
 
     modStepLFO.reset();
+
+    reloadWavetables();
 }
 
 void WavetableAudioProcessor::prepareToPlay (double newSampleRate, int newSamplesPerBlock)
@@ -489,6 +546,8 @@ void WavetableAudioProcessor::prepareToPlay (double newSampleRate, int newSample
         l.setSampleRate (newSampleRate);
 
     modStepLFO.setSampleRate (newSampleRate);
+
+    reloadWavetables();
 }
 
 void WavetableAudioProcessor::releaseResources()
@@ -535,7 +594,9 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
     playHead = nullptr;
 
-    fifo.write (buffer);
+    if (buffer.getNumSamples() <= scopeFifo.getFreeSpace())
+        scopeFifo.write (buffer);
+
     endBlock (buffer.getNumSamples());
 }
 

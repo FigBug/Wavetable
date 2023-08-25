@@ -5,7 +5,8 @@
 #include "Cfg.h"
 
 //==============================================================================
-class OscillatorBox : public gin::ParamBox
+class OscillatorBox : public gin::ParamBox,
+                      public Value::Listener
 {
 public:
     OscillatorBox (const juce::String& name, WavetableAudioProcessor& proc_, int idx_)
@@ -14,6 +15,12 @@ public:
         setName ( "osc" + juce::String ( idx + 1 ) );
 
         auto& osc = proc.oscParams[idx];
+
+        setTitle (idx == 0 ? proc.osc1Table.toString() : proc.osc2Table.toString());
+        if (idx == 0)
+            proc.osc1Table.addListener (this);
+        else
+            proc.osc2Table.addListener (this);
 
         addEnable (osc.enable);
 
@@ -40,6 +47,35 @@ public:
         {
             wt->setParams (proc.getLiveWTParams (idx));
         };
+
+        auto& h = getHeader();
+        h.addAndMakeVisible (nextButton);
+        h.addAndMakeVisible (prevButton);
+        nextButton.onClick = [this] { proc.incWavetable (idx, +1); };
+        prevButton.onClick = [this] { proc.incWavetable (idx, -1); };
+    }
+
+    ~OscillatorBox() override
+    {
+        if (idx == 0)
+            proc.osc1Table.removeListener (this);
+        else
+            proc.osc2Table.removeListener (this);
+    }
+
+    void resized() override
+    {
+        gin::ParamBox::resized();
+
+        auto& h = getHeader();
+        nextButton.setBounds (getWidth() / 2 + 100, h.getHeight() / 2 - 4, 8, 8);
+        prevButton.setBounds (getWidth() / 2 - 108, h.getHeight() / 2 - 4, 8, 8);
+    }
+
+    void valueChanged (juce::Value&) override
+    {
+        setTitle (idx == 0 ? proc.osc1Table.toString() : proc.osc2Table.toString());
+        wt->setWavetables (idx == 0 ? &proc.osc1Tables : &proc.osc2Tables);
     }
 
     void paramChanged() override
@@ -59,6 +95,9 @@ public:
     gin::WavetableComponent* wt;
 
     gin::CoalescedTimer timer;
+
+    gin::SVGButton nextButton {"next", "M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"};
+    gin::SVGButton prevButton {"prev", "M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z"};
 };
 
 //==============================================================================
@@ -224,6 +263,8 @@ public:
     {
         setName ("gate");
 
+        addEnable (proc.gateParams.enable);
+
         addControl (new gin::Select (proc.gateParams.beat), 0, 0);
         addControl (new gin::Knob (proc.gateParams.length), 1, 0);
         addControl (new gin::Knob (proc.gateParams.attack), 0, 1);
@@ -274,6 +315,8 @@ public:
     {
         setName ("chorus");
 
+        addEnable (proc.chorusParams.enable);
+
         addControl (new gin::Knob (proc.chorusParams.delay), 0, 0);
         addControl (new gin::Knob (proc.chorusParams.rate), 1, 0);
         addControl (new gin::Knob (proc.chorusParams.mix), 2, 0);
@@ -296,6 +339,8 @@ public:
     {
         setName ("distort");
 
+        addEnable (proc.distortionParams.enable);
+
         addControl (new gin::Knob (proc.distortionParams.amount), 0, 0);
         addControl (new gin::Knob (proc.distortionParams.highpass), 1, 0);
         addControl (new gin::Knob (proc.distortionParams.output), 0, 1);
@@ -315,6 +360,8 @@ public:
         : gin::ParamBox ("Delay"), proc (proc_)
     {
         setName ("delay");
+
+        addEnable (proc.delayParams.enable);
 
         addControl (t = new gin::Knob (proc.delayParams.time), 0, 0);
         addControl (b = new gin::Select (proc.delayParams.beat), 0, 0);
@@ -350,6 +397,8 @@ public:
     {
         setName ("reverb");
 
+        addEnable (proc.reverbParams.enable);
+
         addControl (new gin::Knob (proc.reverbParams.size), 0, 0);
         addControl (new gin::Knob (proc.reverbParams.decay), 1, 0);
         addControl (new gin::Knob (proc.reverbParams.lowpass), 2, 0);
@@ -372,7 +421,7 @@ public:
     {
         setName ("scope");
 
-        scope = new gin::TriggeredScope (proc.fifo);
+        scope = new gin::TriggeredScope (proc.scopeFifo);
         scope->setNumChannels (2);
         scope->setTriggerMode (gin::TriggeredScope::TriggerMode::Up);
         scope->setColour (gin::TriggeredScope::lineColourId, juce::Colours::transparentBlack);

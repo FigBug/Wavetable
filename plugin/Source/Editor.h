@@ -19,7 +19,7 @@ private:
 
     OscillatorBox oscillators[Cfg::numOSCs] { { "oscillator 1", proc, 0 }, { "oscillator 2", proc, 1 } };
 
-    FilterBox filter                        { "filter 1", proc };
+    FilterBox filter                        { "filter", proc };
 
     FilterADSRArea fltADSR                  { proc };
 
