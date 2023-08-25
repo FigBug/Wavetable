@@ -334,6 +334,18 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
+static void loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, const juce::MemoryBlock& wav)
+{
+    auto is = new juce::MemoryInputStream (wav, false);
+    if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
+    {
+        juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
+        reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
+
+        loadWavetables (table, buf, reader->sampleRate, gin::getWavetableSize (wav));
+    }
+}
+
 //==============================================================================
 WavetableAudioProcessor::WavetableAudioProcessor()
 {
@@ -341,6 +353,9 @@ WavetableAudioProcessor::WavetableAudioProcessor()
 
     enableLegacyMode();
     setVoiceStealingEnabled (true);
+
+    loadWaveTable (osc1Tables, juce::MemoryBlock (BinaryData::Analog_PWM_Square_01_wav, BinaryData::Analog_PWM_Square_01_wavSize));
+    loadWaveTable (osc2Tables, juce::MemoryBlock (BinaryData::Analog_PWM_Saw_01_wav, BinaryData::Analog_PWM_Saw_01_wavSize));
 
     for (int i = 0; i < juce::numElementsInArray (oscParams); i++)
         oscParams[i].setup (*this, i);
@@ -537,6 +552,18 @@ juce::Array<float> WavetableAudioProcessor::getLiveFilterCutoff()
         }
     }
     return values;
+}
+
+gin::WTOscillator::Params WavetableAudioProcessor::getLiveWTParams (int osc)
+{
+    for (auto v : voices)
+        if (v->isActive())
+            if (auto vav = dynamic_cast<WavetableVoice*>(v))
+                return vav->getLiveWTParams (osc);
+
+    gin::WTOscillator::Params p;
+    p.pw = oscParams[osc].pos->getValue();
+    return p;
 }
 
 void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)

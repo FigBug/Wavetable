@@ -191,7 +191,7 @@ void WavetableVoice::updateParams (int blockSize)
         currentMidiNotes[i] += float (note.totalPitchbendInSemitones);
         currentMidiNotes[i] += getValue (proc.oscParams[i].tune) + getValue (proc.oscParams[i].finetune) / 100.0f;
 
-        oscParams[i].wave   = gin::Wave::silence;
+        oscParams[i].wave   = gin::Wave::wavetable;
         oscParams[i].voices = int (proc.oscParams[i].voices->getProcValue());
         oscParams[i].vcTrns = int (proc.oscParams[i].voicesTrns->getProcValue());
         oscParams[i].pw     = getValue (proc.oscParams[i].pos) / 100.0f;
@@ -360,4 +360,11 @@ float WavetableVoice::getFilterCutoffNormalized()
 {
     float freq = filter.getFrequency();
     return proc.filterParams.frequency->getUserRange().convertTo0to1 (gin::getMidiNoteFromHertz (freq));
+}
+
+gin::WTOscillator::Params WavetableVoice::getLiveWTParams (int osc)
+{
+    gin::WTOscillator::Params p;
+    p.pw = getValue (proc.oscParams[osc].pos) / 100.0f;
+    return p;
 }

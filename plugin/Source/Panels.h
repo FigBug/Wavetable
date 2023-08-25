@@ -17,16 +17,29 @@ public:
 
         addEnable (osc.enable);
 
+        addControl (new gin::Knob (osc.pos), 0, 0);
         addControl (new gin::Knob (osc.tune, true), 1, 0);
-        addControl (new gin::Select (osc.voices), 2, 0);
-        addControl (detune = new gin::Knob (osc.detune), 3, 0);
+        addControl (new gin::Knob (osc.finetune, true), 2, 0);
+        addControl (new gin::Knob (osc.level, true), 3, 0);
+        addControl (new gin::Knob (osc.pan, true), 4, 0);
 
-        addControl (new gin::Knob (osc.pos), 0, 1);
-        addControl (new gin::Knob (osc.finetune, true), 1, 1);
+        addControl (new gin::Select (osc.voices), 0, 1);
+        addControl (detune = new gin::Knob (osc.detune), 1, 1);
         addControl (spread = new gin::Knob (osc.spread), 2, 1);
         addControl (trans = new gin::Knob (osc.voicesTrns, true), 3, 1);
 
         watchParam (osc.voices);
+
+        wt = new gin::WavetableComponent();
+        wt->setName ("wt");
+        wt->setWavetables (idx == 0 ? &proc.osc1Tables : &proc.osc2Tables);
+        addControl (wt, 5, 0, 3, 2);
+
+        timer.startTimerHz (60);
+        timer.onTimer = [this]
+        {
+            wt->setParams (proc.getLiveWTParams (idx));
+        };
     }
 
     void paramChanged() override
@@ -43,6 +56,9 @@ public:
     WavetableAudioProcessor& proc;
     int idx = 0;
     gin::ParamComponent::Ptr trans, detune, spread;
+    gin::WavetableComponent* wt;
+
+    gin::CoalescedTimer timer;
 };
 
 //==============================================================================
@@ -256,7 +272,7 @@ public:
     ChorusBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Chorus"), proc (proc_)
     {
-        setName ( "chorus" );
+        setName ("chorus");
 
         addControl (new gin::Knob (proc.chorusParams.delay), 0, 0);
         addControl (new gin::Knob (proc.chorusParams.rate), 1, 0);
@@ -278,7 +294,7 @@ public:
     DistortBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Distort"), proc (proc_)
     {
-        setName ( "distort" );
+        setName ("distort");
 
         addControl (new gin::Knob (proc.distortionParams.amount), 0, 0);
         addControl (new gin::Knob (proc.distortionParams.highpass), 1, 0);
@@ -298,7 +314,7 @@ public:
     DelayBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Delay"), proc (proc_)
     {
-        setName ( "delay" );
+        setName ("delay");
 
         addControl (t = new gin::Knob (proc.delayParams.time), 0, 0);
         addControl (b = new gin::Select (proc.delayParams.beat), 0, 0);
@@ -332,7 +348,7 @@ public:
     ReverbBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Reverb"), proc (proc_)
     {
-        setName ( "reverb" );
+        setName ("reverb");
 
         addControl (new gin::Knob (proc.reverbParams.size), 0, 0);
         addControl (new gin::Knob (proc.reverbParams.decay), 1, 0);
@@ -354,7 +370,7 @@ public:
     ScopeArea (WavetableAudioProcessor& proc_)
         : gin::ParamArea ("Scope"), proc (proc_)
     {
-        setName ( "scope" );
+        setName ("scope");
 
         scope = new gin::TriggeredScope (proc.fifo);
         scope->setNumChannels (2);

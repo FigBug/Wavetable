@@ -35,6 +35,7 @@ public:
     void handleController (int ch, int num, int val) override;
     //==============================================================================
     juce::Array<float> getLiveFilterCutoff();
+    gin::WTOscillator::Params getLiveWTParams (int osc);
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
 
@@ -65,7 +66,7 @@ public:
     struct NoiseParams
     {
         NoiseParams() = default;
-        
+
         gin::Parameter::Ptr enable, level, pan;
 
         void setup (WavetableAudioProcessor& p);
@@ -233,6 +234,9 @@ public:
     gin::PlateReverb<float, int> reverb;
     gin::GainProcessor outputGain;
     gin::AudioFifo fifo { 2, 44100 };
+
+    juce::OwnedArray<gin::BandLimitedLookupTable> osc1Tables;
+    juce::OwnedArray<gin::BandLimitedLookupTable> osc2Tables;
 
     //==============================================================================
     gin::ModMatrix modMatrix;
