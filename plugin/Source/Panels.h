@@ -112,7 +112,7 @@ public:
     FilterADSRArea (WavetableAudioProcessor& proc_)
         : proc (proc_)
     {
-        setName ( "fltAdsr" );
+        setName ("fltAdsr");
 
         auto& flt = proc.filterParams;
 
@@ -152,7 +152,7 @@ public:
     LFOBox (const juce::String& name, WavetableAudioProcessor& proc_, int idx_)
         : gin::ParamBox (name), proc (proc_), idx (idx_)
     {
-        setName ( "lfo" + juce::String ( idx + 1 ) );
+        setName ("lfo" + juce::String (idx + 1));
 
         auto& lfo = proc.lfoParams[idx];
 
@@ -190,7 +190,7 @@ public:
     LFOArea (WavetableAudioProcessor& proc_, int idx_)
         : proc (proc_), idx (idx_)
     {
-        setName ( "lfoArea" + juce::String ( idx + 1 ) );
+        setName ("lfoArea" + juce::String (idx + 1));
 
         auto& lfo = proc.lfoParams[idx];
 
@@ -222,7 +222,7 @@ public:
     GateBox (WavetableAudioProcessor& proc_)
         : gin::ParamBox ("Gate"), proc (proc_)
     {
-        setName ( "gate" );
+        setName ("gate");
 
         addControl (new gin::Select (proc.gateParams.beat), 0, 0);
         addControl (new gin::Knob (proc.gateParams.length), 1, 0);
@@ -242,7 +242,7 @@ public:
     GateArea (WavetableAudioProcessor& proc_)
         : gin::ParamArea ("Pattern"), proc (proc_)
     {
-        setName ( "gatePattern" );
+        setName ("gatePattern");
 
         g = new gin::GateEffectComponent();
         g->setParams (proc.gateParams.length, proc.gateParams.l, proc.gateParams.r, proc.gateParams.enable);

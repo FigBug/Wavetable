@@ -16,10 +16,16 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
+    void showAboutInfo() override;
+
 private:
     WavetableAudioProcessor& vaProc;
 
     Editor editor { vaProc };
+
+   #if JUCE_DEBUG
+    std::unique_ptr<melatonin::Inspector> inspector;
+   #endif
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableAudioProcessorEditor)
 };

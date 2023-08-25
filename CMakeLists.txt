@@ -85,6 +85,10 @@ foreach(module_name IN ITEMS gin gin_dsp gin_graphics gin_gui gin_metadata gin_n
 	set_property (TARGET "${module_name}" APPEND PROPERTY LABELS Gin)
 endforeach()
 
+# melatonin
+juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/modules/melatonin_inspector")
+set_property (TARGET melatonin_inspector APPEND PROPERTY LABELS melatonin)
+
 # Binary Data
 
 set_property (DIRECTORY APPEND PROPERTY LABELS Assets)
@@ -241,6 +245,8 @@ target_link_libraries (${PLUGIN_NAME} PRIVATE
 						gin_graphics
 						gin_gui
 						gin_plugin
+
+						melatonin_inspector
 
 						juce::juce_audio_basics
 						juce::juce_audio_devices

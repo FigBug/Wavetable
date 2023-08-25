@@ -7,3 +7,6 @@
 [submodule "modules/plugin_sdk"]
 	path = modules/plugin_sdk
 	url = git@github.com:TurnipHat/plugin_sdk.git
+[submodule "modules/melatonin_inspector"]
+	path = modules/melatonin_inspector
+	url = git@github.com:sudara/melatonin_inspector.git

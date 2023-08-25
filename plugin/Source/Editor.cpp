@@ -10,31 +10,19 @@ Editor::Editor (WavetableAudioProcessor& proc_)
     addAndMakeVisible (filter);
     addAndMakeVisible (fltADSR);
 
-    for (auto& i : modItems)
-        modHeader.addItem (i);
-
-    addAndMakeVisible (modHeader);
-
     for (int i = 0; i < Cfg::numLFOs; i++)
     {
-        lfoBox.addBox (i, &lfos[i]);
-        lfoBox.addBox (i, &lfoGraphs[i]);
+        addAndMakeVisible (&lfos[i]);
+        addAndMakeVisible (&lfoGraphs[i]);
     }
-    addAndMakeVisible (lfoBox);
-    lfoBox.setPage (0);
 
-    for (auto& i : fxItems)
-        fxHeader.addItem (i);
-
-    addAndMakeVisible (fxHeader);
-
-    effects.addBox (&gate);
-    effects.addBox (&pattern);
-    effects.addBox (&chorus);
-    effects.addBox (&distort);
-    effects.addBox (&delay);
-    effects.addBox (&reverb);
-    effects.addBox (&scope);
+    addAndMakeVisible (gate);
+    addAndMakeVisible (pattern);
+    addAndMakeVisible (chorus);
+    addAndMakeVisible (distort);
+    addAndMakeVisible (delay);
+    addAndMakeVisible (reverb);
+    addAndMakeVisible (scope);
 
     addAndMakeVisible (effects);
 

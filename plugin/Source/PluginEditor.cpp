@@ -15,6 +15,23 @@ WavetableAudioProcessorEditor::~WavetableAudioProcessorEditor()
 }
 
 //==============================================================================
+void WavetableAudioProcessorEditor::showAboutInfo()
+{
+   #if JUCE_DEBUG
+    if (inspector == nullptr)
+    {
+        inspector = std::make_unique<melatonin::Inspector> (*this);
+        inspector->setVisible(true);
+    }
+    else
+    {
+        inspector = nullptr;
+    }
+   #else
+    ProcessorEditor::showAboutInfo();
+   #endif
+}
+
 void WavetableAudioProcessorEditor::paint (juce::Graphics& g)
 {
     ProcessorEditor::paint (g);

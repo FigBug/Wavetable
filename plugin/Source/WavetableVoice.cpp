@@ -10,6 +10,9 @@ WavetableVoice::WavetableVoice (WavetableAudioProcessor& p)
 
 void WavetableVoice::noteStarted()
 {
+    oscillators[0].setWavetable (proc.osc1Tables);
+    oscillators[1].setWavetable (proc.osc2Tables);
+
     fastKill = false;
     startVoice();
 
@@ -156,7 +159,7 @@ void WavetableVoice::renderNextBlock (juce::AudioBuffer<float>& outputBuffer, in
     float velocity = currentlyPlayingNote.noteOnVelocity.asUnsignedFloat();
     buffer.applyGain (gin::velocityToGain (velocity, ampKeyTrack));
 
-    // Apply filters
+    // Apply filter
     if (proc.filterParams.enable->isOn())
         filter.process (buffer);
     
