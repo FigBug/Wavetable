@@ -21,10 +21,12 @@ private:
     NoiseBox noise                          { "noise", proc };
     SubBox sub                              { "sub", proc };
 
+    ADSRBox adsr                            { "adsr", proc };
     FilterBox filter                        { "filter", proc };
 
     LFOBox lfos[Cfg::numLFOs]               { { "LFO 1", proc, 0 }, { "LFO 2", proc, 1 }, { "LFO 3", proc, 2 } };
-    LFOArea lfoGraphs[Cfg::numLFOs]         { { proc, 0 }, { proc, 1 }, { proc, 2 } };
+    ENVBox envs[Cfg::numENVs]               { { "ENV 1", proc, 0 }, { "ENV 2", proc, 1 }, { "ENV 3", proc, 2 } };
+    StepBox step                            { "step", proc };
 
     GateBox gate { proc };
     ChorusBox chorus { proc };

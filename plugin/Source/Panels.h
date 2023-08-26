@@ -180,6 +180,32 @@ public:
 };
 
 //==============================================================================
+class ADSRBox : public gin::ParamBox
+{
+public:
+    ADSRBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
+    {
+        setName ("adsr");
+
+        auto& preset = proc.adsrParams;
+
+        adsr = new gin::ADSRComponent ();
+        adsr->setParams (preset.attack, preset.decay, preset.sustain, preset.release);
+        addControl (adsr, 0, 0, 4, 1);
+
+        addControl (a = new gin::Knob (preset.attack), 0, 1);
+        addControl (d = new gin::Knob (preset.decay), 1, 1);
+        addControl (s = new gin::Knob (preset.sustain), 2, 1);
+        addControl (r = new gin::Knob (preset.release), 3, 1);
+    }
+
+    WavetableAudioProcessor& proc;
+    gin::ParamComponent::Ptr a, d, s, r;
+    gin::ADSRComponent* adsr;
+};
+
+//==============================================================================
 class FilterBox : public gin::ParamBox
 {
 public:
@@ -260,6 +286,15 @@ public:
         addControl (new gin::Knob (lfo.fade, true), 0, 1);
         addControl (new gin::Knob (lfo.delay), 1, 1);
 
+        addControl (new gin::Select (lfo.wave), 2, 1);
+        addControl (new gin::Switch (lfo.sync), 3, 1);
+        addControl (new gin::Knob (lfo.phase, true), 4, 1);
+        addControl (new gin::Knob (lfo.offset, true), 5, 1);
+
+        auto l = new gin::LFOComponent();
+        l->setParams (lfo.wave, lfo.sync, lfo.rate, lfo.beat, lfo.depth, lfo.offset, lfo.phase, lfo.enable);
+        addControl (l, 2, 0, 4, 1);
+
         watchParam (lfo.sync);
 
         setSize (112, 163);
@@ -280,31 +315,55 @@ public:
 };
 
 //==============================================================================
-class LFOArea : public gin::ParamArea
+class ENVBox : public gin::ParamBox
 {
 public:
-    LFOArea (WavetableAudioProcessor& proc_, int idx_)
-        : proc (proc_), idx (idx_)
+    ENVBox (const juce::String& name, WavetableAudioProcessor& proc_, int idx_)
+        : gin::ParamBox (name), proc (proc_), idx (idx_)
     {
-        setName ("lfoArea" + juce::String (idx + 1));
+        setName ("env" + juce::String (idx + 1));
 
-        auto& lfo = proc.lfoParams[idx];
+        auto& env = proc.envParams[idx];
 
-        addControl (new gin::Select (lfo.wave));
-        addControl (new gin::Switch (lfo.sync));
-        addControl (new gin::Knob (lfo.phase, true));
-        addControl (new gin::Knob (lfo.offset, true));
+        addEnable (env.enable);
 
-        auto l = new gin::LFOComponent();
-        l->setParams (lfo.wave, lfo.sync, lfo.rate, lfo.beat, lfo.depth, lfo.offset, lfo.phase, lfo.enable);
-        addControl (l);
+        addControl (new gin::Knob (env.attack), 0, 1);
+        addControl (new gin::Knob (env.decay), 1, 1);
+        addControl (new gin::Knob (env.sustain), 2, 1);
+        addControl (new gin::Knob (env.release), 3, 1);
 
-        setSize (186, 163);
+        auto g = new gin::ADSRComponent();
+        g->setParams (env.attack, env.decay, env.sustain, env.release);
+        addControl (g, 0, 0, 4, 1);
+
+        setSize (112, 163);
     }
 
-    void paramChanged () override
+    WavetableAudioProcessor& proc;
+    int idx;
+};
+
+//==============================================================================
+class StepBox : public gin::ParamBox
+{
+public:
+    StepBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
     {
-        gin::ParamArea::paramChanged ();
+        setName ("step");
+
+        auto& prs = proc.stepLfoParams;
+
+        addEnable (prs.enable);
+
+        addControl (new gin::Knob (prs.beat), 0, 1);
+        addControl (new gin::Knob (prs.length), 1, 1);
+
+        auto g = new gin::StepLFOComponent();
+        g->setParams (prs.beat, prs.length, prs.level, prs.enable);
+        addControl (g, 0, 0, 4, 1);
+
+        setSize (112, 163);
     }
 
     WavetableAudioProcessor& proc;

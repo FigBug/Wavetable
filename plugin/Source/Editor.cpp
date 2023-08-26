@@ -5,18 +5,13 @@ Editor::Editor (WavetableAudioProcessor& proc_)
 {
     for (auto& o : oscillators) addAndMakeVisible (o);
     for (auto& l : lfos)        addAndMakeVisible (l);
-    for (auto& l : lfoGraphs)   addAndMakeVisible (l);
+    for (auto& e : envs)        addAndMakeVisible (e);
 
     addAndMakeVisible (sub);
     addAndMakeVisible (noise);
+    addAndMakeVisible (adsr);
     addAndMakeVisible (filter);
-
-    for (int i = 0; i < Cfg::numLFOs; i++)
-    {
-        addAndMakeVisible (&lfos[i]);
-        addAndMakeVisible (&lfoGraphs[i]);
-    }
-
+    addAndMakeVisible (step);
     addAndMakeVisible (gate);
     addAndMakeVisible (chorus);
     addAndMakeVisible (distort);
