@@ -27,6 +27,8 @@ private:
     LFOBox lfos[Cfg::numLFOs]               { { "LFO 1", proc, 0 }, { "LFO 2", proc, 1 }, { "LFO 3", proc, 2 } };
     ENVBox envs[Cfg::numENVs]               { { "ENV 1", proc, 0 }, { "ENV 2", proc, 1 }, { "ENV 3", proc, 2 } };
     StepBox step                            { "step", proc };
+    ModBox mod                              { "mod", proc };
+    GlobalBox global                        { "global", proc };
 
     GateBox gate { proc };
     ChorusBox chorus { proc };

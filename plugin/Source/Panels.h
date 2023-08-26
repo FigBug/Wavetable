@@ -367,7 +367,44 @@ public:
     }
 
     WavetableAudioProcessor& proc;
-    int idx;
+};
+
+//==============================================================================
+class ModBox : public gin::ParamBox
+{
+public:
+    ModBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
+    {
+        setName ("mod");
+
+        addControl (new gin::ModSrcListBox (proc.modMatrix), 0, 0, 3, 2);
+    }
+
+    WavetableAudioProcessor& proc;
+};
+
+//==============================================================================
+class GlobalBox : public gin::ParamBox
+{
+public:
+    GlobalBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
+    {
+        setName ("global");
+
+        addControl (new gin::Knob (proc.globalParams.level), 0, 0);
+        addControl (new gin::Select (proc.globalParams.glideMode), 1, 0);
+        addControl (new gin::Knob (proc.globalParams.glideRate), 2, 0);
+
+        addControl (new gin::Knob (proc.globalParams.voices), 0, 1);
+        addControl (new gin::Select (proc.globalParams.legato), 1, 1);
+        addControl (new gin::Select (proc.globalParams.mono), 2, 1);
+
+        setSize (168, 163);
+    }
+
+    WavetableAudioProcessor& proc;
 };
 
 //==============================================================================
