@@ -47,8 +47,7 @@ public:
     {
         OSCParams() = default;
 
-        gin::Parameter::Ptr enable, voices, voicesTrns, tune, finetune,
-                            level, pos, detune, spread, pan;
+        gin::Parameter::Ptr enable, voices, tune, finetune, level, pos, detune, spread, pan;
 
         void setup (WavetableAudioProcessor& p, int idx);
 
@@ -175,7 +174,7 @@ public:
     {
         DistortionParams() = default;
 
-        gin::Parameter::Ptr enable, amount, highpass, output, mix;
+        gin::Parameter::Ptr enable, amount;
 
         void setup (WavetableAudioProcessor& p);
 
@@ -232,14 +231,16 @@ public:
     //==============================================================================
     gin::GateEffect gate;
     gin::Modulation chorus { 0.5f };
-    gin::Distortion distortion;
     gin::StereoDelay stereoDelay { 120.1 };
     gin::PlateReverb<float, int> reverb;
     gin::GainProcessor outputGain;
     gin::AudioFifo scopeFifo { 2, 44100 };
+    float distortionVal = 0.0f;
 
     juce::OwnedArray<gin::BandLimitedLookupTable> osc1Tables;
     juce::OwnedArray<gin::BandLimitedLookupTable> osc2Tables;
+
+    gin::BandLimitedLookupTables analogTables;
 
     juce::Value osc1Table, osc2Table;
 

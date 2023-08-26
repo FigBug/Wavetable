@@ -36,6 +36,8 @@ private:
     WavetableAudioProcessor& proc;
 
     gin::WTVoicedStereoOscillator oscillators[Cfg::numOSCs];
+    gin::StereoOscillator noise;
+    gin::StereoOscillator sub;
 
     gin::Filter filter;
     gin::ADSR filterADSR;
@@ -48,6 +50,10 @@ private:
 
     float currentMidiNotes[Cfg::numOSCs];
     gin::WTVoicedStereoOscillator::Params oscParams[Cfg::numOSCs];
+
+    float subNote = 0.0f;
+    gin::StereoOscillator::Params subParams;
+    gin::StereoOscillator::Params noiseParams;
     
     gin::EasedValueSmoother<float> noteSmoother;
     

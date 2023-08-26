@@ -7,6 +7,8 @@ Editor::Editor (WavetableAudioProcessor& proc_)
     for (auto& l : lfos)        addAndMakeVisible (l);
     for (auto& l : lfoGraphs)   addAndMakeVisible (l);
 
+    addAndMakeVisible (sub);
+    addAndMakeVisible (noise);
     addAndMakeVisible (filter);
     addAndMakeVisible (fltADSR);
 

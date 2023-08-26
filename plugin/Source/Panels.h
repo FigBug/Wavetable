@@ -33,7 +33,6 @@ public:
         addControl (new gin::Select (osc.voices), 0, 1);
         addControl (detune = new gin::Knob (osc.detune), 1, 1);
         addControl (spread = new gin::Knob (osc.spread), 2, 1);
-        addControl (trans = new gin::Knob (osc.voicesTrns, true), 3, 1);
 
         watchParam (osc.voices);
 
@@ -67,7 +66,7 @@ public:
     void mouseUp (const juce::MouseEvent& e) override
     {
         auto& h = getHeader();
-        if (e.originalComponent == &h && e.mouseWasClicked())
+        if (e.originalComponent == &h && e.mouseWasClicked() && e.x >= prevButton.getRight() && e.x <= nextButton.getX())
         {
             juce::StringArray tables;
             for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
@@ -123,20 +122,61 @@ public:
 
         auto& osc = proc.oscParams[idx];
 
-        trans->setEnabled (osc.voices->getProcValue() > 1);
         detune->setEnabled (osc.voices->getProcValue() > 1);
         spread->setEnabled (osc.voices->getProcValue() > 1);
     }
 
     WavetableAudioProcessor& proc;
     int idx = 0;
-    gin::ParamComponent::Ptr trans, detune, spread;
+    gin::ParamComponent::Ptr detune, spread;
     gin::WavetableComponent* wt;
 
     gin::CoalescedTimer timer;
 
     gin::SVGButton nextButton {"next", "M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"};
     gin::SVGButton prevButton {"prev", "M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z"};
+};
+
+//==============================================================================
+class SubBox : public gin::ParamBox
+{
+public:
+    SubBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
+    {
+        setName ("sub");
+
+        auto& sub = proc.subParams;
+
+        addEnable (sub.enable);
+
+        addControl (new gin::Knob (sub.tune, true), 0, 0);
+        addControl (new gin::Knob (sub.level, true), 1, 0);
+        addControl (new gin::Knob (sub.pan, true), 0, 1);
+        addControl (new gin::Select (sub.wave), 1, 1);
+    }
+
+    WavetableAudioProcessor& proc;
+};
+
+//==============================================================================
+class NoiseBox : public gin::ParamBox
+{
+public:
+    NoiseBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
+    {
+        setName ("noise");
+
+        auto& noise = proc.noiseParams;
+
+        addEnable (noise.enable);
+
+        addControl (new gin::Knob (noise.level, true), 0, 0);
+        addControl (new gin::Knob (noise.pan, true), 0, 1);
+    }
+
+    WavetableAudioProcessor& proc;
 };
 
 //==============================================================================
@@ -381,9 +421,6 @@ public:
         addEnable (proc.distortionParams.enable);
 
         addControl (new gin::Knob (proc.distortionParams.amount), 0, 0);
-        addControl (new gin::Knob (proc.distortionParams.highpass), 1, 0);
-        addControl (new gin::Knob (proc.distortionParams.output), 0, 1);
-        addControl (new gin::Knob (proc.distortionParams.mix), 1, 1);
 
         setSize (112, 163);
     }

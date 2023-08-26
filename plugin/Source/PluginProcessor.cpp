@@ -2,19 +2,14 @@
 #include "PluginEditor.h"
 #include "WavetableVoice.h"
 
-static juce::String waveTextFunction (const gin::Parameter&, float v)
+static juce::String subTextFunction (const gin::Parameter&, float v)
 {
-    switch ((gin::Wave)int (v))
+    switch (int (v))
     {
-        case gin::Wave::silence:     return "Off";
-        case gin::Wave::sine:        return "Sine";
-        case gin::Wave::triangle:    return "Triangle";
-        case gin::Wave::sawUp:       return "Saw (Up)";
-        case gin::Wave::sawDown:     return "Saw (Down)";
-        case gin::Wave::pulse:       return "Pulse";
-        case gin::Wave::square:      return "Square";
-        case gin::Wave::noise:       return "Noise";
-        case gin::Wave::wavetable:
+        case 0: return "Sine";
+        case 1: return "Triangle";
+        case 2: return "Saw";
+        case 3: return "Pulse";
         default:
             jassertfalse;
             return {};
@@ -108,7 +103,6 @@ void WavetableAudioProcessor::OSCParams::setup (WavetableAudioProcessor& p, int 
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, idx == 0 ? 1.0f : 0.0f, 0.0f);
     voices     = p.addIntParam (id + "unison",     nm + "Unison",      "Unison",    "", { 1.0, 8.0, 1.0, 1.0 }, 1.0, 0.0f);
-    voicesTrns = p.addExtParam (id + "unisontrns", nm + "Unison Trns", "LTrans",    "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     finetune   = p.addExtParam (id + "finetune",   nm + "Fine Tune",   "Fine",      "ct", { -100.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
@@ -127,7 +121,7 @@ void WavetableAudioProcessor::SubParams::setup (WavetableAudioProcessor& p)
     juce::String nm = "SUB ";
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f);
-    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 1.0, 7.0, 1.0, 1.0 }, 1.0, 0.0f, waveTextFunction);
+    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 0.0, 3.0, 1.0, 1.0 }, 1.0, 0.0f, subTextFunction);
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
     pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
@@ -295,9 +289,6 @@ void WavetableAudioProcessor::DistortionParams::setup (WavetableAudioProcessor& 
 {
     enable   = p.addIntParam ("dsEnable",   "Enable",     "",   "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
     amount   = p.addExtParam ("dsAmount",   "Amount",     "",   "", { 0.0, 1.0, 0.0, 1.0 }, 0.2f, 0.0f, distortionAmountTextFunction);
-    highpass = p.addExtParam ("dsHighpass", "Highpass",   "",   "", { 0.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
-    output   = p.addExtParam ("dsOutput",   "Output",     "",   "", { 0.0, 1.0, 0.0, 1.0 }, 1.0, 0.0f);
-    mix      = p.addExtParam ("dsMix",      "Mix",        "",   "", { 0.0, 1.0, 0.0, 1.0 }, 1.0, 0.0f);
 }
 
 //==============================================================================
@@ -532,7 +523,6 @@ void WavetableAudioProcessor::reset()
 
     gate.reset();
     chorus.reset();
-    distortion.reset();
     stereoDelay.reset();
 
     reverb.reset();
@@ -555,7 +545,6 @@ void WavetableAudioProcessor::prepareToPlay (double newSampleRate, int newSample
 
     gate.setSampleRate (newSampleRate);
     chorus.setSampleRate (newSampleRate);
-    distortion.setSampleRate (newSampleRate);
     stereoDelay.setSampleRate (newSampleRate);
     reverb.setSampleRate (float (newSampleRate));
 
@@ -565,6 +554,7 @@ void WavetableAudioProcessor::prepareToPlay (double newSampleRate, int newSample
     modStepLFO.setSampleRate (newSampleRate);
 
     reloadWavetables();
+    analogTables.setSampleRate (newSampleRate);
 }
 
 void WavetableAudioProcessor::releaseResources()
@@ -656,7 +646,10 @@ void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
 
     // Apply Distortion
     if (distortionParams.enable->isOn())
-        distortion.process (buffer);
+    {
+        auto clip = 1.0f / (2.0f * distortionVal);
+        gin::Distortion::processBlock (buffer, distortionVal, -clip, clip);
+    }
 
     // Apply Delay
     if (delayParams.enable->isOn())
@@ -754,12 +747,7 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
 
     // Update Distortion
     if (distortionParams.enable->isOn())
-    {
-        distortion.setParams (modMatrix.getValue (distortionParams.amount),
-                              modMatrix.getValue (distortionParams.highpass),
-                              modMatrix.getValue (distortionParams.output),
-                              modMatrix.getValue (distortionParams.mix));
-    }
+        distortionVal = modMatrix.getValue (distortionParams.amount);
 
     // Update Delay
     if (delayParams.enable->isOn())

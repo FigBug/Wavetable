@@ -4,6 +4,8 @@
 //==============================================================================
 WavetableVoice::WavetableVoice (WavetableAudioProcessor& p)
     : proc (p)
+    , noise (proc.analogTables)
+    , sub (proc.analogTables)
 {
     filter.setNumChannels (2);
 }
@@ -155,6 +157,12 @@ void WavetableVoice::renderNextBlock (juce::AudioBuffer<float>& outputBuffer, in
         if (proc.oscParams[i].enable->isOn())
             oscillators[i].processAdding (currentMidiNotes[i], oscParams[i], buffer);
 
+    if (proc.subParams.enable->isOn())
+        sub.processAdding (subNote, subParams, buffer);
+
+    if (proc.noiseParams.enable->isOn())
+        noise.processAdding (60.0f, noiseParams, buffer);
+
     // Apply velocity
     float velocity = currentlyPlayingNote.noteOnVelocity.asUnsignedFloat();
     buffer.applyGain (gin::velocityToGain (velocity, ampKeyTrack));
@@ -196,12 +204,39 @@ void WavetableVoice::updateParams (int blockSize)
 
         oscParams[i].wave   = gin::Wave::wavetable;
         oscParams[i].voices = int (proc.oscParams[i].voices->getProcValue());
-        oscParams[i].vcTrns = int (proc.oscParams[i].voicesTrns->getProcValue());
+        oscParams[i].vcTrns = 0;
         oscParams[i].pw     = getValue (proc.oscParams[i].pos) / 100.0f;
         oscParams[i].pan    = getValue (proc.oscParams[i].pan);
         oscParams[i].spread = getValue (proc.oscParams[i].spread) / 100.0f;
         oscParams[i].detune = getValue (proc.oscParams[i].detune);
         oscParams[i].gain   = getValue (proc.oscParams[i].level);
+    }
+
+    if (proc.subParams.enable->isOn())
+    {
+        subNote = noteSmoother.getCurrentValue() * 127.0f;
+        if (glideInfo.glissando) subNote = (float) juce::roundToInt (subNote);
+        subNote += float (note.totalPitchbendInSemitones);
+        subNote += getValue (proc.subParams.tune);
+
+        switch (proc.subParams.wave->getUserValueInt())
+        {
+            case 0: subParams.wave = gin::Wave::sine;       break;
+            case 1: subParams.wave = gin::Wave::triangle;   break;
+            case 2: subParams.wave = gin::Wave::sawUp;      break;
+            case 3: subParams.wave = gin::Wave::pulse;      break;;
+        }
+
+        subParams.leftGain  = getValue (proc.subParams.level) * (1.0f - getValue (proc.subParams.pan));
+        subParams.rightGain = getValue (proc.subParams.level) * (1.0f + getValue (proc.subParams.pan));
+    }
+
+    if (proc.noiseParams.enable->isOn())
+    {
+        noiseParams.wave = gin::Wave::noise;
+
+        noiseParams.leftGain  = getValue (proc.noiseParams.level) * (1.0f - getValue (proc.noiseParams.pan));
+        noiseParams.rightGain = getValue (proc.noiseParams.level) * (1.0f + getValue (proc.noiseParams.pan));
     }
     
     ampKeyTrack = getValue (proc.adsrParams.velocityTracking);
