@@ -201,6 +201,15 @@ public:
         addControl (new gin::Select (flt.type), 1, 1);
         addControl (v = new gin::Knob (flt.velocityTracking), 2, 1);
 
+        adsr = new gin::ADSRComponent ();
+        adsr->setParams (flt.attack, flt.decay, flt.sustain, flt.release);
+        addControl (adsr, 3, 0, 4, 1);
+
+        addControl (a = new gin::Knob (flt.attack), 3, 1);
+        addControl (d = new gin::Knob (flt.decay), 4, 1);
+        addControl (s = new gin::Knob (flt.sustain), 5, 1);
+        addControl (r = new gin::Knob (flt.release), 6, 1);
+
         freq->setLiveValuesCallback ([this] ()
         {
             if (proc.filterParams.amount->getUserValue()      != 0.0f ||
@@ -209,6 +218,8 @@ public:
                 return proc.getLiveFilterCutoff();
             return juce::Array<float>();
         });
+
+        watchParam (flt.amount);
     }
 
     void paramChanged () override
@@ -216,41 +227,8 @@ public:
         gin::ParamBox::paramChanged ();
 
         auto& flt = proc.filterParams;
+
         v->setEnabled (flt.amount->getUserValue() != 0.0f);
-    }
-
-    WavetableAudioProcessor& proc;
-    gin::ParamComponent::Ptr v;
-};
-
-//==============================================================================
-class FilterADSRArea : public gin::ParamArea
-{
-public:
-    FilterADSRArea (WavetableAudioProcessor& proc_)
-        : proc (proc_)
-    {
-        setName ("fltAdsr");
-
-        auto& flt = proc.filterParams;
-
-        adsr = new gin::ADSRComponent ();
-        adsr->setParams (flt.attack, flt.decay, flt.sustain, flt.release);
-        addControl (adsr);
-
-        addControl (a = new gin::Knob (flt.attack));
-        addControl (d = new gin::Knob (flt.decay));
-        addControl (s = new gin::Knob (flt.sustain));
-        addControl (r = new gin::Knob (flt.release));
-
-        watchParam (flt.amount);
-    }
-
-    void paramChanged() override
-    {
-        gin::ParamArea::paramChanged ();
-
-        auto& flt = proc.filterParams;
         a->setEnabled (flt.amount->getUserValue() != 0.0f);
         d->setEnabled (flt.amount->getUserValue() != 0.0f);
         s->setEnabled (flt.amount->getUserValue() != 0.0f);
@@ -259,7 +237,7 @@ public:
     }
 
     WavetableAudioProcessor& proc;
-    gin::ParamComponent::Ptr a, d, s, r;
+    gin::ParamComponent::Ptr v, a, d, s, r;
     gin::ADSRComponent* adsr;
 };
 
@@ -346,43 +324,17 @@ public:
 
         addControl (new gin::Select (proc.gateParams.beat), 0, 0);
         addControl (new gin::Knob (proc.gateParams.length), 1, 0);
-        addControl (new gin::Knob (proc.gateParams.attack), 0, 1);
-        addControl (new gin::Knob (proc.gateParams.release), 1, 1);
+        addControl (new gin::Knob (proc.gateParams.attack), 2, 0);
+        addControl (new gin::Knob (proc.gateParams.release), 3, 0);
+
+        auto g = new gin::GateEffectComponent();
+        g->setParams (proc.gateParams.length, proc.gateParams.l, proc.gateParams.r, proc.gateParams.enable);
+        addControl (g, 0, 1, 4, 1);
 
         setSize (112, 163);
     }
 
     WavetableAudioProcessor& proc;
-};
-
-//==============================================================================
-class GateArea : public gin::ParamArea
-{
-public:
-    GateArea (WavetableAudioProcessor& proc_)
-        : gin::ParamArea ("Pattern"), proc (proc_)
-    {
-        setName ("gatePattern");
-
-        g = new gin::GateEffectComponent();
-        g->setParams (proc.gateParams.length, proc.gateParams.l, proc.gateParams.r, proc.gateParams.enable);
-        addControl (g);
-
-        setSize (272, 163);
-    }
-
-    void paramChanged () override
-    {
-        gin::ParamArea::paramChanged ();
-    }
-
-    void resized() override
-    {
-        g->setBounds (getLocalBounds().withSizeKeepingCentre (getWidth(), 128));
-    }
-
-    WavetableAudioProcessor& proc;
-    gin::GateEffectComponent* g;
 };
 
 //==============================================================================

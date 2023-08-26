@@ -10,7 +10,6 @@ Editor::Editor (WavetableAudioProcessor& proc_)
     addAndMakeVisible (sub);
     addAndMakeVisible (noise);
     addAndMakeVisible (filter);
-    addAndMakeVisible (fltADSR);
 
     for (int i = 0; i < Cfg::numLFOs; i++)
     {
@@ -19,7 +18,6 @@ Editor::Editor (WavetableAudioProcessor& proc_)
     }
 
     addAndMakeVisible (gate);
-    addAndMakeVisible (pattern);
     addAndMakeVisible (chorus);
     addAndMakeVisible (distort);
     addAndMakeVisible (delay);
@@ -33,19 +31,6 @@ Editor::Editor (WavetableAudioProcessor& proc_)
 
 void Editor::setupCallbacks()
 {
-    // LFO mod items
-    for (int i = 0; i < Cfg::numLFOs; i++)
-    {
-        modItems[i].onClick = [this, i]
-        {
-            modItems[0].setSelected (i == 0);
-            modItems[1].setSelected (i == 1);
-            modItems[2].setSelected (i == 2);
-
-            lfoBox.setPage (i);
-        };
-    }
-    modItems[0].onClick();
 }
 
 void Editor::resized()
