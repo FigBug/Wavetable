@@ -133,8 +133,8 @@ public:
 
     gin::CoalescedTimer timer;
 
-    gin::SVGButton nextButton {"next", "M17.525 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L205.947 256 10.454 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L34.495 36.465c-4.686-4.687-12.284-4.687-16.97 0z"};
-    gin::SVGButton prevButton {"prev", "M238.475 475.535l7.071-7.07c4.686-4.686 4.686-12.284 0-16.971L50.053 256 245.546 60.506c4.686-4.686 4.686-12.284 0-16.971l-7.071-7.07c-4.686-4.686-12.284-4.686-16.97 0L10.454 247.515c-4.686 4.686-4.686 12.284 0 16.971l211.051 211.05c4.686 4.686 12.284 4.686 16.97-.001z"};
+    gin::SVGButton nextButton { "next", gin::Assets::next };
+    gin::SVGButton prevButton { "prev", gin::Assets::prev };
 };
 
 //==============================================================================
@@ -218,6 +218,8 @@ public:
 
         addEnable (flt.enable);
 
+        addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcFilter, true));
+
         auto freq = new gin::Knob (flt.frequency);
         addControl (freq, 0, 0);
         addControl (new gin::Knob (flt.resonance), 1, 0);
@@ -280,6 +282,9 @@ public:
 
         addEnable (lfo.enable);
 
+        addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcLFO[idx], true));
+        addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcMonoLFO[idx], false));
+
         addControl (r = new gin::Knob (lfo.rate), 0, 0);
         addControl (b = new gin::Select (lfo.beat), 0, 0);
         addControl (new gin::Knob (lfo.depth, true), 1, 0);
@@ -327,6 +332,8 @@ public:
 
         addEnable (env.enable);
 
+        addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcEnv[idx], true));
+
         addControl (new gin::Knob (env.attack), 0, 1);
         addControl (new gin::Knob (env.decay), 1, 1);
         addControl (new gin::Knob (env.sustain), 2, 1);
@@ -355,6 +362,9 @@ public:
         auto& prs = proc.stepLfoParams;
 
         addEnable (prs.enable);
+
+        addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcStep, true));
+        addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcMonoStep, false));
 
         addControl (new gin::Knob (prs.beat), 0, 1);
         addControl (new gin::Knob (prs.length), 1, 1);
