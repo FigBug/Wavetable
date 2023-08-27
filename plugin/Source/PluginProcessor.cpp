@@ -161,6 +161,10 @@ void WavetableAudioProcessor::FilterParams::setup (WavetableAudioProcessor& p)
     decay            = p.addExtParam (id + "decay",   nm + "Decay",   "D",     "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
     sustain          = p.addExtParam (id + "sustain", nm + "Sustain", "S",     "%", { 0.0, 100.0, 0.0, 1.0 }, 80.0f, 0.0f);
     release          = p.addExtParam (id + "release", nm + "Release", "R",     "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
+    wt1              = p.addIntParam (id + "wt1",     nm + "WT1",     "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
+    wt2              = p.addIntParam (id + "wt2",     nm + "WT2",     "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
+    sub              = p.addIntParam (id + "sub",     nm + "sub",     "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
+    noise            = p.addIntParam (id + "noise",   nm + "noise",   "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
 
     sustain->conversionFunction          = [] (float in) { return in / 100.0f; };
     velocityTracking->conversionFunction = [] (float in) { return in / 100.0f; };
@@ -273,8 +277,8 @@ void WavetableAudioProcessor::GlobalParams::setup (WavetableAudioProcessor& p)
 //==============================================================================
 void WavetableAudioProcessor::UIParams::setup (WavetableAudioProcessor& p)
 {
-    activeLFO   = p.addExtParam ("uiLFO",   "LFO", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0, 0.0f);
-    activeENV   = p.addExtParam ("uiENV",   "ENV", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f);
+    activeLFO   = p.addIntParam ("uiLFO",   "LFO", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0, 0.0f);
+    activeENV   = p.addIntParam ("uiENV",   "ENV", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f);
 }
 
 //==============================================================================

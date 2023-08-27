@@ -151,28 +151,35 @@ void WavetableVoice::renderNextBlock (juce::AudioBuffer<float>& outputBuffer, in
     updateParams (numSamples);
 
     // Run OSC
-    gin::ScratchBuffer buffer (2, numSamples);
+    gin::ScratchBuffer preFilter (2, numSamples);
+    gin::ScratchBuffer postFilter (2, numSamples);
 
-    for (int i = 0; i < Cfg::numOSCs; i++)
-        if (proc.oscParams[i].enable->isOn())
-            oscillators[i].processAdding (currentMidiNotes[i], oscParams[i], buffer);
+    if (proc.oscParams[0].enable->isOn())
+        oscillators[0].processAdding (currentMidiNotes[0], oscParams[0], proc.filterParams.wt1->isOn() ? preFilter : postFilter);
+
+    if (proc.oscParams[1].enable->isOn())
+        oscillators[1].processAdding (currentMidiNotes[1], oscParams[1], proc.filterParams.wt2->isOn() ? preFilter : postFilter);
 
     if (proc.subParams.enable->isOn())
-        sub.processAdding (subNote, subParams, buffer);
+        sub.processAdding (subNote, subParams, proc.filterParams.sub->isOn() ? preFilter : postFilter);
 
     if (proc.noiseParams.enable->isOn())
-        noise.processAdding (60.0f, noiseParams, buffer);
+        noise.processAdding (60.0f, noiseParams, proc.filterParams.noise->isOn() ? preFilter : postFilter);
 
     // Apply velocity
     float velocity = currentlyPlayingNote.noteOnVelocity.asUnsignedFloat();
-    buffer.applyGain (gin::velocityToGain (velocity, ampKeyTrack));
+    preFilter.applyGain (gin::velocityToGain (velocity, ampKeyTrack));
+    postFilter.applyGain (gin::velocityToGain (velocity, ampKeyTrack));
 
     // Apply filter
     if (proc.filterParams.enable->isOn())
-        filter.process (buffer);
+        filter.process (preFilter);
+
+    postFilter.addFrom (0, 0, preFilter, 0, 0, numSamples);
+    postFilter.addFrom (1, 0, preFilter, 1, 0, numSamples);
     
     // Run ADSR
-    adsr.processMultiplying (buffer);
+    adsr.processMultiplying (postFilter);
     
     if (adsr.getState() == gin::AnalogADSR::State::idle)
     {
@@ -181,8 +188,8 @@ void WavetableVoice::renderNextBlock (juce::AudioBuffer<float>& outputBuffer, in
     }
 
     // Copy output to synth
-    outputBuffer.addFrom (0, startSample, buffer, 0, 0, numSamples);
-    outputBuffer.addFrom (1, startSample, buffer, 1, 0, numSamples);
+    outputBuffer.addFrom (0, startSample, postFilter, 0, 0, numSamples);
+    outputBuffer.addFrom (1, startSample, postFilter, 1, 0, numSamples);
     
     finishBlock (numSamples);
 }

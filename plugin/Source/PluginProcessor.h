@@ -82,7 +82,7 @@ public:
 
         gin::Parameter::Ptr enable, type, keyTracking, velocityTracking,
                             frequency, resonance, amount,
-                            attack, decay, sustain, release;
+                            attack, decay, sustain, release, wt1, wt2, sub, noise;
 
         void setup (WavetableAudioProcessor& p);
 

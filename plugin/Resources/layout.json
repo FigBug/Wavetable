@@ -2,7 +2,14 @@
     "children": 
     [
         { "id": "osc[1..2]", "x": "0,prevR()+1", "y": 0, "w": "parW()/2", "h": 163 },
-        { "id": "flt", "x": "0", "y": "prevB()+1", "w": 400, "h": 163 },
+        { "id": "flt", "x": "0", "y": "prevB()+1", "w": 400, "h": 163, "children":
+            [
+                { "id": "FLT WT1", "x": 24, "y": 6, "w": 12, "h": 12 },
+                { "id": "FLT WT2", "x": "prevR()+6", "y": 6, "w": 12, "h": 12 },
+                { "id": "FLT sub", "x": "prevR()+6", "y": 6, "w": 12, "h": 12 },
+                { "id": "FLT noise", "x": "prevR()+6", "y": 6, "w": 12, "h": 12 }                
+            ]
+         },
         { "id": "adsr", "x": "prevR()+1", "y": "prevY()", "w": 240, "h": 163 },
         { "id": "noise", "x": "prevR()+1", "y": "prevY()", "w": 120, "h": 163 },
         { "id": "sub", "x": "prevR()+1", "y": "prevY()", "w": 120, "h": 163 },
