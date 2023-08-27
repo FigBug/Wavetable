@@ -271,6 +271,13 @@ void WavetableAudioProcessor::GlobalParams::setup (WavetableAudioProcessor& p)
 }
 
 //==============================================================================
+void WavetableAudioProcessor::UIParams::setup (WavetableAudioProcessor& p)
+{
+    activeLFO   = p.addExtParam ("uiLFO",   "LFO", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0, 0.0f);
+    activeENV   = p.addExtParam ("uiENV",   "ENV", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f);
+}
+
+//==============================================================================
 void WavetableAudioProcessor::ChorusParams::setup (WavetableAudioProcessor& p)
 {
     enable = p.addIntParam ("chEnable",    "Enable",  "",   "",   { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
@@ -367,6 +374,7 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     adsrParams.setup (*this);
 
     globalParams.setup (*this);
+    uiParams.setup (*this);
     gateParams.setup (*this);
     chorusParams.setup (*this);
     distortionParams.setup (*this);

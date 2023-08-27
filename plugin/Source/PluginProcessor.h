@@ -146,6 +146,18 @@ public:
         JUCE_DECLARE_NON_COPYABLE (GlobalParams)
     };
 
+    // UI Params
+    struct UIParams
+    {
+        UIParams() = default;
+
+        gin::Parameter::Ptr activeLFO, activeENV;
+
+        void setup (WavetableAudioProcessor& p);
+
+        JUCE_DECLARE_NON_COPYABLE (UIParams)
+    };
+
     struct GateParams
     {
         GateParams() = default;
@@ -227,6 +239,7 @@ public:
     DistortionParams distortionParams;
     DelayParams delayParams;
     ReverbParams reverbParams;
+    UIParams uiParams;
 
     //==============================================================================
     gin::GateEffect gate;

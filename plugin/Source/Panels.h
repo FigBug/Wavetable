@@ -282,6 +282,8 @@ public:
 
         addEnable (lfo.enable);
 
+        addHeader ({"LFO 1", "LFO 2", "LFO 3"}, idx, proc.uiParams.activeLFO);
+
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcLFO[idx], true));
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcMonoLFO[idx], false));
 
@@ -309,14 +311,18 @@ public:
     {
         gin::ParamBox::paramChanged ();
 
-        auto& lfo = proc.lfoParams[idx];
-        r->setVisible (! lfo.sync->isOn());
-        b->setVisible (lfo.sync->isOn());
+        if (r && b)
+        {
+            auto& lfo = proc.lfoParams[idx];
+            r->setVisible (! lfo.sync->isOn());
+            b->setVisible (lfo.sync->isOn());
+        }
     }
 
     WavetableAudioProcessor& proc;
     int idx;
-    gin::ParamComponent::Ptr r, b;
+    gin::ParamComponent::Ptr r = nullptr;
+    gin::ParamComponent::Ptr b = nullptr;
 };
 
 //==============================================================================
@@ -331,6 +337,8 @@ public:
         auto& env = proc.envParams[idx];
 
         addEnable (env.enable);
+
+        addHeader ({"ENV 1", "ENV 2", "ENV 3"}, idx, proc.uiParams.activeENV);
 
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcEnv[idx], true));
 
