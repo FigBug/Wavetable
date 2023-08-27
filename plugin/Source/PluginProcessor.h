@@ -39,6 +39,7 @@ public:
 
     void reloadWavetables();
     void incWavetable (int osc, int delta);
+    void loadUserWavetable (int osc, const juce::File f);
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
 
@@ -256,6 +257,7 @@ public:
     gin::BandLimitedLookupTables analogTables;
 
     juce::Value osc1Table, osc2Table;
+    juce::MemoryBlock userTable1, userTable2;
 
     //==============================================================================
     gin::ModMatrix modMatrix;

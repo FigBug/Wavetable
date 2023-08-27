@@ -336,16 +336,21 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
-static void loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav)
+static bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav)
 {
     auto is = new juce::MemoryInputStream (wav, false);
     if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
     {
-        juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
-        reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
+        if (auto sz = gin::getWavetableSize (wav); sz > 0)
+        {
+            juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
+            reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
 
-        loadWavetables (table, sr, buf, reader->sampleRate, gin::getWavetableSize (wav));
+            loadWavetables (table, sr, buf, reader->sampleRate, sz);
+            return true;
+        }
     }
+    return false;
 }
 
 //==============================================================================
@@ -430,13 +435,27 @@ void WavetableAudioProcessor::reloadWavetables()
     if (sr == 0)
         return;
 
-    if (auto mb = loadMemory (osc1Table.toString()); mb.getSize() > 0)
+    if (userTable1.getSize() > 0)
+    {
+        if (shouldLoad (0, osc1Table.toString(), sr))
+            loadWaveTable (osc1Tables, sr, userTable1);
+    }
+    else if (auto mb = loadMemory (osc1Table.toString()); mb.getSize() > 0)
+    {
         if (shouldLoad (0, osc1Table.toString(), sr))
             loadWaveTable (osc1Tables, sr, mb);
+    }
 
+    if (userTable2.getSize() > 0)
+    {
+        if (shouldLoad (0, osc2Table.toString(), sr))
+            loadWaveTable (osc2Tables, sr, userTable2);
+    }
     if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
+    {
         if (shouldLoad (1, osc2Table.toString(), sr))
             loadWaveTable (osc2Tables, sr, mb);
+    }
 }
 
 void WavetableAudioProcessor::incWavetable (int osc, int delta)
@@ -461,6 +480,22 @@ void WavetableAudioProcessor::incWavetable (int osc, int delta)
     reloadWavetables();
 }
 
+void WavetableAudioProcessor::loadUserWavetable (int osc, const juce::File f)
+{
+    auto& table = osc == 0 ? osc1Tables : osc2Tables;
+    auto& mb    = osc == 0 ? userTable1 : userTable2;
+    auto& name  = osc == 0 ? osc1Table  : osc2Table;
+
+    juce::MemoryBlock raw;
+    f.loadFileAsData (raw);
+
+    if (loadWaveTable (table, gin::Processor::getSampleRate(), raw))
+    {
+        mb = raw;
+        name = f.getFileNameWithoutExtension();
+    }
+}
+
 //==============================================================================
 void WavetableAudioProcessor::stateUpdated()
 {
@@ -468,6 +503,9 @@ void WavetableAudioProcessor::stateUpdated()
 
     osc1Table = state.getProperty ("wt1");
     osc2Table = state.getProperty ("wt2");
+
+    userTable1.fromBase64Encoding (state.getProperty ("wt1Data").toString());
+    userTable2.fromBase64Encoding (state.getProperty ("wt2Data").toString());
 
     reloadWavetables();
 }
@@ -478,6 +516,9 @@ void WavetableAudioProcessor::updateState()
 
     state.setProperty ("wt1", osc1Table, nullptr);
     state.setProperty ("wt2", osc2Table, nullptr);
+
+    state.setProperty ("wt1Data", userTable1.toBase64Encoding(), nullptr);
+    state.setProperty ("wt2Data", userTable2.toBase64Encoding(), nullptr);
 }
 
 //==============================================================================

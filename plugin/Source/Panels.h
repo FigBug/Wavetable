@@ -39,6 +39,7 @@ public:
         wt = new gin::WavetableComponent();
         wt->setName ("wt");
         wt->setWavetables (idx == 0 ? &proc.osc1Tables : &proc.osc2Tables);
+        wt->onFileDrop = [this] (const juce::File& f) { proc.loadUserWavetable (idx, f); };
         addControl (wt, 5, 0, 3, 2);
 
         timer.startTimerHz (60);

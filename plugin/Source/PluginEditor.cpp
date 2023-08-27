@@ -49,4 +49,5 @@ void WavetableAudioProcessorEditor::resized()
     rc.removeFromTop (40);
 
     editor.setBounds (rc);
+    patchBrowser.setBounds (rc);
 }
