@@ -116,7 +116,7 @@ public:
         StepLFOParams() = default;
 
         gin::Parameter::Ptr enable, beat, length;
-        gin::Parameter::Ptr level[32] = { nullptr };
+        gin::Parameter::Ptr level[Cfg::numStepLFOSteps] = { nullptr };
 
         void setup (WavetableAudioProcessor& p);
 
@@ -151,8 +151,8 @@ public:
         GateParams() = default;
 
         gin::Parameter::Ptr enable, beat, length, attack, release;
-        gin::Parameter::Ptr l[32] = { nullptr };
-        gin::Parameter::Ptr r[32] = { nullptr };
+        gin::Parameter::Ptr l[Cfg::numGateSteps] = { nullptr };
+        gin::Parameter::Ptr r[Cfg::numGateSteps] = { nullptr };
 
         void setup (WavetableAudioProcessor& p);
 

@@ -214,10 +214,10 @@ void WavetableAudioProcessor::StepLFOParams::setup (WavetableAudioProcessor& p)
     beat             = p.addIntParam (id + "beat",    nm + "Beat",    "Beat",   "", { 0.0, float (notes.size() - 1), 1.0, 1.0 }, 13.0, 0.0f, durationTextFunction);
     length           = p.addIntParam (id + "length",  nm + "Length",   "Length", "", { 2.0, 32.0, 1.0, 1.0f }, 8.0f, 0.0f);
 
-    for (int i = 0; i < 32; i++)
+    for (int i = 0; i < Cfg::numStepLFOSteps; i++)
     {
         auto num = juce::String (i + 1);
-        level[i]     = p.addIntParam (id + "step" + num,  nm + "Step " + num, "", "", { -1.0, 1.0, 0.0, 1.0f }, 0.0f, 0.0f);
+        level[i] = p.addIntParam (id + "step" + num,  nm + "Step " + num, "", "", { -1.0, 1.0, 0.0, 1.0f }, 0.0f, 0.0f);
     }
 }
 
@@ -231,11 +231,11 @@ void WavetableAudioProcessor::GateParams::setup (WavetableAudioProcessor& p)
 
     enable           = p.addIntParam (id + "enable",  nm + "Enable",  "Enable", "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
     beat             = p.addIntParam (id + "beat",    nm + "Beat",    "Beat",   "", { 0.0, float (notes.size() - 1), 1.0, 1.0 }, 7.0, 0.0f, durationTextFunction);
-    length           = p.addIntParam (id + "length",  nm + "Length",  "Length", "", { 2.0, 32.0, 1.0, 1.0f }, 8.0f, 0.0f);
+    length           = p.addIntParam (id + "length",  nm + "Length",  "Length", "", { 2.0, Cfg::numGateSteps, 1.0, 1.0f }, 8.0f, 0.0f);
     attack           = p.addExtParam (id + "attack",  nm + "Attack",  "A",     "s", { 0.0, 1.0, 0.0, 0.2f }, 0.1f, 0.0f);
     release          = p.addExtParam (id + "release", nm + "Release", "R",     "s", { 0.0, 1.0, 0.0, 0.2f }, 0.1f, 0.0f);
 
-    for (int i = 0; i < 32; i++)
+    for (int i = 0; i < Cfg::numGateSteps; i++)
     {
         auto num = juce::String (i + 1);
         l[i]     = p.addIntParam (id + "l" + num,  nm + "L " + num, "", "", { 0.0, 1.0, 1.0, 1.0f }, (i % 2 == 0 || i % 5 == 0) ? 1.0f : 0.0f, 0.0f);

@@ -27,7 +27,7 @@ public:
         addControl (new gin::Knob (osc.pos), 0, 0);
         addControl (new gin::Knob (osc.tune, true), 1, 0);
         addControl (new gin::Knob (osc.finetune, true), 2, 0);
-        addControl (new gin::Knob (osc.level, true), 3, 0);
+        addControl (new gin::Knob (osc.level), 3, 0);
         addControl (new gin::Knob (osc.pan, true), 4, 0);
 
         addControl (new gin::Select (osc.voices), 0, 1);
@@ -369,7 +369,7 @@ public:
         addControl (new gin::Knob (prs.beat), 0, 1);
         addControl (new gin::Knob (prs.length), 1, 1);
 
-        auto g = new gin::StepLFOComponent();
+        auto g = new gin::StepLFOComponent (Cfg::numStepLFOSteps);
         g->setParams (prs.beat, prs.length, prs.level, prs.enable);
         addControl (g, 0, 0, 4, 1);
 
@@ -433,7 +433,7 @@ public:
         addControl (new gin::Knob (proc.gateParams.attack), 2, 0);
         addControl (new gin::Knob (proc.gateParams.release), 3, 0);
 
-        auto g = new gin::GateEffectComponent();
+        auto g = new gin::GateEffectComponent (Cfg::numGateSteps);
         g->setParams (proc.gateParams.length, proc.gateParams.l, proc.gateParams.r, proc.gateParams.enable);
         addControl (g, 0, 1, 4, 1);
 
