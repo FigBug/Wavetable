@@ -52,6 +52,8 @@ void WavetableVoice::noteStarted()
     
     for (auto& osc : oscillators)
         osc.noteOn();
+    noise.noteOn();
+    sub.noteOn();
 
     filterADSR.noteOn();
 
