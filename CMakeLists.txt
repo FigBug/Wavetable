@@ -7,7 +7,7 @@ set (PLUGIN_NAME Wavetable)
 set (PLUGIN_VERSION 1.0.0)
 set (BUNDLE_ID com.socalabs.Wavetable)
 set (AU_ID WavetableAU)
-set (LV2_URI https://socalabs.com/wavetable/)
+set (LV2_URI "https://socalabs.com/wavetable/")
 set (PLUGIN_CODE Wave)
 
 set (CMAKE_POLICY_DEFAULT_CMP0077 NEW)
@@ -220,7 +220,7 @@ juce_add_plugin (${PLUGIN_NAME}
 				 AU_MAIN_TYPE kAudioUnitType_MusicDevice
 				 AU_EXPORT_PREFIX ${AU_ID}
 				 AU_SANDBOX_SAFE FALSE
-				 LV2URI LV2_URI)
+				 LV2URI ${LV2_URI})
 
 file (GLOB_RECURSE source_files CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/plugin/*.cpp
