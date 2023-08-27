@@ -197,7 +197,7 @@ juce_add_binary_data (${PLUGIN_NAME}_Assets SOURCES
 						"./plugin/Resources/Wavetables/Hyper/Hyper 06.wav"
 					 )
 
-set_target_properties(${PLUGIN_NAME}_Assets PROPERTIES UNITY_BUILD ON UNITY_BUILD_MODE BATCH UNITY_BUILD_BATCH_SIZE 50)
+set_target_properties(${PLUGIN_NAME}_Assets PROPERTIES UNITY_BUILD ON UNITY_BUILD_MODE BATCH UNITY_BUILD_BATCH_SIZE 10)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

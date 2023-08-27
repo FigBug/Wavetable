@@ -103,7 +103,7 @@ if [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cd "$ROOT"
 
   cmake --preset vs
-  cmake --build --preset vs --config Release -j 3
+  cmake --build --preset vs --config Release
 
   cd "$ROOT/ci/bin"
 
