@@ -5,4 +5,6 @@ Wavetable VST / AU plugin
 
 A 2 oscillator wavetable synth with flexible modulation options.
 
+![Screenshot 1](Screenshots/Screenshot1.png)
+
 https://socalabs.com/synths/Wavetable/
