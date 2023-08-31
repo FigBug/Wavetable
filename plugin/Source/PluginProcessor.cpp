@@ -338,26 +338,78 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
-static bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav)
+static bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format)
 {
     auto is = new juce::MemoryInputStream (wav, false);
-    if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
+
+    if (format == "wav")
     {
-        if (auto sz = gin::getWavetableSize (wav); sz > 0)
+        if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
+        {
+            if (auto sz = gin::getWavetableSize (wav); sz > 0)
+            {
+                juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
+                reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
+
+                loadWavetables (table, sr, buf, reader->sampleRate, sz);
+                return true;
+            }
+        }
+    }
+    else if (format == "flac")
+    {
+        if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::FlacAudioFormat().createReaderFor (is, true)))
         {
             juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
             reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
 
-            loadWavetables (table, sr, buf, reader->sampleRate, sz);
+            loadWavetables (table, sr, buf, reader->sampleRate, 2048);
             return true;
         }
     }
+
     return false;
+}
+
+void convertWavetables()
+{
+    auto src = juce::File (__FILE__).getChildFile ("../../Resources/Wavetables");
+    if (! src.isDirectory())
+        return;
+
+    auto files = src.findChildFiles (juce::File::findFiles, true, "*.wav");
+    for (auto srcFile : files)
+    {
+        int sz = gin::getWavetableSize (srcFile);
+        jassert (sz > 0);
+
+        auto path = srcFile.withFileExtension (".wt" + juce::String (sz)).getFullPathName().replace ("Wavetables", "WavetablesFLAC");
+        auto dstFile = juce::File (path);
+
+        dstFile.deleteFile();
+        dstFile.getParentDirectory().createDirectory();
+
+        if (auto is = srcFile.createInputStream())
+        {
+            if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is.release(), true)))
+            {
+                juce::AudioSampleBuffer buffer (1, int (reader->lengthInSamples));
+                reader->read (&buffer, 0, int (reader->lengthInSamples), 0, true, false);
+
+                if (auto writer = std::unique_ptr<juce::AudioFormatWriter> (juce::FlacAudioFormat().createWriterFor (dstFile.createOutputStream().release(), reader->sampleRate, 1, 16, {}, 8)))
+                {
+                    writer->writeFromAudioReader (*reader, 0, reader->lengthInSamples);
+                }
+            }
+        }
+    }
 }
 
 //==============================================================================
 WavetableAudioProcessor::WavetableAudioProcessor() : gin::Processor (false)
 {
+    //convertWavetables();
+
     lf = std::make_unique<gin::CopperLookAndFeel>();
 
     enableLegacyMode();
@@ -413,7 +465,7 @@ void WavetableAudioProcessor::reloadWavetables()
     {
         for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
         {
-            if ((name + ".wav").equalsIgnoreCase (BinaryData::originalFilenames[i]))
+            if ((name + ".wt2048").equalsIgnoreCase (BinaryData::originalFilenames[i]))
             {
                 int sz = 0;
                 if (auto data = BinaryData::getNamedResource (BinaryData::namedResourceList[i], sz))
@@ -441,23 +493,23 @@ void WavetableAudioProcessor::reloadWavetables()
     if (userTable1.getSize() > 0)
     {
         if (shouldLoad (0, osc1Table.toString(), sr))
-            loadWaveTable (osc1Tables, sr, userTable1);
+            loadWaveTable (osc1Tables, sr, userTable1, "wav");
     }
     else if (auto mb = loadMemory (osc1Table.toString()); mb.getSize() > 0)
     {
         if (shouldLoad (0, osc1Table.toString(), sr))
-            loadWaveTable (osc1Tables, sr, mb);
+            loadWaveTable (osc1Tables, sr, mb, "flac");
     }
 
     if (userTable2.getSize() > 0)
     {
         if (shouldLoad (0, osc2Table.toString(), sr))
-            loadWaveTable (osc2Tables, sr, userTable2);
+            loadWaveTable (osc2Tables, sr, userTable2, "wav");
     }
     if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
     {
         if (shouldLoad (1, osc2Table.toString(), sr))
-            loadWaveTable (osc2Tables, sr, mb);
+            loadWaveTable (osc2Tables, sr, mb, "flac");
     }
 }
 
@@ -492,7 +544,7 @@ void WavetableAudioProcessor::loadUserWavetable (int osc, const juce::File f)
     juce::MemoryBlock raw;
     f.loadFileAsData (raw);
 
-    if (loadWaveTable (table, gin::Processor::getSampleRate(), raw))
+    if (loadWaveTable (table, gin::Processor::getSampleRate(), raw, "wav"))
     {
         mb = raw;
         name = f.getFileNameWithoutExtension();

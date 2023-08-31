@@ -48,4 +48,4 @@ jobs:
         run: ./release.sh
         shell: bash
         env:
-          GH_TOKEN: ${{ github.ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
