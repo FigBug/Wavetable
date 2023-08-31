@@ -33,6 +33,8 @@ public:
         addControl (new gin::Select (osc.voices), 0, 1);
         addControl (detune = new gin::Knob (osc.detune), 1, 1);
         addControl (spread = new gin::Knob (osc.spread), 2, 1);
+        addControl (new gin::Knob (osc.formant, true), 3, 1);
+        addControl (new gin::Knob (osc.bend, true), 4, 1);
 
         watchParam (osc.voices);
 
@@ -95,6 +97,7 @@ public:
             }
 
             juce::PopupMenu m;
+            m.setLookAndFeel (&getLookAndFeel());
             for (auto itr : menus)
                 m.addSubMenu (itr.first, itr.second);
 
@@ -195,10 +198,11 @@ public:
         adsr->setParams (preset.attack, preset.decay, preset.sustain, preset.release);
         addControl (adsr, 0, 0, 4, 1);
 
-        addControl (a = new gin::Knob (preset.attack), 0, 1);
-        addControl (d = new gin::Knob (preset.decay), 1, 1);
-        addControl (s = new gin::Knob (preset.sustain), 2, 1);
-        addControl (r = new gin::Knob (preset.release), 3, 1);
+        addControl (new gin::Knob (preset.attack), 0, 1);
+        addControl (new gin::Knob (preset.decay), 1, 1);
+        addControl (new gin::Knob (preset.sustain), 2, 1);
+        addControl (new gin::Knob (preset.release), 3, 1);
+        addControl (new gin::Knob (preset.velocityTracking), 4, 1);
     }
 
     WavetableAudioProcessor& proc;
@@ -385,7 +389,7 @@ public:
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcStep, true));
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcMonoStep, false));
 
-        addControl (new gin::Knob (prs.beat), 0, 1);
+        addControl (new gin::Select (prs.beat), 0, 1);
         addControl (new gin::Knob (prs.length), 1, 1);
 
         auto g = new gin::StepLFOComponent (Cfg::numStepLFOSteps);
@@ -524,6 +528,9 @@ public:
         addControl (new gin::Switch (proc.delayParams.sync), 0, 1);
         addControl (new gin::Knob (proc.delayParams.mix), 1.5f, 1.0f);
 
+        t->setName ("Delay1");
+        b->setName ("Delay2");
+
         watchParam (proc.delayParams.sync);
 
         setSize (168, 163);
@@ -563,31 +570,4 @@ public:
     }
 
     WavetableAudioProcessor& proc;
-};
-
-//==============================================================================
-class ScopeArea : public gin::ParamArea
-{
-public:
-    ScopeArea (WavetableAudioProcessor& proc_)
-        : gin::ParamArea ("Scope"), proc (proc_)
-    {
-        setName ("scope");
-
-        scope = new gin::TriggeredScope (proc.scopeFifo);
-        scope->setNumChannels (2);
-        scope->setTriggerMode (gin::TriggeredScope::TriggerMode::Up);
-        scope->setColour (gin::TriggeredScope::lineColourId, juce::Colours::transparentBlack);
-        addControl (scope);
-
-        setSize (272, 163);
-    }
-
-    void resized() override
-    {
-        scope->setBounds (getLocalBounds().withSizeKeepingCentre (getWidth(), 140));
-    }
-
-    WavetableAudioProcessor& proc;
-    gin::TriggeredScope* scope;
 };

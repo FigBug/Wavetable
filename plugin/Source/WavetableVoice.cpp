@@ -211,14 +211,15 @@ void WavetableVoice::updateParams (int blockSize)
         currentMidiNotes[i] += float (note.totalPitchbendInSemitones);
         currentMidiNotes[i] += getValue (proc.oscParams[i].tune) + getValue (proc.oscParams[i].finetune) / 100.0f;
 
-        oscParams[i].wave   = gin::Wave::wavetable;
-        oscParams[i].voices = int (proc.oscParams[i].voices->getProcValue());
-        oscParams[i].vcTrns = 0;
-        oscParams[i].pw     = getValue (proc.oscParams[i].pos) / 100.0f;
-        oscParams[i].pan    = getValue (proc.oscParams[i].pan);
-        oscParams[i].spread = getValue (proc.oscParams[i].spread) / 100.0f;
-        oscParams[i].detune = getValue (proc.oscParams[i].detune);
-        oscParams[i].gain   = getValue (proc.oscParams[i].level);
+        oscParams[i].voices     = int (proc.oscParams[i].voices->getProcValue());
+        oscParams[i].vcTrns     = 0;
+        oscParams[i].position   = getValue (proc.oscParams[i].pos) / 100.0f;
+        oscParams[i].pan        = getValue (proc.oscParams[i].pan);
+        oscParams[i].spread     = getValue (proc.oscParams[i].spread) / 100.0f;
+        oscParams[i].detune     = getValue (proc.oscParams[i].detune);
+        oscParams[i].gain       = getValue (proc.oscParams[i].level);
+        oscParams[i].formant    = getValue (proc.oscParams[i].formant);
+        oscParams[i].bend       = getValue (proc.oscParams[i].bend);
     }
 
     if (proc.subParams.enable->isOn())
@@ -412,6 +413,8 @@ float WavetableVoice::getFilterCutoffNormalized()
 gin::WTOscillator::Params WavetableVoice::getLiveWTParams (int osc)
 {
     gin::WTOscillator::Params p;
-    p.pw = getValue (proc.oscParams[osc].pos) / 100.0f;
+    p.position = getValue (proc.oscParams[osc].pos) / 100.0f;
+    p.formant = getValue (proc.oscParams[osc].formant);
+    p.bend = getValue (proc.oscParams[osc].bend);
     return p;
 }

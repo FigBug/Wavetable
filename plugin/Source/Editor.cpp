@@ -19,7 +19,6 @@ Editor::Editor (WavetableAudioProcessor& proc_)
     addAndMakeVisible (distort);
     addAndMakeVisible (delay);
     addAndMakeVisible (reverb);
-    addAndMakeVisible (scope);
 
     addAndMakeVisible (effects);
 

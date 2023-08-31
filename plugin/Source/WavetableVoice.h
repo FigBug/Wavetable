@@ -49,7 +49,7 @@ private:
     gin::AnalogADSR adsr;
 
     float currentMidiNotes[Cfg::numOSCs];
-    gin::WTVoicedStereoOscillator::Params oscParams[Cfg::numOSCs];
+    gin::WTVoicedStereoOscillatorParams oscParams[Cfg::numOSCs];
 
     float subNote = 0.0f;
     gin::StereoOscillator::Params subParams;

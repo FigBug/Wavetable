@@ -5,9 +5,18 @@
 WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProcessor& p)
     : ProcessorEditor (p), vaProc (p)
 {
-    addAndMakeVisible (editor);
+    scope.setName ("scope");
+    scope.setNumChannels (2);
+    scope.setTriggerMode (gin::TriggeredScope::TriggerMode::Up);
+    scope.setColour (gin::TriggeredScope::traceColourId + 0, findColour(gin::PluginLookAndFeel::accentColourId, true).withAlpha (0.7f));
+    scope.setColour (gin::TriggeredScope::traceColourId + 1, findColour(gin::PluginLookAndFeel::accentColourId, true).withAlpha (0.7f));
+    scope.setColour (gin::TriggeredScope::lineColourId, juce::Colours::transparentBlack);
 
-    setSize (901, 753);
+    addAndMakeVisible (editor);
+    addAndMakeVisible (scope);
+    scope.setBounds (674, 5, 177, 30);
+
+    setSize (901, 671);
 }
 
 WavetableAudioProcessorEditor::~WavetableAudioProcessorEditor()

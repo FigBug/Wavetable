@@ -48,7 +48,7 @@ public:
     {
         OSCParams() = default;
 
-        gin::Parameter::Ptr enable, voices, tune, finetune, level, pos, detune, spread, pan;
+        gin::Parameter::Ptr enable, voices, tune, finetune, level, pos, detune, spread, pan, bend, formant;
 
         void setup (WavetableAudioProcessor& p, int idx);
 

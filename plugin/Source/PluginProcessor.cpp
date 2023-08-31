@@ -110,6 +110,8 @@ void WavetableAudioProcessor::OSCParams::setup (WavetableAudioProcessor& p, int 
     detune     = p.addExtParam (id + "detune",     nm + "Detune",      "Detune",    "", { 0.0, 0.5, 0.0, 1.0 }, 0.0, 0.0f);
     spread     = p.addExtParam (id + "spread",     nm + "Spread",      "Spread",    "%", { -100.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
     pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
+    formant    = p.addExtParam (id + "formant",    nm + "Formant",     "Formant",   "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
+    bend       = p.addExtParam (id + "bend",       nm + "Bend",        "Bend",      "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
 
     level->conversionFunction = [] (float in)   { return juce::Decibels::decibelsToGain (in); };
 }
@@ -354,7 +356,7 @@ static bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table,
 }
 
 //==============================================================================
-WavetableAudioProcessor::WavetableAudioProcessor()
+WavetableAudioProcessor::WavetableAudioProcessor() : gin::Processor (false)
 {
     lf = std::make_unique<gin::CopperLookAndFeel>();
 
@@ -398,6 +400,7 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     }
 
     setupModMatrix();
+    init();
 }
 
 WavetableAudioProcessor::~WavetableAudioProcessor()
@@ -683,7 +686,9 @@ gin::WTOscillator::Params WavetableAudioProcessor::getLiveWTParams (int osc)
                 return vav->getLiveWTParams (osc);
 
     gin::WTOscillator::Params p;
-    p.pw = oscParams[osc].pos->getValue();
+    p.position  = oscParams[osc].pos->getUserValue() / 100.0f;
+    p.formant   = oscParams[osc].formant->getUserValue();
+    p.bend      = oscParams[osc].bend->getUserValue();
     return p;
 }
 

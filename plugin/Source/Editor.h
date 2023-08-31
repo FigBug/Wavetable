@@ -35,7 +35,6 @@ private:
     DistortBox distort { proc };
     DelayBox delay { proc };
     ReverbBox reverb { proc };
-    ScopeArea scope { proc };
 
     gin::BoxArea lfoBox;
     gin::BoxArea effects;

@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 3.24.0 FATAL_ERROR)
 # Set for each plugin
 #
 set (PLUGIN_NAME Wavetable)
-set (PLUGIN_VERSION 1.0.0)
+set (PLUGIN_VERSION 0.0.1)
 set (BUNDLE_ID com.socalabs.Wavetable)
 set (AU_ID WavetableAU)
 set (LV2_URI "https://socalabs.com/wavetable/")
@@ -96,6 +96,7 @@ set_property (DIRECTORY APPEND PROPERTY LABELS Assets)
 juce_add_binary_data (${PLUGIN_NAME}_Assets SOURCES
 						"./plugin/Resources/layout.json"
 
+						"./plugin/Resources/Wavetables/Analog/Analog Classic.wav"
 						"./plugin/Resources/Wavetables/Analog/Analog PWM Square 03.wav"
 						"./plugin/Resources/Wavetables/Analog/Analog PWM Sub 06.wav"
 						"./plugin/Resources/Wavetables/Analog/Analog PWM Sub 07.wav"

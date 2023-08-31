@@ -21,6 +21,7 @@ public:
 private:
     WavetableAudioProcessor& vaProc;
 
+    gin::TriggeredScope scope { vaProc.scopeFifo };
     Editor editor { vaProc };
 
    #if JUCE_DEBUG
