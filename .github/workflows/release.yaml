@@ -1,0 +1,49 @@
+name: Release
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: "Run script"
+        run: |
+          ./ci/build.sh
+        shell: bash
+        env:
+          APPLICATION: ${{ secrets.APPLICATION }}
+          INSTALLER: ${{ secrets.INSTALLER }}
+          APPLE_PASS: ${{ secrets.APPLE_PASS }}
+          APPLE_USER: ${{ secrets.APPLE_USER }}
+          APIKEY: ${{ secrets.APIKEY }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Binaries
+          path: ci/bin
+          retention-days: 30
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+    
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+
+      - name: Create Release
+        run: ./release.sh
+        shell: bash
