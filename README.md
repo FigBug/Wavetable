@@ -1,5 +1,5 @@
 # Wavetable
-Wavetable VST / AU plugin
+Wavetable VST3 / AU / LV plugin
 
 ![Build](https://github.com/FigBug/Wavetable/workflows/Build/badge.svg)
 
@@ -7,4 +7,9 @@ A 2 oscillator wavetable synth with flexible modulation options.
 
 ![Screenshot 1](Screenshots/Screenshot1.png)
 
-https://socalabs.com/synths/Wavetable/
+[Download](https://github.com/FigBug/Wavetable/releases)
+
+[Product page](https://socalabs.com/synths/Wavetable/)
+
+
+
