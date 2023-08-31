@@ -33,6 +33,7 @@ jobs:
           retention-days: 30
 
   release:
+    name: Release
     needs: build
     runs-on: ubuntu-latest
 
