@@ -1,9 +1,16 @@
-name: Build Linux
-on: [push]
+name: Build
+on:
+  push:
+    branches:
+      - '**'
+
 jobs:
   build:
-    name: Build Linux
-    runs-on: ubuntu-latest
+    name: Build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -13,6 +20,10 @@ jobs:
           ./ci/build.sh
         shell: bash
         env:
+          APPLICATION: ${{ secrets.APPLICATION }}
+          INSTALLER: ${{ secrets.INSTALLER }}
+          APPLE_PASS: ${{ secrets.APPLE_PASS }}
+          APPLE_USER: ${{ secrets.APPLE_USER }}
           APIKEY: ${{ secrets.APIKEY }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
