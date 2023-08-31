@@ -29,5 +29,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Binaries
-          path: ci/bin
+          path: ci/bin/*.zip
           retention-days: 30
