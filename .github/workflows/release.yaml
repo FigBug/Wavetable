@@ -47,3 +47,5 @@ jobs:
       - name: Create Release
         run: ./release.sh
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.ACCESS_TOKEN }}
