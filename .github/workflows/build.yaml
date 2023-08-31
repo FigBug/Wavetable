@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - '**'
+    
+concurrency:
+  group: build-${{ github.ref || github.run_id }}
 
 jobs:
   build:
