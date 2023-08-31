@@ -88,9 +88,15 @@ public:
                 menus[prefix].addItem (t, [this, t]
                 {
                     if (idx == 0)
+                    {
+                        proc.userTable1.reset();
                         proc.osc1Table = t;
+                    }
                     else
+                    {
+                        proc.userTable2.reset();
                         proc.osc2Table = t;
+                    }
 
                     proc.reloadWavetables();
                 });

@@ -506,7 +506,7 @@ void WavetableAudioProcessor::reloadWavetables()
         if (shouldLoad (0, osc2Table.toString(), sr))
             loadWaveTable (osc2Tables, sr, userTable2, "wav");
     }
-    if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
+    else if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
     {
         if (shouldLoad (1, osc2Table.toString(), sr))
             loadWaveTable (osc2Tables, sr, mb, "flac");
@@ -517,10 +517,15 @@ void WavetableAudioProcessor::incWavetable (int osc, int delta)
 {
     auto& table = osc == 0 ? osc1Table : osc2Table;
 
+    if (osc == 0)
+        userTable1.reset();
+    else
+        userTable2.reset();
+
     juce::StringArray tables;
     for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
-        if (juce::String (BinaryData::originalFilenames[i]).endsWith (".wav"))
-            tables.add (juce::String (BinaryData::originalFilenames[i]).upToLastOccurrenceOf (".wav", false, false));
+        if (juce::String (BinaryData::originalFilenames[i]).endsWith (".wt2048"))
+            tables.add (juce::String (BinaryData::originalFilenames[i]).upToLastOccurrenceOf (".wt2048", false, false));
 
     tables.sortNatural();
 
