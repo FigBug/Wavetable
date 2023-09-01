@@ -14,7 +14,6 @@ public:
     void resized() override;
 
 private:
-
     WavetableAudioProcessor& proc;
 
     OscillatorBox oscillators[Cfg::numOSCs] { { "oscillator 1", proc, 0 }, { "oscillator 2", proc, 1 } };

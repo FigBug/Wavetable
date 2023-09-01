@@ -605,15 +605,6 @@ void WavetableAudioProcessor::setupModMatrix()
     modSrcNote      = modMatrix.addPolyModSource ("note", "MIDI Note Number", false);
     modSrcVelocity  = modMatrix.addPolyModSource ("vel", "MIDI Velocity", false);
 
-    for (int i = 0; i <= 119; i++)
-    {
-        juce::String name = juce::MidiMessage::getControllerName (i);
-        if (name.isEmpty())
-            modSrcCC.add (modMatrix.addMonoModSource (juce::String::formatted ("cc%d", i), juce::String::formatted ("CC %d", i), false));
-        else
-            modSrcCC.add (modMatrix.addMonoModSource (juce::String::formatted ("cc%d", i), juce::String::formatted ("CC %d ", i) + name, false));
-    }
-
     for (int i = 0; i < Cfg::numLFOs; i++)
         modSrcMonoLFO.add (modMatrix.addMonoModSource (juce::String::formatted ("mlfo%d", i + 1), juce::String::formatted ("LFO %d (Mono)", i + 1), true));
 
@@ -627,6 +618,15 @@ void WavetableAudioProcessor::setupModMatrix()
     for (int i = 0; i < Cfg::numENVs; i++)
         modSrcEnv.add (modMatrix.addPolyModSource (juce::String::formatted ("env%d", i + 1), juce::String::formatted ("Envelope %d", i + 1), false));
 
+    for (int i = 0; i <= 119; i++)
+    {
+        juce::String name = juce::MidiMessage::getControllerName (i);
+        if (name.isEmpty())
+            modSrcCC.add (modMatrix.addMonoModSource (juce::String::formatted ("cc%d", i), juce::String::formatted ("CC %d", i), false));
+        else
+            modSrcCC.add (modMatrix.addMonoModSource (juce::String::formatted ("cc%d", i), juce::String::formatted ("CC %d ", i) + name, false));
+    }
+    
     auto firstMonoParam = globalParams.mono;
     bool polyParam = true;
     for (auto pp : getPluginParameters())
@@ -635,9 +635,7 @@ void WavetableAudioProcessor::setupModMatrix()
             polyParam = false;
 
         if (! pp->isInternal())
-        {
             modMatrix.addParameter (pp, polyParam);
-        }
     }
 
     modMatrix.build();

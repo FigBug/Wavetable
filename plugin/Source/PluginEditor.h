@@ -15,6 +15,7 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
+    void addMenuItems (juce::PopupMenu& m) override;
 
     void showAboutInfo() override;
 

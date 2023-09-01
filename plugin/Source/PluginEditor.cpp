@@ -60,3 +60,12 @@ void WavetableAudioProcessorEditor::resized()
     editor.setBounds (rc);
     patchBrowser.setBounds (rc);
 }
+
+void WavetableAudioProcessorEditor::addMenuItems (juce::PopupMenu& m)
+{
+    m.addSeparator();
+    m.addItem ("MPE", true, vaProc.globalParams.mpe->getUserValueBool(), [this]
+    {
+        vaProc.globalParams.mpe->setUserValue (vaProc.globalParams.mpe->getUserValueBool() ? 0.0f : 1.0f);
+    });
+}
