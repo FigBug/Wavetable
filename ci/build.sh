@@ -63,16 +63,17 @@ if [ "$(uname)" == "Darwin" ]; then
 
   # Notarize
   cd "$ROOT/ci/bin"
-  zip -r ${PLUGIN}_Mac.zip $PLUGIN.vst $PLUGIN.vst3 $PLUGIN.component
 
   if [[ -n "$APPLE_USER" ]]; then
+    zip -r ${PLUGIN}_Mac.zip $PLUGIN.vst $PLUGIN.vst3 $PLUGIN.component
     xcrun notarytool submit --verbose --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "3FS7DJDG38" --wait --timeout 30m ${PLUGIN}_Mac.zip
+
+    rm ${PLUGIN}_Mac.zip
+    xcrun stapler staple $PLUGIN.vst
+    xcrun stapler staple $PLUGIN.vst3
+    xcrun stapler staple $PLUGIN.component
   fi
 
-  rm ${PLUGIN}_Mac.zip
-  xcrun stapler staple $PLUGIN.vst
-  xcrun stapler staple $PLUGIN.vst3
-  xcrun stapler staple $PLUGIN.component
   zip -r ${PLUGIN}_Mac.zip $PLUGIN.vst $PLUGIN.vst3 $PLUGIN.component
   
   if [ "$BRANCH" = "release" ]; then
