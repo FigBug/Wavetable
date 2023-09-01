@@ -16,6 +16,18 @@ static juce::String subTextFunction (const gin::Parameter&, float v)
     }
 }
 
+static juce::String noiseTextFunction (const gin::Parameter&, float v)
+{
+    switch (int (v))
+    {
+        case 0: return "White";
+        case 1: return "Pink";
+        default:
+            jassertfalse;
+            return {};
+    }
+}
+
 static juce::String lfoTextFunction (const gin::Parameter&, float v)
 {
     switch ((gin::LFO::WaveShape)int (v))
@@ -138,6 +150,7 @@ void WavetableAudioProcessor::NoiseParams::setup (WavetableAudioProcessor& p)
     juce::String nm = "Noise ";
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f);
+    type       = p.addIntParam (id + "type",       nm + "Type",        "Type",      "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, noiseTextFunction);
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
     pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
 

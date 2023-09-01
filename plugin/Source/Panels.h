@@ -182,6 +182,7 @@ public:
 
         addEnable (noise.enable);
 
+        addControl (new gin::Select (noise.type), 0, 0);
         addControl (new gin::Knob (noise.level, true), 0, 0);
         addControl (new gin::Knob (noise.pan, true), 0, 1);
     }

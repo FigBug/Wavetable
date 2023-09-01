@@ -70,7 +70,7 @@ public:
     {
         NoiseParams() = default;
 
-        gin::Parameter::Ptr enable, level, pan;
+        gin::Parameter::Ptr enable, type, level, pan;
 
         void setup (WavetableAudioProcessor& p);
 

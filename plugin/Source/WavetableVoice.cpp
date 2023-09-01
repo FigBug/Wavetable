@@ -243,7 +243,7 @@ void WavetableVoice::updateParams (int blockSize)
 
     if (proc.noiseParams.enable->isOn())
     {
-        noiseParams.wave = gin::Wave::noise;
+        noiseParams.wave = gin::Wave::whiteNoise;
 
         noiseParams.leftGain  = getValue (proc.noiseParams.level) * (1.0f - getValue (proc.noiseParams.pan));
         noiseParams.rightGain = getValue (proc.noiseParams.level) * (1.0f + getValue (proc.noiseParams.pan));
