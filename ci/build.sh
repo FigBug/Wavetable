@@ -12,7 +12,7 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
   # Create a temp keychain
   if [ -n "$GITHUB_ACTIONS" ]; then
-    if [ -z "$APPLICATION" ]; then
+    if [ -n "$APPLICATION" ]; then
       echo "Create a keychain"
       security create-keychain -p nr4aGPyz Keys.keychain
 
@@ -55,7 +55,7 @@ if [ "$(uname)" == "Darwin" ]; then
   cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin"
 
   cd "$ROOT/ci/bin"
-  if [ -z "$APPLICATION" ]; then
+  if [ -n "$APPLICATION" ]; then
     codesign -s "$DEV_APP_ID" -v $PLUGIN.vst --options=runtime --timestamp --force
     codesign -s "$DEV_APP_ID" -v $PLUGIN.vst3 --options=runtime --timestamp --force
     codesign -s "$DEV_APP_ID" -v $PLUGIN.component --options=runtime --timestamp --force
