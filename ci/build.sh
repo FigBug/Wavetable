@@ -12,23 +12,25 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
   # Create a temp keychain
   if [ -n "$GITHUB_ACTIONS" ]; then
-    echo "Create a keychain"
-    security create-keychain -p nr4aGPyz Keys.keychain
+    if [ -z "$APPLICATION" ]; then
+      echo "Create a keychain"
+      security create-keychain -p nr4aGPyz Keys.keychain
 
-    echo $APPLICATION | base64 -D -o /tmp/Application.p12
-    echo $INSTALLER | base64 -D -o /tmp/Installer.p12
+      echo $APPLICATION | base64 -D -o /tmp/Application.p12
+      echo $INSTALLER | base64 -D -o /tmp/Installer.p12
 
-    security import /tmp/Application.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
-    security import /tmp/Installer.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
+      security import /tmp/Application.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
+      security import /tmp/Installer.p12 -t agg -k Keys.keychain -P aym9PKWB -A -T /usr/bin/codesign
 
-    security list-keychains -s Keys.keychain
-    security default-keychain -s Keys.keychain
-    security unlock-keychain -p nr4aGPyz Keys.keychain
-    security set-keychain-settings -l -u -t 13600 Keys.keychain
-    security set-key-partition-list -S apple-tool:,apple: -s -k nr4aGPyz Keys.keychain
+      security list-keychains -s Keys.keychain
+      security default-keychain -s Keys.keychain
+      security unlock-keychain -p nr4aGPyz Keys.keychain
+      security set-keychain-settings -l -u -t 13600 Keys.keychain
+      security set-key-partition-list -S apple-tool:,apple: -s -k nr4aGPyz Keys.keychain
+    fi
+    DEV_APP_ID="Developer ID Application: Roland Rabien (3FS7DJDG38)"
+    DEV_INST_ID="Developer ID Installer: Roland Rabien (3FS7DJDG38)"
   fi
-  DEV_APP_ID="Developer ID Application: Roland Rabien (3FS7DJDG38)"
-  DEV_INST_ID="Developer ID Installer: Roland Rabien (3FS7DJDG38)"
 fi
 
 ROOT=$(cd "$(dirname "$0")/.."; pwd)
@@ -53,9 +55,11 @@ if [ "$(uname)" == "Darwin" ]; then
   cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin"
 
   cd "$ROOT/ci/bin"
-  codesign -s "$DEV_APP_ID" -v $PLUGIN.vst --options=runtime --timestamp --force
-  codesign -s "$DEV_APP_ID" -v $PLUGIN.vst3 --options=runtime --timestamp --force
-  codesign -s "$DEV_APP_ID" -v $PLUGIN.component --options=runtime --timestamp --force
+  if [ -z "$APPLICATION" ]; then
+    codesign -s "$DEV_APP_ID" -v $PLUGIN.vst --options=runtime --timestamp --force
+    codesign -s "$DEV_APP_ID" -v $PLUGIN.vst3 --options=runtime --timestamp --force
+    codesign -s "$DEV_APP_ID" -v $PLUGIN.component --options=runtime --timestamp --force
+  fi
 
   # Notarize
   cd "$ROOT/ci/bin"
