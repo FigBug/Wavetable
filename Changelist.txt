@@ -1,3 +1,8 @@
+0.0.3:
+
+- Fixed pan when spread enabled
+- Fixed preset overwrite dialog not showing
+
 0.0.2:
 
 - Fixed broken bend and formant
