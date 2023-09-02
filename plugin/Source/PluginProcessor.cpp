@@ -351,39 +351,6 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
-static bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format)
-{
-    auto is = new juce::MemoryInputStream (wav, false);
-
-    if (format == "wav")
-    {
-        if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
-        {
-            if (auto sz = gin::getWavetableSize (wav); sz > 0)
-            {
-                juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
-                reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
-
-                loadWavetables (table, sr, buf, reader->sampleRate, sz);
-                return true;
-            }
-        }
-    }
-    else if (format == "flac")
-    {
-        if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::FlacAudioFormat().createReaderFor (is, true)))
-        {
-            juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
-            reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
-
-            loadWavetables (table, sr, buf, reader->sampleRate, 2048);
-            return true;
-        }
-    }
-
-    return false;
-}
-
 void convertWavetables()
 {
     auto src = juce::File (__FILE__).getChildFile ("../../Resources/Wavetables");
@@ -688,6 +655,8 @@ void WavetableAudioProcessor::releaseResources()
 void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midi)
 {
     juce::ScopedNoDenormals noDenormals;
+    if (! dspLock.tryEnter())
+        return;
 
     startBlock();
     setMPE (globalParams.mpe->isOn());
@@ -729,6 +698,8 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         scopeFifo.write (buffer);
 
     endBlock (buffer.getNumSamples());
+    
+    dspLock.exit();
 }
 
 juce::Array<float> WavetableAudioProcessor::getLiveFilterCutoff()
@@ -909,6 +880,49 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
 
     // Output gain
     outputGain.setGain (modMatrix.getValue (globalParams.level));
+}
+
+bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format)
+{
+    auto is = new juce::MemoryInputStream (wav, false);
+
+    if (format == "wav")
+    {
+        if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
+        {
+            if (auto sz = gin::getWavetableSize (wav); sz > 0)
+            {
+                juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
+                reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
+
+                juce::OwnedArray<gin::BandLimitedLookupTable> t;
+                loadWavetables (t, sr, buf, reader->sampleRate, sz);
+                
+                juce::ScopedLock sl (dspLock);
+                std::swap (t, table);
+
+                return true;
+            }
+        }
+    }
+    else if (format == "flac")
+    {
+        if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::FlacAudioFormat().createReaderFor (is, true)))
+        {
+            juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
+            reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
+
+            juce::OwnedArray<gin::BandLimitedLookupTable> t;
+            loadWavetables (t, sr, buf, reader->sampleRate, 2048);
+            
+            juce::ScopedLock sl (dspLock);
+            std::swap (t, table);
+            
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void WavetableAudioProcessor::handleMidiEvent (const juce::MidiMessage& m)

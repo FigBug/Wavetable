@@ -42,6 +42,7 @@ public:
     void loadUserWavetable (int osc, const juce::File f);
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
+    bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format);
 
     // Voice Params
     struct OSCParams
@@ -274,6 +275,8 @@ public:
     };
 
     CurTable curTables[Cfg::numOSCs];
+    
+    juce::CriticalSection dspLock;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableAudioProcessor)

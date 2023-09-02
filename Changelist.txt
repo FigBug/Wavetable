@@ -3,6 +3,7 @@
 - Fixed pan when unison enabled
 - Fixed preset overwrite dialog not showing
 - Added resizable UI
+- Fixed crash loading wavetable when changing preset
 
 0.0.2:
 
