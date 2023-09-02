@@ -1,6 +1,6 @@
 0.0.3:
 
-- Fixed pan when spread enabled
+- Fixed pan when unison enabled
 - Fixed preset overwrite dialog not showing
 
 0.0.2:
