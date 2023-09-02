@@ -68,4 +68,19 @@ void WavetableAudioProcessorEditor::addMenuItems (juce::PopupMenu& m)
     {
         vaProc.globalParams.mpe->setUserValue (vaProc.globalParams.mpe->getUserValueBool() ? 0.0f : 1.0f);
     });
+
+    auto setSize = [this] (float scale)
+    {
+        if (auto p = findParentComponentOfClass<gin::ScaledPluginEditor>())
+            p->setScale (scale);
+    };
+
+    juce::PopupMenu um;
+    um.addItem ("50%",  [setSize] { setSize (0.50f); });
+    um.addItem ("75%",  [setSize] { setSize (0.75f); });
+    um.addItem ("100%", [setSize] { setSize (1.00f); });
+    um.addItem ("150%", [setSize] { setSize (1.50f); });
+    um.addItem ("200%", [setSize] { setSize (2.00f); });
+
+    m.addSubMenu ("UI Size", um);
 }

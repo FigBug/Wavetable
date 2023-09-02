@@ -2,6 +2,7 @@
 
 - Fixed pan when unison enabled
 - Fixed preset overwrite dialog not showing
+- Added resizable UI
 
 0.0.2:
 

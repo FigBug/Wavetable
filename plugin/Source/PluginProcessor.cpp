@@ -932,7 +932,7 @@ bool WavetableAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* WavetableAudioProcessor::createEditor()
 {
-    return new WavetableAudioProcessorEditor (*this);
+    return new gin::ScaledPluginEditor (new WavetableAudioProcessorEditor (*this), state);
 }
 
 //==============================================================================
