@@ -276,7 +276,7 @@ juce_generate_juce_header (${PLUGIN_NAME})
 target_compile_definitions (${PLUGIN_NAME} PRIVATE
 								JUCE_DISPLAY_SPLASH_SCREEN=0
 								JUCE_COREGRAPHICS_DRAW_ASYNC=1
-								JUCE_MODAL_LOOPS_PERMITTED=1
+								JUCE_MODAL_LOOPS_PERMITTED=0
 								JUCE_WEB_BROWSER=0
 								JUCE_USE_FLAC=1
 								JUCE_USE_CURL=1
