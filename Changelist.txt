@@ -1,6 +1,7 @@
 0.0.5:
 
 - Add drag/drop for assigning modulation
+- Fixed sub oscillator always operating at 44,100 Hz
 
 0.0.4:
 
