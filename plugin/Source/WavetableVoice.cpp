@@ -12,8 +12,8 @@ WavetableVoice::WavetableVoice (WavetableAudioProcessor& p)
 
 void WavetableVoice::noteStarted()
 {
-    oscillators[0].setWavetable (proc.osc1Tables);
-    oscillators[1].setWavetable (proc.osc2Tables);
+    oscillators[0].setWavetable (&proc.osc1Tables);
+    oscillators[1].setWavetable (&proc.osc2Tables);
 
     fastKill = false;
     startVoice();
@@ -243,7 +243,7 @@ void WavetableVoice::updateParams (int blockSize)
 
     if (proc.noiseParams.enable->isOn())
     {
-        noiseParams.wave = int (getValue (proc.noiseParams.type)) == 0 ? gin::Wave::whiteNoise : gin::Wave::pinkNoise;
+        noiseParams.wave = proc.noiseParams.type->getUserValueInt() == 0 ? gin::Wave::whiteNoise : gin::Wave::pinkNoise;
 
         noiseParams.leftGain  = getValue (proc.noiseParams.level) * (1.0f - getValue (proc.noiseParams.pan));
         noiseParams.rightGain = getValue (proc.noiseParams.level) * (1.0f + getValue (proc.noiseParams.pan));

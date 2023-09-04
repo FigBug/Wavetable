@@ -161,7 +161,7 @@ public:
         addEnable (sub.enable);
 
         addControl (new gin::Knob (sub.tune, true), 0, 0);
-        addControl (new gin::Knob (sub.level, true), 1, 0);
+        addControl (new gin::Knob (sub.level), 1, 0);
         addControl (new gin::Knob (sub.pan, true), 0, 1);
         addControl (new gin::Select (sub.wave), 1, 1);
     }
@@ -183,7 +183,7 @@ public:
         addEnable (noise.enable);
 
         addControl (new gin::Select (noise.type), 0, 0);
-        addControl (new gin::Knob (noise.level, true), 0, 0);
+        addControl (new gin::Knob (noise.level), 0, 0);
         addControl (new gin::Knob (noise.pan, true), 0, 1);
     }
 

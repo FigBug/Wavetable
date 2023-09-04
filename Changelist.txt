@@ -1,6 +1,7 @@
 0.0.4:
 
 - Another attempt at wt crash
+- Fixed crash enabling noise
 
 0.0.3:
 
