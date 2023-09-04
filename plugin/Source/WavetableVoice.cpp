@@ -135,6 +135,8 @@ void WavetableVoice::setCurrentSampleRate (double newRate)
 
     for (auto& osc : oscillators)
         osc.setSampleRate (newRate);
+    noise.setSampleRate (newRate);
+    sub.setSampleRate (newRate);
 
     filter.setSampleRate (newRate);
 
@@ -142,6 +144,9 @@ void WavetableVoice::setCurrentSampleRate (double newRate)
     
     for (auto& l : modLFOs)
         l.setSampleRate (newRate);
+
+    for (auto& a : modADSRs)
+        a.setSampleRate (newRate);
 
     modStepLFO.setSampleRate (newRate);
     noteSmoother.setSampleRate (newRate);
