@@ -6,7 +6,8 @@
 #include "Editor.h"
 
 //==============================================================================
-class WavetableAudioProcessorEditor : public gin::ProcessorEditor
+class WavetableAudioProcessorEditor : public gin::ProcessorEditor,
+                                      public juce::DragAndDropContainer
 {
 public:
     WavetableAudioProcessorEditor (WavetableAudioProcessor&);

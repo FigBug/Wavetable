@@ -1,3 +1,7 @@
+0.0.5:
+
+- Add drag/drop for assigning modulation
+
 0.0.4:
 
 - Another attempt at wt crash
