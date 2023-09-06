@@ -1,3 +1,10 @@
+0.0.6:
+
+- Fixed loading new presets in VST3
+- Increased size of mod depth button
+- Increased size of next/prev preset buttons
+- Fixed spread algorithm
+
 0.0.5:
 
 - Add drag/drop for assigning modulation

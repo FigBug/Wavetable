@@ -13,6 +13,8 @@ public:
     WavetableAudioProcessor();
     ~WavetableAudioProcessor() override;
 
+    bool supportsMPE() const override { return true; }
+
     void stateUpdated() override;
     void updateState() override;
 
@@ -275,7 +277,7 @@ public:
     };
 
     CurTable curTables[Cfg::numOSCs];
-    
+
     juce::CriticalSection dspLock;
 
     //==============================================================================
