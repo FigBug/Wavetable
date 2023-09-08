@@ -24,6 +24,8 @@ private:
     WavetableAudioProcessor& vaProc;
 
     gin::TriggeredScope scope { vaProc.scopeFifo };
+    gin::SynthesiserUsage usage { vaProc };
+    
     Editor editor { vaProc };
 
    #if JUCE_DEBUG
