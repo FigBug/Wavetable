@@ -1,3 +1,9 @@
+0.0.7:
+
+- Preset name, tags, etc can be edited from right click menu
+- Preset can be deleted from right click menu
+- Added CPU / Voice meter to titlebar
+
 0.0.6:
 
 - Fixed loading new presets in VST3
