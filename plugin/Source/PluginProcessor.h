@@ -155,7 +155,7 @@ public:
     {
         UIParams() = default;
 
-        gin::Parameter::Ptr activeLFO, activeENV;
+        gin::Parameter::Ptr activeLFO, activeENV, activeMOD;
 
         void setup (WavetableAudioProcessor& p);
 

@@ -75,7 +75,13 @@
         { "id": "mod", "x": "prevR()+1", "y": "prevY()", "r": "parW()", "h": 163, "children":
             [
                 { "id": "modlist", "x": 0, "y": 23, "r": "parW()", "b": "parH()" }
-            ] },
+            ] 
+        },
+        { "id": "mtx", "x": "prevX()", "y": "prevY()", "r": "parR()", "h": 163, "children":
+            [
+                { "id": "matrix", "x": 0, "y": 23, "r": "parW()", "b": "parH()" }
+            ] 
+        },
         { "id": "gate", "x": "0", "y": "prevB()+1", "w": 290, "h": 137, "children":
             [
                 { "id": "Beat", "x": 61, "y": 30, "w": 42, "h": 57 },

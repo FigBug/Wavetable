@@ -294,6 +294,7 @@ void WavetableAudioProcessor::UIParams::setup (WavetableAudioProcessor& p)
 {
     activeLFO   = p.addIntParam ("uiLFO",   "LFO", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0, 0.0f);
     activeENV   = p.addIntParam ("uiENV",   "ENV", "", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f);
+    activeMOD   = p.addIntParam ("uiMOD",   "MOD", "", "",   { 0.0, 1.0, 0.0, 1.0 }, 0.0f, 0.0f);
 }
 
 //==============================================================================

@@ -417,8 +417,27 @@ public:
         : gin::ParamBox (name), proc (proc_)
     {
         setName ("mod");
+        
+        addHeader ({"SRC", "MTX"}, 0, proc.uiParams.activeMOD);
 
         addControl (new gin::ModSrcListBox (proc.modMatrix), 0, 0, 3, 2);
+    }
+
+    WavetableAudioProcessor& proc;
+};
+
+//==============================================================================
+class MatrixBox : public gin::ParamBox
+{
+public:
+    MatrixBox (const juce::String& name, WavetableAudioProcessor& proc_)
+        : gin::ParamBox (name), proc (proc_)
+    {
+        setName ("mtx");
+
+        addHeader ({"SRC", "MTX"}, 1, proc.uiParams.activeMOD);
+
+        addControl (new gin::ModMatrixBox (proc, proc.modMatrix), 0, 0, 3, 2);
     }
 
     WavetableAudioProcessor& proc;
