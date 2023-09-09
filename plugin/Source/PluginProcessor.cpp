@@ -545,6 +545,9 @@ void WavetableAudioProcessor::stateUpdated()
     osc1Table = state.getProperty ("wt1");
     osc2Table = state.getProperty ("wt2");
 
+    userTable1.reset();
+    userTable2.reset();
+    
     userTable1.fromBase64Encoding (state.getProperty ("wt1Data").toString());
     userTable2.fromBase64Encoding (state.getProperty ("wt2Data").toString());
 
