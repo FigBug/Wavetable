@@ -4,8 +4,8 @@ cmake_minimum_required (VERSION 3.24.0 FATAL_ERROR)
 # Set for each plugin
 #
 set (PLUGIN_NAME Wavetable)
-set (PLUGIN_VERSION 0.0.7)
-set (BUNDLE_ID com.socalabs.wt2048etable)
+set (PLUGIN_VERSION 0.0.8)
+set (BUNDLE_ID com.socalabs.wavetable)
 set (AU_ID WavetableAU)
 set (LV2_URI "https://socalabs.com/wavetable/")
 set (PLUGIN_CODE Wave)

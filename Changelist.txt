@@ -1,3 +1,8 @@
+0.0.8:
+
+- Added UI for mod matrix 
+- Fixed poly params modulated by mono source not showing their live value
+
 0.0.7:
 
 - Preset name, tags, etc can be edited from right click menu
