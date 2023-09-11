@@ -321,6 +321,7 @@ public:
         addControl (new gin::Knob (lfo.offset, true), 5, 1);
 
         auto l = new gin::LFOComponent();
+        l->phaseCallback = [this] { return proc.modLFOs[idx].getCurrentPhase(); };
         l->setParams (lfo.wave, lfo.sync, lfo.rate, lfo.beat, lfo.depth, lfo.offset, lfo.phase, lfo.enable);
         addControl (l, 2, 0, 4, 1);
 
@@ -400,6 +401,7 @@ public:
         addControl (new gin::Knob (prs.length), 1, 1);
 
         auto g = new gin::StepLFOComponent (Cfg::numStepLFOSteps);
+        g->phaseCallback = [this] { return proc.modStepLFO.getCurrentPhase(); };
         g->setParams (prs.beat, prs.length, prs.level, prs.enable);
         addControl (g, 0, 0, 4, 1);
 
