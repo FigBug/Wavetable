@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Angles" author="Luparia" tags="Pad Lush Bell">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.2800000011920929" dstId="osc1formant"/>
+      <MODITEM srcId="lfo1" depth="0.2199999988079071" dstId="osc1bend"/>
+      <MODITEM srcId="lfo1" depth="-0.1599999964237213" dstId="osc2formant"/>
+      <MODITEM srcId="lfo1" depth="0.119999997317791" dstId="osc2bend"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1finetune" val="4.79998779296875"/>
+  <param uid="osc1level" val="-10.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2finetune" val="-8.0"/>
+  <param uid="osc2level" val="-9.0"/>
+  <param uid="osc2pos" val="46.40000152587891"/>
+  <param uid="osc2formant" val="0.1040000915527344"/>
+  <param uid="osc2bend" val="0.335999995470047"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="24.0"/>
+  <param uid="sublevel" val="-9.0"/>
+  <param uid="fltfreq" val="23.47713279724121"/>
+  <param uid="fltamount" val="0.6799999475479126"/>
+  <param uid="fltattack" val="0.6457408666610718"/>
+  <param uid="fltdecay" val="2.156978130340576"/>
+  <param uid="fltsustain" val="22.0"/>
+  <param uid="fltrelease" val="6.972893714904785"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="1.132764101028442"/>
+  <param uid="lfo1depth" val="0.2239999771118164"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.2815803289413452"/>
+  <param uid="decay" val="1.698453426361084"/>
+  <param uid="sustain" val="28.0"/>
+  <param uid="release" val="3.251858949661255"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="2.83080005645752"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.5360000133514404"/>
+</state>

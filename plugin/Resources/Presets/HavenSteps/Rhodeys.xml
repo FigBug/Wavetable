@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Rhodeys" author="Luparia" tags="Key ">
+  <state wt1="FM 01" wt2="FM 02" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo2" depth="0.1700000017881393" dstId="osc1finetune"/>
+      <MODITEM srcId="lfo1" depth="0.05999999865889549" dstId="osc1level"/>
+      <MODITEM srcId="env3" depth="0.1500000059604645" dstId="osc1bend"/>
+      <MODITEM srcId="lfo2" depth="0.1500000059604645" dstId="osc2finetune"/>
+      <MODITEM srcId="lfo1" depth="0.02999999932944775" dstId="osc2level"/>
+      <MODITEM srcId="env1" depth="0.05000000074505806" dstId="osc2pos"/>
+      <MODITEM srcId="env2" depth="0.03999999910593033" dstId="osc2formant"/>
+      <MODITEM srcId="env3" depth="0.009999999776482582" dstId="osc2bend"/>
+      <MODITEM srcId="vel" depth="0.1400000005960464" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1level" val="-21.0"/>
+  <param uid="osc1pos" val="36.5337028503418"/>
+  <param uid="osc1detune" val="0.04936987534165382"/>
+  <param uid="osc1spread" val="-24.35579872131348"/>
+  <param uid="osc1formant" val="0.1579835265874863"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2level" val="-11.0"/>
+  <param uid="osc2pos" val="19.74794578552246"/>
+  <param uid="osc2bend" val="0.1316532045602798"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltfreq" val="59.99880218505859"/>
+  <param uid="fltres" val="34.55891799926758"/>
+  <param uid="fltamount" val="0.07899153232574463"/>
+  <param uid="fltattack" val="0.0005631338572129607"/>
+  <param uid="fltdecay" val="0.02397841215133667"/>
+  <param uid="fltrelease" val="1.059604287147522"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0268887709826231"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="9.813882827758789"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="0.3822603523731232"/>
+  <param uid="env3enable" val="1.0"/>
+  <param uid="env3attack" val="0.0"/>
+  <param uid="env3decay" val="0.5894384384155273"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="env3release" val="0.1571677327156067"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="5.474381923675537"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2wave" val="8.0"/>
+  <param uid="lfo2rate" val="13.35542297363281"/>
+  <param uid="lfo2beat" val="10.0"/>
+  <param uid="lfo2depth" val="0.2429952621459961"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.005314888432621956"/>
+  <param uid="decay" val="0.7816762924194336"/>
+  <param uid="sustain" val="82.88509368896484"/>
+  <param uid="release" val="0.5421302914619446"/>
+  <param uid="uiENV" val="2.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+</state>

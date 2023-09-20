@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="8bit dream" author="Luparia" tags="Pad Vintage Electronic">
+  <state wt1="FM 03" wt2="FM 10" wt1Data="0." wt2Data="0." editorScale="1.143070101737976">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1level" val="-9.0"/>
+  <param uid="osc1pos" val="70.46022033691406"/>
+  <param uid="osc1formant" val="0.2672629356384277"/>
+  <param uid="osc1bend" val="-0.2024719268083572"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="5.0"/>
+  <param uid="osc2finetune" val="-0.8098907470703125"/>
+  <param uid="osc2level" val="-8.0"/>
+  <param uid="osc2pos" val="51.4278564453125"/>
+  <param uid="osc2formant" val="-0.2672631740570068"/>
+  <param uid="osc2bend" val="0.1943730115890503"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="sublevel" val="-10.0"/>
+  <param uid="flttype" val="3.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltfreq" val="0.0"/>
+  <param uid="fltres" val="62.16446685791016"/>
+  <param uid="fltamount" val="0.5388994216918945"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="1.146788477897644"/>
+  <param uid="fltsustain" val="67.75228118896484"/>
+  <param uid="fltrelease" val="2.955956697463989"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="2.7718505859375"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="2.198304176330566"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+</state>

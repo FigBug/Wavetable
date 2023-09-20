@@ -352,6 +352,7 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
+#if 0
 void convertWavetables()
 {
     auto src = juce::File (__FILE__).getChildFile ("../../Resources/Wavetables");
@@ -386,12 +387,74 @@ void convertWavetables()
     }
 }
 
+void extractWavetables()
+{
+    auto save = [] (const juce::File& dst, const juce::String& name, const juce::MemoryBlock& mb)
+    {
+        auto sz = gin::getWavetableSize (mb);
+        jassert (sz > 0);
+        if (sz <= 0)
+            return;
+
+        auto f = dst.getChildFile (name + ".wav");
+
+        f.replaceWithData (mb.getData(), mb.getSize());
+    };
+
+	auto src = juce::File ("/Users/rrabien/Downloads/HavenSteps");
+    auto dst = juce::File ("/Users/rrabien/Downloads/HavenSteps_out");
+
+    for (auto f : src.findChildFiles (juce::File::findFiles, false, "*.xml"))
+    {
+        auto preset = juce::ValueTree::fromXml (f.loadFileAsString());
+        auto state = preset.getChildWithName ("state");
+
+        auto name1 = state.getProperty ("wt1");
+        auto name2 = state.getProperty ("wt2");
+
+        juce::MemoryBlock mb1;
+        juce::MemoryBlock mb2;
+
+        mb1.fromBase64Encoding (state.getProperty ("wt1Data").toString());
+        mb2.fromBase64Encoding (state.getProperty ("wt1Data").toString());
+
+        auto changed = false;
+        if (mb1.getSize() > 0)
+        {
+            save (dst, name1, mb1);
+
+            mb1.reset();
+            state.setProperty ("wt1Data", mb1.toBase64Encoding(), nullptr);
+            changed = true;
+        }
+
+        if (mb2.getSize() > 0)
+        {
+            save (dst, name2, mb2);
+
+            mb2.reset();
+            state.setProperty ("wt2Data", mb2.toBase64Encoding(), nullptr);
+            changed = true;
+        }
+
+        if (changed)
+            dst.getChildFile (f.getFileName()).replaceWithText (preset.toXmlString());
+        else
+            f.copyFileTo (dst.getChildFile (f.getFileName()));
+    }
+}
+#endif
+
 //==============================================================================
 WavetableAudioProcessor::WavetableAudioProcessor() : gin::Processor (false)
 {
-    //convertWavetables();
-
-    lf = std::make_unique<gin::CopperLookAndFeel>();
+    {
+        auto sz = 0;
+        for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
+            if (juce::String (BinaryData::originalFilenames[i]).endsWith (".xml"))
+                if (auto data = BinaryData::getNamedResource (BinaryData::namedResourceList[i], sz))
+                    extractProgram (BinaryData::originalFilenames[i], data, sz);
+    }
 
     enableLegacyMode();
     setVoiceStealingEnabled (true);

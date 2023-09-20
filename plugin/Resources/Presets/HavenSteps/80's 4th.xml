@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="80's 4th" author="Luparia" tags="Bass Mpe Vintage">
+  <state wt1="Analog Classic" wt2="Analog PWM Square 02" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mpep" depth="0.1800000071525574" dstId="fltfreq"/>
+      <MODITEM srcId="mpep" depth="0.6000000238418579" dstId="fltres"/>
+      <MODITEM srcId="mpep" depth="-0.119999997317791" dstId="fltamount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="8.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1finetune" val="-20.0"/>
+  <param uid="osc1pos" val="12.80000019073486"/>
+  <param uid="osc1detune" val="0.1700000017881393"/>
+  <param uid="osc1spread" val="32.79999923706055"/>
+  <param uid="osc1formant" val="0.0559999942779541"/>
+  <param uid="osc1bend" val="0.4960000514984131"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="7.0"/>
+  <param uid="osc2tune" val="12.0"/>
+  <param uid="osc2finetune" val="12.80000305175781"/>
+  <param uid="osc2pos" val="33.59999847412109"/>
+  <param uid="osc2detune" val="0.1299999952316284"/>
+  <param uid="osc2spread" val="-36.0"/>
+  <param uid="osc2formant" val="-0.1759999990463257"/>
+  <param uid="osc2bend" val="-0.1360000371932983"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="91.19999694824219"/>
+  <param uid="fltfreq" val="54.27450942993164"/>
+  <param uid="fltamount" val="0.5519999861717224"/>
+  <param uid="fltattack" val="0.009032207541167736"/>
+  <param uid="fltdecay" val="2.917036533355713"/>
+  <param uid="fltsustain" val="72.0"/>
+  <param uid="fltrelease" val="1.500500202178955"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.03879306837916374"/>
+  <param uid="sustain" val="28.80000114440918"/>
+  <param uid="release" val="1.841642618179321"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="mpe" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="2.592000007629395"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.363999992609024"/>
+</state>

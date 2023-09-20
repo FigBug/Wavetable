@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Play That Funky Music" author="Luparia" tags="Bass Clean Vintage">
+  <state wt1="Analog PWM Saw 02" wt2="Analog PWM Saw 05" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1pos" val="17.20000076293945"/>
+  <param uid="osc1formant" val="0.1360000371932983"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2pos" val="22.79999923706055"/>
+  <param uid="osc2formant" val="0.4000000059604645"/>
+  <param uid="osc2bend" val="-0.4720000028610229"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="52.0"/>
+  <param uid="fltfreq" val="30.50109672546387"/>
+  <param uid="fltamount" val="0.575999915599823"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="1.438785433769226"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="1.564312696456909"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.009032200090587139"/>
+  <param uid="decay" val="0.6635810136795044"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.2520000040531158"/>
+  <param uid="dsEnable" val="1.0"/>
+</state>

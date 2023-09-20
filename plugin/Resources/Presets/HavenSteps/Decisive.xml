@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Decisive" author="Luparia" tags="Pad Texture Vintage">
+  <state wt1="Analog PWM Custom 03" wt2="Analog PWM Custom 01" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1unison" val="8.0"/>
+  <param uid="osc1level" val="-13.0"/>
+  <param uid="osc1pos" val="2.28881845032447e-6"/>
+  <param uid="osc1detune" val="0.07896403223276138"/>
+  <param uid="osc1formant" val="-0.2753616869449615"/>
+  <param uid="osc1bend" val="-0.08098876476287842"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="8.0"/>
+  <param uid="osc2level" val="-8.0"/>
+  <param uid="osc2detune" val="0.07693932950496674"/>
+  <param uid="osc2formant" val="-0.3887461125850677"/>
+  <param uid="osc2bend" val="-0.08908700942993164"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-10.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="49.8080940246582"/>
+  <param uid="fltfreq" val="33.36895751953125"/>
+  <param uid="fltamount" val="0.502130389213562"/>
+  <param uid="fltattack" val="0.1354377269744873"/>
+  <param uid="fltdecay" val="10.33142757415771"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.6766031980514526"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="2.133330821990967"/>
+  <param uid="decay" val="14.04409885406494"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.6766026020050049"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="13.47105598449707"/>
+  <param uid="chDepth" val="1.644668221473694"/>
+  <param uid="chSpeed" val="3.02652907371521"/>
+  <param uid="chWidth" val="0.3866158425807953"/>
+  <param uid="chMix" val="0.2691822350025177"/>
+</state>

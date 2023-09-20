@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Snare" author="Luparia" tags="Drum SFX Acoustic">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mpep" depth="0.5699999928474426" dstId="fltamount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="5.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1level" val="-5.0"/>
+  <param uid="osc1detune" val="0.2086948752403259"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="flttype" val="2.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltfreq" val="20.63120460510254"/>
+  <param uid="fltres" val="57.39109420776367"/>
+  <param uid="fltamount" val="-0.1846147924661636"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="1.710757851600647"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.01482300274074078"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.1295115202665329"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.0001289353822357953"/>
+  <param uid="mpe" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5771558284759521"/>
+  <param uid="rvbDecay" val="0.2969890236854553"/>
+  <param uid="rvbDamping" val="8447.9951171875"/>
+  <param uid="rvbMix" val="0.2006679624319077"/>
+</state>

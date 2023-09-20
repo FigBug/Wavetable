@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Game Bass" author="Luparia" tags="Bass Dirty 8bit">
+  <state wt1="Analog PWM Square 02" wt2="FM 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.009999999776482582" dstId="osc1tune"/>
+      <MODITEM srcId="env1" depth="0.7400000095367432" dstId="osc1level"/>
+      <MODITEM srcId="env1" depth="0.8100000023841858" dstId="osc2level"/>
+      <MODITEM srcId="lfo1" depth="0.01999999955296516" dstId="osc2pos"/>
+      <MODITEM srcId="lfo1" depth="-0.1000000014901161" dstId="lfo1rate"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1level" val="-100.0"/>
+  <param uid="osc1pos" val="45.20000076293945"/>
+  <param uid="osc1formant" val="0.2560000121593475"/>
+  <param uid="osc1bend" val="0.1679999977350235"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2level" val="-100.0"/>
+  <param uid="osc2pos" val="73.19999694824219"/>
+  <param uid="osc2detune" val="0.09799999743700027"/>
+  <param uid="osc2formant" val="0.5600000023841858"/>
+  <param uid="osc2bend" val="-0.5600000023841858"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="12.0"/>
+  <param uid="sublevel" val="-29.0"/>
+  <param uid="fltfreq" val="0.0"/>
+  <param uid="fltamount" val="1.0"/>
+  <param uid="fltattack" val="0.003020158503204584"/>
+  <param uid="fltdecay" val="0.6576046943664551"/>
+  <param uid="fltsustain" val="23.17611885070801"/>
+  <param uid="fltrelease" val="0.02968279458582401"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="5.022501945495605"/>
+  <param uid="env1sustain" val="40.29850769042969"/>
+  <param uid="env1release" val="3.911322832107544"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1wave" val="8.0"/>
+  <param uid="lfo1rate" val="50.0"/>
+  <param uid="lfo1phase" val="0.6480000019073486"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.00006442457379307598"/>
+  <param uid="decay" val="0.3419740200042725"/>
+  <param uid="sustain" val="53.73134613037109"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="uiMOD" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="5.537199974060059"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chWidth" val="0.3720000088214874"/>
+  <param uid="chMix" val="0.2280000001192093"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.699999988079071"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.1959999948740005"/>
+</state>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PalmBlass" author="Luparia" tags="Bass Dirty Mpe Electronic ">
+  <state wt1="FM 05" wt2="Dist - Diode 2" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.3700000047683716" dstId="osc1formant"/>
+      <MODITEM srcId="env1" depth="0.1000000014901161" dstId="osc2formant"/>
+      <MODITEM srcId="mpep" depth="-0.3300000131130219" dstId="env1attack"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1level" val="-4.0"/>
+  <param uid="osc1pos" val="71.60000610351562"/>
+  <param uid="osc1detune" val="0.1260000020265579"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2pos" val="50.80000305175781"/>
+  <param uid="osc2formant" val="0.2800000607967377"/>
+  <param uid="osc2bend" val="0.239999994635582"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-5.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="0.0"/>
+  <param uid="fltres" val="20.0"/>
+  <param uid="fltamount" val="0.7919999957084656"/>
+  <param uid="fltattack" val="0.009032200090587139"/>
+  <param uid="fltdecay" val="1.321447968482971"/>
+  <param uid="fltsustain" val="12.39999961853027"/>
+  <param uid="fltrelease" val="0.0562872402369976"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.731550395488739"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0518920011818409"/>
+  <param uid="decay" val="0.767561674118042"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.1957524865865707"/>
+  <param uid="level" val="-9.0"/>
+  <param uid="mpe" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="4.104400157928467"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.1840000003576279"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4400000274181366"/>
+  <param uid="rvEnable" val="1.0"/>
+</state>

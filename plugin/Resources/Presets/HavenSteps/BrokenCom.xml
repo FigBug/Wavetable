@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BrokenCom" author="Luparia" tags="Experimental SFX ">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="0.9100000262260437" dstId="osc1tune"/>
+      <MODITEM srcId="step" depth="1.0" dstId="osc2tune"/>
+      <MODITEM srcId="step" depth="1.0" dstId="subtune"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="60.40000152587891"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="4.0"/>
+  <param uid="slfolength" val="32.0"/>
+  <param uid="slfostep2" val="-0.2048193216323853"/>
+  <param uid="slfostep3" val="-0.01204824447631836"/>
+  <param uid="slfostep4" val="0.0602409839630127"/>
+  <param uid="slfostep5" val="-0.1807228326797485"/>
+  <param uid="slfostep6" val="0.03614455461502075"/>
+  <param uid="slfostep7" val="0.0602409839630127"/>
+  <param uid="slfostep8" val="0.1566265225410461"/>
+  <param uid="slfostep9" val="-0.2771084308624268"/>
+  <param uid="slfostep10" val="-0.2048193216323853"/>
+  <param uid="slfostep11" val="-0.01204824447631836"/>
+  <param uid="slfostep12" val="0.1807228922843933"/>
+  <param uid="slfostep13" val="-0.1807228326797485"/>
+  <param uid="slfostep14" val="0.01204818487167358"/>
+  <param uid="slfostep15" val="-0.2289156913757324"/>
+  <param uid="slfostep16" val="-0.2530120611190796"/>
+  <param uid="slfostep17" val="-0.01204824447631836"/>
+  <param uid="slfostep18" val="0.2048192620277405"/>
+  <param uid="slfostep19" val="-0.2530120611190796"/>
+  <param uid="slfostep20" val="-0.3975903987884521"/>
+  <param uid="slfostep21" val="-0.108433723449707"/>
+  <param uid="slfostep22" val="0.0602409839630127"/>
+  <param uid="slfostep23" val="-0.0602409839630127"/>
+  <param uid="slfostep24" val="-0.3975903987884521"/>
+  <param uid="slfostep25" val="-0.2289156913757324"/>
+  <param uid="slfostep26" val="0.2530120611190796"/>
+  <param uid="slfostep27" val="-0.2771084308624268"/>
+  <param uid="slfostep28" val="-0.6626505851745605"/>
+  <param uid="slfostep29" val="-0.01204824447631836"/>
+  <param uid="slfostep30" val="-0.3012048006057739"/>
+  <param uid="slfostep31" val="-0.2048193216323853"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatebeat" val="4.0"/>
+  <param uid="gatelength" val="11.0"/>
+  <param uid="gateattack" val="0.0365804098546505"/>
+  <param uid="gaterelease" val="0.00421645725145936"/>
+  <param uid="gatel2" val="1.0"/>
+  <param uid="gater4" val="1.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gater8" val="1.0"/>
+  <param uid="gater9" val="0.0"/>
+  <param uid="gatel10" val="1.0"/>
+</state>

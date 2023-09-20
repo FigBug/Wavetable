@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Simbad" author="Luparia" tags="Pad Lush Evolving Mpe">
+  <state wt1="Analog PWM Custom 02" wt2="Growl 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.6800000071525574" dstId="osc1formant"/>
+      <MODITEM srcId="lfo1" depth="0.4099999964237213" dstId="osc1bend"/>
+      <MODITEM srcId="lfo2" depth="1.0" dstId="osc2pos"/>
+      <MODITEM srcId="lfo2" depth="-0.1500000059604645" dstId="osc2formant"/>
+      <MODITEM srcId="step" depth="0.449999988079071" dstId="sublevel"/>
+      <MODITEM srcId="mpep" depth="0.1800000071525574" dstId="fltfreq"/>
+      <MODITEM srcId="mpep" depth="0.6499999761581421" dstId="fltres"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1formant" val="0.2799478769302368"/>
+  <param uid="osc1bend" val="-0.3149412870407104"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-24.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="52.84014129638672"/>
+  <param uid="fltfreq" val="44.14751052856445"/>
+  <param uid="fltamount" val="0.3289387226104736"/>
+  <param uid="fltattack" val="0.4115349352359772"/>
+  <param uid="fltdecay" val="6.915757656097412"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="2.683295726776123"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.3652561008930206"/>
+  <param uid="lfo1depth" val="0.2791341543197632"/>
+  <param uid="lfo1phase" val="0.1679685115814209"/>
+  <param uid="lfo1fade" val="2.39080810546875"/>
+  <param uid="lfo1delay" val="0.5305201411247253"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="0.02254202961921692"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfostep1" val="-0.2530120611190796"/>
+  <param uid="slfostep2" val="-0.01204824447631836"/>
+  <param uid="slfostep3" val="-0.1807228326797485"/>
+  <param uid="slfostep4" val="0.1807228922843933"/>
+  <param uid="slfostep5" val="-0.108433723449707"/>
+  <param uid="slfostep6" val="0.2771084308624268"/>
+  <param uid="slfostep7" val="0.01204818487167358"/>
+  <param uid="slfostep8" val="-0.2530120611190796"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.2501321136951447"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="1.604651808738708"/>
+  <param uid="level" val="-6.0"/>
+  <param uid="mpe" val="1.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="15.43901348114014"/>
+  <param uid="chDepth" val="1.144553184509277"/>
+  <param uid="chSpeed" val="2.168554544448853"/>
+  <param uid="chWidth" val="0.2130535840988159"/>
+</state>

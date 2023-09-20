@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="SomeChurch" author="Luparia" tags="Key Vintage">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.1299999952316284" dstId="osc1finetune"/>
+      <MODITEM srcId="env1" depth="0.800000011920929" dstId="osc1level"/>
+      <MODITEM srcId="lfo1" depth="0.1299999952316284" dstId="osc1pan"/>
+      <MODITEM srcId="lfo1" depth="0.119999997317791" dstId="osc2finetune"/>
+      <MODITEM srcId="env1" depth="0.6899999976158142" dstId="osc2level"/>
+      <MODITEM srcId="lfo1" depth="0.119999997317791" dstId="osc2pan"/>
+      <MODITEM srcId="env1" depth="0.6399999856948853" dstId="sublevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1level" val="-100.0"/>
+  <param uid="osc1pos" val="29.69888687133789"/>
+  <param uid="osc1formant" val="0.2889621555805206"/>
+  <param uid="osc1bend" val="0.2086949348449707"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="36.0"/>
+  <param uid="osc2level" val="-100.0"/>
+  <param uid="osc2pos" val="65.41781616210938"/>
+  <param uid="osc2formant" val="-0.1444813162088394"/>
+  <param uid="osc2bend" val="-0.585951030254364"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="24.0"/>
+  <param uid="sublevel" val="-100.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltfreq" val="66.71053314208984"/>
+  <param uid="fltres" val="30.50155639648438"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="4.20269019585362e-9"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="0.03865810111165047"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1wave" val="2.0"/>
+  <param uid="lfo1rate" val="5.392730712890625"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.02692535147070885"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chSpeed" val="1.530361533164978"/>
+  <param uid="chMix" val="0.2769221067428589"/>
+</state>

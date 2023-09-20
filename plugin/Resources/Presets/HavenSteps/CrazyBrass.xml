@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="CrazyBrass" author="Luparia" tags="Brass Experimental">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 04" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.4600000083446503" dstId="osc1level"/>
+      <MODITEM srcId="lfo1" depth="1.0" dstId="osc2level"/>
+      <MODITEM srcId="lfo1" depth="1.0" dstId="sublevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1level" val="-12.0"/>
+  <param uid="osc1pos" val="15.19999980926514"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2level" val="-10.0"/>
+  <param uid="osc2pos" val="16.79999923706055"/>
+  <param uid="osc2formant" val="0.01600003242492676"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="sublevel" val="-17.0"/>
+  <param uid="fltkey" val="38.79999923706055"/>
+  <param uid="fltfreq" val="8.888896942138672"/>
+  <param uid="fltamount" val="0.6560000777244568"/>
+  <param uid="fltattack" val="0.1512453705072403"/>
+  <param uid="fltdecay" val="3.025423526763916"/>
+  <param uid="fltsustain" val="1.600000023841858"/>
+  <param uid="fltrelease" val="16.26266098022461"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="1.698453307151794"/>
+</state>

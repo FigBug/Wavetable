@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Monoglis Madness" author="Luparia" tags="Bass Mpe Dirty Electronic">
+  <state wt1="Analog Classic" wt2="Analog PWM Square 01" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mpep" depth="0.1899999976158142" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="5.0"/>
+  <param uid="osc1pos" val="55.59999847412109"/>
+  <param uid="osc1detune" val="0.02400000020861626"/>
+  <param uid="osc1spread" val="-21.60000038146973"/>
+  <param uid="osc1formant" val="0.440000057220459"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="4.0"/>
+  <param uid="osc2pos" val="50.39999771118164"/>
+  <param uid="osc2detune" val="0.1759999990463257"/>
+  <param uid="osc2spread" val="-64.80000305175781"/>
+  <param uid="osc2bend" val="0.6320000290870667"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="fltkey" val="50.40000152587891"/>
+  <param uid="fltfreq" val="11.88670921325684"/>
+  <param uid="fltres" val="49.19999694824219"/>
+  <param uid="fltamount" val="0.5920000076293945"/>
+  <param uid="fltattack" val="0.166304886341095"/>
+  <param uid="fltdecay" val="6.352762222290039"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.03879306837916374"/>
+  <param uid="vel" val="20.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="1.0"/>
+  <param uid="gRate" val="0.05245872586965561"/>
+  <param uid="mpe" val="1.0"/>
+</state>

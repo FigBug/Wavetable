@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Lazzzer" author="Luparia" tags="SFX Experimental">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltfreq" val="19.54696655273438"/>
+  <param uid="fltres" val="100.0"/>
+  <param uid="fltamount" val="0.6468240022659302"/>
+  <param uid="fltattack" val="0.002444905694574118"/>
+  <param uid="fltdecay" val="0.2460843324661255"/>
+  <param uid="fltsustain" val="20.20088005065918"/>
+  <param uid="fltrelease" val="0.00001773444091668352"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.2994069159030914"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="2.507692664632799e-10"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+</state>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="NylonSteel" author="Luparia" tags="Pluck Experimental">
+  <state wt1="Hyper 07" wt2="Analog PWM Custom 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.4199999868869781" dstId="osc1pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1level" val="-6.0"/>
+  <param uid="osc1formant" val="-0.2809354364871979"/>
+  <param uid="osc1bend" val="0.4173897802829742"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2level" val="-10.0"/>
+  <param uid="osc2pos" val="32.10690307617188"/>
+  <param uid="osc2formant" val="-0.4655503332614899"/>
+  <param uid="osc2bend" val="0.08829402923583984"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltfreq" val="88.93704986572266"/>
+  <param uid="fltres" val="64.21378326416016"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.483405590057373"/>
+  <param uid="fltsustain" val="2.1407470703125"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="1.369691967964172"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.9179351329803467"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="1.116830706596375"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.3732426762580872"/>
+  <param uid="rvbSize" val="0.5601027607917786"/>
+  <param uid="rvbDecay" val="0.4454836547374725"/>
+  <param uid="rvbLowpass" val="10137.0537109375"/>
+  <param uid="rvbDamping" val="310.9074096679688"/>
+</state>

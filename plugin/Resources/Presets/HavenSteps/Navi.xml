@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Navi" author="Luparia" tags="Pad Texture">
+  <state wt1="Growl 07" wt2="FM 04" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="1.0" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="1.0" dstId="osc2pos"/>
+      <MODITEM srcId="env1" depth="0.5099999904632568" dstId="sublevel"/>
+      <MODITEM srcId="env1" depth="0.8600000143051147" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-100.0"/>
+  <param uid="fltfreq" val="3.781425476074219"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="5.547701835632324"/>
+  <param uid="env1decay" val="60.0"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="4.151434421539307"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="1.285912871360779"/>
+  <param uid="decay" val="60.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="3.051603078842163"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+</state>

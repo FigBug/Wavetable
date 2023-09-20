@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Sweeper" author="Luparia" tags="Pad Lush Big">
+  <state wt1="Growl 01" wt2="Growl 05" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.0" dstId="osc1tune"/>
+      <MODITEM srcId="lfo1" depth="0.1400000005960464" dstId="osc1finetune"/>
+      <MODITEM srcId="env1" depth="1.0" dstId="osc1pos"/>
+      <MODITEM srcId="lfo1" depth="0.1000000014901161" dstId="osc2finetune"/>
+      <MODITEM srcId="env1" depth="1.0" dstId="osc2pos"/>
+      <MODITEM srcId="step" depth="0.8799999952316284" dstId="osc2pan"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="fltfreq" val="43.22439575195312"/>
+  <param uid="fltres" val="23.20000076293945"/>
+  <param uid="fltamount" val="0.335999995470047"/>
+  <param uid="fltattack" val="1.564313411712646"/>
+  <param uid="fltdecay" val="1.159913420677185"/>
+  <param uid="fltsustain" val="74.79999542236328"/>
+  <param uid="fltrelease" val="3.877680778503418"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="2.514103412628174"/>
+  <param uid="env1decay" val="0.9695115089416504"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="3.616746425628662"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.144346684217453"/>
+  <param uid="lfo1depth" val="0.2960000038146973"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfolength" val="15.0"/>
+  <param uid="slfostep2" val="0.2771084308624268"/>
+  <param uid="slfostep3" val="-0.2048193216323853"/>
+  <param uid="slfostep4" val="0.1325300931930542"/>
+  <param uid="slfostep5" val="-0.3975903987884521"/>
+  <param uid="slfostep6" val="0.2530120611190796"/>
+  <param uid="slfostep7" val="-0.1566264629364014"/>
+  <param uid="slfostep8" val="0.4698795080184937"/>
+  <param uid="slfostep10" val="-0.4939758777618408"/>
+  <param uid="slfostep11" val="-0.1325300931930542"/>
+  <param uid="slfostep12" val="-0.1807228326797485"/>
+  <param uid="slfostep13" val="0.349397599697113"/>
+  <param uid="slfostep14" val="-0.1566264629364014"/>
+  <param uid="slfostep15" val="-0.0602409839630127"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="2.709582328796387"/>
+  <param uid="release" val="3.251861333847046"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chSpeed" val="2.287199974060059"/>
+  <param uid="chMix" val="0.03200000524520874"/>
+</state>

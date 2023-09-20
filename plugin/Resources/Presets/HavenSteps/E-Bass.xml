@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="E-Bass" author="Luparia" tags="Bass Vintage Mpe Clean">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mpep" depth="0.2599999904632568" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2pos" val="54.0"/>
+  <param uid="osc2formant" val="0.2879999876022339"/>
+  <param uid="osc2bend" val="-0.1439999938011169"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-24.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="49.59999847412109"/>
+  <param uid="fltfreq" val="32.66231536865234"/>
+  <param uid="fltres" val="19.60000038146973"/>
+  <param uid="fltamount" val="0.3679999113082886"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="1.014576315879822"/>
+  <param uid="fltsustain" val="11.19999980926514"/>
+  <param uid="fltrelease" val="0.3538572192192078"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.009627040475606918"/>
+  <param uid="mpe" val="1.0"/>
+</state>

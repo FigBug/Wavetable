@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Cimbalom" author="Luparia" tags="Pluck String Classic">
+  <state wt1="FM 04" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1unison" val="8.0"/>
+  <param uid="osc1pos" val="60.18878173828125"/>
+  <param uid="osc1detune" val="0.160970002412796"/>
+  <param uid="osc1formant" val="-0.3709309101104736"/>
+  <param uid="osc1bend" val="0.3919267654418945"/>
+  <param uid="fltkey" val="50.74054718017578"/>
+  <param uid="fltfreq" val="91.88803100585938"/>
+  <param uid="fltamount" val="0.4899086952209473"/>
+  <param uid="fltattack" val="0.003281216369941831"/>
+  <param uid="fltdecay" val="0.3392171561717987"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.3923975825309753"/>
+  <param uid="sustain" val="15.74708271026611"/>
+  <param uid="release" val="0.7673208713531494"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chDepth" val="5.247862815856934"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.2165528535842896"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.5709308981895447"/>
+</state>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Concuas" author="Luparia" tags="String Vintage">
+  <state wt1="Analog PWM Square 02" wt2="Dist - Hard Clipping Extra" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1level" val="-4.0"/>
+  <param uid="osc1pos" val="24.79999923706055"/>
+  <param uid="osc1formant" val="0.4079999923706055"/>
+  <param uid="osc1bend" val="-0.7360000014305115"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2level" val="-4.0"/>
+  <param uid="osc2pos" val="73.19999694824219"/>
+  <param uid="osc2formant" val="1.0"/>
+  <param uid="osc2bend" val="-0.1919999867677689"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="sublevel" val="-22.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="74.80000305175781"/>
+  <param uid="fltfreq" val="93.71676635742188"/>
+  <param uid="fltres" val="49.20000076293945"/>
+  <param uid="fltamount" val="0.1280000060796738"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.004260495770722628"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="84.0"/>
+  <param uid="release" val="1.630279898643494"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.3240000009536743"/>
+</state>

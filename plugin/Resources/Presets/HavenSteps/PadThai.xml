@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PadThai" author="Luparia" tags="Pad Lush">
+  <state wt1="FM 06" wt2="FM 13" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.009999999776482582" dstId="osc1finetune"/>
+      <MODITEM srcId="lfo2" depth="1.0" dstId="osc1pos"/>
+      <MODITEM srcId="step" depth="1.0" dstId="osc1pan"/>
+      <MODITEM srcId="lfo2" depth="0.2300000041723251" dstId="osc1formant"/>
+      <MODITEM srcId="lfo2" depth="1.0" dstId="osc2pos"/>
+      <MODITEM srcId="step" depth="1.0" dstId="osc2pan"/>
+      <MODITEM srcId="lfo2" depth="0.239999994635582" dstId="osc2bend"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="5.0"/>
+  <param uid="osc1finetune" val="4.85931396484375"/>
+  <param uid="osc1level" val="-4.0"/>
+  <param uid="osc1detune" val="0.01214830297976732"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2finetune" val="-5.669204711914062"/>
+  <param uid="osc2level" val="-2.0"/>
+  <param uid="osc2detune" val="0.03037079423666"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-23.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltfreq" val="23.52326774597168"/>
+  <param uid="fltres" val="42.92403030395508"/>
+  <param uid="fltamount" val="0.4859325885772705"/>
+  <param uid="fltattack" val="0.4719434976577759"/>
+  <param uid="fltdecay" val="1.744333505630493"/>
+  <param uid="fltsustain" val="100.0"/>
+  <param uid="fltrelease" val="3.4765784740448"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="0.0515514574944973"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfostep1" val="0.3975903391838074"/>
+  <param uid="slfostep2" val="-0.2530120611190796"/>
+  <param uid="slfostep3" val="0.2771084308624268"/>
+  <param uid="slfostep4" val="-0.3012048006057739"/>
+  <param uid="slfostep5" val="0.2048192620277405"/>
+  <param uid="slfostep6" val="-0.2048193216323853"/>
+  <param uid="slfostep7" val="0.108433723449707"/>
+  <param uid="slfostep8" val="-0.2048193216323853"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="1.81718921661377"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="1.297168493270874"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.8840483427047729"/>
+  <param uid="rvbDecay" val="0.5102293491363525"/>
+  <param uid="rvbLowpass" val="1604.743286132812"/>
+  <param uid="rvbDamping" val="454.75634765625"/>
+  <param uid="rvbPredelay" val="0.04859326407313347"/>
+  <param uid="rvbMix" val="0.3077570796012878"/>
+</state>

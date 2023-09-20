@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Duke Bass" author="Luparia" tags="Bass">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env2" depth="0.3499999940395355" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="4.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1level" val="-3.0"/>
+  <param uid="osc1pos" val="14.80000019073486"/>
+  <param uid="osc1detune" val="0.07800000160932541"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2finetune" val="7.200004577636719"/>
+  <param uid="osc2level" val="-5.0"/>
+  <param uid="osc2pos" val="57.20000076293945"/>
+  <param uid="osc2detune" val="0.2060000002384186"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-6.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-100.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="69.15902709960938"/>
+  <param uid="fltres" val="30.39999961853027"/>
+  <param uid="fltamount" val="0.3759999573230743"/>
+  <param uid="fltattack" val="0.0001966080308193341"/>
+  <param uid="fltdecay" val="0.2234303653240204"/>
+  <param uid="fltsustain" val="33.93432235717773"/>
+  <param uid="fltrelease" val="0.6007609367370605"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0000152882330439752"/>
+  <param uid="env1decay" val="0.0007286026957444847"/>
+  <param uid="env1sustain" val="38.28657150268555"/>
+  <param uid="env1release" val="0.0001573551417095587"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="0.6220420002937317"/>
+  <param uid="env2sustain" val="100.0"/>
+  <param uid="env2release" val="0.0"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="1.198364884658076e-6"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="44.76418304443359"/>
+  <param uid="release" val="0.003626593155786395"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="2.751199960708618"/>
+  <param uid="chSpeed" val="1.178400039672852"/>
+  <param uid="chMix" val="0.239999994635582"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.7200000286102295"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.3319999873638153"/>
+</state>

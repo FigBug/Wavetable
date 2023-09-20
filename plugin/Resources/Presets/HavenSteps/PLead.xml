@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PLead" author="Luparia" tags="Vintage Pluck Electronic">
+  <state wt1="Analog PWM Custom 03" wt2="Analog PWM Custom 05" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.2000000029802322" dstId="osc1level"/>
+      <MODITEM srcId="lfo1" depth="0.1599999964237213" dstId="osc1pan"/>
+      <MODITEM srcId="lfo2" depth="0.300000011920929" dstId="osc1bend"/>
+      <MODITEM srcId="lfo1" depth="0.1599999964237213" dstId="osc2level"/>
+      <MODITEM srcId="lfo1" depth="0.2899999916553497" dstId="osc2pan"/>
+      <MODITEM srcId="lfo2" depth="0.2300000041723251" dstId="osc2formant"/>
+      <MODITEM srcId="lfo2" depth="0.1299999952316284" dstId="osc2bend"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1finetune" val="-7.240921020507812"/>
+  <param uid="osc1pos" val="11.51963233947754"/>
+  <param uid="osc1detune" val="0.09873974323272705"/>
+  <param uid="osc1pan" val="-0.2034993916749954"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2finetune" val="3.29132080078125"/>
+  <param uid="osc2pos" val="28.96365928649902"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="47.72419738769531"/>
+  <param uid="fltfreq" val="30.65653419494629"/>
+  <param uid="fltres" val="42.45808792114258"/>
+  <param uid="fltamount" val="0.6385168433189392"/>
+  <param uid="fltattack" val="4.717609499493847e-6"/>
+  <param uid="fltdecay" val="9.584101676940918"/>
+  <param uid="fltsustain" val="1.008227586746216"/>
+  <param uid="fltrelease" val="2.793823003768921"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="5.358633995056152"/>
+  <param uid="lfo1depth" val="0.4207270443439484"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="0.5722693204879761"/>
+  <param uid="lfo2depth" val="0.3351527154445648"/>
+  <param uid="lfo2phase" val="-0.1579836457967758"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.00001049851289280923"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="2.17751669883728"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="14.18702030181885"/>
+  <param uid="chDepth" val="1.589479207992554"/>
+  <param uid="chSpeed" val="0.8820202350616455"/>
+  <param uid="chMix" val="0.2564420104026794"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.2534318864345551"/>
+</state>

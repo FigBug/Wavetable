@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BeauKeys" author="Luparia" tags="Key Vintage ">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.1800000071525574" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="5.0"/>
+  <param uid="osc1detune" val="0.1986614614725113"/>
+  <param uid="osc1formant" val="0.1123741865158081"/>
+  <param uid="osc1bend" val="0.3130425214767456"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="fltfreq" val="80.2633056640625"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.003777528647333384"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1sustain" val="33.8463249206543"/>
+  <param uid="env1release" val="0.2508710026741028"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.007237925659865141"/>
+  <param uid="decay" val="0.08015501499176025"/>
+  <param uid="sustain" val="53.91315841674805"/>
+  <param uid="release" val="0.5453963875770569"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.584280788898468"/>
+</state>

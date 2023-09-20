@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Alejandr0" author="Luparia" tags="Lead Dirty Electronic">
+  <state wt1="Hyper 05" wt2="FM 02" wt1Data="0." wt2Data="0." editorScale="1.215316295623779">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="12.0"/>
+  <param uid="osc1pos" val="56.17322540283203"/>
+  <param uid="osc1detune" val="0.04607853665947914"/>
+  <param uid="osc1spread" val="-59.24383544921875"/>
+  <param uid="osc1formant" val="-0.3883764445781708"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2pos" val="65.168212890625"/>
+  <param uid="osc2detune" val="0.02633044868707657"/>
+  <param uid="osc2spread" val="-58.58559417724609"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="87.56272888183594"/>
+  <param uid="fltamount" val="0.6187692880630493"/>
+  <param uid="fltattack" val="3.894916744684451e-7"/>
+  <param uid="fltdecay" val="0.0859156996011734"/>
+  <param uid="fltsustain" val="45.74941253662109"/>
+  <param uid="fltrelease" val="0.1409004628658295"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.07372183352708817"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="1.37748658657074"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="11.82516098022461"/>
+  <param uid="chDepth" val="2.637428522109985"/>
+  <param uid="chSpeed" val="2.641573429107666"/>
+  <param uid="chWidth" val="0.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.1769610643386841"/>
+</state>

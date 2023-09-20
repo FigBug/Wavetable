@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Flutish" author="Luparia" tags="Mpe Synthwave Vintage Lead">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.07000000029802322" dstId="osc1finetune"/>
+      <MODITEM srcId="mpep" depth="0.119999997317791" dstId="lfo1rate"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="57.20000076293945"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-20.0"/>
+  <param uid="fltfreq" val="86.69281005859375"/>
+  <param uid="fltres" val="27.20000076293945"/>
+  <param uid="fltamount" val="0.6320000290870667"/>
+  <param uid="fltattack" val="0.000152131644426845"/>
+  <param uid="fltdecay" val="0.0003166392561979592"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.0001023496952257119"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="3.676753044128418"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.001921262475661933"/>
+  <param uid="decay" val="0.2655040919780731"/>
+  <param uid="sustain" val="50.40000152587891"/>
+  <param uid="release" val="0.01657631248235703"/>
+  <param uid="mpe" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="1.875599980354309"/>
+  <param uid="chMix" val="0.2000000029802322"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.0"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.4079999923706055"/>
+</state>

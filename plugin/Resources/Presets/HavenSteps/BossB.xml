@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BossB" author="Luparia" tags="Bass 8bit Dirty">
+  <state wt1="Analog PWM Sub 01" wt2="Growl 07" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.3600000143051147" dstId="osc1level"/>
+      <MODITEM srcId="lfo1" depth="0.3400000035762787" dstId="osc2level"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1level" val="-7.0"/>
+  <param uid="osc1pos" val="44.79999923706055"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2level" val="-6.0"/>
+  <param uid="osc2pos" val="54.79999923706055"/>
+  <param uid="osc2formant" val="0.5839999914169312"/>
+  <param uid="osc2bend" val="-0.08800005912780762"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="fltfreq" val="93.17646026611328"/>
+  <param uid="fltres" val="36.79999923706055"/>
+  <param uid="fltamount" val="0.1519999504089355"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.9976781010627747"/>
+  <param uid="lfo1depth" val="0.2480000257492065"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.01343210227787495"/>
+  <param uid="decay" val="5.321754455566406"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+</state>

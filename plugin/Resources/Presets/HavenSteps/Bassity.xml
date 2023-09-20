@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Bassity" author="Luparia" tags="Lead Brass Electronic ">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.07000000029802322" dstId="osc1formant"/>
+      <MODITEM srcId="env1" depth="0.3100000023841858" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1pos" val="13.1653003692627"/>
+  <param uid="osc1formant" val="0.09215712547302246"/>
+  <param uid="osc1bend" val="-0.3626083731651306"/>
+  <param uid="fltfreq" val="68.00121307373047"/>
+  <param uid="fltres" val="38.83762741088867"/>
+  <param uid="fltattack" val="0.001217148848809302"/>
+  <param uid="fltdecay" val="3.685781717300415"/>
+  <param uid="fltsustain" val="100.0"/>
+  <param uid="fltrelease" val="0.4566226601600647"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="fltnoise" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.002373035531491041"/>
+  <param uid="env1decay" val="1.341679930686951"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="0.6939611434936523"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="21.72274208068848"/>
+  <param uid="attack" val="0.007995715364813805"/>
+  <param uid="decay" val="0.7816751599311829"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chMix" val="0.06225403398275375"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.06505567580461502"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.6955749988555908"/>
+  <param uid="rvbDecay" val="0.4542023837566376"/>
+  <param uid="rvbLowpass" val="4709.126953125"/>
+  <param uid="rvbDamping" val="519.9635009765625"/>
+  <param uid="rvbPredelay" val="0.05562338978052139"/>
+  <param uid="rvbMix" val="0.1415270864963531"/>
+</state>
