@@ -1,3 +1,8 @@
+0.0.9:
+
+- Added 50 presets
+- Dot on LFOs now accurate to position of mono LFOs
+
 0.0.8:
 
 - Added UI for mod matrix 
