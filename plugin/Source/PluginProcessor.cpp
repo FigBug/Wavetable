@@ -1002,7 +1002,8 @@ void WavetableAudioProcessor::handleMidiEvent (const juce::MidiMessage& m)
 
 void WavetableAudioProcessor::handleController ([[maybe_unused]] int ch, int num, int val)
 {
-    modMatrix.setMonoValue (modSrcCC[num], val / 127.0f);
+	if (num >= 0 && num <= 119)
+		modMatrix.setMonoValue (modSrcCC[num], val / 127.0f);
 }
 
 //==============================================================================
