@@ -52,13 +52,17 @@ void WavetableVoice::noteStarted()
     
     for (auto& osc : oscillators)
         osc.noteOn();
+
     noise.noteOn();
     sub.noteOn();
 
     filterADSR.noteOn();
 
     for (auto& a : modADSRs)
-         a.noteOn();
+    {
+        a.reset();
+        a.noteOn();
+    }
 
     for (auto& l : modLFOs)
         l.noteOn();

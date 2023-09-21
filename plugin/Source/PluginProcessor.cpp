@@ -723,7 +723,16 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 {
     juce::ScopedNoDenormals noDenormals;
     if (! dspLock.tryEnter())
+    {
+        blockMissed = true;
         return;
+    }
+
+    if (blockMissed)
+    {
+        blockMissed = false;
+        turnOffAllVoices (false);
+    }
 
     startBlock();
     setMPE (globalParams.mpe->isOn());

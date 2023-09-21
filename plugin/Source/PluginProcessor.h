@@ -269,6 +269,7 @@ public:
     gin::StepLFO modStepLFO;
 
     juce::AudioPlayHead* playhead = nullptr;
+    bool blockMissed = false;
 
     struct CurTable
     {
