@@ -40,7 +40,7 @@ void WavetableVoice::noteStarted()
     filterADSR.reset();
 
     for (auto& a : modADSRs)
-         a.noteOn();
+         a.reset();
 
     for (auto& l : modLFOs)
         l.reset();
@@ -59,10 +59,7 @@ void WavetableVoice::noteStarted()
     filterADSR.noteOn();
 
     for (auto& a : modADSRs)
-    {
-        a.reset();
         a.noteOn();
-    }
 
     for (auto& l : modLFOs)
         l.noteOn();
