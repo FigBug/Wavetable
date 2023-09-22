@@ -522,7 +522,7 @@ void WavetableAudioProcessor::reloadWavetables()
     auto shouldLoad = [&] (int osc, const juce::String& name, double sr)
     {
         auto& v = curTables[osc];
-        if (v.name == name && juce::approximatelyEqual (v.sampleRate, sr))
+        if (v.name == name && juce::exactlyEqual (v.sampleRate, sr))
             return false;
 
         v.name = name;
