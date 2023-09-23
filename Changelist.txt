@@ -1,3 +1,9 @@
+1.0.0:
+
+- Initial public release
+- Added 50 presets
+- Presets browser automatically refreshes when presets added / removed from folder
+
 0.0.11:
 
 - Fixed mod/filter ADSR resetting to 1.0 after note OFF
