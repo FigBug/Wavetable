@@ -615,6 +615,7 @@ void WavetableAudioProcessor::stateUpdated()
     userTable2.fromBase64Encoding (state.getProperty ("wt2Data").toString());
 
     reloadWavetables();
+    presetLoaded = true;
 }
 
 void WavetableAudioProcessor::updateState()
@@ -728,9 +729,9 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         return;
     }
 
-    if (blockMissed)
+    if (blockMissed || presetLoaded)
     {
-        blockMissed = false;
+        blockMissed = presetLoaded = false;
         turnOffAllVoices (false);
     }
 

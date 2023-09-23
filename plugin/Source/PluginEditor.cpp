@@ -3,7 +3,7 @@
 
 //==============================================================================
 WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProcessor& p)
-    : ProcessorEditor (p), vaProc (p)
+    : ProcessorEditor (p), wtProc (p)
 {
     scope.setName ("scope");
     scope.setNumChannels (2);
@@ -14,6 +14,8 @@ WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProc
 
     addAndMakeVisible (editor);
     addAndMakeVisible (scope);
+    
+    usage.panic.onClick = [this] { wtProc.presetLoaded = true; };
     addAndMakeVisible (usage);
     
     usage.setBounds (45, 12, 150, 16);
@@ -67,9 +69,9 @@ void WavetableAudioProcessorEditor::resized()
 void WavetableAudioProcessorEditor::addMenuItems (juce::PopupMenu& m)
 {
     m.addSeparator();
-    m.addItem ("MPE", true, vaProc.globalParams.mpe->getUserValueBool(), [this]
+    m.addItem ("MPE", true, wtProc.globalParams.mpe->getUserValueBool(), [this]
     {
-        vaProc.globalParams.mpe->setUserValue (vaProc.globalParams.mpe->getUserValueBool() ? 0.0f : 1.0f);
+        wtProc.globalParams.mpe->setUserValue (wtProc.globalParams.mpe->getUserValueBool() ? 0.0f : 1.0f);
     });
 
     auto setSize = [this] (float scale)

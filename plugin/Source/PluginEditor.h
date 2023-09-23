@@ -21,12 +21,12 @@ public:
     void showAboutInfo() override;
 
 private:
-    WavetableAudioProcessor& vaProc;
+    WavetableAudioProcessor& wtProc;
 
-    gin::TriggeredScope scope { vaProc.scopeFifo };
-    gin::SynthesiserUsage usage { vaProc };
+    gin::TriggeredScope scope { wtProc.scopeFifo };
+    gin::SynthesiserUsage usage { wtProc };
     
-    Editor editor { vaProc };
+    Editor editor { wtProc };
 
    #if JUCE_DEBUG
     std::unique_ptr<melatonin::Inspector> inspector;

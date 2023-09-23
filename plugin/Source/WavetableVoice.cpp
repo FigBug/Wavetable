@@ -413,7 +413,7 @@ bool WavetableVoice::isVoiceActive()
 float WavetableVoice::getFilterCutoffNormalized()
 {
     float freq = filter.getFrequency();
-    return proc.filterParams.frequency->getUserRange().convertTo0to1 (gin::getMidiNoteFromHertz (freq));
+    return proc.filterParams.frequency->getUserRange().convertTo0to1 (juce::jlimit (0.0f, 1.0f, gin::getMidiNoteFromHertz (freq)));
 }
 
 gin::WTOscillator::Params WavetableVoice::getLiveWTParams (int osc)
