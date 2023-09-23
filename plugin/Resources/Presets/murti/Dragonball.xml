@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Dragonball" author="murti" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.03999999910593033" dstId="osc2tune"/>
+      <MODITEM srcId="env1" depth="0.4901770949363708" dstId="osc2tune"/>
+      <MODITEM srcId="env1" depth="0.3799999952316284" dstId="rvbDecay"/>
+      <MODITEM srcId="env1" depth="-0.2000000029802322" dstId="rvbMix"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1pos" val="51.88704299926758"/>
+  <param uid="osc1detune" val="0.05117557570338249"/>
+  <param uid="osc1spread" val="-36.85776519775391"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="32.0"/>
+  <param uid="osc2level" val="-6.0"/>
+  <param uid="osc2detune" val="0.1274302005767822"/>
+  <param uid="osc2spread" val="51.74728393554688"/>
+  <param uid="osc2formant" val="0.6317413449287415"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-4.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-6.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="16.18913078308105"/>
+  <param uid="env1decay" val="60.0"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.5246713757514954"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.3046185970306396"/>
+  <param uid="rvbDecay" val="0.6942861080169678"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbMix" val="0.1333159208297729"/>
+</state>

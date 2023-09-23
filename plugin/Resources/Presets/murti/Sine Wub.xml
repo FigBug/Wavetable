@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Sine Wub" author="murti" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.6299999952316284" dstId="osc1tune"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1formant" val="0.4213408231735229"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1beat" val="10.0"/>
+  <param uid="lfo1phase" val="-0.0001821517944335938"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="0.1000000014901161"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlFb" val="-23.35504150390625"/>
+  <param uid="dlCf" val="-22.19209480285645"/>
+  <param uid="dlMix" val="23.25429725646973"/>
+  <param uid="dlDelay" val="0.2499999850988388"/>
+  <param uid="rvbSize" val="0.4238651096820831"/>
+  <param uid="rvbDecay" val="0.697057843208313"/>
+  <param uid="rvbLowpass" val="1240.692504882812"/>
+  <param uid="rvbDamping" val="6759.5703125"/>
+  <param uid="rvbMix" val="0.2368457019329071"/>
+</state>

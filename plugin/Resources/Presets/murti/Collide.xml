@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Collide" author="murti" tags="Sequence">
+  <state wt1="Growl 15" wt2="Growl 12" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="0.3708256483078003" dstId="osc1pos"/>
+      <MODITEM srcId="lfo1" depth="-0.2000000029802322" dstId="osc1detune"/>
+      <MODITEM srcId="step" depth="0.4099999964237213" dstId="osc1pan"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1pos" val="49.88615036010742"/>
+  <param uid="osc1detune" val="0.1019432991743088"/>
+  <param uid="osc1spread" val="7.207595825195312"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1beat" val="23.0"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="10.0"/>
+  <param uid="slfolength" val="16.0"/>
+  <param uid="slfostep1" val="0.8313252925872803"/>
+  <param uid="slfostep2" val="-1.0"/>
+  <param uid="slfostep3" val="0.7108433842658997"/>
+  <param uid="slfostep4" val="-0.518072247505188"/>
+  <param uid="slfostep5" val="0.0602409839630127"/>
+  <param uid="slfostep6" val="0.590361475944519"/>
+  <param uid="slfostep7" val="-0.590361475944519"/>
+  <param uid="slfostep8" val="-0.0602409839630127"/>
+  <param uid="slfostep9" val="0.1325300931930542"/>
+  <param uid="slfostep10" val="-0.4457831382751465"/>
+  <param uid="slfostep11" val="0.8072289228439331"/>
+  <param uid="slfostep12" val="-0.5421686172485352"/>
+  <param uid="slfostep13" val="0.518072247505188"/>
+  <param uid="slfostep14" val="-0.108433723449707"/>
+  <param uid="slfostep15" val="0.8795180916786194"/>
+  <param uid="slfostep16" val="-0.5662651062011719"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="level" val="-2.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.5947880744934082"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlCf" val="-20.96214294433594"/>
+  <param uid="dlMix" val="41.78571701049805"/>
+  <param uid="dlDelay" val="0.2499999850988388"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.9345061182975769"/>
+</state>

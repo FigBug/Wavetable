@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Delay Compass" author="murti" tags="Sequence">
+  <state wt1="Growl 09" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="0.4799999892711639" dstId="osc1pos"/>
+      <MODITEM srcId="step" depth="0.5600000023841858" dstId="dlMix"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1pos" val="49.8561897277832"/>
+  <param uid="osc1detune" val="0.06656262278556824"/>
+  <param uid="osc1spread" val="70.65287780761719"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="7.0"/>
+  <param uid="sublevel" val="-13.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-11.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="10.0"/>
+  <param uid="slfostep1" val="1.0"/>
+  <param uid="slfostep2" val="-0.9518072605133057"/>
+  <param uid="slfostep3" val="0.4457831382751465"/>
+  <param uid="slfostep4" val="-0.2771084308624268"/>
+  <param uid="slfostep5" val="0.2289156913757324"/>
+  <param uid="slfostep6" val="0.8072289228439331"/>
+  <param uid="slfostep7" val="-0.3012048006057739"/>
+  <param uid="slfostep8" val="-1.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatelength" val="16.0"/>
+  <param uid="gateattack" val="3.349817845332836e-8"/>
+  <param uid="gaterelease" val="9.613437441657879e-7"/>
+  <param uid="gatel1" val="0.0"/>
+  <param uid="gatel2" val="1.0"/>
+  <param uid="gatel3" val="0.0"/>
+  <param uid="gater3" val="0.0"/>
+  <param uid="gatel4" val="1.0"/>
+  <param uid="gater4" val="1.0"/>
+  <param uid="gatel5" val="0.0"/>
+  <param uid="gater5" val="0.0"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gater9" val="0.0"/>
+  <param uid="gater10" val="1.0"/>
+  <param uid="gatel11" val="0.0"/>
+  <param uid="gater11" val="0.0"/>
+  <param uid="gatel12" val="1.0"/>
+  <param uid="gatel13" val="0.0"/>
+  <param uid="gater15" val="0.0"/>
+  <param uid="gatel16" val="0.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.7357998490333557"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlDelay" val="0.4999999701976776"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.502417266368866"/>
+  <param uid="rvbDecay" val="0.7077868580818176"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbMix" val="0.02136621251702309"/>
+</state>

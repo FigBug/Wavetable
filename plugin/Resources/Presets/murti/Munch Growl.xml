@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Munch Growl" author="murti" tags="Synth">
+  <state wt1="Analog PWM Square 01" wt2="FM 09" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.5" dstId="osc1tune"/>
+      <MODITEM srcId="fenv" depth="0.4199999868869781" dstId="osc2tune"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-36.0"/>
+  <param uid="osc1pos" val="28.09879112243652"/>
+  <param uid="osc1detune" val="0.01685711741447449"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-36.0"/>
+  <param uid="osc2detune" val="0.1621897518634796"/>
+  <param uid="osc2spread" val="-100.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltamount" val="0.04112863540649414"/>
+  <param uid="fltattack" val="0.05056218057870865"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0934736430644989"/>
+  <param uid="env1decay" val="0.5953988432884216"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="0.0"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.521086573600769"/>
+  <param uid="rvbDecay" val="0.5714841485023499"/>
+  <param uid="rvbLowpass" val="8994.681640625"/>
+  <param uid="rvbMix" val="0.03721875697374344"/>
+</state>

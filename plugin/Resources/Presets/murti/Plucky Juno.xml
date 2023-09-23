@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Plucky Juno" author="murti" tags="Pad">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.3400000035762787" dstId="osc1level"/>
+      <MODITEM srcId="env1" depth="0.6299999952316284" dstId="osc1pos"/>
+      <MODITEM srcId="lfo1" depth="0.05999999865889549" dstId="lfo1rate"/>
+      <MODITEM srcId="env1" depth="-0.3899999856948853" dstId="chDepth"/>
+      <MODITEM srcId="lfo1" depth="0.1299999952316284" dstId="chSpeed"/>
+      <MODITEM srcId="env1" depth="-0.6499999761581421" dstId="chWidth"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1detune" val="0.1231685802340508"/>
+  <param uid="fltfreq" val="34.24299621582031"/>
+  <param uid="fltamount" val="0.7010129690170288"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.6178864240646362"/>
+  <param uid="env1sustain" val="16.4228515625"/>
+  <param uid="env1release" val="0.00004469855775823817"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.4070658087730408"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.1696472316980362"/>
+  <param uid="sustain" val="46.81267166137695"/>
+  <param uid="release" val="0.4968267381191254"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chDepth" val="3.997641086578369"/>
+  <param uid="chWidth" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+</state>

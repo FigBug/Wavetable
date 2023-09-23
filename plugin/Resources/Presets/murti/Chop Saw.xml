@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Chop Saw" author="murti" tags="Sequence">
+  <state wt1="Hyper 04" wt2="Analog PWM Saw 03" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.5099999904632568" dstId="osc1level"/>
+      <MODITEM srcId="step" depth="0.4900000095367432" dstId="osc1pos"/>
+      <MODITEM srcId="lfo1" depth="0.4699999988079071" dstId="osc2level"/>
+      <MODITEM srcId="lfo1" depth="0.6299999952316284" dstId="sublevel"/>
+      <MODITEM srcId="lfo1" depth="0.4799999892711639" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1level" val="-7.0"/>
+  <param uid="osc1pos" val="53.45447540283203"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2level" val="-15.0"/>
+  <param uid="osc2spread" val="43.91976928710938"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-17.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-22.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="4.0"/>
+  <param uid="lfo1beat" val="7.0"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfostep1" val="1.0"/>
+  <param uid="slfostep2" val="-0.8072289228439331"/>
+  <param uid="slfostep3" val="0.6626505851745605"/>
+  <param uid="slfostep4" val="-0.03614461421966553"/>
+  <param uid="slfostep5" val="-1.0"/>
+  <param uid="slfostep6" val="1.0"/>
+  <param uid="slfostep7" val="-0.373494029045105"/>
+  <param uid="slfostep8" val="-1.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4640642106533051"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5245403647422791"/>
+  <param uid="rvbDecay" val="0.5710566639900208"/>
+  <param uid="rvbLowpass" val="16118.44921875"/>
+  <param uid="rvbMix" val="0.05154954642057419"/>
+</state>

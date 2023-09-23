@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Lurkin" author="murti" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.9900000095367432" dstId="noiselevel"/>
+      <MODITEM srcId="lfo1" depth="0.6100000143051147" dstId="rvbMix"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1pos" val="17.3863468170166"/>
+  <param uid="osc1spread" val="11.81216430664062"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="7.0"/>
+  <param uid="osc2level" val="-13.0"/>
+  <param uid="osc2detune" val="0.06533981114625931"/>
+  <param uid="osc2spread" val="22.4710693359375"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-53.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="3.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.1319218873977661"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="level" val="-6.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.121690921485424"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.5529491901397705"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.4859269559383392"/>
+</state>

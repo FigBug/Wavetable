@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Flower" author="murti" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog PWM Custom 06" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.3899999856948853" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="22.88904190063477"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="12.0"/>
+  <param uid="osc2pos" val="30.50143051147461"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-16.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-8.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1rate" val="0.5158973932266235"/>
+  <param uid="lfo1beat" val="19.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.2919366359710693"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.003454047255218029"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="0.5852689146995544"/>
+  <param uid="chDepth" val="1.545675873756409"/>
+  <param uid="chWidth" val="0.7541545629501343"/>
+  <param uid="chMix" val="0.8309165239334106"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlFb" val="-27.65023803710938"/>
+  <param uid="dlCf" val="-21.16367340087891"/>
+  <param uid="dlMix" val="9.076854705810547"/>
+  <param uid="dlDelay" val="0.4999999701976776"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5657857656478882"/>
+  <param uid="rvbDecay" val="0.7870312333106995"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbMix" val="0.1462297290563583"/>
+</state>

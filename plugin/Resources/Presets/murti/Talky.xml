@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Talky" author="murti" tags="Sequence">
+  <state wt1="Hyper 01" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="-0.4699999988079071" dstId="osc1pos"/>
+      <MODITEM srcId="step" depth="-0.02999999932944775" dstId="fltfreq"/>
+      <MODITEM srcId="step" depth="0.2199999988079071" dstId="dsAmount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="59.35517120361328"/>
+  <param uid="fltfreq" val="95.86247253417969"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfolength" val="14.0"/>
+  <param uid="slfostep1" val="0.8072289228439331"/>
+  <param uid="slfostep2" val="-0.7590361833572388"/>
+  <param uid="slfostep3" val="0.5421686768531799"/>
+  <param uid="slfostep4" val="-0.4939758777618408"/>
+  <param uid="slfostep5" val="0.759036123752594"/>
+  <param uid="slfostep6" val="-0.7590361833572388"/>
+  <param uid="slfostep7" val="0.349397599697113"/>
+  <param uid="slfostep8" val="-0.6626505851745605"/>
+  <param uid="slfostep10" val="0.759036123752594"/>
+  <param uid="slfostep11" val="-0.5421686172485352"/>
+  <param uid="slfostep12" val="0.9036144614219666"/>
+  <param uid="slfostep13" val="0.2530120611190796"/>
+  <param uid="slfostep14" val="-0.4698795080184937"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gatelength" val="12.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+</state>

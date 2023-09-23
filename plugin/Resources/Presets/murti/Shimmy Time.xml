@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Shimmy Time" author="murti" tags="Synth">
+  <state wt1="Analog PWM Square 02" wt2="Analog PWM Saw 02" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.4699999988079071" dstId="noisepan"/>
+      <MODITEM srcId="lfo2" depth="0.4199999868869781" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="24.0"/>
+  <param uid="osc2level" val="-5.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="3.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-9.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-10.0"/>
+  <param uid="flttype" val="7.0"/>
+  <param uid="fltfreq" val="68.52088165283203"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="15.90886974334717"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2wave" val="2.0"/>
+  <param uid="lfo2beat" val="22.0"/>
+  <param uid="attack" val="0.0045717335306108"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="1.506259679794312"/>
+  <param uid="chSpeed" val="0.4206971228122711"/>
+  <param uid="chWidth" val="0.8014281988143921"/>
+  <param uid="chMix" val="0.3721425831317902"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.3907277882099152"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5379678606987"/>
+  <param uid="rvbDecay" val="0.7593850493431091"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbMix" val="0.07440794259309769"/>
+</state>

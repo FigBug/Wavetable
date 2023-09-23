@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Modular Waves" author="murti" tags="Synth">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo2" depth="0.2300000041723251" dstId="osc1tune"/>
+      <MODITEM srcId="lfo1" depth="-0.3400000035762787" dstId="osc1tune"/>
+      <MODITEM srcId="lfo3" depth="0.25" dstId="osc1detune"/>
+      <MODITEM srcId="lfo3" depth="-0.2800000011920929" dstId="osc1formant"/>
+      <MODITEM srcId="lfo2" depth="0.4000000059604645" dstId="osc2tune"/>
+      <MODITEM srcId="lfo1" depth="0.4300000071525574" dstId="osc2pos"/>
+      <MODITEM srcId="lfo2" depth="0.3199999928474426" dstId="osc2detune"/>
+      <MODITEM srcId="lfo2" depth="-0.1400000005960464" dstId="osc2formant"/>
+      <MODITEM srcId="lfo2" depth="-0.05999999865889549" dstId="osc2bend"/>
+      <MODITEM srcId="lfo3" depth="0.4099999964237213" dstId="subtune"/>
+      <MODITEM srcId="lfo1" depth="-0.4900000095367432" dstId="sublevel"/>
+      <MODITEM srcId="lfo2" depth="0.3700000047683716" dstId="noiselevel"/>
+      <MODITEM srcId="lfo2" depth="-0.2599999904632568" dstId="lfo3rate"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1pos" val="16.180419921875"/>
+  <param uid="osc1detune" val="0.03560507297515869"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2pos" val="52.93184661865234"/>
+  <param uid="osc2detune" val="0.1119364649057388"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="sublevel" val="-23.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-19.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.6438920497894287"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2rate" val="3.48469090461731"/>
+  <param uid="lfo3enable" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="uiLFO" val="2.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+</state>

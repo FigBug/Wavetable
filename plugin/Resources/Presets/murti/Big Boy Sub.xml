@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Big Boy Sub" author="murti" tags="Bass">
+  <state wt1="Analog PWM Square 01" wt2="Analog Classic" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.5888603329658508" dstId="noisepan"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1level" val="-21.0"/>
+  <param uid="osc1detune" val="0.05591989308595657"/>
+  <param uid="osc1spread" val="44.75143432617188"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-12.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-32.0"/>
+  <param uid="fltfreq" val="49.32084655761719"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="fltnoise" val="0.0"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="35.39710235595703"/>
+  <param uid="attack" val="0.001745919464156032"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+</state>

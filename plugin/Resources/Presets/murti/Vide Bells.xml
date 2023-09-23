@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Vide Bells" author="murti" tags="Synth">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.5160166025161743" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1level" val="-4.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="36.0"/>
+  <param uid="sublevel" val="-4.0"/>
+  <param uid="noiselevel" val="-100.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.0"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="0.087771937251091"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.873953104019165"/>
+  <param uid="sustain" val="19.34103965759277"/>
+  <param uid="release" val="4.768144607543945"/>
+  <param uid="level" val="-4.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.09317969530820847"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlMix" val="14.42822074890137"/>
+  <param uid="dlDelay" val="0.2499999850988388"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.494154304265976"/>
+  <param uid="rvbDecay" val="0.6378981471061707"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbMix" val="0.1088215336203575"/>
+</state>

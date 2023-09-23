@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Augmented Reality" author="murti" tags="Sequence">
+  <state wt1="Growl 13" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mstep" depth="0.239999994635582" dstId="osc1pos"/>
+      <MODITEM srcId="mstep" depth="0.3199999928474426" dstId="osc1formant"/>
+      <MODITEM srcId="step" depth="0.1700000017881393" dstId="osc2detune"/>
+      <MODITEM srcId="step" depth="0.5699999928474426" dstId="osc2pan"/>
+      <MODITEM srcId="step" depth="0.1400000005960464" dstId="osc2formant"/>
+      <MODITEM srcId="step" depth="0.07999999821186066" dstId="subtune"/>
+      <MODITEM srcId="lfo1" depth="-1.0" dstId="level"/>
+      <MODITEM srcId="mstep" depth="-0.1000000014901161" dstId="gateattack"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="33.17160034179688"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="4.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2level" val="-4.0"/>
+  <param uid="osc2detune" val="0.1058600172400475"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-5.0"/>
+  <param uid="noisepan" val="0.6653406023979187"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="3.0"/>
+  <param uid="lfo1depth" val="-0.2764235436916351"/>
+  <param uid="lfo1fade" val="0.3430366516113281"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfostep1" val="0.9518072605133057"/>
+  <param uid="slfostep2" val="0.08433735370635986"/>
+  <param uid="slfostep3" val="-0.4939758777618408"/>
+  <param uid="slfostep5" val="0.3975903391838074"/>
+  <param uid="slfostep6" val="-0.2771084308624268"/>
+  <param uid="slfostep7" val="0.6867469549179077"/>
+  <param uid="slfostep8" val="-0.5662651062011719"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatelength" val="16.0"/>
+  <param uid="gateattack" val="0.002491909079253674"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="gatel1" val="0.0"/>
+  <param uid="gatel2" val="1.0"/>
+  <param uid="gater2" val="1.0"/>
+  <param uid="gater3" val="0.0"/>
+  <param uid="gater5" val="0.0"/>
+  <param uid="gater7" val="0.0"/>
+  <param uid="gatel16" val="0.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="2.193718194961548"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlMix" val="28.48100662231445"/>
+  <param uid="dlDelay" val="0.2499999850988388"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.4557435214519501"/>
+</state>

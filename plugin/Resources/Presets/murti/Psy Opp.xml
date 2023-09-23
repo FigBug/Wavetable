@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Psy Opp" author="murti" tags="Sequence">
+  <state wt1="Hyper 05" wt2="Growl 06" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="0.5600000023841858" dstId="osc1pos"/>
+      <MODITEM srcId="step" depth="0.2899999916553497" dstId="osc2pos"/>
+      <MODITEM srcId="step" depth="-0.4000000059604645" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1pos" val="57.27088165283203"/>
+  <param uid="osc1detune" val="0.09350396692752838"/>
+  <param uid="osc1spread" val="-56.10617828369141"/>
+  <param uid="osc1formant" val="0.1849200576543808"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2pos" val="37.64681243896484"/>
+  <param uid="fltfreq" val="77.90650177001953"/>
+  <param uid="fltres" val="52.38296508789062"/>
+  <param uid="fltamount" val="0.1358039528131485"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfolength" val="24.0"/>
+  <param uid="slfostep1" val="-1.0"/>
+  <param uid="slfostep3" val="1.0"/>
+  <param uid="slfostep4" val="-1.0"/>
+  <param uid="slfostep5" val="0.7349397540092468"/>
+  <param uid="slfostep7" val="-0.3253011703491211"/>
+  <param uid="slfostep9" val="0.2289156913757324"/>
+  <param uid="slfostep11" val="-0.6385542154312134"/>
+  <param uid="slfostep12" val="0.6867469549179077"/>
+  <param uid="slfostep14" val="-0.6144578456878662"/>
+  <param uid="slfostep16" val="1.0"/>
+  <param uid="slfostep17" val="-0.3975903987884521"/>
+  <param uid="slfostep18" val="0.590361475944519"/>
+  <param uid="slfostep20" val="-0.5662651062011719"/>
+  <param uid="slfostep21" val="0.759036123752594"/>
+  <param uid="slfostep23" val="1.0"/>
+  <param uid="slfostep24" val="-1.0"/>
+  <param uid="gatelength" val="6.0"/>
+  <param uid="gateattack" val="0.0"/>
+  <param uid="gaterelease" val="0.0007366929203271866"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="0.5475422143936157"/>
+  <param uid="chMix" val="0.2420065850019455"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+</state>

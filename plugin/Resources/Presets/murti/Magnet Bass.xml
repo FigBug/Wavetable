@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Magnet Bass" author="murti" tags="Bass">
+  <state wt1="Analog PWM Saw 01" wt2="Analog PWM Saw 05" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="-0.4399999976158142" dstId="osc1pos"/>
+      <MODITEM srcId="lfo1" depth="0.4300000071525574" dstId="osc2pos"/>
+      <MODITEM srcId="lfo1" depth="0.2899999916553497" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1pos" val="49.25799560546875"/>
+  <param uid="osc1detune" val="0.03122747875750065"/>
+  <param uid="osc1spread" val="62.97360229492188"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2pos" val="46.08405303955078"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="3.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-17.0"/>
+  <param uid="fltfreq" val="88.581298828125"/>
+  <param uid="fltres" val="70.48119354248047"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="2.0"/>
+  <param uid="lfo1beat" val="22.0"/>
+  <param uid="lfo1phase" val="0.2444584369659424"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.02175308577716351"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlFb" val="-28.40996742248535"/>
+  <param uid="dlCf" val="-35.03855895996094"/>
+  <param uid="dlMix" val="7.17380428314209"/>
+  <param uid="dlDelay" val="0.2499999850988388"/>
+  <param uid="rvbSize" val="0.6416261196136475"/>
+  <param uid="rvbDecay" val="0.5363178849220276"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbMix" val="0.06460132449865341"/>
+</state>

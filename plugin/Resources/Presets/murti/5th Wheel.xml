@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="5th Wheel" author="murti" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.9771917462348938" dstId="sublevel"/>
+      <MODITEM srcId="env1" depth="0.7400000095367432" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="22.14693641662598"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="16.0"/>
+  <param uid="osc2pos" val="21.70222091674805"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-33.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="19.29484558105469"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.002907390240579844"/>
+  <param uid="env1decay" val="0.6544467210769653"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.9390883445739746"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.0982014462351799"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="2.802548170089722"/>
+  <param uid="chSpeed" val="1.329449892044067"/>
+  <param uid="chWidth" val="0.6873254179954529"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.2645688354969025"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlMix" val="17.41782188415527"/>
+  <param uid="dlDelay" val="0.2499999850988388"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.3980638980865479"/>
+  <param uid="rvbDecay" val="0.3406435549259186"/>
+  <param uid="rvbMix" val="0.05229810625314713"/>
+</state>

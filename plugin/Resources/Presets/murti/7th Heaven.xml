@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="7th Heaven" author="murti" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.1325402855873108" dstId="fltfreq"/>
+      <MODITEM srcId="env1" depth="-0.3100000023841858" dstId="chMix"/>
+      <MODITEM srcId="env1" depth="0.3499999940395355" dstId="dsAmount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="16.35286331176758"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2tune" val="12.0"/>
+  <param uid="osc2pos" val="17.94132041931152"/>
+  <param uid="osc2detune" val="0.2435698211193085"/>
+  <param uid="osc2spread" val="71.5677490234375"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="7.0"/>
+  <param uid="sublevel" val="-11.0"/>
+  <param uid="fltfreq" val="92.56404113769531"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0004191665502730757"/>
+  <param uid="env1decay" val="4.022744178771973"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.005061843432486057"/>
+  <param uid="attack" val="0.0001188665046356618"/>
+  <param uid="decay" val="2.603151321411133"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.0000863218228914775"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chWidth" val="0.7586491703987122"/>
+  <param uid="chMix" val="0.4878464341163635"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.4446994066238403"/>
+  <param uid="rvbDecay" val="0.7324126362800598"/>
+  <param uid="rvbLowpass" val="13649.8662109375"/>
+  <param uid="rvbPredelay" val="0.009491699747741222"/>
+  <param uid="rvbMix" val="0.01756421849131584"/>
+</state>

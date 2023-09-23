@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Space Organ" author="murti" tags="Synth">
+  <state wt1="Growl 08" wt2="Growl 13" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="-0.4335981607437134" dstId="osc1pos"/>
+      <MODITEM srcId="lfo1" depth="0.6200000047683716" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="6.0"/>
+  <param uid="osc1tune" val="-5.0"/>
+  <param uid="osc1pos" val="50.74050140380859"/>
+  <param uid="osc1detune" val="0.1790532171726227"/>
+  <param uid="osc1spread" val="62.79887771606445"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2tune" val="7.0"/>
+  <param uid="osc2pos" val="52.27047729492188"/>
+  <param uid="osc2detune" val="0.149682492017746"/>
+  <param uid="osc2spread" val="46.96817016601562"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-6.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-9.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="2.0"/>
+  <param uid="lfo1rate" val="0.1953274011611938"/>
+  <param uid="lfo1beat" val="23.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDepth" val="1.660533308982849"/>
+  <param uid="chSpeed" val="1.093362927436829"/>
+  <param uid="chWidth" val="0.6349772810935974"/>
+  <param uid="chMix" val="0.3626750409603119"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.2694926559925079"/>
+</state>

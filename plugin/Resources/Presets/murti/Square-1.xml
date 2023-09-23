@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Square-1" author="murti" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="1.0" dstId="osc1tune"/>
+      <MODITEM srcId="env1" depth="0.1117042526602745" dstId="osc1detune"/>
+      <MODITEM srcId="env1" depth="-0.2700000107288361" dstId="osc1spread"/>
+      <MODITEM srcId="env1" depth="1.0" dstId="subtune"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-36.0"/>
+  <param uid="osc1pos" val="55.03635787963867"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-36.0"/>
+  <param uid="sublevel" val="-13.0"/>
+  <param uid="subpan" val="-0.01381617784500122"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.05709870904684067"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="0.00004849864126299508"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.2944779992103577"/>
+  <param uid="rvbDecay" val="0.6149743795394897"/>
+  <param uid="rvbLowpass" val="6537.40185546875"/>
+  <param uid="rvbMix" val="0.0355224572122097"/>
+</state>

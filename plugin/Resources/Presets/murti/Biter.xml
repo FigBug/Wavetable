@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Biter" author="murti" tags="Bass">
+  <state wt1="Growl 07" wt2="Analog PWM Saw 03" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="0.1633420586585999" dstId="osc1tune"/>
+      <MODITEM srcId="lfo3" depth="-0.03999999910593033" dstId="osc1pos"/>
+      <MODITEM srcId="step" depth="0.2899999916553497" dstId="osc1formant"/>
+      <MODITEM srcId="lfo3" depth="0.08907714486122131" dstId="fltfreq"/>
+      <MODITEM srcId="step" depth="-0.1599999964237213" dstId="lfo1rate"/>
+      <MODITEM srcId="lfo3" depth="-0.239999994635582" dstId="lfo3depth"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1level" val="-7.0"/>
+  <param uid="osc1pos" val="55.00207138061523"/>
+  <param uid="osc1formant" val="0.5916438102722168"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="noiselevel" val="-3.0"/>
+  <param uid="fltvel" val="46.4217529296875"/>
+  <param uid="fltfreq" val="67.59987640380859"/>
+  <param uid="fltamount" val="-1.0"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.2203126102685928"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.0"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="5.0"/>
+  <param uid="lfo1beat" val="10.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2rate" val="1.221500515937805"/>
+  <param uid="lfo3enable" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="lfo3rate" val="0.137315958738327"/>
+  <param uid="lfo3beat" val="22.0"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfostep1" val="-1.0"/>
+  <param uid="slfostep2" val="-1.0"/>
+  <param uid="slfostep3" val="-1.0"/>
+  <param uid="slfostep4" val="-1.0"/>
+  <param uid="slfostep5" val="-1.0"/>
+  <param uid="slfostep6" val="-1.0"/>
+  <param uid="slfostep7" val="-1.0"/>
+  <param uid="slfostep8" val="-1.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="gRate" val="1.154921412467957"/>
+  <param uid="level" val="-5.0"/>
+  <param uid="uiLFO" val="2.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="2.027352571487427"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="4.0"/>
+  <param uid="dlFb" val="-19.05150413513184"/>
+  <param uid="dlCf" val="-17.91986083984375"/>
+  <param uid="dlMix" val="29.25385665893555"/>
+  <param uid="dlDelay" val="0.0624999962747097"/>
+  <param uid="rvbSize" val="0.3129246830940247"/>
+  <param uid="rvbDecay" val="0.07624291628599167"/>
+  <param uid="rvbMix" val="0.07412305474281311"/>
+</state>

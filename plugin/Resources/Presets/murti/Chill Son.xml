@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Chill Son" author="murti" tags="Synth">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Data="0."
+         wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.2185691893100739" dstId="fltfreq"/>
+      <MODITEM srcId="env2" depth="0.4096301198005676" dstId="env2attack"/>
+      <MODITEM srcId="env2" depth="0.1700000017881393" dstId="dsAmount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="fltfreq" val="73.28852081298828"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1sustain" val="61.27719879150391"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="0.5201463103294373"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="0.001889606472104788"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1beat" val="23.0"/>
+  <param uid="slfostep7" val="0.3253012299537659"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="sustain" val="31.28459548950195"/>
+  <param uid="release" val="4.583099365234375"/>
+  <param uid="uiENV" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.1117780655622482"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlMix" val="16.42177581787109"/>
+  <param uid="dlDelay" val="0.4999999701976776"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5495237112045288"/>
+  <param uid="rvbDecay" val="0.6169348359107971"/>
+  <param uid="rvbMix" val="0.1927580386400223"/>
+</state>
