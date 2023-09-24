@@ -36,8 +36,5 @@ private:
     DelayBox delay { proc };
     ReverbBox reverb { proc };
 
-    gin::BoxArea lfoBox;
-    gin::BoxArea effects;
-
     gin::Layout layout { *this };
 };

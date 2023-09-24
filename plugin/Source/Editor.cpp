@@ -21,8 +21,6 @@ Editor::Editor (WavetableAudioProcessor& proc_)
     addAndMakeVisible (delay);
     addAndMakeVisible (reverb);
 
-    addAndMakeVisible (effects);
-
     setupCallbacks();
 }
 
