@@ -1,3 +1,8 @@
+1.0.2:
+
+- Add retrigger to LFO
+- Improved sound of delay and chorus
+
 1.0.1:
 
 - Add panic button
