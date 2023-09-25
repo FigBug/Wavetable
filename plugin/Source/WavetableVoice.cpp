@@ -61,8 +61,8 @@ void WavetableVoice::noteStarted()
     for (auto& a : modADSRs)
         a.noteOn();
 
-    for (auto& l : modLFOs)
-        l.noteOn();
+    for (auto idx = 0; auto& l : modLFOs)
+        l.noteOn (proc.lfoParams[idx++].retrig->getBoolValue() ? -1 : rng.nextFloat());
 
     modStepLFO.reset();
     modStepLFO.noteOn();
@@ -91,15 +91,11 @@ void WavetableVoice::noteRetriggered()
     
     updateParams (0);
 
-    for (auto& osc : oscillators)
-        osc.noteOn();
-
     filterADSR.noteOn();
 
     for (auto& a : modADSRs)
          a.noteOn();
     
-    modStepLFO.noteOn();
     adsr.noteOn();
 }
 

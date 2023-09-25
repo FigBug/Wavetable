@@ -108,7 +108,7 @@ public:
     {
         LFOParams() = default;
 
-        gin::Parameter::Ptr enable, sync, wave, rate, beat, depth, phase, offset, fade, delay;
+        gin::Parameter::Ptr enable, sync, retrig, wave, rate, beat, depth, phase, offset, fade, delay;
 
         void setup (WavetableAudioProcessor& p, int idx);
 

@@ -309,21 +309,23 @@ public:
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcLFO[idx], true));
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcMonoLFO[idx], false));
 
-        addControl (r = new gin::Knob (lfo.rate), 0, 0);
-        addControl (b = new gin::Select (lfo.beat), 0, 0);
-        addControl (new gin::Knob (lfo.depth, true), 1, 0);
-        addControl (new gin::Knob (lfo.fade, true), 0, 1);
-        addControl (new gin::Knob (lfo.delay), 1, 1);
+        addControl (r = new gin::Knob (lfo.rate));
+        addControl (b = new gin::Select (lfo.beat));
+        addControl (new gin::Knob (lfo.depth, true));
+        addControl (new gin::Knob (lfo.fade, true));
+        addControl (new gin::Knob (lfo.delay));
 
-        addControl (new gin::Select (lfo.wave), 2, 1);
-        addControl (new gin::Switch (lfo.sync), 3, 1);
-        addControl (new gin::Knob (lfo.phase, true), 4, 1);
-        addControl (new gin::Knob (lfo.offset, true), 5, 1);
-
+        addControl (new gin::Select (lfo.wave));
+        addControl (new gin::Switch (lfo.sync));
+        addControl (new gin::Knob (lfo.phase, true));
+        addControl (new gin::Knob (lfo.offset, true));
+        
         auto l = new gin::LFOComponent();
         l->phaseCallback = [this] { return proc.modLFOs[idx].getCurrentPhase(); };
         l->setParams (lfo.wave, lfo.sync, lfo.rate, lfo.beat, lfo.depth, lfo.offset, lfo.phase, lfo.enable);
         addControl (l, 2, 0, 4, 1);
+        
+        addControl (new gin::SVGPluginButton (lfo.retrig, gin::Assets::retrigger));
 
         watchParam (lfo.sync);
 
