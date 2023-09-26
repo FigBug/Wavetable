@@ -407,7 +407,7 @@ void extractWavetables()
 
     for (auto f : src.findChildFiles (juce::File::findFiles, false, "*.xml"))
     {
-        auto presetreset = juce::ValueTree::fromXml (f.loadFileAsString());
+        auto preset = juce::ValueTree::fromXml (f.loadFileAsString());
         auto state = preset.getChildWithName ("state");
 
         auto name1 = state.getProperty ("wt1");
