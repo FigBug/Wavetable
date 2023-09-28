@@ -1,3 +1,10 @@
+1.0.3:
+
+- Add retrigger to step LFO
+- Fix preset loading if the file has been manually renamed
+- Fix crash initializing plugin on Linux
+- Fix channel config on Linux
+
 1.0.2:
 
 - Add retrigger to LFO

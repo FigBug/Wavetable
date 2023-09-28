@@ -448,7 +448,8 @@ void extractWavetables()
 #endif
 
 //==============================================================================
-WavetableAudioProcessor::WavetableAudioProcessor() : gin::Processor (false)
+WavetableAudioProcessor::WavetableAudioProcessor()
+    : gin::Processor (juce::AudioProcessor::BusesProperties().withOutput ("Output", juce::AudioChannelSet::stereo(), true), false)
 {
     {
         auto sz = 0;
