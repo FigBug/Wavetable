@@ -334,7 +334,7 @@ void WavetableAudioProcessor::DelayParams::setup (WavetableAudioProcessor& p)
     cf    = p.addExtParam ("dlCf",    "CF",        "", "dB", {-100.0f,   0.0f, 0.0f, 5.0f}, -100.0f, 0.1f);
     mix   = p.addExtParam ("dlMix",   "Mix",       "", "%",  {   0.0f, 100.0f, 0.0f, 1.0f},    0.5f, 0.1f);
 
-    delay = p.addIntParam ("dlDelay", "Delay",     "", "",   {   0.0f, 120.0f, 0.0f, 1.0f},    1.0f, {0.2f, gin::SmoothingType::eased});
+    delay = p.addIntParam ("dlDelay", "Delay",     "", "",   {   0.0f, 120.0f, 0.0f, 1.0f},    1.0f, {0.1f, gin::SmoothingType::eased});
 
     fb->conversionFunction  = [] (float in) { return juce::Decibels::decibelsToGain (in); };
     cf->conversionFunction  = [] (float in) { return juce::Decibels::decibelsToGain (in); };
@@ -672,7 +672,7 @@ void WavetableAudioProcessor::setupModMatrix()
         if (pp == firstMonoParam)
             polyParam = false;
 
-        if (! pp->isInternal())
+        if (! pp->isInternal() || pp == delayParams.delay)
             modMatrix.addParameter (pp, polyParam);
     }
 
@@ -939,7 +939,7 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
             delayParams.delay->setUserValue (delayParams.time->getUserValue());
         }
 
-        stereoDelay.setParams (delayParams.delay->getUserValue(),
+        stereoDelay.setParams (modMatrix.getValue (delayParams.delay),
                                modMatrix.getValue (delayParams.mix),
                                modMatrix.getValue (delayParams.fb),
                                modMatrix.getValue (delayParams.cf));

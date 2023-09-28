@@ -129,7 +129,7 @@
             [
                 { "id": "Legato", "x": 0, "y": 23, "w": 42, "h": 57 },
                 { "id": "Glide", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Rate", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Time", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Mono", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
                 { "id": "Voices", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Level", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
