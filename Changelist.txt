@@ -4,6 +4,7 @@
 - Fix preset loading if the file has been manually renamed
 - Fix crash initializing plugin on Linux
 - Fix channel config on Linux
+- Renamed Legato rate to Legato Time
 
 1.0.2:
 
