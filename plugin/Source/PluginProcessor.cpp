@@ -500,6 +500,8 @@ WavetableAudioProcessor::WavetableAudioProcessor()
 
     setupModMatrix();
     init();
+
+    lastMono = globalParams.mono->isOn();
 }
 
 WavetableAudioProcessor::~WavetableAudioProcessor()
@@ -619,6 +621,7 @@ void WavetableAudioProcessor::stateUpdated()
 
     reloadWavetables();
     presetLoaded = true;
+    lastMono = globalParams.mono->isOn();
 }
 
 void WavetableAudioProcessor::updateState()
@@ -732,9 +735,10 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         return;
     }
 
-    if (blockMissed || presetLoaded)
+    if (blockMissed || presetLoaded || lastMono != globalParams.mono->isOn())
     {
         blockMissed = presetLoaded = false;
+        lastMono = ! lastMono;
         turnOffAllVoices (false);
     }
 
@@ -748,7 +752,7 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
     buffer.clear();
 
-    setMono (globalParams.mono->isOn());
+    setMono (lastMono);
     setLegato (globalParams.legato->isOn());
     setGlissando (globalParams.glideMode->getProcValue() == 1.0f);
     setPortamento (globalParams.glideMode->getProcValue() == 2.0f);

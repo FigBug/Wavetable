@@ -271,6 +271,7 @@ public:
     juce::AudioPlayHead* playhead = nullptr;
     bool blockMissed = false;
     bool presetLoaded = false;
+    bool lastMono = false;
 
     struct CurTable
     {

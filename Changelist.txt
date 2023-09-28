@@ -5,6 +5,7 @@
 - Fix crash initializing plugin on Linux
 - Fix channel config on Linux
 - Renamed Legato rate to Legato Time
+- Fix stuck notes on switch mono on/off
 
 1.0.2:
 
