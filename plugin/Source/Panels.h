@@ -407,6 +407,8 @@ public:
         g->setParams (prs.beat, prs.length, prs.level, prs.enable);
         addControl (g, 0, 0, 4, 1);
 
+        addControl (new gin::SVGPluginButton (prs.retrig, gin::Assets::retrigger));
+
         setSize (112, 163);
     }
 

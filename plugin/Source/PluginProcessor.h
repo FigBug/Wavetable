@@ -119,7 +119,7 @@ public:
     {
         StepLFOParams() = default;
 
-        gin::Parameter::Ptr enable, beat, length;
+        gin::Parameter::Ptr enable, beat, length, retrig;
         gin::Parameter::Ptr level[Cfg::numStepLFOSteps] = { nullptr };
 
         void setup (WavetableAudioProcessor& p);

@@ -232,7 +232,8 @@ void WavetableAudioProcessor::StepLFOParams::setup (WavetableAudioProcessor& p)
 
     enable           = p.addIntParam (id + "enable",  nm + "Enable",  "Enable", "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
     beat             = p.addIntParam (id + "beat",    nm + "Beat",    "Beat",   "", { 0.0, float (notes.size() - 1), 1.0, 1.0 }, 13.0, 0.0f, durationTextFunction);
-    length           = p.addIntParam (id + "length",  nm + "Length",   "Length", "", { 2.0, 32.0, 1.0, 1.0f }, 8.0f, 0.0f);
+    length           = p.addIntParam (id + "length",  nm + "Length",  "Length", "", { 2.0, 32.0, 1.0, 1.0f }, 8.0f, 0.0f);
+    retrig           = p.addIntParam (id + "retrig",  nm + "Retrig",  "Retrig", "", { 0.0, 1.0, 1.0, 1.0 }, 1.0, 0.0f, enableTextFunction);
 
     for (int i = 0; i < Cfg::numStepLFOSteps; i++)
     {

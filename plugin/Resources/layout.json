@@ -71,7 +71,8 @@
             [
                 { "id": "step", "x": 0, "y": 23, "r": "parW()", "h": 83 },
                 { "id": "Beat", "x": 67, "y": 106, "w": 42, "h": 57 },
-                { "id": "Length", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                { "id": "Length", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Retrig", "r": "getR('step') - 3", "y": "getY('step') + 3", "w": 12, "h": 12 }
             ] },
         { "id": "mod", "x": "prevR()+1", "y": "prevY()", "r": "parW()", "h": 163, "children":
             [
