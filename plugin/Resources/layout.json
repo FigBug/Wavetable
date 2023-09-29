@@ -1,7 +1,21 @@
 {
     "children": 
     [
-        { "id": "osc[1..2]", "x": "0,prevR()+1", "y": 0, "w": "parW()/2", "h": 163 },
+        { "id": "osc[1..2]", "x": "0,prevR()+1", "y": 0, "w": "parW()/2", "h": 163, "children":
+            [
+                { "id": "Pos", "x": 0, "y": 23, "w": 56, "h": 70 },
+                { "id": "Tune", "x": "prevR()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Fine", "x": "prevR()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Level", "x": "prevR()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Pan", "x": "prevR()", "y": 23, "w": 56, "h": 70 },
+                { "id": "Unison", "x": 0, "y": "prevB()", "w": 56, "h": 70 },
+                { "id": "Detune", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
+                { "id": "Spread", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
+                { "id": "Formant", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
+                { "id": "Bend", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
+                { "id": "wt", "x": "prevR()", "y": 23, "r": "parW()", "b": "parH()" }
+            ] 
+        },
         { "id": "noise", "x": "0", "y": "prevB()+1", "w": 120, "h": 163, "children":
             [
                 { "id": "Type", "x": "56/2", "y": 23, "w": 56, "h": 70 },
