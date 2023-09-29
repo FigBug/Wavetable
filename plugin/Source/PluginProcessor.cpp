@@ -691,7 +691,6 @@ void WavetableAudioProcessor::reset()
     gate.reset();
     chorus.reset();
     stereoDelay.reset();
-
     reverb.reset();
 
     for (auto& l : modLFOs)
@@ -741,6 +740,8 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     {
         blockMissed = presetLoaded = false;
         lastMono = ! lastMono;
+        stereoDelay.reset();
+        reverb.reset();
         turnOffAllVoices (false);
     }
 
