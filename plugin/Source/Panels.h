@@ -321,7 +321,21 @@ public:
         addControl (new gin::Knob (lfo.offset, true));
         
         auto l = new gin::LFOComponent();
-        l->phaseCallback = [this] { return proc.modLFOs[idx].getCurrentPhase(); };
+        l->phaseCallback = [this, &lfo] 
+        {
+            std::vector<float> res;
+
+            if (lfo.enable->isOn())
+            {
+                res.push_back (proc.modLFOs[idx].getCurrentPhase());
+
+                for (auto v : proc.getActiveVoices())
+                    if (auto wtv = dynamic_cast<WavetableVoice*> (v))
+                        res.push_back (wtv->modLFOs[idx].getCurrentPhase());
+            }
+
+            return res;
+        };
         l->setParams (lfo.wave, lfo.sync, lfo.rate, lfo.beat, lfo.depth, lfo.offset, lfo.phase, lfo.enable);
         addControl (l, 2, 0, 4, 1);
         
@@ -403,7 +417,21 @@ public:
         addControl (new gin::Knob (prs.length), 1, 1);
 
         auto g = new gin::StepLFOComponent (Cfg::numStepLFOSteps);
-        g->phaseCallback = [this] { return proc.modStepLFO.getCurrentPhase(); };
+        g->phaseCallback = [this, &prs]
+        {
+            std::vector<float> res;
+
+            if (prs.enable->isOn())
+            {
+                res.push_back (proc.modStepLFO.getCurrentPhase());
+                
+                for (auto v : proc.getActiveVoices())
+                    if (auto wtv = dynamic_cast<WavetableVoice*> (v))
+                        res.push_back (wtv->modStepLFO.getCurrentPhase());
+            }
+
+            return res;
+        };
         g->setParams (prs.beat, prs.length, prs.level, prs.enable);
         addControl (g, 0, 0, 4, 1);
 

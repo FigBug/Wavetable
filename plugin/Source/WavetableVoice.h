@@ -30,7 +30,6 @@ public:
     float getFilterCutoffNormalized();
     gin::WTOscillator::Params getLiveWTParams (int osc);
 
-private:
     void updateParams (int blockSize);
 
     WavetableAudioProcessor& proc;
