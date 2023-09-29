@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<state name="Flutish" author="Luparia" tags="Mpe Synthwave Vintage Lead">
+<state name="Flutish" author="Luparia" tags="MPE Synthwave Vintage Lead">
   <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0.">
     <MODMATRIX>
       <MODITEM srcId="lfo1" depth="0.07000000029802322" dstId="osc1finetune"/>
