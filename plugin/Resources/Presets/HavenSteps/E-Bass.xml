@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<state name="E-Bass" author="Luparia" tags="Bass Vintage Mpe Clean">
+<state name="E-Bass" author="Luparia" tags="Bass Vintage MPE Clean">
   <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0.">
     <MODMATRIX>
       <MODITEM srcId="mpep" depth="0.2599999904632568" dstId="fltfreq"/>

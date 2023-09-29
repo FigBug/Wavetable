@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<state name="Simbad" author="Luparia" tags="Pad Lush Evolving Mpe">
+<state name="Simbad" author="Luparia" tags="Pad Lush Evolving MPE">
   <state wt1="Analog PWM Custom 02" wt2="Growl 01" wt1Data="0." wt2Data="0.">
     <MODMATRIX>
       <MODITEM srcId="lfo1" depth="0.6800000071525574" dstId="osc1formant"/>

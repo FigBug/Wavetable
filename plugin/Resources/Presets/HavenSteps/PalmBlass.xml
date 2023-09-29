@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<state name="PalmBlass" author="Luparia" tags="Bass Dirty Mpe Electronic ">
+<state name="PalmBlass" author="Luparia" tags="Bass Dirty MPE Electronic ">
   <state wt1="FM 05" wt2="Dist - Diode 2" wt1Data="0." wt2Data="0.">
     <MODMATRIX>
       <MODITEM srcId="env1" depth="0.3700000047683716" dstId="osc1formant"/>
