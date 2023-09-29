@@ -143,7 +143,7 @@ public:
     {
         GlobalParams() = default;
 
-        gin::Parameter::Ptr mono, glideMode, glideRate, legato, level, voices, mpe;
+        gin::Parameter::Ptr mono, glideMode, glideRate, legato, level, voices, mpe, pitchBend;
 
         void setup (WavetableAudioProcessor& p);
 
@@ -220,8 +220,8 @@ public:
     };
 
     //==============================================================================
-    gin::ModSrcId modSrcPressure, modSrcTimbre, modScrPitchBend, modSrcFilter,
-                  modSrcNote, modSrcVelocity, modSrcStep, modSrcMonoStep;
+    gin::ModSrcId modSrcPressure, modSrcTimbre, modSrcPitchbend, modScrPitchBend,
+                  modSrcFilter, modSrcNote, modSrcVelocity, modSrcStep, modSrcMonoStep;
 
     juce::Array<gin::ModSrcId> modSrcCC, modSrcMonoLFO, modSrcLFO, modSrcEnv;
 

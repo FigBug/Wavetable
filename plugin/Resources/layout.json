@@ -36,9 +36,9 @@
                 { "id": "adsr", "x": "getX('A')", "y": "getY('Res')", "r": "getR('R')", "b": "getY('A')" }
             ]
          },
-        { "id": "adsr", "x": "prevR()+1", "y": "prevY()", "w": "210 + 118", "h": 163, "children":
+        { "id": "adsr", "x": "prevR()+1", "y": "prevY()", "w": "210 + 160", "h": 163, "children":
             [
-                { "id": "A", "x": "118/2", "y": 106, "w": 42, "h": 57 },
+                { "id": "A", "x": "160/2", "y": 106, "w": 42, "h": 57 },
                 { "id": "D", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "S", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
@@ -125,14 +125,15 @@
                 { "id": "Predelay", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
             ] },
-        { "id": "global", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
+        { "id": "global", "x": "prevR()+1", "y": "prevY()", "w": 168, "h": 137, "children":
             [
-                { "id": "Legato", "x": 0, "y": 23, "w": 42, "h": 57 },
+                { "id": "Mono", "x": 0, "y": 23, "w": 42, "h": 57 },
+                { "id": "Legato", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Glide", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Time", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Mono", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
+                { "id": "PB Range", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
                 { "id": "Voices", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Level", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                { "id": "Level", "x": "prevR() + 42", "y": "prevY()", "w": 42, "h": 57 }
             ] }
     ]
 }

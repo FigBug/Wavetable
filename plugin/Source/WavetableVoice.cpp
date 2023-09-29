@@ -31,7 +31,8 @@ void WavetableVoice::noteStarted()
     }
 
     proc.modMatrix.setPolyValue (*this, proc.modSrcVelocity, note.noteOnVelocity.asUnsignedFloat());
-    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.initialTimbre.asUnsignedFloat());
+    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.timbre.asUnsignedFloat());
+    proc.modMatrix.setPolyValue (*this, proc.modSrcPitchbend, note.pitchbend.asUnsignedFloat());
     proc.modMatrix.setPolyValue (*this, proc.modSrcPressure, note.pressure.asUnsignedFloat());
 
     juce::ScopedValueSetter<bool> svs (disableSmoothing, true);
@@ -86,8 +87,9 @@ void WavetableVoice::noteRetriggered()
     }
     
     proc.modMatrix.setPolyValue (*this, proc.modSrcVelocity, note.noteOnVelocity.asUnsignedFloat());
-    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.initialTimbre.asUnsignedFloat());
+    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.timbre.asUnsignedFloat());
     proc.modMatrix.setPolyValue (*this, proc.modSrcPressure, note.pressure.asUnsignedFloat());
+    proc.modMatrix.setPolyValue (*this, proc.modSrcPitchbend, note.pitchbend.asUnsignedFloat());
     
     updateParams (0);
 
@@ -123,7 +125,13 @@ void WavetableVoice::notePressureChanged()
 void WavetableVoice::noteTimbreChanged()
 {
     auto note = getCurrentlyPlayingNote();
-    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.initialTimbre.asUnsignedFloat());
+    proc.modMatrix.setPolyValue (*this, proc.modSrcTimbre, note.timbre.asUnsignedFloat());
+}
+
+void WavetableVoice::notePitchbendChanged()
+{
+    auto note = getCurrentlyPlayingNote();
+    proc.modMatrix.setPolyValue (*this, proc.modSrcPitchbend, note.pitchbend.asUnsignedFloat());
 }
 
 void WavetableVoice::setCurrentSampleRate (double newRate)

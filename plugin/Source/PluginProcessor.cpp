@@ -280,13 +280,14 @@ void WavetableAudioProcessor::ADSRParams::setup (WavetableAudioProcessor& p)
 //==============================================================================
 void WavetableAudioProcessor::GlobalParams::setup (WavetableAudioProcessor& p)
 {
-    mono        = p.addIntParam ("mono",    "Mono",       "",      "",   { 0.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
-    glideMode   = p.addIntParam ("gMode",   "Glide Mode", "Glide", "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f, glideModeTextFunction);
-    glideRate   = p.addExtParam ("gRate",   "Glide Time", "Time",  "s",   { 0.001f, 20.0, 0.0, 0.2f }, 0.3f, 0.0f);
-    legato      = p.addIntParam ("legato",  "Legato",     "",      "",   { 0.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
-    level       = p.addExtParam ("level",   "Level",      "",      "db", { -100.0, 0.0, 1.0, 4.0f }, 0.0, 0.0f);
-    voices      = p.addIntParam ("voices",  "Voices",     "",      "",   { 2.0, 40.0, 1.0, 1.0 }, 40.0f, 0.0f);
-    mpe         = p.addIntParam ("mpe",     "MPE",        "",      "",   { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
+    mono        = p.addIntParam ("mono",        "Mono",       "",         "",   { 0.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
+    glideMode   = p.addIntParam ("gMode",       "Glide Mode", "Glide",    "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f, glideModeTextFunction);
+    glideRate   = p.addExtParam ("gRate",       "Glide Time", "Time",     "s",  { 0.001f, 20.0, 0.0, 0.2f }, 0.3f, 0.0f);
+    legato      = p.addIntParam ("legato",      "Legato",     "",         "",   { 0.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
+    level       = p.addExtParam ("level",       "Level",      "",         "db", { -100.0, 0.0, 1.0, 4.0f }, 0.0, 0.0f);
+    voices      = p.addIntParam ("voices",      "Voices",     "",         "",   { 2.0, 40.0, 1.0, 1.0 }, 40.0f, 0.0f);
+    mpe         = p.addIntParam ("mpe",         "MPE",        "",         "",   { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
+    pitchBend   = p.addIntParam ("pitchbend",   "Pitch Bend", "PB Range", "",   { 0.0, 48.0, 1.0, 1.0 }, 2.0f, 0.0f);
 
     level->conversionFunction     = [] (float in) { return juce::Decibels::decibelsToGain (in); };
 }
@@ -330,11 +331,11 @@ void WavetableAudioProcessor::DelayParams::setup (WavetableAudioProcessor& p)
     sync  = p.addExtParam ("dlSync",  "Sync",      "", "",   {   0.0f,   1.0f, 1.0f, 1.0f},    0.0f, 0.0f, enableTextFunction);
     time  = p.addExtParam ("dlTime",  "Delay",     "", "",   {   0.0f, 120.0f, 0.0f, 0.3f},    1.0f, 0.0f);
     beat  = p.addExtParam ("dlBeat",  "Delay",     "", "",   {   0.0f,    mxd, 1.0f, 1.0f},   13.0f, 0.0f, durationTextFunction);
-    fb    = p.addExtParam ("dlFb",    "FB",        "", "dB", {-100.0f,   0.0f, 0.0f, 5.0f},  -10.0f, 0.1f);
-    cf    = p.addExtParam ("dlCf",    "CF",        "", "dB", {-100.0f,   0.0f, 0.0f, 5.0f}, -100.0f, 0.1f);
-    mix   = p.addExtParam ("dlMix",   "Mix",       "", "%",  {   0.0f, 100.0f, 0.0f, 1.0f},    0.5f, 0.1f);
+    fb    = p.addExtParam ("dlFb",    "FB",        "", "dB", {-100.0f,   0.0f, 0.0f, 5.0f},  -10.0f, 0.0f);
+    cf    = p.addExtParam ("dlCf",    "CF",        "", "dB", {-100.0f,   0.0f, 0.0f, 5.0f}, -100.0f, 0.0f);
+    mix   = p.addExtParam ("dlMix",   "Mix",       "", "%",  {   0.0f, 100.0f, 0.0f, 1.0f},    0.5f, 0.0f);
 
-    delay = p.addIntParam ("dlDelay", "Delay",     "", "",   {   0.0f, 120.0f, 0.0f, 1.0f},    1.0f, {0.1f, gin::SmoothingType::eased});
+    delay = p.addIntParam ("dlDelay", "Delay",     "", "",   {   0.0f, 120.0f, 0.0f, 1.0f},    1.0f, 0.0f);
 
     fb->conversionFunction  = [] (float in) { return juce::Decibels::decibelsToGain (in); };
     cf->conversionFunction  = [] (float in) { return juce::Decibels::decibelsToGain (in); };
@@ -640,6 +641,7 @@ void WavetableAudioProcessor::setupModMatrix()
 {
     modSrcPressure  = modMatrix.addPolyModSource ("mpep", "MPE Pressure", false);
     modSrcTimbre    = modMatrix.addPolyModSource ("mpet", "MPE Timbre", false);
+    modSrcPitchbend = modMatrix.addPolyModSource ("mpebp", "MPE Pitch Bend", true);
 
     modScrPitchBend = modMatrix.addMonoModSource ("pb", "Pitch Bend", true);
 
@@ -744,6 +746,7 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
     startBlock();
     setMPE (globalParams.mpe->isOn());
+    setPitchBendRange (globalParams.pitchBend->getUserValueInt());
 
     playhead = getPlayHead();
 
@@ -940,7 +943,8 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
         }
         else
         {
-            delayParams.delay->setUserValue (delayParams.time->getUserValue());
+            auto z = delayParams.time->getUserValue();
+            delayParams.delay->setUserValue (z);
         }
 
         stereoDelay.setParams (modMatrix.getValue (delayParams.delay),
@@ -948,7 +952,6 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
                                modMatrix.getValue (delayParams.fb),
                                modMatrix.getValue (delayParams.cf));
     }
-
 
     // Update Reverb
     if (reverbParams.enable->isOn())

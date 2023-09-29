@@ -18,7 +18,7 @@ public:
 
     void notePressureChanged() override;
     void noteTimbreChanged() override;
-    void notePitchbendChanged() override    {}
+    void notePitchbendChanged() override;
     void noteKeyStateChanged() override     {}
     
     void setCurrentSampleRate (double newRate) override;

@@ -458,15 +458,13 @@ public:
     {
         setName ("global");
 
-        addControl (new gin::Knob (proc.globalParams.level), 0, 0);
-        addControl (new gin::Select (proc.globalParams.glideMode), 1, 0);
-        addControl (new gin::Knob (proc.globalParams.glideRate), 2, 0);
-
-        addControl (new gin::Knob (proc.globalParams.voices), 0, 1);
-        addControl (new gin::Switch (proc.globalParams.legato), 1, 1);
-        addControl (new gin::Switch (proc.globalParams.mono), 2, 1);
-
-        setSize (168, 163);
+        addControl (new gin::Knob (proc.globalParams.level));
+        addControl (new gin::Select (proc.globalParams.glideMode));
+        addControl (new gin::Knob (proc.globalParams.glideRate));
+        addControl (new gin::Knob (proc.globalParams.voices));
+        addControl (new gin::Switch (proc.globalParams.legato));
+        addControl (new gin::Switch (proc.globalParams.mono));
+        addControl (new gin::Knob (proc.globalParams.pitchBend));
     }
 
     WavetableAudioProcessor& proc;
