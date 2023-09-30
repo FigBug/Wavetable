@@ -44,8 +44,9 @@ public:
         wt->onFileDrop = [this] (const juce::File& f) { loadUserWavetable (f); };
         addControl (wt);
 
+        auto addButton = new gin::SVGButton ("add", gin::Assets::add);
         addControl (addButton);
-        addButton.onClick = [this]
+        addButton->onClick = [this]
         {
             auto chooser = std::make_shared<juce::FileChooser> (juce::String ("Load Wavetable"), juce::File(), juce::String ("*.wav"));
 
@@ -189,7 +190,6 @@ public:
 
     gin::SVGButton nextButton { "next", gin::Assets::next };
     gin::SVGButton prevButton { "prev", gin::Assets::prev };
-    gin::SVGButton addButton { "add", gin::Assets::add };
 };
 
 //==============================================================================
