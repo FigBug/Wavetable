@@ -16,13 +16,19 @@ static void profile (juce::PropertiesFile& settings)
     
     juce::AudioSampleBuffer buffer (2, 512);
     
-    for (int i = 0; i < 5000; i++)
+    juce::MidiBuffer midiOn;
+    juce::MidiBuffer midiOff;
+    juce::MidiBuffer midiEmpty;
+    
+    auto start = juce::Time::getMillisecondCounterHiRes();
+    
+    for (int i = 0; i < 20000; i++)
     {
         buffer.clear();
         
         if (i % 100 == 0)
         {
-            juce::MidiBuffer midiOn;
+            midiOn.clear();
             midiOn.addEvent (juce::MidiMessage::noteOn (1, 60, 0.5f), 0);
             midiOn.addEvent (juce::MidiMessage::noteOn (1, 70, 0.5f), 0);
             midiOn.addEvent (juce::MidiMessage::noteOn (1, 80, 0.5f), 0);
@@ -31,8 +37,7 @@ static void profile (juce::PropertiesFile& settings)
         }
         else if (i % 100 == 90)
         {
-            juce::MidiBuffer midiOff;
-
+            midiOff.clear();
             midiOff.addEvent (juce::MidiMessage::noteOff (1, 60, 0.5f), 0);
             midiOff.addEvent (juce::MidiMessage::noteOff (1, 70, 0.5f), 0);
             midiOff.addEvent (juce::MidiMessage::noteOff (1, 80, 0.5f), 0);
@@ -41,11 +46,13 @@ static void profile (juce::PropertiesFile& settings)
         }
         else
         {
-            juce::MidiBuffer midiEmpty;
+            midiEmpty.clear();
             proc.processBlock (buffer, midiEmpty);
         }
     }
-
+    
+    auto end = juce::Time::getMillisecondCounterHiRes();
+    printf ("Elapsed time: %.2fs\n", (end - start) / 1000);
 }
 
 juce::JUCEApplicationBase* juce_CreateApplication()
@@ -54,12 +61,7 @@ juce::JUCEApplicationBase* juce_CreateApplication()
     {
         if (juce::JUCEApplication::getCommandLineParameters ().contains ("-profile"))
         {
-            auto start = juce::Time::getMillisecondCounterHiRes();
             profile (settings);
-            auto end = juce::Time::getMillisecondCounterHiRes();
-            
-            printf ("Elapsed time: %.2fs\n", (end - start) / 1000);
-                
             return false;
         }
         return true;
