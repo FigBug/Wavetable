@@ -143,9 +143,9 @@
         { "id": "global", "x": "prevR()+1", "y": "prevY()", "w": 168, "h": 137, "children":
             [
                 { "id": "Mono", "x": 0, "y": 23, "w": 42, "h": 57 },
-                { "id": "Legato", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Glide", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Time", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                { "id": "Legato", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "PB Range", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
                 { "id": "Voices", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Level", "x": "prevR() + 42", "y": "prevY()", "w": 42, "h": 57 }

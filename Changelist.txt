@@ -1,3 +1,7 @@
+1.0.5:
+
+- Fix AU crash
+
 1.0.4:
 
 - Allow mod matrix entries to be disabled

@@ -747,6 +747,14 @@ void WavetableAudioProcessor::releaseResources()
 {
 }
 
+bool WavetableAudioProcessor::isBusesLayoutSupported (const BusesLayout& layout) const
+{
+    if (layout.inputBuses.size() != 0 || layout.outputBuses.size() != 1)
+        return false;
+    
+    return layout.outputBuses[0].size() == 2;
+}
+
 void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midi)
 {
     juce::ScopedNoDenormals noDenormals;
@@ -755,6 +763,9 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         blockMissed = true;
         return;
     }
+    
+    if (buffer.getNumChannels() != 2)
+        return;
 
     if (blockMissed || presetLoaded || lastMono != globalParams.mono->isOn())
     {
@@ -802,7 +813,7 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
 
     playHead = nullptr;
 
-    if (buffer.getNumSamples() <= scopeFifo.getFreeSpace())
+    if (buffer.getNumSamples() <= scopeFifo.getFreeSpace() && buffer.getNumChannels() == scopeFifo.getNumChannels())
         scopeFifo.write (buffer);
 
     endBlock (buffer.getNumSamples());

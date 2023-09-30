@@ -533,14 +533,28 @@ public:
 
         addControl (new gin::Knob (proc.globalParams.level));
         addControl (new gin::Select (proc.globalParams.glideMode));
-        addControl (new gin::Knob (proc.globalParams.glideRate));
+        addControl (rate = new gin::Knob (proc.globalParams.glideRate));
         addControl (new gin::Knob (proc.globalParams.voices));
-        addControl (new gin::Switch (proc.globalParams.legato));
+        addControl (legato = new gin::Switch (proc.globalParams.legato));
         addControl (new gin::Switch (proc.globalParams.mono));
         addControl (new gin::Knob (proc.globalParams.pitchBend));
+        
+        watchParam (proc.globalParams.glideMode);
+        paramChanged();
+    }
+    
+    void paramChanged() override
+    {
+        gin::ParamBox::paramChanged();
+
+        rate->setEnabled (proc.globalParams.glideMode->getUserValueInt() > 0);
+        legato->setEnabled (proc.globalParams.glideMode->getUserValueInt() > 0);
     }
 
     WavetableAudioProcessor& proc;
+    
+    gin::Knob* rate;
+    gin::Switch* legato;
 };
 
 //==============================================================================
