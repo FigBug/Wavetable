@@ -1,6 +1,12 @@
 1.0.4:
 
 - Allow mod matrix entries to be disabled
+- Add pitch bend range
+- Fix MPE and Mpe tags (existing users will need to delete the presets and they will be recreated)
+- Clear reverb and delay buttons on panic
+- Draw all phase dots for LFO and Step LFO
+- Try and make delay less zippery (WIP)
+- Scroll wheel can adjust combo boxes
 
 1.0.3:
 

@@ -22,7 +22,7 @@ WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProc
     addAndMakeVisible (usage);
     
     usage.setBounds (45, 12, 150, 16);
-    scope.setBounds (674, 5, 177, 30);
+    scope.setBounds (714, 5, 177, 30);
 
     setSize (943, 671);
 }
