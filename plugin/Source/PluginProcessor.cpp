@@ -678,10 +678,20 @@ void WavetableAudioProcessor::setupModMatrix()
             polyParam = false;
 
         if (! pp->isInternal() || pp == delayParams.delay)
-            modMatrix.addParameter (pp, polyParam);
+            modMatrix.addParameter (pp, polyParam, getSmoothingTime (pp));
     }
 
     modMatrix.build();
+}
+
+float WavetableAudioProcessor::getSmoothingTime (gin::Parameter* p)
+{
+    if (p == delayParams.delay) return 0.0f;
+    if (p == delayParams.cf)    return 0.0f;
+    if (p == delayParams.fb)    return 0.0f;
+    if (p == delayParams.mix)   return 0.0f;
+
+    return 0.02f;
 }
 
 void WavetableAudioProcessor::reset()
@@ -739,7 +749,7 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     if (blockMissed || presetLoaded || lastMono != globalParams.mono->isOn())
     {
         blockMissed = presetLoaded = false;
-        lastMono = ! lastMono;
+        lastMono = globalParams.mono->isOn();
         stereoDelay.reset();
         reverb.reset();
         turnOffAllVoices (false);
@@ -838,7 +848,7 @@ void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
 
     // Apply Delay
     if (delayParams.enable->isOn())
-        stereoDelay.process (buffer);
+        stereoDelay.processSmoothed (buffer);
 
     // Apply Reverb
     if (reverbParams.enable->isOn())
@@ -939,13 +949,12 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
     {
         if (delayParams.sync->isOn())
         {
-            auto& duration = gin::NoteDuration::getNoteDurations()[(size_t)delayParams.beat->getUserValueInt()];
+            auto& duration = gin::NoteDuration::getNoteDurations()[(size_t)modMatrix.getValue (delayParams.beat)];
             delayParams.delay->setUserValue (duration.toSeconds (getPlayHead()));
         }
         else
         {
-            auto z = delayParams.time->getUserValue();
-            delayParams.delay->setUserValue (z);
+            delayParams.delay->setUserValue (modMatrix.getValue (delayParams.time));
         }
 
         stereoDelay.setParams (modMatrix.getValue (delayParams.delay),

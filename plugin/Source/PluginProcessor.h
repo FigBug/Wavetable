@@ -283,6 +283,9 @@ public:
 
     juce::CriticalSection dspLock;
 
+private:
+    float getSmoothingTime (gin::Parameter*);
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WavetableAudioProcessor)
 };

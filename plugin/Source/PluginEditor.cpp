@@ -15,7 +15,10 @@ WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProc
     addAndMakeVisible (editor);
     addAndMakeVisible (scope);
     
-    usage.panic.onClick = [this] { wtProc.presetLoaded = true; };
+    usage.panic.onClick = [this]
+    {
+        wtProc.presetLoaded = true;
+    };
     addAndMakeVisible (usage);
     
     usage.setBounds (45, 12, 150, 16);
