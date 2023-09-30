@@ -8,6 +8,8 @@
 - Try and make delay less zippery (WIP)
 - Scroll wheel can adjust combo boxes
 - Fixed presets getting deleted when renaming
+- Add + button for loading wavetables from .wav files
+- Support wavetables with Serum metadata
 
 1.0.3:
 
