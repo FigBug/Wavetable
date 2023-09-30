@@ -44,7 +44,7 @@ public:
         wt->onFileDrop = [this] (const juce::File& f) { loadUserWavetable (f); };
         addControl (wt);
 
-        addAndMakeVisible (addButton);
+        addControl (addButton);
         addButton.onClick = [this]
         {
             auto chooser = std::make_shared<juce::FileChooser> (juce::String ("Load Wavetable"), juce::File(), juce::String ("*.wav"));
