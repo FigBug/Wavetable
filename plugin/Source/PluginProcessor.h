@@ -282,6 +282,7 @@ public:
     CurTable curTables[Cfg::numOSCs];
 
     juce::CriticalSection dspLock;
+    juce::Random rng;
 
 private:
     float getSmoothingTime (gin::Parameter*);

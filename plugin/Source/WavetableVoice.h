@@ -55,7 +55,6 @@ public:
     gin::StereoOscillator::Params noiseParams;
     
     gin::EasedValueSmoother<float> noteSmoother;
-    juce::Random rng;
     
     float ampKeyTrack = 1.0f;
 };

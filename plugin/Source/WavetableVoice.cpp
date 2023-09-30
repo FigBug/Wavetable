@@ -63,10 +63,10 @@ void WavetableVoice::noteStarted()
         a.noteOn();
 
     for (auto idx = 0; auto& l : modLFOs)
-        l.noteOn (proc.lfoParams[idx++].retrig->getBoolValue() ? -1 : rng.nextFloat());
+        l.noteOn (proc.lfoParams[idx++].retrig->getBoolValue() ? -1 : proc.rng.nextFloat());
 
     modStepLFO.reset();
-    modStepLFO.noteOn (proc.stepLfoParams.retrig->getBoolValue() ? -1 : rng.nextFloat());
+    modStepLFO.noteOn (proc.stepLfoParams.retrig->getBoolValue() ? -1 : proc.rng.nextFloat());
 
     adsr.reset();
     adsr.noteOn();
