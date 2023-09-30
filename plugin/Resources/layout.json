@@ -13,7 +13,8 @@
                 { "id": "Spread", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
                 { "id": "Formant", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
                 { "id": "Bend", "x": "prevR()", "y": "prevY()", "w": 56, "h": 70 },
-                { "id": "wt", "x": "prevR()", "y": 23, "r": "parW()", "b": "parH()" }
+                { "id": "wt", "x": "prevR()", "y": 23, "r": "parW()", "b": "parH()" },
+                { "id": "add", "r": "parW() - 8", "b": "parH() - 8", "w": 16, "h": 16 }
             ] 
         },
         { "id": "noise", "x": "0", "y": "prevB()+1", "w": 120, "h": 163, "children":

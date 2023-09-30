@@ -41,10 +41,10 @@ public:
 
     void reloadWavetables();
     void incWavetable (int osc, int delta);
-    void loadUserWavetable (int osc, const juce::File f);
+    bool loadUserWavetable (int osc, const juce::File& f, int sz);
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
-    bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format);
+    bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format, int size);
 
     // Voice Params
     struct OSCParams
@@ -261,6 +261,7 @@ public:
 
     juce::Value osc1Table, osc2Table;
     juce::MemoryBlock userTable1, userTable2;
+    int osc1Size = -1, osc2Size = -1;
 
     //==============================================================================
     gin::ModMatrix modMatrix;

@@ -24,25 +24,41 @@ public:
 
         addEnable (osc.enable);
 
-        addControl (new gin::Knob (osc.pos), 0, 0);
-        addControl (new gin::Knob (osc.tune, true), 1, 0);
-        addControl (new gin::Knob (osc.finetune, true), 2, 0);
-        addControl (new gin::Knob (osc.level), 3, 0);
-        addControl (new gin::Knob (osc.pan, true), 4, 0);
+        addControl (new gin::Knob (osc.pos));
+        addControl (new gin::Knob (osc.tune, true));
+        addControl (new gin::Knob (osc.finetune, true));
+        addControl (new gin::Knob (osc.level));
+        addControl (new gin::Knob (osc.pan, true));
 
-        addControl (new gin::Select (osc.voices), 0, 1);
-        addControl (detune = new gin::Knob (osc.detune), 1, 1);
-        addControl (spread = new gin::Knob (osc.spread), 2, 1);
-        addControl (new gin::Knob (osc.formant, true), 3, 1);
-        addControl (new gin::Knob (osc.bend, true), 4, 1);
+        addControl (new gin::Select (osc.voices));
+        addControl (detune = new gin::Knob (osc.detune));
+        addControl (spread = new gin::Knob (osc.spread));
+        addControl (new gin::Knob (osc.formant, true));
+        addControl (new gin::Knob (osc.bend, true));
 
         watchParam (osc.voices);
 
         wt = new gin::WavetableComponent();
         wt->setName ("wt");
         wt->setWavetables (idx == 0 ? &proc.osc1Tables : &proc.osc2Tables);
-        wt->onFileDrop = [this] (const juce::File& f) { proc.loadUserWavetable (idx, f); };
-        addControl (wt, 5, 0, 3, 2);
+        wt->onFileDrop = [this] (const juce::File& f) { loadUserWavetable (f); };
+        addControl (wt);
+
+        addAndMakeVisible (addButton);
+        addButton.onClick = [this]
+        {
+            auto chooser = std::make_shared<juce::FileChooser> (juce::String ("Load Wavetable"), juce::File(), juce::String ("*.wav"));
+
+            auto chooserFlags = juce::FileBrowserComponent::canSelectFiles | juce::FileBrowserComponent::openMode;
+            chooser->launchAsync (chooserFlags, [this, chooser] (const juce::FileChooser&)
+            {
+                auto f = chooser->getResult();
+                if (! f.existsAsFile())
+                    return;
+
+                loadUserWavetable (f);
+            } );
+        };
 
         timer.startTimerHz (60);
         timer.onTimer = [this]
@@ -64,6 +80,34 @@ public:
             proc.osc1Table.removeListener (this);
         else
             proc.osc2Table.removeListener (this);
+    }
+
+    void loadUserWavetable (const juce::File& f)
+    {
+        auto sz = gin::getWavetableSize (f);
+        if (sz <= 0)
+        {
+            auto w = std::make_shared<gin::PluginAlertWindow> ("Import Wavetable", "Wav file does not contain Wavetable metadata. What is the wavetable size?", juce::AlertWindow::NoIcon, getParentComponent());
+            w->setLookAndFeel (proc.lf.get());
+            w->addComboBox ("size", { "256", "512", "1024", "2048" }, "Samples per table:");
+            w->getComboBoxComponent ("size")->setSelectedItemIndex (3);
+
+            w->addButton ("OK", 1, juce::KeyPress (juce::KeyPress::returnKey));
+            w->addButton ("Cancel", 0, juce::KeyPress (juce::KeyPress::escapeKey));
+
+            w->runAsync (*getParentComponent(), [this, w, f] (int ret)
+            {
+                auto userSize = w->getComboBoxComponent ("size")->getText().getIntValue();
+
+                w->setVisible (false);
+                if (ret == 1)
+                    proc.loadUserWavetable (idx, f, userSize);
+            });
+        }
+        else
+        {
+            proc.loadUserWavetable (idx, f, -1);
+        }
     }
 
     void mouseUp (const juce::MouseEvent& e) override
@@ -145,6 +189,7 @@ public:
 
     gin::SVGButton nextButton { "next", gin::Assets::next };
     gin::SVGButton prevButton { "prev", gin::Assets::prev };
+    gin::SVGButton addButton { "add", gin::Assets::add };
 };
 
 //==============================================================================

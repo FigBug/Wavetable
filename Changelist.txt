@@ -7,6 +7,7 @@
 - Draw all phase dots for LFO and Step LFO
 - Try and make delay less zippery (WIP)
 - Scroll wheel can adjust combo boxes
+- Fixed presets getting deleted when renaming
 
 1.0.3:
 

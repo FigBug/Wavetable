@@ -543,23 +543,23 @@ void WavetableAudioProcessor::reloadWavetables()
     if (userTable1.getSize() > 0)
     {
         if (shouldLoad (0, osc1Table.toString(), sr))
-            loadWaveTable (osc1Tables, sr, userTable1, "wav");
+            loadWaveTable (osc1Tables, sr, userTable1, "wav", osc1Size);
     }
     else if (auto mb = loadMemory (osc1Table.toString()); mb.getSize() > 0)
     {
         if (shouldLoad (0, osc1Table.toString(), sr))
-            loadWaveTable (osc1Tables, sr, mb, "flac");
+            loadWaveTable (osc1Tables, sr, mb, "flac", osc1Size);
     }
 
     if (userTable2.getSize() > 0)
     {
         if (shouldLoad (0, osc2Table.toString(), sr))
-            loadWaveTable (osc2Tables, sr, userTable2, "wav");
+            loadWaveTable (osc2Tables, sr, userTable2, "wav", osc2Size);
     }
     else if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
     {
         if (shouldLoad (1, osc2Table.toString(), sr))
-            loadWaveTable (osc2Tables, sr, mb, "flac");
+            loadWaveTable (osc2Tables, sr, mb, "flac", osc2Size);
     }
 }
 
@@ -590,20 +590,24 @@ void WavetableAudioProcessor::incWavetable (int osc, int delta)
     reloadWavetables();
 }
 
-void WavetableAudioProcessor::loadUserWavetable (int osc, const juce::File f)
+bool WavetableAudioProcessor::loadUserWavetable (int osc, const juce::File& f, int sz)
 {
     auto& table = osc == 0 ? osc1Tables : osc2Tables;
     auto& mb    = osc == 0 ? userTable1 : userTable2;
     auto& name  = osc == 0 ? osc1Table  : osc2Table;
+    auto& size  = osc == 0 ? osc1Size   : osc2Size;
 
     juce::MemoryBlock raw;
     f.loadFileAsData (raw);
 
-    if (loadWaveTable (table, gin::Processor::getSampleRate(), raw, "wav"))
+    if (loadWaveTable (table, gin::Processor::getSampleRate(), raw, "wav", sz))
     {
         mb = raw;
         name = f.getFileNameWithoutExtension();
+        size = sz;
+        return true;
     }
+    return false;
 }
 
 //==============================================================================
@@ -613,6 +617,9 @@ void WavetableAudioProcessor::stateUpdated()
 
     osc1Table = state.getProperty ("wt1");
     osc2Table = state.getProperty ("wt2");
+
+    osc1Size = state.getProperty ("wt1Size", -1);
+    osc2Size = state.getProperty ("wt2Size", -1);
 
     userTable1.reset();
     userTable2.reset();
@@ -631,6 +638,9 @@ void WavetableAudioProcessor::updateState()
 
     state.setProperty ("wt1", osc1Table, nullptr);
     state.setProperty ("wt2", osc2Table, nullptr);
+
+    state.setProperty ("wt1Size", osc1Size, nullptr);
+    state.setProperty ("wt2Size", osc2Size, nullptr);
 
     state.setProperty ("wt1Data", userTable1.toBase64Encoding(), nullptr);
     state.setProperty ("wt2Data", userTable2.toBase64Encoding(), nullptr);
@@ -979,7 +989,7 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
     outputGain.setGain (modMatrix.getValue (globalParams.level));
 }
 
-bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format)
+bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format, int size)
 {
     auto is = new juce::MemoryInputStream (wav, false);
 
@@ -987,14 +997,22 @@ bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLo
     {
         if (auto reader = std::unique_ptr<juce::AudioFormatReader> (juce::WavAudioFormat().createReaderFor (is, true)))
         {
-            if (auto sz = gin::getWavetableSize (wav); sz > 0)
+            if (size <= 0)
+                size = gin::getWavetableSize (wav);
+
+            if (size > 0)
             {
-                juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
-                reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
+                int samplesToUse = int (reader->lengthInSamples);
+                int frames = samplesToUse / size;
+
+                samplesToUse = frames * size;
+
+                juce::AudioSampleBuffer buf (1, samplesToUse);
+                reader->read (&buf, 0, samplesToUse, 0, true, false);
 
                 juce::OwnedArray<gin::BandLimitedLookupTable> t;
-                loadWavetables (t, sr, buf, reader->sampleRate, sz);
-                
+                loadWavetables (t, sr, buf, reader->sampleRate, size);
+
                 juce::ScopedLock sl (dspLock);
                 std::swap (t, table);
 
