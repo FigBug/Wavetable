@@ -222,7 +222,6 @@ void WavetableVoice::updateParams (int blockSize)
         currentMidiNotes[i] += getValue (proc.oscParams[i].tune) + getValue (proc.oscParams[i].finetune) / 100.0f;
 
         oscParams[i].voices     = int (proc.oscParams[i].voices->getProcValue());
-        oscParams[i].vcTrns     = 0;
         oscParams[i].position   = getValue (proc.oscParams[i].pos) / 100.0f;
         oscParams[i].pan        = getValue (proc.oscParams[i].pan);
         oscParams[i].spread     = getValue (proc.oscParams[i].spread) / 100.0f;

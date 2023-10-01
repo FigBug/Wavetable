@@ -811,7 +811,7 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         todo -= thisBlock;
     }
 
-    playHead = nullptr;
+    playhead = nullptr;
 
     if (buffer.getNumSamples() <= scopeFifo.getFreeSpace() && buffer.getNumChannels() == scopeFifo.getNumChannels())
         scopeFifo.write (buffer);
