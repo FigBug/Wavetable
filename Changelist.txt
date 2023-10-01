@@ -1,3 +1,7 @@
+1.0.6:
+
+- Fix tempo sync LFOs
+
 1.0.5:
 
 - Fix AU crash
