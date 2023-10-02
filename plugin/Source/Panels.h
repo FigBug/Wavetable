@@ -537,9 +537,10 @@ public:
         addControl (new gin::Knob (proc.globalParams.voices));
         addControl (legato = new gin::Switch (proc.globalParams.legato));
         addControl (new gin::Switch (proc.globalParams.mono));
-        addControl (new gin::Knob (proc.globalParams.pitchBend));
-        
+        addControl (pitchbend = new gin::Knob (proc.globalParams.pitchBend));
+
         watchParam (proc.globalParams.glideMode);
+        watchParam (proc.globalParams.mpe);
         paramChanged();
     }
     
@@ -549,12 +550,15 @@ public:
 
         rate->setEnabled (proc.globalParams.glideMode->getUserValueInt() > 0);
         legato->setEnabled (proc.globalParams.glideMode->getUserValueInt() > 0);
+
+        pitchbend->setEnabled (! proc.globalParams.mpe->getUserValueBool());
     }
 
     WavetableAudioProcessor& proc;
     
     gin::Knob* rate;
     gin::Switch* legato;
+    gin::Knob* pitchbend;
 };
 
 //==============================================================================
