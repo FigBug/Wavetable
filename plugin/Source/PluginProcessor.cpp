@@ -557,7 +557,7 @@ void WavetableAudioProcessor::reloadWavetables()
 
     if (userTable2.getSize() > 0)
     {
-        if (shouldLoad (0, osc2Table.toString(), sr))
+        if (shouldLoad (1, osc2Table.toString(), sr))
             loadWaveTable (osc2Tables, sr, userTable2, "wav", osc2Size);
     }
     else if (auto mb = loadMemory (osc2Table.toString()); mb.getSize() > 0)
