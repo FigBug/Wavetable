@@ -240,10 +240,27 @@ void WavetableVoice::updateParams (int blockSize)
 
         switch (proc.subParams.wave->getUserValueInt())
         {
-            case 0: subParams.wave = gin::Wave::sine;       break;
-            case 1: subParams.wave = gin::Wave::triangle;   break;
-            case 2: subParams.wave = gin::Wave::sawUp;      break;
-            case 3: subParams.wave = gin::Wave::pulse;      break;;
+            case 0: 
+                subParams.wave = gin::Wave::sine;
+                break;
+            case 1: 
+                subParams.wave = gin::Wave::triangle;
+                break;
+            case 2: 
+                subParams.wave = gin::Wave::sawUp;
+                break;
+            case 3: 
+                subParams.wave = gin::Wave::pulse;
+                subParams.pw   = 0.50f;
+                break;
+            case 4:
+                subParams.wave = gin::Wave::pulse;
+                subParams.pw   = 0.25f;
+                break;
+            case 5:
+                subParams.wave = gin::Wave::pulse;
+                subParams.pw   = 0.125f;
+                break;
         }
 
         subParams.leftGain  = getValue (proc.subParams.level) * (1.0f - getValue (proc.subParams.pan));

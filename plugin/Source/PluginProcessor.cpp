@@ -9,7 +9,9 @@ static juce::String subTextFunction (const gin::Parameter&, float v)
         case 0: return "Sine";
         case 1: return "Triangle";
         case 2: return "Saw";
-        case 3: return "Pulse";
+        case 3: return "Pulse 50%";
+        case 4: return "Pulse 25%";
+        case 5: return "Pulse 12%";
         default:
             jassertfalse;
             return {};
@@ -137,7 +139,7 @@ void WavetableAudioProcessor::SubParams::setup (WavetableAudioProcessor& p)
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
     retrig     = p.addIntParam (id + "retrig",     nm + "Retrig",      "Retrig",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
-    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 0.0, 3.0, 1.0, 1.0 }, 1.0, 0.0f, subTextFunction);
+    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 0.0, 5.0, 1.0, 1.0 }, 1.0, 0.0f, subTextFunction);
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
     pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
