@@ -3,6 +3,7 @@
 - Fixed loading custom Wavetables in second oscillator
 - Added retrigger to oscillators
 - Added 25% and 12.5% pulse wave sub oscillators
+- Added 50 more wavetables
 
 1.0.7:
 

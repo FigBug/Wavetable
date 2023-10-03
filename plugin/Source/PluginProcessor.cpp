@@ -456,7 +456,7 @@ void extractWavetables()
 WavetableAudioProcessor::WavetableAudioProcessor()
     : gin::Processor (juce::AudioProcessor::BusesProperties().withOutput ("Output", juce::AudioChannelSet::stereo(), true), false)
 {
-    {
+   {
         auto sz = 0;
         for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
             if (juce::String (BinaryData::originalFilenames[i]).endsWith (".xml"))
