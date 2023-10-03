@@ -698,13 +698,8 @@ void WavetableAudioProcessor::setupModMatrix()
     modMatrix.build();
 }
 
-float WavetableAudioProcessor::getSmoothingTime (gin::Parameter* p)
+float WavetableAudioProcessor::getSmoothingTime (gin::Parameter*)
 {
-    if (p == delayParams.delay) return 0.0f;
-    if (p == delayParams.cf)    return 0.0f;
-    if (p == delayParams.fb)    return 0.0f;
-    if (p == delayParams.mix)   return 0.0f;
-
     return 0.02f;
 }
 
@@ -873,7 +868,12 @@ void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
 
     // Apply Delay
     if (delayParams.enable->isOn())
-        stereoDelay.processSmoothed (buffer);
+    {
+        if (delayParams.sync->isOn())
+            stereoDelay.process (buffer);
+        else
+            stereoDelay.processSmoothed (buffer);
+    }
 
     // Apply Reverb
     if (reverbParams.enable->isOn())
@@ -976,16 +976,19 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
         {
             auto& duration = gin::NoteDuration::getNoteDurations()[(size_t)modMatrix.getValue (delayParams.beat)];
             delayParams.delay->setUserValue (duration.toSeconds (getPlayHead()));
+            stereoDelay.setParams (delayParams.delay->getUserValue(),
+                                   modMatrix.getValue (delayParams.mix),
+                                   modMatrix.getValue (delayParams.fb),
+                                   modMatrix.getValue (delayParams.cf));
         }
         else
         {
             delayParams.delay->setUserValue (modMatrix.getValue (delayParams.time));
+            stereoDelay.setParams (modMatrix.getValue (delayParams.delay),
+                                   modMatrix.getValue (delayParams.mix),
+                                   modMatrix.getValue (delayParams.fb),
+                                   modMatrix.getValue (delayParams.cf));
         }
-
-        stereoDelay.setParams (modMatrix.getValue (delayParams.delay),
-                               modMatrix.getValue (delayParams.mix),
-                               modMatrix.getValue (delayParams.fb),
-                               modMatrix.getValue (delayParams.cf));
     }
 
     // Update Reverb

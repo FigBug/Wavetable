@@ -4,6 +4,7 @@
 - Added retrigger to oscillators
 - Added 25% and 12.5% pulse wave sub oscillators
 - Added 50 more wavetables
+- Removed smoothing from sync delay time
 
 1.0.7:
 
