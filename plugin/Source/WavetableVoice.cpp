@@ -51,11 +51,11 @@ void WavetableVoice::noteStarted()
     updateParams (0);
     snapParams();
     
-    for (auto& osc : oscillators)
-        osc.noteOn();
+    for (auto idx = 0; auto& osc : oscillators)
+        osc.noteOn (proc.oscParams[idx++].retrig->getBoolValue() ? 0.0f : proc.rng.nextFloat());
 
     noise.noteOn();
-    sub.noteOn();
+    sub.noteOn (proc.subParams.retrig->getBoolValue() ? 0.0f : proc.rng.nextFloat());
 
     filterADSR.noteOn();
 

@@ -24,6 +24,7 @@ public:
 
         addEnable (osc.enable);
 
+        addControl (new gin::SVGPluginButton (osc.retrig, gin::Assets::retrigger));
         addControl (new gin::Knob (osc.pos));
         addControl (new gin::Knob (osc.tune, true));
         addControl (new gin::Knob (osc.finetune, true));
@@ -205,6 +206,7 @@ public:
 
         addEnable (sub.enable);
 
+        addControl (new gin::SVGPluginButton (sub.retrig, gin::Assets::retrigger));
         addControl (new gin::Knob (sub.tune, true), 0, 0);
         addControl (new gin::Knob (sub.level), 1, 0);
         addControl (new gin::Knob (sub.pan, true), 0, 1);

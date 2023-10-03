@@ -114,6 +114,7 @@ void WavetableAudioProcessor::OSCParams::setup (WavetableAudioProcessor& p, int 
     juce::String nm = "OSC" + juce::String (idx + 1) + " ";
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, idx == 0 ? 1.0f : 0.0f, 0.0f);
+    retrig     = p.addIntParam (id + "retrig",     nm + "Retrig",      "Retrig",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
     voices     = p.addIntParam (id + "unison",     nm + "Unison",      "Unison",    "", { 1.0, 8.0, 1.0, 1.0 }, 1.0, 0.0f);
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     finetune   = p.addExtParam (id + "finetune",   nm + "Fine Tune",   "Fine",      "ct", { -100.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
@@ -134,7 +135,8 @@ void WavetableAudioProcessor::SubParams::setup (WavetableAudioProcessor& p)
     juce::String id = "sub";
     juce::String nm = "SUB ";
 
-    enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f);
+    enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
+    retrig     = p.addIntParam (id + "retrig",     nm + "Retrig",      "Retrig",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
     wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 0.0, 3.0, 1.0, 1.0 }, 1.0, 0.0f, subTextFunction);
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
