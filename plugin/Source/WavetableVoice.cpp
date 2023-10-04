@@ -52,7 +52,33 @@ void WavetableVoice::noteStarted()
     snapParams();
     
     for (auto idx = 0; auto& osc : oscillators)
-        osc.noteOn (proc.oscParams[idx++].retrig->getBoolValue() ? 0.0f : proc.rng.nextFloat());
+    {
+        auto& params = proc.oscParams[idx++];
+        auto retrig = params.retrig->getBoolValue();
+        auto voices = params.voices->getUserValue();
+
+        if (voices == 1)
+        {
+            osc.noteOn (retrig ? 0.0f : proc.rng.nextFloat());
+        }
+        else if (retrig)
+        {
+            float phases[8] = { 0.0f };
+
+            for (auto i = 0; i < voices; i++)
+                phases[i] = 1.0f / voices * i;
+
+            osc.noteOn (phases);
+        }
+        else
+        {
+            float phases[8];
+            for (auto& p : phases)
+                p = proc.rng.nextFloat();
+
+            osc.noteOn (phases);
+        }
+    }
 
     noise.noteOn();
     sub.noteOn (proc.subParams.retrig->getBoolValue() ? 0.0f : proc.rng.nextFloat());
