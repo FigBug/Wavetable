@@ -481,7 +481,7 @@ if (WIN32)
 endif()
 
 if(UNIX AND NOT APPLE)
-	target_link_libraries (${PLUGIN_NAME} PRIVATE curl -static-libstdc++)
+	target_link_libraries (${PLUGIN_NAME} PRIVATE curl)
 endif()
 
 
