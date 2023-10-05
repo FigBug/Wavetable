@@ -60,6 +60,8 @@ if [ "$(uname)" == "Darwin" ]; then
     codesign -s "$DEV_APP_ID" -v $PLUGIN.vst --options=runtime --timestamp --force
     codesign -s "$DEV_APP_ID" -v $PLUGIN.vst3 --options=runtime --timestamp --force
     codesign -s "$DEV_APP_ID" -v $PLUGIN.component --options=runtime --timestamp --force
+  else
+    echo "Not signing"
   fi
 
   # Notarize
@@ -73,6 +75,8 @@ if [ "$(uname)" == "Darwin" ]; then
     xcrun stapler staple $PLUGIN.vst
     xcrun stapler staple $PLUGIN.vst3
     xcrun stapler staple $PLUGIN.component
+  else
+    echo "Not notarizing"
   fi
 
   zip -r ${PLUGIN}_Mac.zip $PLUGIN.vst $PLUGIN.vst3 $PLUGIN.component
@@ -80,10 +84,8 @@ if [ "$(uname)" == "Darwin" ]; then
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Mac.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
   fi
-fi
-
 # Build linux version
-if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   cd "$ROOT"
   
   cmake --preset ninja-gcc
@@ -102,10 +104,8 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Linux.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
   fi
-fi
-
 # Build Win version
-if [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cd "$ROOT"
 
   cmake --preset vs
