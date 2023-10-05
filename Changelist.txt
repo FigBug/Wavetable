@@ -1,3 +1,10 @@
+1.0.10:
+
+- Use Ubuntu 20.04 instead of 22.04 for Linux builds
+- Add modulation overview to title bar
+- Tabs now switch when dragging modulation over their buttons
+- Make sure editor scale does change loading presets
+
 1.0.9:
 
 - Tweaked the way phase works with unison oscillators
