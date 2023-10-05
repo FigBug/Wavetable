@@ -287,6 +287,7 @@ public:
     juce::Random rng;
 
 private:
+    bool isParamLocked (gin::Parameter* p) override;
     float getSmoothingTime (gin::Parameter*);
 
     //==============================================================================

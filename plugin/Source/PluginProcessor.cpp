@@ -698,6 +698,15 @@ void WavetableAudioProcessor::setupModMatrix()
     modMatrix.build();
 }
 
+bool WavetableAudioProcessor::isParamLocked (gin::Parameter* p)
+{
+    if (p == uiParams.activeMOD) return true;
+    if (p == uiParams.activeLFO) return true;
+    if (p == uiParams.activeENV) return true;
+
+    return false;
+}
+
 float WavetableAudioProcessor::getSmoothingTime (gin::Parameter*)
 {
     return 0.02f;

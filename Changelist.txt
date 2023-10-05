@@ -4,6 +4,7 @@
 - Add modulation overview to title bar
 - Tabs now switch when dragging modulation over their buttons
 - Make sure editor scale does change loading presets
+- Don't switch ui tabs when loading presets
 
 1.0.9:
 
