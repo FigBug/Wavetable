@@ -25,7 +25,7 @@ WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProc
     
     usage.setBounds (45, 12, 70, 16);
     modOverview.setBounds (usage.getRight() + 10, 12, 150, 16);
-    scope.setBounds (714, 5, 177, 30);
+    scope.setBounds (704, 5, 187, 30);
 
     setSize (943, 671);
 }

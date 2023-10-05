@@ -30,11 +30,11 @@ void Editor::setupCallbacks()
 
 void Editor::resized()
 {
-#if JUCE_DEBUG
+   #if JUCE_DEBUG
     auto f = juce::File (__FILE__).getChildFile ("../../Resources/layout.json");
 
     layout.setLayout ("layout.json", f);
-#else
+   #else
     layout.setLayout ("layout.json");
-#endif
+   #endif
 }
