@@ -23,7 +23,7 @@ WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProc
     
     addChildComponent (modOverview);
     
-    usage.setBounds (45, 12, 70, 16);
+    usage.setBounds (45, 12, 80, 16);
     modOverview.setBounds (usage.getRight() + 10, 12, 150, 16);
     scope.setBounds (704, 5, 187, 30);
 
