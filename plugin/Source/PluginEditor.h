@@ -25,6 +25,7 @@ private:
 
     gin::TriggeredScope scope { wtProc.scopeFifo };
     gin::SynthesiserUsage usage { wtProc };
+    gin::ModulationOverview modOverview { wtProc.modMatrix };
     
     Editor editor { wtProc };
 
