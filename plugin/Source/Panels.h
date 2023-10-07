@@ -250,6 +250,16 @@ public:
 
         adsr = new gin::ADSRComponent ();
         adsr->setParams (preset.attack, preset.decay, preset.sustain, preset.release);
+        adsr->phaseCallback = [this]
+        {
+            std::vector<std::pair<int, float>> res;
+
+            for (auto v : proc.getActiveVoices())
+                if (auto wtv = dynamic_cast<WavetableVoice*> (v))
+                    res.push_back (wtv->adsr.getCurrentPhase());
+
+            return res;
+        };
         addControl (adsr, 0, 0, 4, 1);
 
         addControl (new gin::Knob (preset.attack), 0, 1);
@@ -290,6 +300,19 @@ public:
 
         adsr = new gin::ADSRComponent ();
         adsr->setParams (flt.attack, flt.decay, flt.sustain, flt.release);
+        adsr->phaseCallback = [this, &flt]
+        {
+            std::vector<std::pair<int, float>> res;
+
+            if (flt.amount->getUserValue() != 0.0f)
+            {
+                for (auto voice : proc.getActiveVoices())
+                    if (auto wtv = dynamic_cast<WavetableVoice*> (voice))
+                        res.push_back (wtv->filterADSR.getCurrentPhase());
+            }
+
+            return res;
+        };
         addControl (adsr, 3, 0, 4, 1);
 
         addControl (a = new gin::Knob (flt.attack), 3, 1);
@@ -435,6 +458,19 @@ public:
 
         auto g = new gin::ADSRComponent();
         g->setParams (env.attack, env.decay, env.sustain, env.release);
+        g->phaseCallback = [this, &env]
+        {
+            std::vector<std::pair<int, float>> res;
+
+            if (env.enable->isOn())
+            {
+                for (auto v : proc.getActiveVoices())
+                    if (auto wtv = dynamic_cast<WavetableVoice*> (v))
+                        res.push_back (wtv->modADSRs[idx].getCurrentPhase());
+            }
+
+            return res;
+        };
         addControl (g, 0, 0, 4, 1);
 
         setSize (112, 163);
