@@ -169,21 +169,22 @@ void WavetableAudioProcessor::FilterParams::setup (WavetableAudioProcessor& p)
 
     float maxFreq = float (gin::getMidiNoteFromHertz (20000.0));
 
-    enable           = p.addIntParam (id + "enable",  nm + "Enable",  "",      "", { 0.0, 1.0, 1.0, 1.0 }, 1.0f, 0.0f);
-    type             = p.addIntParam (id + "type",    nm + "Type",    "Type",  "", { 0.0, 7.0, 1.0, 1.0 }, 0.0, 0.0f, filterTextFunction);
-    keyTracking      = p.addExtParam (id + "key",     nm + "Key",     "Key",   "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
-    velocityTracking = p.addExtParam (id + "vel",     nm + "Vel",     "Vel",   "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
-    frequency        = p.addExtParam (id + "freq",    nm + "Freq",    "Freq",  "Hz", { 0.0, maxFreq, 0.0, 1.0 }, 64.0, 0.0f, freqTextFunction);
-    resonance        = p.addExtParam (id + "res",     nm + "Res",     "Res",   "", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
-    amount           = p.addExtParam (id + "amount",  nm + "Amount",  "Amnt",  "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
-    attack           = p.addExtParam (id + "attack",  nm + "Attack",  "A",     "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
-    decay            = p.addExtParam (id + "decay",   nm + "Decay",   "D",     "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
-    sustain          = p.addExtParam (id + "sustain", nm + "Sustain", "S",     "%", { 0.0, 100.0, 0.0, 1.0 }, 80.0f, 0.0f);
-    release          = p.addExtParam (id + "release", nm + "Release", "R",     "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
-    wt1              = p.addIntParam (id + "wt1",     nm + "WT1",     "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
-    wt2              = p.addIntParam (id + "wt2",     nm + "WT2",     "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
-    sub              = p.addIntParam (id + "sub",     nm + "sub",     "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
-    noise            = p.addIntParam (id + "noise",   nm + "noise",   "",       "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
+    enable           = p.addIntParam (id + "enable",  nm + "Enable",  "",           "", { 0.0, 1.0, 1.0, 1.0 }, 1.0f, 0.0f);
+    retrig           = p.addIntParam (id + "retrig",  nm + "Retrig",   "Retrig",    "", { 0.0, 1.0, 1.0, 1.0 }, 1.0, 0.0f, enableTextFunction);
+    type             = p.addIntParam (id + "type",    nm + "Type",    "Type",       "", { 0.0, 7.0, 1.0, 1.0 }, 0.0, 0.0f, filterTextFunction);
+    keyTracking      = p.addExtParam (id + "key",     nm + "Key",     "Key",        "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
+    velocityTracking = p.addExtParam (id + "vel",     nm + "Vel",     "Vel",        "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
+    frequency        = p.addExtParam (id + "freq",    nm + "Freq",    "Freq",       "Hz", { 0.0, maxFreq, 0.0, 1.0 }, 64.0, 0.0f, freqTextFunction);
+    resonance        = p.addExtParam (id + "res",     nm + "Res",     "Res",        "", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
+    amount           = p.addExtParam (id + "amount",  nm + "Amount",  "Amnt",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
+    attack           = p.addExtParam (id + "attack",  nm + "Attack",  "A",          "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
+    decay            = p.addExtParam (id + "decay",   nm + "Decay",   "D",          "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
+    sustain          = p.addExtParam (id + "sustain", nm + "Sustain", "S",          "%", { 0.0, 100.0, 0.0, 1.0 }, 80.0f, 0.0f);
+    release          = p.addExtParam (id + "release", nm + "Release", "R",          "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
+    wt1              = p.addIntParam (id + "wt1",     nm + "WT1",     "",           "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
+    wt2              = p.addIntParam (id + "wt2",     nm + "WT2",     "",           "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
+    sub              = p.addIntParam (id + "sub",     nm + "sub",     "",           "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
+    noise            = p.addIntParam (id + "noise",   nm + "noise",   "",           "", { 0.0, 1.0, 1.0, 1.0f }, 1.0f, 0.0f);
 
     sustain->conversionFunction          = [] (float in) { return in / 100.0f; };
     velocityTracking->conversionFunction = [] (float in) { return in / 100.0f; };
@@ -197,6 +198,7 @@ void WavetableAudioProcessor::EnvParams::setup (WavetableAudioProcessor& p, int 
     juce::String nm = "ENV" + juce::String (idx + 1) + " ";
 
     enable           = p.addIntParam (id + "enable",  nm + "Enable",  "Enable", "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
+    retrig           = p.addIntParam (id + "retrig",  nm + "Retrig",  "Retrig", "", { 0.0, 1.0, 1.0, 1.0 }, 1.0, 0.0f, enableTextFunction);
     attack           = p.addExtParam (id + "attack",  nm + "Attack",  "A",     "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
     decay            = p.addExtParam (id + "decay",   nm + "Decay",   "D",     "s", { 0.0, 60.0, 0.0, 0.2f }, 0.1f, 0.0f);
     sustain          = p.addExtParam (id + "sustain", nm + "Sustain", "S",     "%", { 0.0, 100.0, 0.0, 1.0 }, 80.0f, 0.0f);
@@ -271,7 +273,8 @@ void WavetableAudioProcessor::GateParams::setup (WavetableAudioProcessor& p)
 //==============================================================================
 void WavetableAudioProcessor::ADSRParams::setup (WavetableAudioProcessor& p)
 {
-    velocityTracking = p.addExtParam ("vel",     "Vel",     "Vel",   "", { 0.0, 100.0, 0.0, 1.0 }, 100.0, 0.0f);
+    retrig           = p.addIntParam ("retrig",  "Retrig",  "Retrig","", { 0.0, 1.0, 1.0, 1.0 },     1.0f, 0.0f, enableTextFunction);
+    velocityTracking = p.addExtParam ("vel",     "Vel",     "Vel",   "", { 0.0, 100.0, 0.0, 1.0 }, 100.0f, 0.0f);
     attack           = p.addExtParam ("attack",  "Attack",  "A",     "s", { 0.0, 60.0, 0.0, 0.2f },  0.1f, 0.0f);
     decay            = p.addExtParam ("decay",   "Decay",   "D",     "s", { 0.0, 60.0, 0.0, 0.2f },  0.1f, 0.0f);
     sustain          = p.addExtParam ("sustain", "Sustain", "S",     "%", { 0.0, 100.0, 0.0, 1.0 }, 80.0f, 0.0f);

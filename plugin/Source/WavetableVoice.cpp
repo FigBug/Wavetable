@@ -119,12 +119,15 @@ void WavetableVoice::noteRetriggered()
     
     updateParams (0);
 
-    filterADSR.noteOn();
+    if (proc.filterParams.retrig->getBoolValue())
+        filterADSR.noteOn();
 
-    for (auto& a : modADSRs)
-         a.noteOn();
+    for (auto idx = 0; auto& a : modADSRs)
+        if (proc.envParams[idx++].retrig->getBoolValue())
+             a.noteOn();
     
-    adsr.noteOn();
+    if (proc.adsrParams.retrig->getBoolValue())
+        adsr.noteOn();
 }
 
 void WavetableVoice::noteStopped (bool allowTailOff)

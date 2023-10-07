@@ -267,11 +267,24 @@ public:
         addControl (new gin::Knob (preset.sustain), 2, 1);
         addControl (new gin::Knob (preset.release), 3, 1);
         addControl (new gin::Knob (preset.velocityTracking), 4, 1);
+        addControl (retrig = new gin::SVGPluginButton (preset.retrig, gin::Assets::retrigger));
+
+        watchParam (proc.globalParams.mono);
+        watchParam (proc.globalParams.glideMode);
+    }
+
+    void paramChanged() override
+    {
+        gin::ParamBox::paramChanged ();
+
+        if (retrig != nullptr)
+            retrig->setVisible (proc.globalParams.mono->isOn() && proc.globalParams.glideMode->getUserValue() > 0);
     }
 
     WavetableAudioProcessor& proc;
-    gin::ParamComponent::Ptr a, d, s, r;
-    gin::ADSRComponent* adsr;
+    gin::ParamComponent::Ptr a = nullptr, d = nullptr, s = nullptr, r = nullptr;
+    gin::ADSRComponent* adsr = nullptr;
+    gin::SVGPluginButton* retrig;
 };
 
 //==============================================================================
@@ -290,13 +303,13 @@ public:
         addModSource (new gin::ModulationSourceButton (proc.modMatrix, proc.modSrcFilter, true));
 
         auto freq = new gin::Knob (flt.frequency);
-        addControl (freq, 0, 0);
-        addControl (new gin::Knob (flt.resonance), 1, 0);
-        addControl (new gin::Knob (flt.amount, true), 2, 0);
+        addControl (freq);
+        addControl (new gin::Knob (flt.resonance));
+        addControl (new gin::Knob (flt.amount, true));
 
-        addControl (new gin::Knob (flt.keyTracking), 0, 1);
-        addControl (new gin::Select (flt.type), 1, 1);
-        addControl (v = new gin::Knob (flt.velocityTracking), 2, 1);
+        addControl (new gin::Knob (flt.keyTracking));
+        addControl (new gin::Select (flt.type));
+        addControl (v = new gin::Knob (flt.velocityTracking));
 
         adsr = new gin::ADSRComponent ();
         adsr->setParams (flt.attack, flt.decay, flt.sustain, flt.release);
@@ -333,8 +346,11 @@ public:
         addControl (new gin::SVGPluginButton (flt.wt2, asset2));
         addControl (new gin::SVGPluginButton (flt.sub, assetS));
         addControl (new gin::SVGPluginButton (flt.noise, assetN));
+        addControl (retrig = new gin::SVGPluginButton (flt.retrig, gin::Assets::retrigger));
 
         watchParam (flt.amount);
+        watchParam (proc.globalParams.mono);
+        watchParam (proc.globalParams.glideMode);
     }
 
     void paramChanged () override
@@ -349,11 +365,16 @@ public:
         s->setEnabled (flt.amount->getUserValue() != 0.0f);
         r->setEnabled (flt.amount->getUserValue() != 0.0f);
         adsr->setEnabled (flt.amount->getUserValue() != 0.0f);
+
+        if (retrig != nullptr)
+            retrig->setVisible (proc.globalParams.mono->isOn() && proc.globalParams.glideMode->getUserValue() > 0);
     }
 
+
     WavetableAudioProcessor& proc;
-    gin::ParamComponent::Ptr v, a, d, s, r;
-    gin::ADSRComponent* adsr;
+    gin::ParamComponent::Ptr v  = nullptr, a = nullptr, d = nullptr, s = nullptr, r = nullptr;
+    gin::ADSRComponent* adsr = nullptr;
+    gin::SVGPluginButton* retrig = nullptr;
 
     juce::String asset1 = "M0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm236 35.2c-7.4-4.3-16.5-4.3-24-.1l-56 32c-11.5 6.6-15.5 21.2-8.9 32.7s21.2 15.5 32.7 8.9L200 193.4V336H160c-13.3 0-24 10.7-24 24s10.7 24 24 24h64 64c13.3 0 24-10.7 24-24s-10.7-24-24-24H248V152c0-8.6-4.6-16.5-12-20.8z";
     juce::String asset2 = "M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM190.7 184.7l-24.2 18.4c-10.5 8-25.6 6-33.6-4.5s-6-25.6 4.5-33.6l24.2-18.4c15.8-12 35.2-18.4 55.1-18.1l3.4 .1c46.5 .7 83.8 38.6 83.8 85.1c0 23.5-9.7 46-26.9 62.1L212.7 336H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-9.8 0-18.7-6-22.3-15.2s-1.3-19.6 5.9-26.3L244.3 240.6c7.5-7 11.7-16.8 11.7-27.1c0-20.3-16.3-36.8-36.6-37.1l-3.4-.1c-9.1-.1-18 2.8-25.3 8.3z";
@@ -407,13 +428,11 @@ public:
             return res;
         };
         l->setParams (lfo.wave, lfo.sync, lfo.rate, lfo.beat, lfo.depth, lfo.offset, lfo.phase, lfo.enable);
-        addControl (l, 2, 0, 4, 1);
+        addControl (l);
         
         addControl (new gin::SVGPluginButton (lfo.retrig, gin::Assets::retrigger));
 
         watchParam (lfo.sync);
-
-        setSize (112, 163);
     }
 
     void paramChanged () override
@@ -472,11 +491,22 @@ public:
             return res;
         };
         addControl (g, 0, 0, 4, 1);
+        addControl (retrig = new gin::SVGPluginButton (env.retrig, gin::Assets::retrigger));
 
-        setSize (112, 163);
+        watchParam (proc.globalParams.mono);
+        watchParam (proc.globalParams.glideMode);
+    }
+
+    void paramChanged () override
+    {
+        gin::ParamBox::paramChanged ();
+
+        if (retrig != nullptr)
+            retrig->setVisible (proc.globalParams.mono->isOn() && proc.globalParams.glideMode->getUserValue() > 0);
     }
 
     WavetableAudioProcessor& proc;
+    gin::SVGPluginButton* retrig = nullptr;
     int idx;
 };
 
@@ -519,8 +549,6 @@ public:
         addControl (g, 0, 0, 4, 1);
 
         addControl (new gin::SVGPluginButton (prs.retrig, gin::Assets::retrigger));
-
-        setSize (112, 163);
     }
 
     WavetableAudioProcessor& proc;
@@ -618,8 +646,6 @@ public:
         auto g = new gin::GateEffectComponent (Cfg::numGateSteps);
         g->setParams (proc.gateParams.length, proc.gateParams.l, proc.gateParams.r, proc.gateParams.enable);
         addControl (g, 0, 1, 4, 1);
-
-        setSize (112, 163);
     }
 
     WavetableAudioProcessor& proc;
@@ -642,8 +668,6 @@ public:
 
         addControl (new gin::Knob (proc.chorusParams.depth), 0.5f, 1.0f);
         addControl (new gin::Knob (proc.chorusParams.width), 1.5f, 1.0f);
-
-        setSize (168, 163);
     }
 
     WavetableAudioProcessor& proc;
@@ -661,8 +685,6 @@ public:
         addEnable (proc.distortionParams.enable);
 
         addControl (new gin::Knob (proc.distortionParams.amount), 0, 0);
-
-        setSize (112, 163);
     }
 
     WavetableAudioProcessor& proc;
@@ -691,8 +713,6 @@ public:
         b->setName ("Delay2");
 
         watchParam (proc.delayParams.sync);
-
-        setSize (168, 163);
     }
 
     void paramChanged () override
@@ -724,8 +744,6 @@ public:
         addControl (new gin::Knob (proc.reverbParams.damping), 0, 1);
         addControl (new gin::Knob (proc.reverbParams.predelay), 1, 1);
         addControl (new gin::Knob (proc.reverbParams.mix), 2, 1);
-
-        setSize (168, 163);
     }
 
     WavetableAudioProcessor& proc;

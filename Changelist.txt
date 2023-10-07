@@ -2,6 +2,8 @@
 
 - Increase performance of Wavetable oscillator
 - Increase clickable size of next/prev preset buttons
+- Add dots to ADSRs
+- Add retrig to ADSRs (mono + glissando/portamento only)
 
 1.0.11:
 

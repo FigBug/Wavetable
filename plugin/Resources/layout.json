@@ -50,7 +50,8 @@
                 { "id": "D", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "S", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "adsr", "x": "getX('A')", "y": "getY('Res')", "r": "getR('R')", "b": "getY('A')" }
+                { "id": "adsr", "x": "getX('A')", "y": "getY('Res')", "r": "getR('R')", "b": "getY('A')" },
+                { "id": "Retrig", "r": "getR('adsr') - 3", "y": "getY('adsr') + 3", "w": 12, "h": 12 }
             ]
          },
         { "id": "adsr", "x": "prevR()+1", "y": "prevY()", "w": "210 + 160", "h": 163, "children":
@@ -60,7 +61,8 @@
                 { "id": "S", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Vel", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "adsr", "x": 0, "y": 23, "r": "parW()", "b": "getY('A')" }
+                { "id": "adsr", "x": 0, "y": 23, "r": "parW()", "b": "getY('A')" },
+                { "id": "Retrig", "r": "getR('adsr') - 3", "y": "getY('adsr') + 3", "w": 12, "h": 12 }
             ] },
         { "id": "lfo[1..3]", "x": 0, "y": "prevB()+1,prevY()", "w": 280, "h": 163, "children":
             [
@@ -82,7 +84,8 @@
                 { "id": "D", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "S", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "adsr", "x": 0, "y": 23, "r": "parW()", "b": "getY('A')" }
+                { "id": "adsr", "x": 0, "y": 23, "r": "parW()", "b": "getY('A')" },
+                { "id": "Retrig", "r": "getR('adsr') - 3", "y": "getY('adsr') + 3", "w": 12, "h": 12 }
             ] },
         { "id": "step", "x": "prevR()+1", "y": "prevY()", "w": 218, "h": 163, "children": 
             [

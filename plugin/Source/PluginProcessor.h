@@ -86,7 +86,7 @@ public:
         FilterParams() = default;
 
         gin::Parameter::Ptr enable, type, keyTracking, velocityTracking,
-                            frequency, resonance, amount,
+                            frequency, resonance, amount, retrig,
                             attack, decay, sustain, release, wt1, wt2, sub, noise;
 
         void setup (WavetableAudioProcessor& p);
@@ -98,7 +98,7 @@ public:
     {
         EnvParams() = default;
 
-        gin::Parameter::Ptr enable, attack, decay, sustain, release;
+        gin::Parameter::Ptr enable, attack, decay, sustain, release, retrig;
 
         void setup (WavetableAudioProcessor& p, int idx);
 
@@ -132,7 +132,7 @@ public:
     {
         ADSRParams() = default;
 
-        gin::Parameter::Ptr attack, decay, sustain, release, velocityTracking;
+        gin::Parameter::Ptr attack, decay, sustain, release, velocityTracking, retrig;
 
         void setup (WavetableAudioProcessor& p);
 
