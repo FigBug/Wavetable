@@ -635,6 +635,7 @@ public:
         : gin::ParamBox ("Gate"), proc (proc_)
     {
         setName ("gate");
+        getProperties().set ("fxId", fxGate);
 
         addEnable (proc.gateParams.enable);
 
@@ -659,6 +660,7 @@ public:
         : gin::ParamBox ("Chorus"), proc (proc_)
     {
         setName ("chorus");
+        getProperties().set ("fxId", fxChorus);
 
         addEnable (proc.chorusParams.enable);
 
@@ -681,6 +683,7 @@ public:
         : gin::ParamBox ("Distort"), proc (proc_)
     {
         setName ("distort");
+        getProperties().set ("fxId", fxDistort);
 
         addEnable (proc.distortionParams.enable);
 
@@ -698,6 +701,7 @@ public:
         : gin::ParamBox ("Delay"), proc (proc_)
     {
         setName ("delay");
+        getProperties().set ("fxId", fxDelay);
 
         addEnable (proc.delayParams.enable);
 
@@ -735,6 +739,7 @@ public:
         : gin::ParamBox ("Reverb"), proc (proc_)
     {
         setName ("reverb");
+        getProperties().set ("fxId", fxReverb);
 
         addEnable (proc.reverbParams.enable);
 

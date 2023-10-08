@@ -4,6 +4,12 @@
 
 #include "WavetableVoice.h"
 
+constexpr auto fxGate       = 0;
+constexpr auto fxChorus     = 1;
+constexpr auto fxDistort    = 2;
+constexpr auto fxDelay      = 3;
+constexpr auto fxReverb     = 4;
+
 //==============================================================================
 class WavetableAudioProcessor : public gin::Processor,
                                 public gin::Synthesiser
@@ -45,6 +51,8 @@ public:
     bool loadUserWavetable (int osc, const juce::File& f, int sz);
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
+    void applyEffect (juce::AudioSampleBuffer& buffer, int fxId);
+
     bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format, int size);
 
     // Voice Params
@@ -220,6 +228,17 @@ public:
         JUCE_DECLARE_NON_COPYABLE (ReverbParams)
     };
 
+    struct FXParams
+    {
+        FXParams() = default;
+
+        gin::Parameter::Ptr fx1, fx2, fx3, fx4, fx5;
+
+        void setup (WavetableAudioProcessor& p);
+
+        JUCE_DECLARE_NON_COPYABLE (FXParams)
+    };
+
     //==============================================================================
     gin::ModSrcId modSrcPressure, modSrcTimbre, modSrcPitchbend, modScrPitchBend,
                   modSrcFilter, modSrcNote, modSrcVelocity, modSrcStep, modSrcMonoStep;
@@ -235,6 +254,7 @@ public:
     EnvParams envParams[Cfg::numENVs];
     LFOParams lfoParams[Cfg::numLFOs];
     StepLFOParams stepLfoParams;
+    FXParams fxParams;
 
     ADSRParams adsrParams;
 

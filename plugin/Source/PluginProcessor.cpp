@@ -362,6 +362,16 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
     mix         = p.addExtParam ("rvbMix",      "Mix",      "",   "", {0.0f, 1.0f,    0.0f, 1.0f}, 0.0f, 0.0f);
 }
 
+//==============================================================================
+void WavetableAudioProcessor::FXParams::setup (WavetableAudioProcessor& p)
+{
+    fx1         = p.addIntParam ("fxOrder1",   "FX1",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxGate,    0.0f);
+    fx2         = p.addIntParam ("fxOrder2",   "FX2",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxChorus,  0.0f);
+    fx3         = p.addIntParam ("fxOrder3",   "FX3",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxDistort, 0.0f);
+    fx4         = p.addIntParam ("fxOrder4",   "FX4",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxDelay,   0.0f);
+    fx5         = p.addIntParam ("fxOrder5",   "FX5",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxReverb,  0.0f);
+}
+
 #if 0
 void convertWavetables()
 {
@@ -498,6 +508,7 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     distortionParams.setup (*this);
     delayParams.setup (*this);
     reverbParams.setup (*this);
+    fxParams.setup (*this);
 
     for (int i = 0; i < 50; i++)
     {
@@ -861,25 +872,25 @@ gin::WTOscillator::Params WavetableAudioProcessor::getLiveWTParams (int osc)
     return p;
 }
 
-void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
+void WavetableAudioProcessor::applyEffect (juce::AudioSampleBuffer& buffer, int fxId)
 {
     // Apply gate
-    if (gateParams.enable->isOn())
+    if (fxId == fxGate && gateParams.enable->isOn())
         gate.process (buffer, noteOnIndex, noteOffIndex);
 
     // Apply Chorus
-    if (chorusParams.enable->isOn())
+    if (fxId == fxChorus && chorusParams.enable->isOn())
         chorus.process (buffer);
 
     // Apply Distortion
-    if (distortionParams.enable->isOn())
+    if (fxId == fxDistort && distortionParams.enable->isOn())
     {
         auto clip = 1.0f / (2.0f * distortionVal);
         gin::Distortion::processBlock (buffer, distortionVal, -clip, clip);
     }
 
     // Apply Delay
-    if (delayParams.enable->isOn())
+    if (fxId == fxDelay && delayParams.enable->isOn())
     {
         if (delayParams.sync->isOn())
             stereoDelay.process (buffer);
@@ -888,8 +899,17 @@ void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
     }
 
     // Apply Reverb
-    if (reverbParams.enable->isOn())
+    if (fxId == fxReverb && reverbParams.enable->isOn())
         reverb.process (buffer.getWritePointer (0), buffer.getWritePointer (1), buffer.getNumSamples ());
+}
+
+void WavetableAudioProcessor::applyEffects (juce::AudioSampleBuffer& buffer)
+{
+    applyEffect (buffer, fxParams.fx1->getUserValueInt());
+    applyEffect (buffer, fxParams.fx2->getUserValueInt());
+    applyEffect (buffer, fxParams.fx3->getUserValueInt());
+    applyEffect (buffer, fxParams.fx4->getUserValueInt());
+    applyEffect (buffer, fxParams.fx5->getUserValueInt());
 
     // Output gain
     outputGain.process (buffer);

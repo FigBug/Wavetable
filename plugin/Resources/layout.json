@@ -104,47 +104,52 @@
                 { "id": "matrix", "x": 0, "y": 23, "r": "parW()", "b": "parH()" }
             ] 
         },
-        { "id": "gate", "x": "0", "y": "prevB()+1", "w": 290, "h": 137, "children":
+        { "id": "fx", "x": 0, "y": "prevB()+1", "w": "parW() - 169", "h": 137, "children": 
             [
-                { "id": "Beat", "x": 61, "y": 30, "w": 42, "h": 57 },
-                { "id": "Length", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "A", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "pattern", "x": 2, "y": "prevB() + 5", "w": "parW() - 6", "b": "parH() - 15" }
-            ] 
+                { "id": "gate", "x": "0", "y": 0, "w": 290, "h": 137, "children":
+                    [
+                        { "id": "Beat", "x": 61, "y": 30, "w": 42, "h": 57 },
+                        { "id": "Length", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "A", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "pattern", "x": 2, "y": "prevB() + 5", "w": "parW() - 6", "b": "parH() - 15" }
+                    ] 
+                },
+                { "id": "chorus", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
+                    [
+                        { "id": "Delay", "x": 0, "y": 23, "w": 42, "h": 57 },
+                        { "id": "Speed", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "Depth", "x": 21, "y": "prevB()", "w": 42, "h": 57 },
+                        { "id": "Width", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                    ] 
+                },
+                { "id": "distort", "x": "prevR()+1", "y": "prevY()", "w": 100, "h": 137, "children":
+                    [
+                        { "id": "Amount", "x": 22, "y": "23 + 22", "w": 56, "h": 70 }
+                    ] 
+                },
+                { "id": "delay", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
+                    [
+                        { "id": "Sync", "x": 0, "y": 23, "w": 42, "h": 57 },
+                        { "id": "Delay1", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "Delay2", "x": "prevX()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "FB", "x": 21, "y": "prevB()", "w": 42, "h": 57 },
+                        { "id": "CF", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                    ] },
+                { "id": "reverb", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
+                    [
+                        { "id": "Size", "x": 0, "y": 23, "w": 42, "h": 57 },
+                        { "id": "Decay", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "Lowpass", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "Damping", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
+                        { "id": "Predelay", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                        { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                    ]
+                }
+            ]
         },
-        { "id": "chorus", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
-            [
-                { "id": "Delay", "x": 0, "y": 23, "w": 42, "h": 57 },
-                { "id": "Speed", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Depth", "x": 21, "y": "prevB()", "w": 42, "h": 57 },
-                { "id": "Width", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
-            ] 
-        },
-        { "id": "distort", "x": "prevR()+1", "y": "prevY()", "w": 100, "h": 137, "children":
-            [
-                { "id": "Amount", "x": 22, "y": "23 + 22", "w": 56, "h": 70 }
-            ] 
-        },
-        { "id": "delay", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
-            [
-                { "id": "Sync", "x": 0, "y": 23, "w": 42, "h": 57 },
-                { "id": "Delay1", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Delay2", "x": "prevX()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "FB", "x": 21, "y": "prevB()", "w": 42, "h": 57 },
-                { "id": "CF", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
-            ] },
-        { "id": "reverb", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":
-            [
-                { "id": "Size", "x": 0, "y": 23, "w": 42, "h": 57 },
-                { "id": "Decay", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Lowpass", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Damping", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
-                { "id": "Predelay", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
-                { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
-            ] },
         { "id": "global", "x": "prevR()+1", "y": "prevY()", "w": 168, "h": 137, "children":
             [
                 { "id": "Mono", "x": 0, "y": 23, "w": 42, "h": 57 },
@@ -154,6 +159,7 @@
                 { "id": "PB Range", "x": 0, "y": "prevB()", "w": 42, "h": 57 },
                 { "id": "Voices", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                 { "id": "Level", "x": "prevR() + 42", "y": "prevY()", "w": 42, "h": 57 }
-            ] }
+            ] 
+        }
     ]
 }

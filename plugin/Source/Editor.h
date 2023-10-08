@@ -5,15 +5,21 @@
 #include "Panels.h"
 
 //==============================================================================
-class Editor : public juce::Component
+class Editor : public juce::Component,
+               private gin::Parameter::ParameterListener,
+               private juce::AsyncUpdater
 {
 public:
     Editor (WavetableAudioProcessor& proc_);
+    ~Editor() override;
 
     void setupCallbacks();
     void resized() override;
 
 private:
+    void valueUpdated (gin::Parameter*) override { triggerAsyncUpdate(); }
+    void handleAsyncUpdate() override;
+
     WavetableAudioProcessor& proc;
 
     OscillatorBox oscillators[Cfg::numOSCs] { { "oscillator 1", proc, 0 }, { "oscillator 2", proc, 1 } };
@@ -35,6 +41,8 @@ private:
     DistortBox distort { proc };
     DelayBox delay { proc };
     ReverbBox reverb { proc };
+
+    gin::ComponentGrid fx { "fx" };
 
     gin::Layout layout { *this };
 };
