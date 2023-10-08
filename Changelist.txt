@@ -1,3 +1,8 @@
+1.0.14:
+
+- Fixed crash adding 0 length wavetables
+- Fixed pan in wt oscillators
+
 1.0.13:
 
 - Fix SSE on Windows
