@@ -3,6 +3,9 @@
 #include <JuceHeader.h>
 
 #include "WavetableVoice.h"
+#include "FX/DeRez2.h"
+#include "FX/FireAmp.h"
+#include "FX/GrindAmp.h"
 
 constexpr auto fxGate       = 0;
 constexpr auto fxChorus     = 1;
@@ -232,11 +235,44 @@ public:
     {
         FXParams() = default;
 
-        gin::Parameter::Ptr fx1, fx2, fx3, fx4, fx5;
+        gin::Parameter::Ptr fx1, fx2, fx3, fx4, fx5, distMode;
 
         void setup (WavetableAudioProcessor& p);
 
         JUCE_DECLARE_NON_COPYABLE (FXParams)
+    };
+
+    struct BitCrusherParams
+    {
+        BitCrusherParams() = default;
+
+        gin::Parameter::Ptr rate, rez, hard, mix;
+
+        void setup (WavetableAudioProcessor& p);
+
+        JUCE_DECLARE_NON_COPYABLE (BitCrusherParams)
+    };
+
+    struct FireAmpParams
+    {
+        FireAmpParams() = default;
+
+        gin::Parameter::Ptr gain, tone, output, mix;
+
+        void setup (WavetableAudioProcessor& p);
+
+        JUCE_DECLARE_NON_COPYABLE (FireAmpParams)
+    };
+
+    struct GrindAmpParams
+    {
+        GrindAmpParams() = default;
+
+        gin::Parameter::Ptr gain, tone, output, mix;
+
+        void setup (WavetableAudioProcessor& p);
+
+        JUCE_DECLARE_NON_COPYABLE (GrindAmpParams)
     };
 
     //==============================================================================
@@ -264,6 +300,9 @@ public:
     DistortionParams distortionParams;
     DelayParams delayParams;
     ReverbParams reverbParams;
+    BitCrusherParams bitcrusherParams;
+    FireAmpParams fireAmpParams;
+    GrindAmpParams grindAmpParams;
     UIParams uiParams;
 
     //==============================================================================
@@ -274,6 +313,9 @@ public:
     gin::GainProcessor outputGain;
     gin::AudioFifo scopeFifo { 2, 44100 };
     float distortionVal = 0.0f;
+    DeRez2  bitcrusher;
+    FireAmp fireAmp;
+    GrindAmp grindAmp;
 
     juce::OwnedArray<gin::BandLimitedLookupTable> osc1Tables;
     juce::OwnedArray<gin::BandLimitedLookupTable> osc2Tables;

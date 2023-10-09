@@ -106,9 +106,9 @@
         },
         { "id": "fx", "x": 0, "y": "prevB()+1", "w": "parW() - 169", "h": 137, "children": 
             [
-                { "id": "gate", "x": "0", "y": 0, "w": 290, "h": 137, "children":
+                { "id": "gate", "x": "0", "y": 0, "w": 306, "h": 137, "children":
                     [
-                        { "id": "Beat", "x": 61, "y": 30, "w": 42, "h": 57 },
+                        { "id": "Beat", "x": 69, "y": 30, "w": 42, "h": 57 },
                         { "id": "Length", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                         { "id": "A", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
                         { "id": "R", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
@@ -124,9 +124,42 @@
                         { "id": "Width", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
                     ] 
                 },
-                { "id": "distort", "x": "prevR()+1", "y": "prevY()", "w": 100, "h": 137, "children":
+                { "id": "distort", "x": "prevR()+1", "y": "prevY()", "w": 84, "h": 137, "children":
                     [
-                        { "id": "Amount", "x": 22, "y": "23 + 22", "w": 56, "h": 70 }
+                        { "id": "Distort", "children":
+                            [
+                                { "id": "mode", "r": "parW() - 4", "y": 4, "w": 16, "h": 16 }
+                            ]
+                        },
+                        { "id": "page1", "bounds": "parent", "children":
+                            [
+                                { "id": "Amount", "x": 14, "y": "23 + 22", "w": 56, "h": 70 }
+                            ]
+                        },
+                        { "id": "page2", "bounds": "parent", "children":
+                            [
+                                { "id": "Rate", "x": 0, "y": 23, "w": 42, "h": 57 },
+                                { "id": "Rez", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                                { "id": "Hard", "x": 0, "y": "prevB()", "w": 42, "h": 57 }, 
+                                { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                            ]
+                        },
+                        { "id": "page3", "bounds": "parent", "children":
+                            [
+                                { "id": "Gain", "x": 0, "y": 23, "w": 42, "h": 57 },
+                                { "id": "Tone", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                                { "id": "Output", "x": 0, "y": "prevB()", "w": 42, "h": 57 }, 
+                                { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                            ]
+                        },
+                        { "id": "page4", "bounds": "parent", "children":
+                            [
+                                { "id": "Gain", "x": 0, "y": 23, "w": 42, "h": 57 },
+                                { "id": "Tone", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 },
+                                { "id": "Output", "x": 0, "y": "prevB()", "w": 42, "h": 57 }, 
+                                { "id": "Mix", "x": "prevR()", "y": "prevY()", "w": 42, "h": 57 }
+                            ]
+                        }
                     ] 
                 },
                 { "id": "delay", "x": "prevR()+1", "y": "prevY()", "w": 126, "h": 137, "children":

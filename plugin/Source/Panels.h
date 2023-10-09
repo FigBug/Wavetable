@@ -638,15 +638,16 @@ public:
         getProperties().set ("fxId", fxGate);
 
         addEnable (proc.gateParams.enable);
+        getHeader().setMouseCursor (juce::MouseCursor::LeftRightResizeCursor);
 
-        addControl (new gin::Select (proc.gateParams.beat), 0, 0);
-        addControl (new gin::Knob (proc.gateParams.length), 1, 0);
-        addControl (new gin::Knob (proc.gateParams.attack), 2, 0);
-        addControl (new gin::Knob (proc.gateParams.release), 3, 0);
+        addControl (new gin::Select (proc.gateParams.beat));
+        addControl (new gin::Knob (proc.gateParams.length));
+        addControl (new gin::Knob (proc.gateParams.attack));
+        addControl (new gin::Knob (proc.gateParams.release));
 
         auto g = new gin::GateEffectComponent (Cfg::numGateSteps);
         g->setParams (proc.gateParams.length, proc.gateParams.l, proc.gateParams.r, proc.gateParams.enable);
-        addControl (g, 0, 1, 4, 1);
+        addControl (g);
     }
 
     WavetableAudioProcessor& proc;
@@ -663,6 +664,7 @@ public:
         getProperties().set ("fxId", fxChorus);
 
         addEnable (proc.chorusParams.enable);
+        getHeader().setMouseCursor (juce::MouseCursor::LeftRightResizeCursor);
 
         addControl (new gin::Knob (proc.chorusParams.delay), 0, 0);
         addControl (new gin::Knob (proc.chorusParams.rate), 1, 0);
@@ -686,11 +688,110 @@ public:
         getProperties().set ("fxId", fxDistort);
 
         addEnable (proc.distortionParams.enable);
+        getHeader().setMouseCursor (juce::MouseCursor::LeftRightResizeCursor);
 
-        addControl (new gin::Knob (proc.distortionParams.amount), 0, 0);
+        {
+            page1 = new juce::Component ("page1");
+            page1->setInterceptsMouseClicks (false, true);
+
+            addControl (page1);
+
+            addControl (page1, new gin::Knob (proc.distortionParams.amount));
+        }
+
+        {
+            page2 = new juce::Component ("page2");
+            page2->setInterceptsMouseClicks (false, true);
+
+            addControl (page2);
+
+            addControl (page2, new gin::Knob (proc.bitcrusherParams.rate));
+            addControl (page2, new gin::Knob (proc.bitcrusherParams.rez));
+            addControl (page2, new gin::Knob (proc.bitcrusherParams.hard));
+            addControl (page2, new gin::Knob (proc.bitcrusherParams.mix));
+        }
+
+        {
+            page3 = new juce::Component ("page3");
+            page3->setInterceptsMouseClicks (false, true);
+
+            addControl (page3);
+
+            addControl (page3, new gin::Knob (proc.fireAmpParams.gain));
+            addControl (page3, new gin::Knob (proc.fireAmpParams.tone));
+            addControl (page3, new gin::Knob (proc.fireAmpParams.output));
+            addControl (page3, new gin::Knob (proc.fireAmpParams.mix));
+        }
+
+        {
+            page4 = new juce::Component ("page4");
+            page4->setInterceptsMouseClicks (false, true);
+
+            addControl (page4);
+
+            addControl (page4, new gin::Knob (proc.grindAmpParams.gain));
+            addControl (page4, new gin::Knob (proc.grindAmpParams.tone));
+            addControl (page4, new gin::Knob (proc.grindAmpParams.output));
+            addControl (page4, new gin::Knob (proc.grindAmpParams.mix));
+        }
+
+        auto& h = getHeader();
+        h.addAndMakeVisible (modeButton);
+        modeButton.onClick = [this]
+        {
+            juce::PopupMenu m;
+            m.setLookAndFeel (&getLookAndFeel());
+
+            m.addItem ("Simple", true, proc.fxParams.distMode->getUserValueInt() == 0, [this]
+            {
+                proc.fxParams.distMode->setUserValue (0.0f);
+            });
+            m.addItem ("Bitcrusher", true, proc.fxParams.distMode->getUserValueInt() == 1, [this]
+            {
+                proc.fxParams.distMode->setUserValue (1.0f);
+            });
+            m.addItem ("Fire Amp", true, proc.fxParams.distMode->getUserValueInt() == 2, [this]
+            {
+                proc.fxParams.distMode->setUserValue (2.0f);
+            });
+            m.addItem ("Grind Amp", true, proc.fxParams.distMode->getUserValueInt() == 3, [this]
+            {
+                proc.fxParams.distMode->setUserValue (3.0f);
+            });
+
+            m.showMenuAsync ({});
+        };
+
+        watchParam (proc.fxParams.distMode);
+        paramChanged();
     }
 
+    void paramChanged() override
+    {
+        gin::ParamBox::paramChanged();
+
+        auto mode = proc.fxParams.distMode->getUserValueInt();
+
+        page1->setVisible (mode == 0);
+        page2->setVisible (mode == 1);
+        page3->setVisible (mode == 2);
+        page4->setVisible (mode == 3);
+
+        auto& h = getHeader();
+        if (mode == 0) h.setTitle ("Dist");
+        if (mode == 1) h.setTitle ("Crush");
+        if (mode == 2) h.setTitle ("Fire");
+        if (mode == 3) h.setTitle ("Grind");
+    }
+
+    juce::Component* page1;
+    juce::Component* page2;
+    juce::Component* page3;
+    juce::Component* page4;
+
     WavetableAudioProcessor& proc;
+
+    gin::SVGButton modeButton { "mode", gin::Assets::caretDown, 6 };
 };
 
 //==============================================================================
@@ -704,6 +805,7 @@ public:
         getProperties().set ("fxId", fxDelay);
 
         addEnable (proc.delayParams.enable);
+        getHeader().setMouseCursor (juce::MouseCursor::LeftRightResizeCursor);
 
         addControl (t = new gin::Knob (proc.delayParams.time), 0, 0);
         addControl (b = new gin::Select (proc.delayParams.beat), 0, 0);
@@ -742,6 +844,7 @@ public:
         getProperties().set ("fxId", fxReverb);
 
         addEnable (proc.reverbParams.enable);
+        getHeader().setMouseCursor (juce::MouseCursor::LeftRightResizeCursor);
 
         addControl (new gin::Knob (proc.reverbParams.size), 0, 0);
         addControl (new gin::Knob (proc.reverbParams.decay), 1, 0);

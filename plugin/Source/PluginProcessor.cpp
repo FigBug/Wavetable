@@ -365,11 +365,48 @@ void WavetableAudioProcessor::ReverbParams::setup (WavetableAudioProcessor& p)
 //==============================================================================
 void WavetableAudioProcessor::FXParams::setup (WavetableAudioProcessor& p)
 {
-    fx1         = p.addIntParam ("fxOrder1",   "FX1",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxGate,    0.0f);
-    fx2         = p.addIntParam ("fxOrder2",   "FX2",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxChorus,  0.0f);
-    fx3         = p.addIntParam ("fxOrder3",   "FX3",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxDistort, 0.0f);
-    fx4         = p.addIntParam ("fxOrder4",   "FX4",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxDelay,   0.0f);
-    fx5         = p.addIntParam ("fxOrder5",   "FX5",  "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxReverb,  0.0f);
+    fx1         = p.addIntParam ("fxOrder1",   "FX1",       "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxGate,    0.0f);
+    fx2         = p.addIntParam ("fxOrder2",   "FX2",       "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxChorus,  0.0f);
+    fx3         = p.addIntParam ("fxOrder3",   "FX3",       "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxDistort, 0.0f);
+    fx4         = p.addIntParam ("fxOrder4",   "FX4",       "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxDelay,   0.0f);
+    fx5         = p.addIntParam ("fxOrder5",   "FX5",       "",   "", { 0.0, 4.0, 1.0, 1.0 }, fxReverb,  0.0f);
+    distMode    = p.addIntParam ("distMode",   "Dist Mode", "",   "", { 0.0, 3.0, 1.0, 1.0 }, 0,  0.0f);
+}
+
+//==============================================================================
+void WavetableAudioProcessor::BitCrusherParams::setup (WavetableAudioProcessor& p)
+{
+    juce::String id = "crush";
+    juce::String nm = "Crush ";
+
+    rate = p.addExtParam (id + "rate",  nm + "Rate",  "Rate",    "", { 0.0, 1.0, 0.0, 1.0f }, 0.5f, 0.0f);
+    rez  = p.addExtParam (id + "rez",   nm + "Rez",   "Rez",     "", { 0.0, 1.0, 0.0, 1.0f }, 0.5f, 0.0f);
+    hard = p.addExtParam (id + "hard",  nm + "Hard",  "Hard",    "", { 0.0, 1.0, 0.0, 1.0f }, 0.8f, 0.0f);
+    mix  = p.addExtParam (id + "mix",   nm + "Mix",   "Mix",     "", { 0.0, 1.0, 0.0, 1.0f }, 1.0f, 0.0f);
+}
+
+//==============================================================================
+void WavetableAudioProcessor::FireAmpParams::setup (WavetableAudioProcessor& p)
+{
+    juce::String id = "fire";
+    juce::String nm = "Fire ";
+
+    gain   = p.addExtParam (id + "gain",   nm + "Gain",   "Gain",    "", { 0.0, 1.0, 0.0, 1.0f }, 0.5f, 0.0f);
+    tone   = p.addExtParam (id + "tone",   nm + "Tone",   "Tone",    "", { 0.0, 1.0, 0.0, 1.0f }, 0.5f, 0.0f);
+    output = p.addExtParam (id + "output", nm + "Output", "Output",  "", { 0.0, 1.0, 0.0, 1.0f }, 0.8f, 0.0f);
+    mix    = p.addExtParam (id + "mix",    nm + "Mix",    "Mix",     "", { 0.0, 1.0, 0.0, 1.0f }, 1.0f, 0.0f);
+}
+
+//==============================================================================
+void WavetableAudioProcessor::GrindAmpParams::setup (WavetableAudioProcessor& p)
+{
+    juce::String id = "grind";
+    juce::String nm = "Grind ";
+
+    gain   = p.addExtParam (id + "gain",   nm + "Gain",   "Gain",    "", { 0.0, 1.0, 0.0, 1.0f }, 0.5f, 0.0f);
+    tone   = p.addExtParam (id + "tone",   nm + "Tone",   "Tone",    "", { 0.0, 1.0, 0.0, 1.0f }, 0.5f, 0.0f);
+    output = p.addExtParam (id + "output", nm + "Output", "Output",  "", { 0.0, 1.0, 0.0, 1.0f }, 0.8f, 0.0f);
+    mix    = p.addExtParam (id + "mix",    nm + "Mix",    "Mix",     "", { 0.0, 1.0, 0.0, 1.0f }, 1.0f, 0.0f);
 }
 
 #if 0
@@ -467,7 +504,10 @@ void extractWavetables()
 
 //==============================================================================
 WavetableAudioProcessor::WavetableAudioProcessor()
-    : gin::Processor (juce::AudioProcessor::BusesProperties().withOutput ("Output", juce::AudioChannelSet::stereo(), true), false)
+  : gin::Processor (juce::AudioProcessor::BusesProperties().withOutput ("Output", juce::AudioChannelSet::stereo(), true), false),
+    bitcrusher (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); })),
+    fireAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); })),
+    grindAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); }))
 {
    {
         auto sz = 0;
@@ -509,6 +549,11 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     delayParams.setup (*this);
     reverbParams.setup (*this);
     fxParams.setup (*this);
+
+    versionHint++;
+    bitcrusherParams.setup (*this);
+    fireAmpParams.setup (*this);
+    grindAmpParams.setup (*this);
 
     for (int i = 0; i < 50; i++)
     {
@@ -885,8 +930,24 @@ void WavetableAudioProcessor::applyEffect (juce::AudioSampleBuffer& buffer, int 
     // Apply Distortion
     if (fxId == fxDistort && distortionParams.enable->isOn())
     {
-        auto clip = 1.0f / (2.0f * distortionVal);
-        gin::Distortion::processBlock (buffer, distortionVal, -clip, clip);
+        auto mode = fxParams.distMode->getUserValueInt();
+        if (mode == 0)
+        {
+            auto clip = 1.0f / (2.0f * distortionVal);
+            gin::Distortion::processBlock (buffer, distortionVal, -clip, clip);
+        }
+        else if (mode == 1)
+        {
+            bitcrusher.processReplacing ((float**)buffer.getArrayOfWritePointers(), (float**)buffer.getArrayOfWritePointers(), buffer.getNumSamples());
+        }
+        else if (mode == 2)
+        {
+            fireAmp.processReplacing ((float**)buffer.getArrayOfWritePointers(), (float**)buffer.getArrayOfWritePointers(), buffer.getNumSamples());
+        }
+        else if (mode == 3)
+        {
+            grindAmp.processReplacing ((float**)buffer.getArrayOfWritePointers(), (float**)buffer.getArrayOfWritePointers(), buffer.getNumSamples());
+        }
     }
 
     // Apply Delay
@@ -999,7 +1060,34 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
 
     // Update Distortion
     if (distortionParams.enable->isOn())
-        distortionVal = modMatrix.getValue (distortionParams.amount);
+    {
+        auto mode = fxParams.distMode->getUserValueInt();
+        if (mode == 0)
+        {
+            distortionVal = modMatrix.getValue (distortionParams.amount);
+        }
+        else if (mode == 1)
+        {
+            bitcrusher.setParameter (0, modMatrix.getValue (bitcrusherParams.rez));
+            bitcrusher.setParameter (1, modMatrix.getValue (bitcrusherParams.rate));
+            bitcrusher.setParameter (2, modMatrix.getValue (bitcrusherParams.hard));
+            bitcrusher.setParameter (3, modMatrix.getValue (bitcrusherParams.mix));
+        }
+        else if (mode == 2)
+        {
+            fireAmp.setParameter (0, modMatrix.getValue (fireAmpParams.gain));
+            fireAmp.setParameter (1, modMatrix.getValue (fireAmpParams.tone));
+            fireAmp.setParameter (2, modMatrix.getValue (fireAmpParams.output));
+            fireAmp.setParameter (3, modMatrix.getValue (fireAmpParams.mix));
+        }
+        else if (mode == 3)
+        {
+            grindAmp.setParameter (0, modMatrix.getValue (grindAmpParams.gain));
+            grindAmp.setParameter (1, modMatrix.getValue (grindAmpParams.tone));
+            grindAmp.setParameter (2, modMatrix.getValue (grindAmpParams.output));
+            grindAmp.setParameter (3, modMatrix.getValue (grindAmpParams.mix));
+        }
+    }
 
     // Update Delay
     if (delayParams.enable->isOn())
@@ -1032,7 +1120,6 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
         reverb.setDamping (modMatrix.getValue (reverbParams.damping));
         reverb.setPredelay (modMatrix.getValue (reverbParams.predelay));
         reverb.setMix (modMatrix.getValue (reverbParams.mix));
-
     }
 
     // Output gain
