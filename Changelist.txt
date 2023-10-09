@@ -1,3 +1,8 @@
+1.0.15:
+
+- FX can now be dragged to reorder
+- Added a few more distortion types
+
 1.0.14:
 
 - Fixed crash adding 0 length wavetables
