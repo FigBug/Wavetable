@@ -43,6 +43,7 @@ public:
         wt->setName ("wt");
         wt->setWavetables (idx == 0 ? &proc.osc1Tables : &proc.osc2Tables);
         wt->onFileDrop = [this] (const juce::File& f) { loadUserWavetable (f); };
+        wt->addMouseListener (this, false);
         addControl (wt);
 
         auto addButton = new gin::SVGButton ("add", gin::Assets::add);
@@ -83,7 +84,7 @@ public:
         else
             proc.osc2Table.removeListener (this);
     }
-
+    
     void loadUserWavetable (const juce::File& f)
     {
         auto sz = gin::getWavetableSize (f);
@@ -111,11 +112,36 @@ public:
             proc.loadUserWavetable (idx, f, -1);
         }
     }
+    
+    void mouseDown (const juce::MouseEvent& e) override
+    {
+        if (e.originalComponent != wt) return;
+        
+        auto& pos = *proc.oscParams[idx].pos;
+        pos.beginUserAction();
+        
+        mouseDownValue = pos.getUserValue();
+    }
+
+    void mouseDrag (const juce::MouseEvent& e) override
+    {
+        if (e.originalComponent != wt) return;
+        
+        auto& pos = *proc.oscParams[idx].pos;
+     
+        pos.setUserValue (mouseDownValue - e.getDistanceFromDragStartY());
+    }
 
     void mouseUp (const juce::MouseEvent& e) override
     {
         auto& h = getHeader();
-        if (e.originalComponent == &h && e.mouseWasClicked() && e.x >= prevButton.getRight() && e.x <= nextButton.getX())
+        
+        if (e.originalComponent == wt)
+        {
+            auto& pos = *proc.oscParams[idx].pos;
+            pos.endUserAction();
+        }
+        else if (e.originalComponent == &h && e.mouseWasClicked() && e.x >= prevButton.getRight() && e.x <= nextButton.getX())
         {
             juce::StringArray tables;
             for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
@@ -186,6 +212,7 @@ public:
     int idx = 0;
     gin::ParamComponent::Ptr detune, spread;
     gin::WavetableComponent* wt;
+    float mouseDownValue;
 
     gin::CoalescedTimer timer;
 
