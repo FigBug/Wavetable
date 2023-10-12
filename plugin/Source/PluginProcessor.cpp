@@ -1179,7 +1179,7 @@ bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLo
 
 void WavetableAudioProcessor::handleMidiEvent (const juce::MidiMessage& m)
 {
-    MPESynthesiser::handleMidiEvent (m);
+    gin::Synthesiser::handleMidiEvent (m);
 
     if (m.isPitchWheel())
         modMatrix.setMonoValue (modScrPitchBend, float (m.getPitchWheelValue()) / 0x2000 - 1.0f);
