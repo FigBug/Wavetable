@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PR 808 Cow Bell I" author="Flamedragonz" tags="Percussion">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Sub 01" wt1Data="0."
+         wt2Data="0." editorScale="0.9700332880020142" wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.4300000071525574" enabled="1" dstId="osc1level"/>
+      <MODITEM srcId="env1" depth="0.7599999904632568" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="env1" depth="0.6200000047683716" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="env2" depth="0.7400000095367432" enabled="1" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="12.0"/>
+  <param uid="osc1level" val="-100.0"/>
+  <param uid="osc1pos" val="0.4123619198799133"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="5.0"/>
+  <param uid="osc2level" val="-100.0"/>
+  <param uid="osc2pos" val="7.834775447845459"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="12.0"/>
+  <param uid="sublevel" val="-100.0"/>
+  <param uid="noiselevel" val="-8.0"/>
+  <param uid="fltfreq" val="25.90489959716797"/>
+  <param uid="fltres" val="38.97116851806641"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.3262326419353485"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="1.152080178260803"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="0.8080795407295227"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="2.136993169784546"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.2898091673851013"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.9335079789161682"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="chDepth" val="0.1794116497039795"/>
+  <param uid="chSpeed" val="4.592110157012939"/>
+  <param uid="chWidth" val="0.0"/>
+  <param uid="chMix" val="0.2330157607793808"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.3484760522842407"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.03711230307817459"/>
+</state>

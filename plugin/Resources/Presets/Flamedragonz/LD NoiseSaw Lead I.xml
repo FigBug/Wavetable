@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="LD NoiseSaw Lead I" author="Flamedragonz" tags="Lead">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="0.2599999904632568" enabled="1" dstId="osc1finetune"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="8.0"/>
+  <param uid="osc1level" val="-9.0"/>
+  <param uid="osc1pos" val="19.60000038146973"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2level" val="-15.0"/>
+  <param uid="osc2pos" val="18.80000114440918"/>
+  <param uid="osc2detune" val="0.1080000028014183"/>
+  <param uid="osc2spread" val="42.40000915527344"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-8.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="89.93463897705078"/>
+  <param uid="fltres" val="57.59999847412109"/>
+  <param uid="fltamount" val="0.2959999740123749"/>
+  <param uid="fltattack" val="0.0006000013672746718"/>
+  <param uid="fltdecay" val="0.01835516467690468"/>
+  <param uid="fltsustain" val="100.0"/>
+  <param uid="fltrelease" val="4.885704584012274e-6"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="fltnoise" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="7.63420295715332"/>
+  <param uid="lfo1depth" val="0.1599998474121094"/>
+  <param uid="lfo1offset" val="0.03999996185302734"/>
+  <param uid="lfo1delay" val="0.008029666729271412"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.00007633196946699172"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.0001755535631673411"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.04024964198470116"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="2.913599967956543"/>
+  <param uid="chDepth" val="1.716400027275085"/>
+  <param uid="chSpeed" val="2.960400104522705"/>
+  <param uid="chWidth" val="0.2800000011920929"/>
+  <param uid="chMix" val="0.07599999755620956"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4799999892711639"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlMix" val="8.5"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5692099928855896"/>
+  <param uid="rvbDecay" val="0.5400000214576721"/>
+  <param uid="rvbMix" val="0.06400000303983688"/>
+</state>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PL Marimba I" author="Flamedragonz" tags="Plucked">
+  <state wt1="FM 01" wt2="FM 11" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.2800000011920929" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="lfo2" depth="0.2800000011920929" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="env1" depth="0.449999988079071" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="lfo1" depth="0.3300000131130219" enabled="1" dstId="lfo2rate"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="13.59999942779541"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2pos" val="21.20000076293945"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="3.0"/>
+  <param uid="subtune" val="24.0"/>
+  <param uid="sublevel" val="-25.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltfreq" val="64.54030609130859"/>
+  <param uid="fltres" val="10.80000019073486"/>
+  <param uid="fltamount" val="0.2000000476837158"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.01835516467690468"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.2355536669492722"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.05001430213451385"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.02968285419046879"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.3675380051136017"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="0.5123484134674072"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.8049782514572144"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.3538572490215302"/>
+  <param uid="voices" val="12.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.07999999821186066"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.2560000121593475"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="11.0"/>
+  <param uid="dlFb" val="-7.905036926269531"/>
+  <param uid="dlCf" val="-32.90227890014648"/>
+  <param uid="dlMix" val="33.29999923706055"/>
+  <param uid="dlDelay" val="0.3260869681835175"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.7099295854568481"/>
+  <param uid="rvbDecay" val="0.2840000092983246"/>
+  <param uid="rvbLowpass" val="11553.177734375"/>
+  <param uid="rvbMix" val="0.1040000095963478"/>
+</state>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PL SawSquare II" author="Flamedragonz" tags="Plucked">
+  <state wt1="Analog Classic" wt2="Analog PWM Square 03" wt1Data="0."
+         wt2Data="0." wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.2199999988079071" enabled="1" dstId="osc1bend"/>
+      <MODITEM srcId="env1" depth="0.25" enabled="1" dstId="osc2bend"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="12.0"/>
+  <param uid="osc1pos" val="13.19999980926514"/>
+  <param uid="osc1detune" val="0.05200000107288361"/>
+  <param uid="osc1spread" val="42.39999389648438"/>
+  <param uid="osc1pan" val="-0.1359999924898148"/>
+  <param uid="osc1formant" val="0.2239999771118164"/>
+  <param uid="osc1bend" val="-0.1920000165700912"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2pos" val="1.600000023841858"/>
+  <param uid="osc2detune" val="0.2240000069141388"/>
+  <param uid="osc2spread" val="-26.39999961853027"/>
+  <param uid="osc2pan" val="0.1439999341964722"/>
+  <param uid="osc2formant" val="0.2639999389648438"/>
+  <param uid="osc2bend" val="-0.2960000038146973"/>
+  <param uid="fltfreq" val="38.06536483764648"/>
+  <param uid="fltamount" val="0.4959999322891235"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="6.761033535003662"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="2.610378503799438"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="1.841641426086426"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="3.251859188079834"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="1.265724062919617"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="2.917036533355713"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="14.87360000610352"/>
+  <param uid="chDepth" val="2.910399913787842"/>
+  <param uid="chSpeed" val="3.594000101089478"/>
+  <param uid="chMix" val="0.2080000191926956"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlTime" val="0.5412577390670776"/>
+  <param uid="dlFb" val="-12.31040287017822"/>
+  <param uid="dlCf" val="-29.3515625"/>
+  <param uid="dlMix" val="14.10000228881836"/>
+  <param uid="dlDelay" val="0.5412577390670776"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.4049691259860992"/>
+  <param uid="rvbDecay" val="0.300000011920929"/>
+  <param uid="rvbLowpass" val="7211.39111328125"/>
+  <param uid="rvbDamping" val="7475.39453125"/>
+  <param uid="rvbPredelay" val="0.006400000303983688"/>
+  <param uid="rvbMix" val="0.06799999624490738"/>
+</state>

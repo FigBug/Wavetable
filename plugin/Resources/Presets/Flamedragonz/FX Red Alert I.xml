@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="FX Red Alert I" author="Flamedragonz" tags="Effect">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo2" depth="0.6299999952316284" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="mlfo1" depth="0.2599999904632568" enabled="1" dstId="osc2tune"/>
+      <MODITEM srcId="mlfo3" depth="0.6399999856948853" enabled="1" dstId="subtune"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-36.0"/>
+  <param uid="osc1level" val="-15.0"/>
+  <param uid="osc1pos" val="49.60000228881836"/>
+  <param uid="osc1detune" val="0.05000000074505806"/>
+  <param uid="osc1spread" val="-48.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2level" val="-16.0"/>
+  <param uid="osc2pos" val="56.40000152587891"/>
+  <param uid="osc2detune" val="0.1099999994039536"/>
+  <param uid="osc2spread" val="33.60000610351562"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-36.0"/>
+  <param uid="sublevel" val="-11.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltfreq" val="87.77342224121094"/>
+  <param uid="fltres" val="27.9999942779541"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltsustain" val="2.799999952316284"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1rate" val="0.0"/>
+  <param uid="lfo1depth" val="0.8880000710487366"/>
+  <param uid="lfo1offset" val="1.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2rate" val="1.266962289810181"/>
+  <param uid="lfo2beat" val="17.0"/>
+  <param uid="lfo2depth" val="0.2239999622106552"/>
+  <param uid="lfo2offset" val="1.0"/>
+  <param uid="lfo2fade" val="-60.0"/>
+  <param uid="lfo3enable" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="lfo3beat" val="16.0"/>
+  <param uid="lfo3depth" val="0.4239999949932098"/>
+  <param uid="lfo3offset" val="1.0"/>
+  <param uid="slfobeat" val="1.0"/>
+  <param uid="slfolength" val="20.0"/>
+  <param uid="slfostep1" val="0.08433735370635986"/>
+  <param uid="slfostep2" val="-0.01204824447631836"/>
+  <param uid="slfostep3" val="-0.03614461421966553"/>
+  <param uid="slfostep4" val="-0.108433723449707"/>
+  <param uid="slfostep5" val="0.08433735370635986"/>
+  <param uid="slfostep6" val="0.1566265225410461"/>
+  <param uid="slfostep7" val="0.2048192620277405"/>
+  <param uid="slfostep8" val="0.2530120611190796"/>
+  <param uid="slfostep9" val="0.3012048006057739"/>
+  <param uid="slfostep10" val="0.3012048006057739"/>
+  <param uid="slfostep11" val="0.3012048006057739"/>
+  <param uid="slfostep12" val="0.3012048006057739"/>
+  <param uid="slfostep13" val="0.3012048006057739"/>
+  <param uid="slfostep14" val="0.3012048006057739"/>
+  <param uid="slfostep15" val="0.3012048006057739"/>
+  <param uid="slfostep16" val="0.3012048006057739"/>
+  <param uid="slfostep17" val="0.3012048006057739"/>
+  <param uid="slfostep18" val="0.2530120611190796"/>
+  <param uid="slfostep19" val="0.2048192620277405"/>
+  <param uid="slfostep20" val="0.1325300931930542"/>
+  <param uid="slfostep21" val="0.08433735370635986"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.2984265387058258"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.01835516467690468"/>
+  <param uid="voices" val="4.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="3.391999959945679"/>
+  <param uid="chDepth" val="1.716400027275085"/>
+  <param uid="chMix" val="0.3479999899864197"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4760000109672546"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlFb" val="-15.51246643066406"/>
+  <param uid="dlMix" val="12.89999961853027"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.06324554979801178"/>
+  <param uid="rvbDecay" val="0.03200000151991844"/>
+  <param uid="rvbPredelay" val="0.006400000303983688"/>
+  <param uid="rvbMix" val="0.1040000021457672"/>
+</state>

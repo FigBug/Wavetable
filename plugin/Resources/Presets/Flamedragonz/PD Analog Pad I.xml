@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PD Analog Pad I" author="Flamedragonz" tags="Pad">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         editorScale="0.9701937437057495" wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="0.1599999964237213" enabled="1" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="8.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1level" val="-7.0"/>
+  <param uid="osc1pos" val="26.79877090454102"/>
+  <param uid="osc1detune" val="0.3071551918983459"/>
+  <param uid="osc1spread" val="-76.08724212646484"/>
+  <param uid="osc1formant" val="0.2968479096889496"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="8.0"/>
+  <param uid="osc2tune" val="12.0"/>
+  <param uid="osc2level" val="-9.0"/>
+  <param uid="osc2pos" val="43.29030609130859"/>
+  <param uid="osc2detune" val="0.2040829509496689"/>
+  <param uid="osc2spread" val="81.03471374511719"/>
+  <param uid="osc2formant" val="0.6266785860061646"/>
+  <param uid="osc2bend" val="0.1978986263275146"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-9.0"/>
+  <param uid="noiselevel" val="-19.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="103.3326721191406"/>
+  <param uid="fltres" val="61.01873016357422"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.08386985957622528"/>
+  <param uid="vel" val="40.40430450439453"/>
+  <param uid="level" val="-3.0"/>
+  <param uid="voices" val="8.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="2.232732534408569"/>
+  <param uid="chDepth" val="2.96908712387085"/>
+  <param uid="chSpeed" val="1.2040696144104"/>
+  <param uid="chWidth" val="0.7514961957931519"/>
+  <param uid="chMix" val="0.7391276955604553"/>
+  <param uid="dsAmount" val="0.369038462638855"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlFb" val="-9.016312599182129"/>
+  <param uid="dlCf" val="-28.92271995544434"/>
+  <param uid="dlMix" val="48.32551193237305"/>
+  <param uid="dlDelay" val="0.217391312122345"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.8638535141944885"/>
+  <param uid="rvbDecay" val="0.3257080018520355"/>
+  <param uid="rvbLowpass" val="5216.86474609375"/>
+  <param uid="rvbDamping" val="531.6010131835938"/>
+  <param uid="rvbPredelay" val="0.03050935082137585"/>
+  <param uid="rvbMix" val="0.3628137707710266"/>
+</state>

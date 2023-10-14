@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="FX Noise Explosion" author="Flamedragonz" tags="Effect">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0."
+         editorScale="0.9700332880020142" wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.4900000095367432" enabled="1" dstId="osc1tune"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-36.0"/>
+  <param uid="osc1level" val="-6.0"/>
+  <param uid="osc1detune" val="0.2267963439226151"/>
+  <param uid="osc1spread" val="9.896560668945312"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-15.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltvel" val="20.20549201965332"/>
+  <param uid="fltfreq" val="55.69960784912109"/>
+  <param uid="fltres" val="4.123592376708984"/>
+  <param uid="fltamount" val="0.5464077591896057"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="4.988894939422607"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="1.740893006324768"/>
+  <param uid="fltwt1" val="0.0"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.4464005529880524"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="1.780016183853149"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="0.0001536686613690108"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="0.0001536708587082103"/>
+  <param uid="vel" val="50.30756759643555"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="3.144920587539673"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="1.636530995368958"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.08764258027076721"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlTime" val="6.404253482818604"/>
+  <param uid="dlBeat" val="6.0"/>
+  <param uid="dlCf" val="-35.53451538085938"/>
+  <param uid="dlMix" val="12.87067794799805"/>
+  <param uid="dlDelay" val="0.07246377319097519"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.8147976398468018"/>
+  <param uid="rvbDecay" val="0.8804163932800293"/>
+  <param uid="rvbLowpass" val="11155.5546875"/>
+  <param uid="rvbDamping" val="988.720703125"/>
+  <param uid="rvbPredelay" val="0.08370848745107651"/>
+  <param uid="rvbMix" val="0.1319543272256851"/>
+</state>

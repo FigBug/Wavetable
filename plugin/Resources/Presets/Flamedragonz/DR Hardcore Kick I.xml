@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DR Hardcore Kick I" author="Flamedragonz" tags="Drum">
+  <state wt1="FM 05" wt2="Growl 06" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.5" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="env3" depth="0.9800000190734863" enabled="1" dstId="osc1level"/>
+      <MODITEM srcId="env2" depth="0.6800000071525574" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env2" depth="0.5" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="env2" depth="0.6100000143051147" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="env2" depth="0.5699999928474426" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="env1" depth="0.550000011920929" enabled="1" dstId="noiselevel"/>
+      <MODITEM srcId="mlfo1" depth="0.2199999988079071" enabled="1" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1level" val="-100.0"/>
+  <param uid="osc1formant" val="0.4800000190734863"/>
+  <param uid="osc1bend" val="-0.5680000185966492"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2level" val="-100.0"/>
+  <param uid="osc2pos" val="19.20000076293945"/>
+  <param uid="osc2detune" val="0.0260000005364418"/>
+  <param uid="osc2spread" val="33.60000610351562"/>
+  <param uid="osc2formant" val="-0.5839999914169312"/>
+  <param uid="osc2bend" val="0.4320000112056732"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-38.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-42.0"/>
+  <param uid="fltfreq" val="71.02396392822266"/>
+  <param uid="fltres" val="38.40000152587891"/>
+  <param uid="fltamount" val="0.5440000295639038"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.2216280102729797"/>
+  <param uid="fltsustain" val="100.0"/>
+  <param uid="fltrelease" val="0.01205006148666143"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.09301488846540451"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.3062300086021423"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.3951764404773712"/>
+  <param uid="env2sustain" val="100.0"/>
+  <param uid="env2release" val="0.00400874437764287"/>
+  <param uid="env3enable" val="1.0"/>
+  <param uid="env3attack" val="0.0"/>
+  <param uid="env3decay" val="34.30396270751953"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="env3release" val="0.4402679800987244"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="32.78023147583008"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.05628718435764313"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.001384801231324673"/>
+  <param uid="uiENV" val="2.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="1.956799983978271"/>
+  <param uid="chMix" val="0.06400000303983688"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="crushrate" val="0.0"/>
+  <param uid="crushrez" val="1.0"/>
+  <param uid="crushhard" val="1.0"/>
+  <param uid="firegain" val="0.6759999990463257"/>
+  <param uid="firetone" val="1.0"/>
+  <param uid="fireoutput" val="1.0"/>
+  <param uid="grindgain" val="0.671999990940094"/>
+  <param uid="grindtone" val="0.6399999856948853"/>
+  <param uid="grindoutput" val="1.0"/>
+</state>

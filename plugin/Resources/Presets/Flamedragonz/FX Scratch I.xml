@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="FX Scratch I" author="Flamedragonz" tags="Effect">
+  <state wt1="Hyper 05" wt2="FM 02" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="0.449999988079071" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="0.4900000095367432" enabled="1" dstId="osc2tune"/>
+      <MODITEM srcId="mlfo1" depth="0.2899999916553497" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="mlfo3" depth="0.1599999964237213" enabled="1" dstId="fltfreq"/>
+      <MODITEM srcId="mlfo2" depth="0.25" enabled="1" dstId="fltsustain"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1finetune" val="-24.0"/>
+  <param uid="osc1pos" val="49.59999847412109"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-36.0"/>
+  <param uid="osc2pos" val="63.20000076293945"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-8.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-1.0"/>
+  <param uid="flttype" val="5.0"/>
+  <param uid="fltfreq" val="80.20915222167969"/>
+  <param uid="fltres" val="38.79999923706055"/>
+  <param uid="fltamount" val="0.1040000915527344"/>
+  <param uid="fltattack" val="0.01205006148666143"/>
+  <param uid="fltdecay" val="0.0006692330935038626"/>
+  <param uid="fltsustain" val="36.80000305175781"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.2216281294822693"/>
+  <param uid="env1decay" val="0.3538572192192078"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="19.33583068847656"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="0.222556009888649"/>
+  <param uid="lfo3enable" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="lfo3wave" val="15.0"/>
+  <param uid="lfo3rate" val="1.132764101028442"/>
+  <param uid="lfo3beat" val="19.0"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.002061585430055857"/>
+  <param uid="decay" val="0.5427910685539246"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.02028355188667774"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.05245872214436531"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="uiLFO" val="2.0"/>
+  <param uid="gatebeat" val="1.0"/>
+  <param uid="gatelength" val="14.0"/>
+  <param uid="gateattack" val="0.000657141616102308"/>
+  <param uid="gaterelease" val="0.05456241220235825"/>
+  <param uid="gatel7" val="0.0"/>
+  <param uid="gater7" val="0.0"/>
+  <param uid="gatel10" val="1.0"/>
+  <param uid="gater10" val="1.0"/>
+  <param uid="gatel11" val="0.0"/>
+  <param uid="gater11" val="0.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="0.1000000014901161"/>
+  <param uid="chDepth" val="16.73640060424805"/>
+  <param uid="chSpeed" val="10.0"/>
+  <param uid="chWidth" val="0.0"/>
+  <param uid="chMix" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="crushrate" val="0.1160000041127205"/>
+  <param uid="crushrez" val="0.7879999876022339"/>
+  <param uid="crushhard" val="0.9520000219345093"/>
+  <param uid="firegain" val="0.8159999847412109"/>
+  <param uid="firetone" val="1.0"/>
+  <param uid="fireoutput" val="1.0"/>
+  <param uid="grindgain" val="0.6639999747276306"/>
+  <param uid="grindtone" val="0.4239999949932098"/>
+  <param uid="grindoutput" val="0.9480000138282776"/>
+</state>

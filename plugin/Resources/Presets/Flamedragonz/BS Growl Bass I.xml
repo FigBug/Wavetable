@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BS Growl Bass I" author="Flamedragonz" tags="Bass">
+  <state wt1="Analog PWM Custom 08" wt2="Analog PWM Custom 03" wt1Data="0."
+         wt2Data="0." wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo2" depth="0.2099999934434891" enabled="1" dstId="osc1finetune"/>
+      <MODITEM srcId="mlfo1" depth="0.09000000357627869" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="0.3100000023841858" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env2" depth="0.2099999934434891" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="mlfo2" depth="-0.03999999910593033" enabled="1" dstId="osc2finetune"/>
+      <MODITEM srcId="mlfo1" depth="0.4000000059604645" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="env3" depth="0.2599999904632568" enabled="1" dstId="osc2formant"/>
+      <MODITEM srcId="mlfo3" depth="0.4799999892711639" enabled="1" dstId="fltfreq"/>
+      <MODITEM srcId="env3" depth="-0.1899999976158142" enabled="1" dstId="lfo3depth"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="6.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1level" val="-4.0"/>
+  <param uid="osc1pos" val="27.59999847412109"/>
+  <param uid="osc1detune" val="0.4259999990463257"/>
+  <param uid="osc1spread" val="-53.60000228881836"/>
+  <param uid="osc1pan" val="-0.1920000165700912"/>
+  <param uid="osc1formant" val="-0.3680000007152557"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="6.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2pos" val="39.60000228881836"/>
+  <param uid="osc2detune" val="0.2840000092983246"/>
+  <param uid="osc2spread" val="-46.39999389648438"/>
+  <param uid="osc2pan" val="0.1920000314712524"/>
+  <param uid="osc2formant" val="-0.128000020980835"/>
+  <param uid="osc2bend" val="0.3360000550746918"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-2.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-20.0"/>
+  <param uid="fltkey" val="49.20000076293945"/>
+  <param uid="fltfreq" val="38.90195465087891"/>
+  <param uid="fltres" val="70.40000152587891"/>
+  <param uid="fltamount" val="0.5279999971389771"/>
+  <param uid="fltattack" val="0.00001263983176613692"/>
+  <param uid="fltsustain" val="82.0"/>
+  <param uid="fltrelease" val="0.02028355188667774"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="1.492992929286174e-8"/>
+  <param uid="env1decay" val="1.014576196670532"/>
+  <param uid="env1sustain" val="74.0"/>
+  <param uid="env1release" val="1.211894989013672"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.1152287274599075"/>
+  <param uid="env2decay" val="0.2655040919780731"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env3enable" val="1.0"/>
+  <param uid="env3attack" val="0.2083690762519836"/>
+  <param uid="env3decay" val="0.3345364928245544"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="5.0"/>
+  <param uid="lfo1beat" val="19.0"/>
+  <param uid="lfo1depth" val="0.312000036239624"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2wave" val="11.0"/>
+  <param uid="lfo2beat" val="19.0"/>
+  <param uid="lfo2depth" val="0.4720000028610229"/>
+  <param uid="lfo3enable" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="lfo3rate" val="6.139778137207031"/>
+  <param uid="lfo3beat" val="1.0"/>
+  <param uid="lfo3depth" val="0.2720000743865967"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.00048922369023785"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.04228249564766884"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="level" val="-3.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="uiLFO" val="2.0"/>
+  <param uid="uiENV" val="2.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="1.894000053405762"/>
+  <param uid="chDepth" val="0.8163999915122986"/>
+  <param uid="chSpeed" val="3.3471999168396"/>
+  <param uid="chWidth" val="0.1439999938011169"/>
+  <param uid="chMix" val="0.05199998244643211"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.2159999907016754"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="1.0"/>
+  <param uid="dlFb" val="-17.4866886138916"/>
+  <param uid="dlCf" val="-20.78071403503418"/>
+  <param uid="dlMix" val="10.49999618530273"/>
+  <param uid="dlDelay" val="0.02717391401529312"/>
+</state>

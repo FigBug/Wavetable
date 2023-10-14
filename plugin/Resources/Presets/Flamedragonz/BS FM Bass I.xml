@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BS FM Bass I" author="Flamedragonz" tags="Bass">
+  <state wt1="FM 03" wt2="FM 14" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="0.4799999892711639" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env2" depth="-0.5299999713897705" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="mlfo2" depth="0.4199999868869781" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="env1" depth="0.5" enabled="1" dstId="osc2formant"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="8.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1pos" val="50.79999923706055"/>
+  <param uid="osc1detune" val="0.1000000014901161"/>
+  <param uid="osc1spread" val="-100.0"/>
+  <param uid="osc1formant" val="0.03199994564056396"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="8.0"/>
+  <param uid="osc2tune" val="-36.0"/>
+  <param uid="osc2pos" val="49.59999847412109"/>
+  <param uid="osc2detune" val="0.3759999871253967"/>
+  <param uid="osc2spread" val="81.59999847412109"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-3.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-14.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="40.22657775878906"/>
+  <param uid="fltres" val="23.59999847412109"/>
+  <param uid="fltamount" val="0.2799999713897705"/>
+  <param uid="fltattack" val="0.01657631248235703"/>
+  <param uid="fltsustain" val="71.19999694824219"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="2.811780691146851"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.0"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="4.444716930389404"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1rate" val="1.04137647151947"/>
+  <param uid="lfo1beat" val="19.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2beat" val="16.0"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="level" val="-1.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="uiENV" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="15.83040046691895"/>
+  <param uid="chDepth" val="4.980000019073486"/>
+  <param uid="chWidth" val="0.7480000257492065"/>
+  <param uid="chMix" val="0.1000000163912773"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5761944055557251"/>
+  <param uid="rvbDecay" val="0.03200000151991844"/>
+  <param uid="rvbLowpass" val="2454.99169921875"/>
+  <param uid="rvbDamping" val="109.5829772949219"/>
+  <param uid="rvbPredelay" val="0.01600000075995922"/>
+  <param uid="rvbMix" val="0.0520000047981739"/>
+</state>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BS Filter Bass I" author="Flamedragonz" tags="Bass">
+  <state wt1="FM 02" wt2="FM 01" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.5699999928474426" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env2" depth="0.5699999928474426" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="env1" depth="0.7900000214576721" enabled="1" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1pos" val="22.79999923706055"/>
+  <param uid="osc1spread" val="-60.79999923706055"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2level" val="-26.0"/>
+  <param uid="osc2pos" val="13.19999980926514"/>
+  <param uid="osc2spread" val="29.60000610351562"/>
+  <param uid="noiselevel" val="-28.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="56.43572998046875"/>
+  <param uid="fltres" val="45.59999847412109"/>
+  <param uid="fltamount" val="0.5679999589920044"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.0"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="fltnoise" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.600760817527771"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="1.841641306877136"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="1.265723347663879"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="2.330070972442627"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="9.894972208712716e-6"/>
+  <param uid="decay" val="1.159913301467896"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="2.029876232147217"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="uiENV" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4000000059604645"/>
+</state>

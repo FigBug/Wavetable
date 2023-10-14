@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="ARP GrowlSaw Pulse I" author="Flamedragonz" tags="Arpeggio">
+  <state wt1="Growl 02" wt2="Analog PWM Saw 04" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="0.4199999868869781" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="lfo2" depth="0.1899999976158142" enabled="1" dstId="osc1pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="4.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1pos" val="49.20000076293945"/>
+  <param uid="osc1detune" val="0.04199999943375587"/>
+  <param uid="osc1spread" val="-75.19999694824219"/>
+  <param uid="osc1pan" val="-0.07200002670288086"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2finetune" val="18.39999961853027"/>
+  <param uid="osc2pos" val="29.20000076293945"/>
+  <param uid="osc2detune" val="0.0560000017285347"/>
+  <param uid="osc2spread" val="28.0"/>
+  <param uid="osc2pan" val="0.07200002670288086"/>
+  <param uid="osc2formant" val="0.3199999332427979"/>
+  <param uid="osc2bend" val="-0.1280000060796738"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="sublevel" val="-12.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-9.0"/>
+  <param uid="fltenable" val="0.0"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="12.0"/>
+  <param uid="lfo1rate" val="0.2379764318466187"/>
+  <param uid="lfo1beat" val="19.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2beat" val="19.0"/>
+  <param uid="lfo2depth" val="0.6399999856948853"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.01657629571855068"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.2984263896942139"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.1848236620426178"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatebeat" val="4.0"/>
+  <param uid="gatelength" val="16.0"/>
+  <param uid="gateattack" val="0.00009238956408808008"/>
+  <param uid="gaterelease" val="0.012303177267313"/>
+  <param uid="gatel2" val="1.0"/>
+  <param uid="gater2" val="1.0"/>
+  <param uid="gatel3" val="0.0"/>
+  <param uid="gater3" val="0.0"/>
+  <param uid="gatel4" val="1.0"/>
+  <param uid="gater4" val="1.0"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gatel10" val="1.0"/>
+  <param uid="gater10" val="1.0"/>
+  <param uid="gatel11" val="0.0"/>
+  <param uid="gater11" val="0.0"/>
+  <param uid="gatel12" val="1.0"/>
+  <param uid="gater12" val="1.0"/>
+  <param uid="gatel13" val="0.0"/>
+  <param uid="gater13" val="0.0"/>
+  <param uid="gatel14" val="1.0"/>
+  <param uid="gater14" val="1.0"/>
+  <param uid="gatel16" val="0.0"/>
+  <param uid="gater16" val="0.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="1.598000049591064"/>
+  <param uid="chWidth" val="0.4079999923706055"/>
+  <param uid="chMix" val="0.3120000064373016"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.3039999902248383"/>
+</state>

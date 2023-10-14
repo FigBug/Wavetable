@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="CH Min Chord II" author="Flamedragonz" tags="Chord">
+  <state wt1="FM 17" wt2="FM 16" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc1level"/>
+      <MODITEM srcId="mlfo1" depth="0.9599999785423279" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="lfo1" depth="1.0" enabled="1" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="3.0"/>
+  <param uid="osc1level" val="-100.0"/>
+  <param uid="osc1pos" val="18.39999961853027"/>
+  <param uid="osc1detune" val="0.01600000075995922"/>
+  <param uid="osc1spread" val="-60.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2tune" val="-5.0"/>
+  <param uid="osc2level" val="-100.0"/>
+  <param uid="osc2pos" val="30.79999923706055"/>
+  <param uid="osc2detune" val="0.09600000083446503"/>
+  <param uid="osc2spread" val="41.60000610351562"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="sublevel" val="-4.0"/>
+  <param uid="flttype" val="5.0"/>
+  <param uid="fltfreq" val="26.71895790100098"/>
+  <param uid="fltres" val="12.80000019073486"/>
+  <param uid="fltamount" val="0.4320000410079956"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="1.916768431663513"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="1.994328618049622"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="1.379118919372559"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="1.440486550331116"/>
+  <param uid="lfo1depth" val="0.2560000121593475"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.8049779534339905"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.9894974231719971"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.1960000097751617"/>
+</state>

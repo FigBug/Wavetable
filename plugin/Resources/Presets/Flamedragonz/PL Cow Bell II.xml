@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PL Cow Bell II" author="Flamedragonz" tags="Plucked">
+  <state wt1="Dist - Tube" wt2="Hyper 04" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="0.6899999976158142" enabled="1" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="3.0"/>
+  <param uid="subtune" val="-7.0"/>
+  <param uid="sublevel" val="-24.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltres" val="27.60000038146973"/>
+  <param uid="fltamount" val="-0.343999981880188"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.004868210293352604"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.007610482629388571"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="1.801189541816711"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="6.352764129638672"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="1.211896538734436"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="1.564311861991882"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="15.83040046691895"/>
+  <param uid="chMix" val="0.3240000009536743"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlTime" val="0.4716750979423523"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlFb" val="-11.64410495758057"/>
+  <param uid="dlCf" val="-40.27409744262695"/>
+  <param uid="dlMix" val="28.49999809265137"/>
+  <param uid="dlDelay" val="0.4716751277446747"/>
+</state>

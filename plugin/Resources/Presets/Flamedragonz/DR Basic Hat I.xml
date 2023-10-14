@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DR Basic Hat I" author="Flamedragonz" tags="Drum">
+  <state wt1="FM 01" wt2="Analog PWM Saw 01" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.3100000023841858" enabled="1" dstId="osc1level"/>
+      <MODITEM srcId="env1" depth="0.7799999713897705" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env2" depth="0.7599999904632568" enabled="1" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc1tune" val="36.0"/>
+  <param uid="osc1level" val="-100.0"/>
+  <param uid="osc1pos" val="19.20000076293945"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-100.0"/>
+  <param uid="fltfreq" val="120.7320251464844"/>
+  <param uid="fltres" val="49.19999694824219"/>
+  <param uid="fltamount" val="0.2319999933242798"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.1073985770344734"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.8841871619224548"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.03553792089223862"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="2.074377775192261"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="1.994327425956726"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.3538572192192078"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="1.379118919372559"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="7.578000068664551"/>
+  <param uid="chDepth" val="8.243599891662598"/>
+  <param uid="chSpeed" val="3.316800117492676"/>
+  <param uid="chWidth" val="0.1920000016689301"/>
+  <param uid="chMix" val="0.1560000032186508"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.7960000038146973"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.1095445156097412"/>
+  <param uid="rvbDecay" val="0.300000011920929"/>
+  <param uid="rvbLowpass" val="410.5668640136719"/>
+  <param uid="rvbDamping" val="22.07061195373535"/>
+  <param uid="rvbPredelay" val="0.01400000043213367"/>
+  <param uid="rvbMix" val="0.03999998793005943"/>
+  <param uid="crushrate" val="0.6600000262260437"/>
+  <param uid="crushrez" val="0.9440000057220459"/>
+  <param uid="crushhard" val="0.4000000059604645"/>
+  <param uid="crushmix" val="0.4959999918937683"/>
+</state>

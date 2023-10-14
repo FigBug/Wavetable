@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BS Punch Bass I" author="Flamedragonz" tags="Bass">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env2" depth="1.0" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="env3" depth="0.7300000190734863" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="env2" depth="1.0" enabled="1" dstId="subtune"/>
+      <MODITEM srcId="env3" depth="0.6200000047683716" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="env1" depth="0.7799999713897705" enabled="1" dstId="noiselevel"/>
+      <MODITEM srcId="lfo2" depth="-0.1899999976158142" enabled="1" dstId="lfo2rate"/>
+      <MODITEM srcId="env3" depth="0.2199999988079071" enabled="1" dstId="chMix"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1finetune" val="37.60000610351562"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2level" val="-100.0"/>
+  <param uid="osc2pos" val="13.60000038146973"/>
+  <param uid="osc2detune" val="0.0820000022649765"/>
+  <param uid="osc2spread" val="-47.20000457763672"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-62.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-16.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="105.0631637573242"/>
+  <param uid="fltres" val="15.60000228881836"/>
+  <param uid="fltamount" val="0.4320000112056732"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.0008108484908007085"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.0"/>
+  <param uid="fltwt1" val="0.0"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="fltnoise" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.02237068116664886"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.0"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0"/>
+  <param uid="env2decay" val="3.241204353798821e-7"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="0.00004009291296824813"/>
+  <param uid="env3enable" val="1.0"/>
+  <param uid="env3attack" val="0.003025647485628724"/>
+  <param uid="env3decay" val="0.0"/>
+  <param uid="env3sustain" val="100.0"/>
+  <param uid="env3release" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="38.00919342041016"/>
+  <param uid="lfo1beat" val="1.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="3.57058048248291"/>
+  <param uid="lfo2beat" val="10.0"/>
+  <param uid="lfo2depth" val="0.4799999892711639"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.02028355188667774"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="3.473961740496634e-8"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.03047639317810535"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="uiENV" val="2.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="4.707600116729736"/>
+  <param uid="chDepth" val="4.741199970245361"/>
+  <param uid="chSpeed" val="2.247600078582764"/>
+  <param uid="chWidth" val="0.7879999876022339"/>
+  <param uid="chMix" val="0.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.9440000057220459"/>
+</state>

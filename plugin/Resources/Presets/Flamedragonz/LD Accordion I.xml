@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="LD Accordion I" author="Flamedragonz" tags="Lead">
+  <state wt1="Analog PWM Sub 03" wt2="FM 10" wt1Data="0." wt2Data="0."
+         editorScale="1.0" wt1Size="-1" wt2Size="-1">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1finetune" val="-3.199996948242188"/>
+  <param uid="osc1level" val="-7.0"/>
+  <param uid="osc1pos" val="23.20000076293945"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2finetune" val="12.80000305175781"/>
+  <param uid="osc2level" val="-4.0"/>
+  <param uid="osc2pos" val="48.79999923706055"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="sublevel" val="-23.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-25.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltvel" val="1.200000047683716"/>
+  <param uid="fltfreq" val="78.58823394775391"/>
+  <param uid="fltres" val="14.40000057220459"/>
+  <param uid="fltamount" val="0.335999995470047"/>
+  <param uid="fltattack" val="0.08642562478780746"/>
+  <param uid="fltdecay" val="0.3345364630222321"/>
+  <param uid="fltsustain" val="100.0"/>
+  <param uid="fltrelease" val="0.5427911281585693"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.1322587132453918"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="1.239199995994568"/>
+  <param uid="chDepth" val="1.398000001907349"/>
+  <param uid="chMix" val="0.09908708930015564"/>
+  <param uid="dsAmount" val="0.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="12.0"/>
+  <param uid="dlFb" val="-12.58268642425537"/>
+  <param uid="dlCf" val="-24.3358154296875"/>
+  <param uid="dlMix" val="0.4207240343093872"/>
+  <param uid="dlDelay" val="0.2898550927639008"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.2966479361057281"/>
+  <param uid="rvbDecay" val="0.1159999966621399"/>
+  <param uid="rvbDamping" val="427.9046325683594"/>
+  <param uid="rvbMix" val="0.02393718995153904"/>
+</state>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PD Abstract Choir I" author="Flamedragonz" tags="Pad">
+  <state wt1="FM 01" wt2="FM 02" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.6499999761581421" enabled="1" dstId="osc1finetune"/>
+      <MODITEM srcId="mlfo1" depth="0.4099999964237213" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="0.6499999761581421" enabled="1" dstId="osc2finetune"/>
+      <MODITEM srcId="lfo1" depth="-0.1599999964237213" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="mlfo2" depth="0.25" enabled="1" dstId="lfo1rate"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="4.0"/>
+  <param uid="osc1tune" val="24.0"/>
+  <param uid="osc1finetune" val="-100.0"/>
+  <param uid="osc1level" val="-9.0"/>
+  <param uid="osc1pos" val="44.79999923706055"/>
+  <param uid="osc1detune" val="0.2960000038146973"/>
+  <param uid="osc1spread" val="5.599998474121094"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2tune" val="36.0"/>
+  <param uid="osc2finetune" val="-100.0"/>
+  <param uid="osc2level" val="-6.0"/>
+  <param uid="osc2pos" val="28.39999961853027"/>
+  <param uid="osc2detune" val="0.181999996304512"/>
+  <param uid="osc2spread" val="40.79999923706055"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="99.11981964111328"/>
+  <param uid="fltres" val="20.79999923706055"/>
+  <param uid="fltamount" val="0.2800000011920929"/>
+  <param uid="fltattack" val="2.156978130340576"/>
+  <param uid="fltsustain" val="61.20000076293945"/>
+  <param uid="fltrelease" val="0.02968285419046879"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="2.378154993057251"/>
+  <param uid="lfo1depth" val="0.4880000054836273"/>
+  <param uid="lfo1offset" val="0.3680000007152557"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2depth" val="0.1840000003576279"/>
+  <param uid="vel" val="10.0"/>
+  <param uid="gatelength" val="12.0"/>
+  <param uid="gateattack" val="0.00001469327798986342"/>
+  <param uid="gaterelease" val="1.0"/>
+  <param uid="gatel2" val="1.0"/>
+  <param uid="gater4" val="1.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gater8" val="1.0"/>
+  <param uid="gatel10" val="1.0"/>
+  <param uid="gater12" val="1.0"/>
+  <param uid="gatel14" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.4359999895095825"/>
+  <param uid="dsAmount" val="0.3240000009536743"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlTime" val="0.8922044038772583"/>
+  <param uid="dlFb" val="-14.29216766357422"/>
+  <param uid="dlCf" val="-19.03154182434082"/>
+  <param uid="dlMix" val="43.30000305175781"/>
+  <param uid="dlDelay" val="0.8922044038772583"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.6033241152763367"/>
+  <param uid="rvbDecay" val="0.4679999947547913"/>
+  <param uid="rvbMix" val="0.08399999886751175"/>
+</state>

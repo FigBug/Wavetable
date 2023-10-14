@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="ARP Psy I" author="Flamedragonz" tags="Arpeggio">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="-0.1700000017881393" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="lfo1" depth="0.2099999934434891" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="step" depth="-0.1700000017881393" enabled="1" dstId="osc2tune"/>
+      <MODITEM srcId="lfo1" depth="0.1400000005960464" enabled="1" dstId="osc2tune"/>
+      <MODITEM srcId="mstep" depth="-0.1700000017881393" enabled="1" dstId="subtune"/>
+      <MODITEM srcId="lfo2" depth="-0.119999997317791" enabled="1" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-4.0"/>
+  <param uid="osc1level" val="-5.0"/>
+  <param uid="osc1pos" val="18.79999923706055"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="4.0"/>
+  <param uid="osc2level" val="-9.0"/>
+  <param uid="osc2pos" val="33.20000076293945"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="1.0"/>
+  <param uid="sublevel" val="-9.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-22.0"/>
+  <param uid="fltfreq" val="100.7407379150391"/>
+  <param uid="fltres" val="82.40000152587891"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="16.0"/>
+  <param uid="lfo1beat" val="21.0"/>
+  <param uid="lfo1depth" val="0.5120000243186951"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2wave" val="15.0"/>
+  <param uid="lfo2beat" val="16.0"/>
+  <param uid="lfo2depth" val="0.4479999542236328"/>
+  <param uid="lfo2offset" val="-0.3600000441074371"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="10.0"/>
+  <param uid="slfostep2" val="-1.0"/>
+  <param uid="slfostep4" val="0.8795180916786194"/>
+  <param uid="slfostep6" val="-0.4457831382751465"/>
+  <param uid="slfostep7" val="0.4698795080184937"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0004452376742847264"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="1.211894989013672"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.343958705663681"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatebeat" val="4.0"/>
+  <param uid="gatelength" val="12.0"/>
+  <param uid="gateattack" val="0.00101625535171479"/>
+  <param uid="gaterelease" val="0.1098780184984207"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gatel8" val="1.0"/>
+  <param uid="gater8" val="1.0"/>
+  <param uid="gatel9" val="0.0"/>
+  <param uid="gater9" val="0.0"/>
+  <param uid="gatel12" val="1.0"/>
+  <param uid="gater12" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="3.272400140762329"/>
+  <param uid="chMix" val="0.1120000034570694"/>
+  <param uid="dsAmount" val="0.7919999957084656"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="11.0"/>
+  <param uid="dlFb" val="-16.47625160217285"/>
+  <param uid="dlMix" val="30.89999961853027"/>
+  <param uid="dlDelay" val="0.3260869681835175"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.4381780326366425"/>
+  <param uid="rvbDecay" val="0.03599999845027924"/>
+  <param uid="rvbMix" val="0.0559999942779541"/>
+</state>

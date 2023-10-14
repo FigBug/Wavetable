@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="ARP LSawSq I" author="Flamedragonz" tags="Arpeggio">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Data="0."
+         wt2Data="0." wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="lfo1" depth="0.1700000017881393" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="lfo1" depth="0.1299999952316284" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="mlfo2" depth="0.300000011920929" enabled="1" dstId="osc2finetune"/>
+      <MODITEM srcId="mlfo2" depth="-0.4900000095367432" enabled="1" dstId="lfo2rate"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="1.0"/>
+  <param uid="osc1finetune" val="-16.80000305175781"/>
+  <param uid="osc1pos" val="50.39999771118164"/>
+  <param uid="osc1detune" val="0.2460000067949295"/>
+  <param uid="osc1spread" val="87.20000457763672"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2finetune" val="16.79999542236328"/>
+  <param uid="osc2level" val="-1.0"/>
+  <param uid="osc2pos" val="38.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-4.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="127.7559661865234"/>
+  <param uid="fltres" val="34.79999923706055"/>
+  <param uid="fltattack" val="0.00048922369023785"/>
+  <param uid="fltsustain" val="33.20000076293945"/>
+  <param uid="fltrelease" val="0.05001430213451385"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="fltnoise" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1wave" val="9.0"/>
+  <param uid="lfo1rate" val="1.280161142349243"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2phase" val="0.2560000121593475"/>
+  <param uid="vel" val="36.79999923706055"/>
+  <param uid="attack" val="0.0000152882330439752"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.03508356213569641"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="level" val="-2.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.5279999971389771"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlFb" val="-12.17552185058594"/>
+  <param uid="dlCf" val="-33.30169677734375"/>
+  <param uid="dlMix" val="43.29999923706055"/>
+  <param uid="dlDelay" val="0.4838709831237793"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.9715966582298279"/>
+  <param uid="rvbDecay" val="0.6359999775886536"/>
+  <param uid="rvbLowpass" val="11372.783203125"/>
+  <param uid="rvbDamping" val="16278.853515625"/>
+  <param uid="rvbPredelay" val="0.01640000008046627"/>
+  <param uid="rvbMix" val="0.07200001180171967"/>
+</state>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DR Basic Kick" author="Flamedragonz" tags="Drum">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         editorScale="0.9701937437057495" wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.3700000047683716" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="env3" depth="0.3499999940395355" enabled="1" dstId="osc2tune"/>
+      <MODITEM srcId="env2" depth="0.5299999713897705" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="env1" depth="0.449999988079071" enabled="1" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-36.0"/>
+  <param uid="osc1level" val="-10.0"/>
+  <param uid="osc1pos" val="47.20000076293945"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-34.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-48.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltvel" val="90.71855163574219"/>
+  <param uid="fltfreq" val="77.92489624023438"/>
+  <param uid="fltres" val="17.31901168823242"/>
+  <param uid="fltamount" val="0.4886772632598877"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.0172390528023243"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.02220137603580952"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.0002856878563761711"/>
+  <param uid="env2decay" val="16.89499092102051"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="0.00004665598680730909"/>
+  <param uid="env3enable" val="1.0"/>
+  <param uid="env3attack" val="0.0"/>
+  <param uid="env3decay" val="0.05001434683799744"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="env3release" val="0.0"/>
+  <param uid="vel" val="22.39999961853027"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.2815805077552795"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.004008740652352571"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.07121984660625458"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.1572817265987396"/>
+  <param uid="rvbDecay" val="0.004123039543628693"/>
+  <param uid="rvbLowpass" val="4700.68505859375"/>
+  <param uid="rvbDamping" val="4221.48486328125"/>
+  <param uid="rvbPredelay" val="0.007008911110460758"/>
+  <param uid="rvbMix" val="0.02473703399300575"/>
+  <param uid="crushrate" val="0.06400000303983688"/>
+  <param uid="crushrez" val="0.8159999847412109"/>
+  <param uid="crushhard" val="0.984000027179718"/>
+</state>

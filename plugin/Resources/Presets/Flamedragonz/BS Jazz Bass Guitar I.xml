@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="BS Jazz Bass Guitar I" author="Flamedragonz" tags="Bass">
+  <state wt1="FM 11" wt2="FM 12" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.4000000059604645" enabled="1" dstId="sublevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1detune" val="0.03999999910593033"/>
+  <param uid="osc1spread" val="-11.19999694824219"/>
+  <param uid="osc1formant" val="-0.3120000064373016"/>
+  <param uid="osc1bend" val="-0.2239999771118164"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2level" val="-2.0"/>
+  <param uid="osc2detune" val="0.06400000303983688"/>
+  <param uid="osc2spread" val="7.200004577636719"/>
+  <param uid="osc2formant" val="-0.5920000076293945"/>
+  <param uid="osc2bend" val="0.2800000011920929"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-16.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-15.0"/>
+  <param uid="fltkey" val="49.60000228881836"/>
+  <param uid="fltfreq" val="17.53377914428711"/>
+  <param uid="fltamount" val="0.5599998831748962"/>
+  <param uid="fltattack" val="3.473995136005215e-8"/>
+  <param uid="fltdecay" val="8.866162300109863"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.04228247329592705"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="1.032621639751596e-6"/>
+  <param uid="env1decay" val="0.2815805077552795"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0003166392561979592"/>
+  <param uid="decay" val="5.417822360992432"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.03553792089223862"/>
+  <param uid="voices" val="4.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="8.415200233459473"/>
+  <param uid="chMix" val="0.0559999980032444"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4919999539852142"/>
+</state>

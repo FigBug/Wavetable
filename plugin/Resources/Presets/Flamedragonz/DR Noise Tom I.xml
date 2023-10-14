@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DR Noise Tom I" author="Flamedragonz" tags="Drum">
+  <state wt1="Analog Classic" wt2="Dist - Sin.Fold" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.3199999928474426" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="env2" depth="0.6700000166893005" enabled="1" dstId="osc1level"/>
+      <MODITEM srcId="env1" depth="0.239999994635582" enabled="1" dstId="osc2tune"/>
+      <MODITEM srcId="env2" depth="0.4000000059604645" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="env1" depth="0.1400000005960464" enabled="1" dstId="subtune"/>
+      <MODITEM srcId="env3" depth="0.2599999904632568" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="env3" depth="0.4000000059604645" enabled="1" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-36.0"/>
+  <param uid="osc1level" val="-100.0"/>
+  <param uid="osc1detune" val="0.05999999865889549"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-36.0"/>
+  <param uid="osc2level" val="-100.0"/>
+  <param uid="osc2pos" val="16.00000381469727"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-100.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-100.0"/>
+  <param uid="fltfreq" val="116.4095764160156"/>
+  <param uid="fltres" val="38.79999923706055"/>
+  <param uid="fltamount" val="0.04000008106231689"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.009627075865864754"/>
+  <param uid="fltsustain" val="84.0"/>
+  <param uid="fltrelease" val="0.6635816097259521"/>
+  <param uid="fltwt1" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.5427910685539246"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="2.514102220535278"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="0.00048922369023785"/>
+  <param uid="env2decay" val="0.4643075466156006"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="0.2655040919780731"/>
+  <param uid="env3enable" val="1.0"/>
+  <param uid="env3attack" val="0.0"/>
+  <param uid="env3decay" val="1.564312696456909"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="env3release" val="4.013675212860107"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.001165827154181898"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.8841859102249146"/>
+  <param uid="uiENV" val="2.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="1.598000049591064"/>
+  <param uid="chMix" val="0.07599999755620956"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="6.0"/>
+  <param uid="dlMix" val="20.10000038146973"/>
+  <param uid="dlDelay" val="0.07246377319097519"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.632455587387085"/>
+  <param uid="rvbDecay" val="0.656000018119812"/>
+  <param uid="rvbPredelay" val="0.02040000073611736"/>
+  <param uid="rvbMix" val="0.1040000170469284"/>
+  <param uid="crushrate" val="0.8840000033378601"/>
+  <param uid="crushrez" val="0.6600000262260437"/>
+  <param uid="crushhard" val="0.3560000360012054"/>
+</state>

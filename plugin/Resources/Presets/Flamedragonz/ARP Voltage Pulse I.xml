@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="ARP Voltage Pulse I" author="Flamedragonz" tags="Arpeggio">
+  <state wt1="Growl 02" wt2="Analog PWM Saw 01" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1pos" val="54.40000152587891"/>
+  <param uid="osc1formant" val="-0.4799999892711639"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2level" val="-4.0"/>
+  <param uid="osc2pos" val="38.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-5.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-4.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="123.4335479736328"/>
+  <param uid="fltres" val="42.79999923706055"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.3951760530471802"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.0004452381108421832"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatebeat" val="4.0"/>
+  <param uid="gatelength" val="16.0"/>
+  <param uid="gateattack" val="0.00001156875350716291"/>
+  <param uid="gaterelease" val="0.06966790556907654"/>
+  <param uid="gatel3" val="0.0"/>
+  <param uid="gater3" val="0.0"/>
+  <param uid="gater4" val="1.0"/>
+  <param uid="gatel5" val="0.0"/>
+  <param uid="gater5" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gatel7" val="0.0"/>
+  <param uid="gater7" val="0.0"/>
+  <param uid="gater8" val="1.0"/>
+  <param uid="gatel9" val="0.0"/>
+  <param uid="gater9" val="0.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4040000140666962"/>
+  <param uid="dlMix" val="36.5"/>
+</state>

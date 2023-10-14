@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PL Trance Pluck I" author="Flamedragonz" tags="Plucked">
+  <state wt1="Analog Classic" wt2="Analog PWM Custom 14" wt1Data="0."
+         wt2Data="0." wt1Size="-1" wt2Size="-1">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1unison" val="4.0"/>
+  <param uid="osc1level" val="-3.0"/>
+  <param uid="osc1pos" val="16.0"/>
+  <param uid="osc1detune" val="0.01999999769032001"/>
+  <param uid="osc1spread" val="-100.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="4.0"/>
+  <param uid="osc2level" val="-11.0"/>
+  <param uid="osc2pos" val="38.40000152587891"/>
+  <param uid="osc2detune" val="0.04199999943375587"/>
+  <param uid="osc2spread" val="100.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="54.27451324462891"/>
+  <param uid="fltres" val="29.20000076293945"/>
+  <param uid="fltamount" val="0.3600000143051147"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.2083690762519836"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.06597066670656204"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="1.564313411712646"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.1512451022863388"/>
+  <param uid="voices" val="6.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.1400000005960464"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4000000059604645"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlFb" val="-7.032058715820312"/>
+  <param uid="dlCf" val="-40.91646194458008"/>
+  <param uid="dlMix" val="24.89999961853027"/>
+  <param uid="dlDelay" val="0.4347826242446899"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.9757048487663269"/>
+  <param uid="rvbDecay" val="0.6320000290870667"/>
+  <param uid="rvbLowpass" val="2218.970703125"/>
+  <param uid="rvbDamping" val="19738.56640625"/>
+  <param uid="rvbPredelay" val="0.03440000116825104"/>
+  <param uid="rvbMix" val="0.1079999953508377"/>
+</state>

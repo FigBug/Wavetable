@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="FX Glitch" author="Flamedragonz" tags="Effect">
+  <state wt1="Dist - Lin.Fold" wt2="Dist - Zero Square" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mstep" depth="0.550000011920929" enabled="1" dstId="osc1tune"/>
+      <MODITEM srcId="step" depth="0.4799999892711639" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="step" depth="0.8700000047683716" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="mlfo2" depth="0.5299999713897705" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="mlfo1" depth="0.1800000071525574" enabled="1" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="48.79999923706055"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="3.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-35.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-16.0"/>
+  <param uid="fltfreq" val="115.3289642333984"/>
+  <param uid="fltres" val="41.59999847412109"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1wave" val="16.0"/>
+  <param uid="lfo1beat" val="16.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="1.180498003959656"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="7.0"/>
+  <param uid="slfolength" val="32.0"/>
+  <param uid="slfostep1" val="-1.0"/>
+  <param uid="slfostep2" val="-1.0"/>
+  <param uid="slfostep3" val="-0.08433735370635986"/>
+  <param uid="slfostep4" val="0.6385542154312134"/>
+  <param uid="slfostep5" val="-0.5662651062011719"/>
+  <param uid="slfostep6" val="-0.590361475944519"/>
+  <param uid="slfostep7" val="0.2289156913757324"/>
+  <param uid="slfostep8" val="-0.7108433246612549"/>
+  <param uid="slfostep10" val="0.349397599697113"/>
+  <param uid="slfostep11" val="0.349397599697113"/>
+  <param uid="slfostep12" val="-0.5662651062011719"/>
+  <param uid="slfostep13" val="-0.7831325531005859"/>
+  <param uid="slfostep14" val="-0.4216867685317993"/>
+  <param uid="slfostep15" val="0.8554216623306274"/>
+  <param uid="slfostep16" val="-0.4216867685317993"/>
+  <param uid="slfostep18" val="-0.7590361833572388"/>
+  <param uid="slfostep21" val="0.759036123752594"/>
+  <param uid="slfostep22" val="-0.518072247505188"/>
+  <param uid="slfostep23" val="-1.0"/>
+  <param uid="slfostep26" val="-0.8072289228439331"/>
+  <param uid="slfostep28" val="-0.03614461421966553"/>
+  <param uid="slfostep29" val="1.0"/>
+  <param uid="slfostep30" val="1.0"/>
+  <param uid="slfostep31" val="-1.0"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="voices" val="4.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="2.913599967956543"/>
+  <param uid="chDepth" val="2.512399911880493"/>
+  <param uid="chSpeed" val="3.395999908447266"/>
+  <param uid="chWidth" val="0.7519999742507935"/>
+  <param uid="chMix" val="0.1159999966621399"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlTime" val="2.740845680236816"/>
+  <param uid="dlFb" val="-11.90821075439453"/>
+  <param uid="dlCf" val="-45.51860046386719"/>
+  <param uid="dlMix" val="6.5"/>
+  <param uid="dlDelay" val="2.740845918655396"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.2190890163183212"/>
+  <param uid="rvbMix" val="0.09200000017881393"/>
+</state>

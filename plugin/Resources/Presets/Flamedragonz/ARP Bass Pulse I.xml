@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="ARP Bass Pulse I" author="Flamedragonz" tags="Arpeggio">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo2" depth="-0.3499999940395355" enabled="1" dstId="noiselevel"/>
+      <MODITEM srcId="mlfo1" depth="-0.5400000214576721" enabled="1" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1level" val="-4.0"/>
+  <param uid="osc1pos" val="14.00000095367432"/>
+  <param uid="osc1detune" val="0.1519999951124191"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2level" val="-9.0"/>
+  <param uid="osc2pos" val="50.40000152587891"/>
+  <param uid="osc2detune" val="0.1239999979734421"/>
+  <param uid="osc2spread" val="-100.0"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-15.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-21.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltres" val="30.80000114440918"/>
+  <param uid="fltamount" val="0.06399989128112793"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1rate" val="9.785538673400879"/>
+  <param uid="lfo1beat" val="7.0"/>
+  <param uid="lfo1depth" val="-1.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="30.83758544921875"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="0.0"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.1210088804364204"/>
+  <param uid="legato" val="1.0"/>
+  <param uid="voices" val="2.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="2.435199975967407"/>
+  <param uid="chDepth" val="2.512399911880493"/>
+  <param uid="chSpeed" val="3.316800117492676"/>
+  <param uid="chWidth" val="0.4120000004768372"/>
+  <param uid="chMix" val="0.371999979019165"/>
+</state>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PD Fantasy Pad II" author="Flamedragonz" tags="Pad">
+  <state wt1="Growl 02" wt2="Growl 13" wt1Data="0." wt2Data="0." editorScale="1.0"
+         wt1Size="-1" wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo2" depth="0.2199999988079071" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="mlfo1" depth="0.07999999821186066" enabled="1" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="4.0"/>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1finetune" val="15.19999694824219"/>
+  <param uid="osc1level" val="-14.0"/>
+  <param uid="osc1pos" val="50.79999923706055"/>
+  <param uid="osc1detune" val="0.04600000008940697"/>
+  <param uid="osc1spread" val="48.79999923706055"/>
+  <param uid="osc1formant" val="-0.1360000371932983"/>
+  <param uid="osc1bend" val="0.2239999771118164"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2tune" val="12.0"/>
+  <param uid="osc2finetune" val="-3.199996948242188"/>
+  <param uid="osc2level" val="-11.0"/>
+  <param uid="osc2pos" val="22.79999923706055"/>
+  <param uid="osc2detune" val="0.1700000017881393"/>
+  <param uid="osc2spread" val="-49.59999847412109"/>
+  <param uid="osc2bend" val="-0.6959999799728394"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="3.0"/>
+  <param uid="sublevel" val="-24.0"/>
+  <param uid="fltkey" val="24.79999923706055"/>
+  <param uid="fltfreq" val="48.33115768432617"/>
+  <param uid="fltres" val="36.79999923706055"/>
+  <param uid="fltamount" val="0.5519999861717224"/>
+  <param uid="fltattack" val="0.06369399279356003"/>
+  <param uid="fltdecay" val="3.370052814483643"/>
+  <param uid="fltsustain" val="99.59999847412109"/>
+  <param uid="fltrelease" val="3.491657018661499"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.1804986596107483"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="0.1335208117961884"/>
+  <param uid="vel" val="34.0"/>
+  <param uid="attack" val="0.5711880922317505"/>
+  <param uid="decay" val="1.061300873756409"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="1.564313411712646"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="24.80039978027344"/>
+  <param uid="chDepth" val="16.92000007629395"/>
+  <param uid="chSpeed" val="0.267599880695343"/>
+  <param uid="chWidth" val="0.3039999902248383"/>
+  <param uid="chMix" val="0.4239999949932098"/>
+  <param uid="dsAmount" val="0.2960000336170197"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlMix" val="36.5"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.8634653687477112"/>
+  <param uid="rvbDecay" val="0.602389931678772"/>
+  <param uid="rvbLowpass" val="5009.3759765625"/>
+  <param uid="rvbDamping" val="3872.415771484375"/>
+  <param uid="rvbPredelay" val="0.02547942288219929"/>
+  <param uid="rvbMix" val="0.2979953587055206"/>
+</state>

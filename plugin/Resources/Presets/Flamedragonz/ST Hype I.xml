@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="ST Hype I" author="Flamedragonz" tags="Stab">
+  <state wt1="FM 06" wt2="FM 04" wt1Data="0." wt2Data="0." wt1Size="-1"
+         wt2Size="-1">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo2" depth="0.300000011920929" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="mlfo1" depth="0.2800000011920929" enabled="1" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1level" val="-5.0"/>
+  <param uid="osc1pos" val="42.39999389648438"/>
+  <param uid="osc1detune" val="0.04199999943375587"/>
+  <param uid="osc1spread" val="-36.79999923706055"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="-24.0"/>
+  <param uid="osc2pos" val="44.39999771118164"/>
+  <param uid="osc2detune" val="0.02399999462068081"/>
+  <param uid="osc2spread" val="57.60000610351562"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-10.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="flttype" val="5.0"/>
+  <param uid="fltfreq" val="28.88018417358398"/>
+  <param uid="fltres" val="49.99999237060547"/>
+  <param uid="fltamount" val="0.4720000028610229"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="5.07622766494751"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.5155347585678101"/>
+  <param uid="fltwt1" val="0.0"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1retrig" val="0.0"/>
+  <param uid="lfo1rate" val="2.51866602897644"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2rate" val="0.2379764318466187"/>
+  <param uid="lfo2beat" val="10.0"/>
+  <param uid="vel" val="20.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="1.500499248504639"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="1.29045033454895"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="2.913599967956543"/>
+  <param uid="chDepth" val="6.810800075531006"/>
+  <param uid="chMix" val="0.2160000056028366"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlTime" val="2.740845680236816"/>
+  <param uid="dlBeat" val="10.0"/>
+  <param uid="dlFb" val="-15.20075988769531"/>
+  <param uid="dlCf" val="-35.45782470703125"/>
+  <param uid="dlMix" val="15.70000171661377"/>
+  <param uid="dlDelay" val="0.217391312122345"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.1080000102519989"/>
+</state>

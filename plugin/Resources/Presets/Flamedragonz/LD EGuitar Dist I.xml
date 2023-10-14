@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="LD EGuitar Dist I" author="Flamedragonz" tags="Lead">
+  <state wt1="NK - COMPOSE" wt2="Analog PWM Saw 01" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0." editorScale="1.0">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="-1.0" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="-1.0" enabled="1" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1finetune" val="13.60000610351562"/>
+  <param uid="osc1level" val="-25.0"/>
+  <param uid="osc1pos" val="100.0"/>
+  <param uid="osc1detune" val="0.07199999690055847"/>
+  <param uid="osc1spread" val="12.0"/>
+  <param uid="osc1formant" val="-0.4799999892711639"/>
+  <param uid="osc1bend" val="-0.6480000019073486"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="12.0"/>
+  <param uid="osc2level" val="-24.0"/>
+  <param uid="osc2pos" val="100.0"/>
+  <param uid="osc2detune" val="0.1679999977350235"/>
+  <param uid="osc2spread" val="-54.40000152587891"/>
+  <param uid="osc2formant" val="0.6079999804496765"/>
+  <param uid="osc2bend" val="-0.5040000081062317"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="sublevel" val="-35.0"/>
+  <param uid="fltfreq" val="120.7320175170898"/>
+  <param uid="fltres" val="100.0"/>
+  <param uid="fltamount" val="0.1200000047683716"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.3160692155361176"/>
+  <param uid="fltsustain" val="75.60000610351562"/>
+  <param uid="fltrelease" val="0.1512453854084015"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="1.994327425956726"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.001165831461548805"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.09999984502792358"/>
+  <param uid="sustain" val="74.80000305175781"/>
+  <param uid="release" val="0.01657631248235703"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gRate" val="0.001236976473592222"/>
+  <param uid="voices" val="8.0"/>
+  <param uid="pitchbend" val="0.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="9.491600036621094"/>
+  <param uid="chDepth" val="4.263599872589111"/>
+  <param uid="chSpeed" val="1.812000036239624"/>
+  <param uid="chWidth" val="0.6000000238418579"/>
+  <param uid="chMix" val="0.2799999117851257"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="12.0"/>
+  <param uid="dlFb" val="-4.305290222167969"/>
+  <param uid="dlCf" val="-27.81429290771484"/>
+  <param uid="dlMix" val="33.30000686645508"/>
+  <param uid="dlDelay" val="0.2898550927639008"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.8485281467437744"/>
+  <param uid="rvbDecay" val="0.3479999899864197"/>
+  <param uid="rvbLowpass" val="218.15283203125"/>
+  <param uid="rvbDamping" val="410.5668640136719"/>
+  <param uid="rvbPredelay" val="0.007200000341981649"/>
+  <param uid="rvbMix" val="0.04800001531839371"/>
+  <param uid="fxOrder2" val="2.0"/>
+  <param uid="fxOrder3" val="1.0"/>
+  <param uid="distMode" val="3.0"/>
+  <param uid="firegain" val="0.7839999794960022"/>
+  <param uid="firetone" val="0.6639999747276306"/>
+  <param uid="fireoutput" val="0.6840000152587891"/>
+  <param uid="grindgain" val="0.8640000224113464"/>
+  <param uid="grindtone" val="0.6439999341964722"/>
+  <param uid="grindoutput" val="0.7319999933242798"/>
+</state>
