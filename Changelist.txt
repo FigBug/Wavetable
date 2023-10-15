@@ -1,3 +1,7 @@
+1.0.18:
+
+- Fixed FX not being in the correct order when opening GUI
+
 1.0.17:
 
 - Added 50 more presets

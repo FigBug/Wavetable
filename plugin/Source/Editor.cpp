@@ -102,4 +102,6 @@ void Editor::resized()
    #else
     layout.setLayout ("layout.json");
    #endif
+    
+    handleAsyncUpdate();
 }
