@@ -1,6 +1,9 @@
 1.0.18:
 
 - Fixed FX not being in the correct order when opening GUI
+- Removed dither from crush, grind and fire fx, was causing noise
+- MPE default is now a global setting
+- Ignore editor size when loading presets
 
 1.0.17:
 
