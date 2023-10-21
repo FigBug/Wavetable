@@ -12,8 +12,7 @@
 #include <string>
 #include <math.h>
 
-class FireAmp : 
-    public AudioEffectX 
+class FireAmp final : public AudioEffectX
 {
 public:
     enum {
@@ -31,23 +30,24 @@ public:
     
     FireAmp(audioMasterCallback audioMaster);
     ~FireAmp();
-    virtual bool getEffectName(char* name);                       // The plug-in name
-    virtual VstPlugCategory getPlugCategory();                    // The general category for the plug-in
-    virtual bool getProductString(char* text);                    // This is a unique plug-in string provided by Steinberg
-    virtual bool getVendorString(char* text);                     // Vendor info
-    virtual VstInt32 getVendorVersion();                          // Version number
-    virtual void processReplacing (float** inputs, float** outputs, VstInt32 sampleFrames);
-    virtual void processDoubleReplacing (double** inputs, double** outputs, VstInt32 sampleFrames);
-    virtual void getProgramName(char *name);                      // read the name from the host
-    virtual void setProgramName(char *name);                      // changes the name of the preset displayed in the host
-	virtual VstInt32 getChunk (void** data, bool isPreset);
-	virtual VstInt32 setChunk (void* data, VstInt32 byteSize, bool isPreset);
-    virtual float getParameter(VstInt32 index);                   // get the parameter value at the specified index
-    virtual void setParameter(VstInt32 index, float value);       // set the parameter at index to value
-    virtual void getParameterLabel(VstInt32 index, char *text);  // label for the parameter (eg dB)
-    virtual void getParameterName(VstInt32 index, char *text);    // name of the parameter
-    virtual void getParameterDisplay(VstInt32 index, char *text); // text description of the current value    
-    virtual VstInt32 canDo(char *text);
+	void reset();
+    bool getEffectName(char* name);                       // The plug-in name
+    VstPlugCategory getPlugCategory();                    // The general category for the plug-in
+    bool getProductString(char* text);                    // This is a unique plug-in string provided by Steinberg
+    bool getVendorString(char* text);                     // Vendor info
+    VstInt32 getVendorVersion();                          // Version number
+    void processReplacing (float** inputs, float** outputs, VstInt32 sampleFrames);
+    void processDoubleReplacing (double** inputs, double** outputs, VstInt32 sampleFrames);
+    void getProgramName(char *name);                      // read the name from the host
+    void setProgramName(char *name);                      // changes the name of the preset displayed in the host
+	VstInt32 getChunk (void** data, bool isPreset);
+	VstInt32 setChunk (void* data, VstInt32 byteSize, bool isPreset);
+    float getParameter(VstInt32 index);                   // get the parameter value at the specified index
+    void setParameter(VstInt32 index, float value);       // set the parameter at index to value
+    void getParameterLabel(VstInt32 index, char *text);  // label for the parameter (eg dB)
+    void getParameterName(VstInt32 index, char *text);    // name of the parameter
+    void getParameterDisplay(VstInt32 index, char *text); // text description of the current value
+    VstInt32 canDo(char *text);
 private:
     char _programName[kVstMaxProgNameLen + 1];
     std::set< std::string > _canDo;

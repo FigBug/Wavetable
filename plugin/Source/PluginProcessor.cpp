@@ -297,6 +297,9 @@ void WavetableAudioProcessor::GlobalParams::setup (WavetableAudioProcessor& p)
     pitchBend   = p.addIntParam ("pitchbend",   "Pitch Bend", "PB Range", "",   { 0.0, 48.0, 1.0, 1.0 }, 2.0f, 0.0f);
 
     level->conversionFunction     = [] (float in) { return juce::Decibels::decibelsToGain (in); };
+
+	if (auto props = p.getSettings())
+		mpe->setUserValue (props->getBoolValue ("mpe", false) ? 1.0f : 0.0f);
 }
 
 //==============================================================================
@@ -566,6 +569,8 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     init();
 
     lastMono = globalParams.mono->isOn();
+
+	reset();
 }
 
 WavetableAudioProcessor::~WavetableAudioProcessor()
@@ -779,6 +784,9 @@ void WavetableAudioProcessor::reset()
     chorus.reset();
     stereoDelay.reset();
     reverb.reset();
+	bitcrusher.reset();
+	fireAmp.reset();
+	grindAmp.reset();
 
     for (auto& l : modLFOs)
         l.reset();

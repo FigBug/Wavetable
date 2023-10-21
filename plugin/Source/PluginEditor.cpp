@@ -78,6 +78,9 @@ void WavetableAudioProcessorEditor::addMenuItems (juce::PopupMenu& m)
     m.addItem ("MPE", true, wtProc.globalParams.mpe->getUserValueBool(), [this]
     {
         wtProc.globalParams.mpe->setUserValue (wtProc.globalParams.mpe->getUserValueBool() ? 0.0f : 1.0f);
+
+		if (auto props = wtProc.getSettings())
+			props->setValue ("mpe", wtProc.globalParams.mpe->getUserValueBool());
     });
 
     auto setSize = [this] (float scale)

@@ -52,6 +52,29 @@ void DeRez2::getProgramName(char *name) {vst_strncpy (name, _programName, kVstMa
 //airwindows likes to ignore this stuff. Make your own programs, and make a different plugin rather than
 //trying to do versioning and preventing people from using older versions. Maybe they like the old one!
 
+void DeRez2::reset()
+{
+	A = 1.0;
+	B = 1.0;
+	C = 1.0;
+	D = 1.0;
+	lastSampleL = 0.0;
+	heldSampleL = 0.0;
+	lastDrySampleL = 0.0;
+	lastOutputSampleL = 0.0;
+
+	lastSampleR = 0.0;
+	heldSampleR = 0.0;
+	lastDrySampleR = 0.0;
+	lastOutputSampleR = 0.0;
+
+	position = 0.0;
+	incrementA = 0.0;
+	incrementB = 0.0;
+	fpdL = 1.0; while (fpdL < 16386) fpdL = rand()*UINT32_MAX;
+	fpdR = 1.0; while (fpdR < 16386) fpdR = rand()*UINT32_MAX;
+}
+
 static float pinParameter(float data)
 {
 	if (data < 0.0f) return 0.0f;
