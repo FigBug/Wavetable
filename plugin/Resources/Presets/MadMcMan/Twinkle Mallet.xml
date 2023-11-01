@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Twinkle Mallet" author="MadMcMan" tags="Mallet">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Size="-1"
+         wt2Size="-1" wt1Data="0." wt2Data="0." editorScale="1.001060485839844">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc1pos" val="79.04000854492188"/>
+  <param uid="osc1formant" val="0.63506019115448"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-27.0"/>
+  <param uid="fltkey" val="26.8799991607666"/>
+  <param uid="fltfreq" val="68.41117095947266"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="sustain" val="35.5200080871582"/>
+  <param uid="release" val="2.533127546310425"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.2622760236263275"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.3295998573303223"/>
+  <param uid="firegain" val="0.7815999984741211"/>
+  <param uid="firetone" val="0.3208001852035522"/>
+  <param uid="fireoutput" val="1.0"/>
+  <param uid="grindgain" val="1.0"/>
+  <param uid="grindtone" val="1.0"/>
+  <param uid="grindmix" val="0.3184002637863159"/>
+</state>

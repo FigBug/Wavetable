@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Whip" author="MadMcMan" tags="FX">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Size="-1"
+         wt2Size="-1" wt1Data="0." wt2Data="0.">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1enable" val="0.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="flttype" val="5.0"/>
+  <param uid="fltfreq" val="75.67060089111328"/>
+  <param uid="fltres" val="11.52000617980957"/>
+  <param uid="fltamount" val="0.3775999546051025"/>
+  <param uid="fltattack" val="0.005097925197333097"/>
+  <param uid="fltdecay" val="0.256216824054718"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.0"/>
+  <param uid="attack" val="0.005652244202792645"/>
+  <param uid="decay" val="0.2109672874212265"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.6129274368286133"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatebeat" val="4.0"/>
+  <param uid="gatelength" val="16.0"/>
+  <param uid="gateattack" val="0.00651012547314167"/>
+  <param uid="gatel3" val="0.0"/>
+  <param uid="gater3" val="0.0"/>
+  <param uid="gatel5" val="0.0"/>
+  <param uid="gater5" val="0.0"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlTime" val="0.4207175076007843"/>
+  <param uid="dlFb" val="-20.1367015838623"/>
+  <param uid="dlCf" val="-47.05580520629883"/>
+  <param uid="dlMix" val="31.53997802734375"/>
+  <param uid="dlDelay" val="0.4207174777984619"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5276361703872681"/>
+  <param uid="rvbDecay" val="0.1920000016689301"/>
+  <param uid="rvbDamping" val="178.4576721191406"/>
+  <param uid="rvbPredelay" val="0.01888000592589378"/>
+  <param uid="rvbMix" val="0.1471999436616898"/>
+  <param uid="distMode" val="2.0"/>
+  <param uid="firegain" val="1.0"/>
+  <param uid="firetone" val="0.7431998252868652"/>
+  <param uid="fireoutput" val="1.0"/>
+</state>

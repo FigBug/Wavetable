@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Noise Riserish" author="MadMcMan" tags="FX">
+  <state wt1="Analog PWM Square 01" wt2="Analog PWM Saw 01" wt1Size="-1"
+         wt2Size="-1" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.6600000262260437" enabled="1" dstId="noiselevel"/>
+      <MODITEM srcId="mlfo1" depth="0.449999988079071" enabled="1" dstId="noisepan"/>
+      <MODITEM srcId="env1" depth="-0.4900000095367432" enabled="1" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1enable" val="0.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-34.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltres" val="46.07999801635742"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="10.599196434021"/>
+  <param uid="env1decay" val="7.112975120544434"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="11.48109245300293"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="6.432796001434326"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="10.18528842926025"/>
+  <param uid="chDepth" val="15.54240036010742"/>
+  <param uid="chSpeed" val="5.439359188079834"/>
+  <param uid="chWidth" val="0.8784000277519226"/>
+  <param uid="chMix" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.8655999898910522"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlCf" val="-23.6644287109375"/>
+  <param uid="dlMix" val="42.7399787902832"/>
+  <param uid="dlDelay" val="0.3571428656578064"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5986652970314026"/>
+  <param uid="rvbDecay" val="0.2464000284671783"/>
+  <param uid="rvbMix" val="0.6688001751899719"/>
+  <param uid="fxOrder2" val="2.0"/>
+  <param uid="fxOrder3" val="1.0"/>
+  <param uid="distMode" val="1.0"/>
+  <param uid="crushrate" val="0.0"/>
+  <param uid="crushrez" val="0.6266238689422607"/>
+  <param uid="crushhard" val="0.0"/>
+</state>

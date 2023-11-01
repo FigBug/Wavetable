@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="PLOP" author="MadMcMan" tags="Lead">
+  <state wt1="Analog PWM Square 01" wt2="Analog Classic" wt1Size="-1"
+         wt2Size="-1" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.2700000107288361" enabled="1" dstId="lfo1rate"/>
+      <MODITEM srcId="mlfo1" depth="0.0" enabled="1" dstId="lfo1offset"/>
+      <MODITEM srcId="mlfo1" depth="-0.4000000059604645" enabled="1" dstId="crushrez"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2retrig" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-18.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.04758500680327415"/>
+  <param uid="env1decay" val="47.26560592651367"/>
+  <param uid="env1sustain" val="58.07999420166016"/>
+  <param uid="env1release" val="1.687942624092102"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.1804986596107483"/>
+  <param uid="lfo1depth" val="0.3663999140262604"/>
+  <param uid="lfo1offset" val="0.4864003360271454"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.08389732986688614"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="3.298734188079834"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="5.30559253692627"/>
+  <param uid="chDepth" val="1.50944197177887"/>
+  <param uid="chWidth" val="1.0"/>
+  <param uid="chMix" val="0.2248000502586365"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dlCf" val="-22.74445343017578"/>
+  <param uid="dlMix" val="38.2599983215332"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.5184593200683594"/>
+  <param uid="rvbDecay" val="0.2655998468399048"/>
+  <param uid="rvbLowpass" val="178.4576721191406"/>
+  <param uid="rvbDamping" val="274.1990051269531"/>
+  <param uid="rvbPredelay" val="0.01151999551802874"/>
+  <param uid="rvbMix" val="0.1600002497434616"/>
+  <param uid="fxOrder2" val="2.0"/>
+  <param uid="fxOrder3" val="3.0"/>
+  <param uid="fxOrder4" val="1.0"/>
+  <param uid="distMode" val="1.0"/>
+  <param uid="crushrate" val="1.0"/>
+  <param uid="crushrez" val="0.6695999503135681"/>
+  <param uid="crushhard" val="0.5407997965812683"/>
+</state>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Hat" author="MadMcMAn" tags="Drums">
+  <state wt1="FM 02" wt2="Analog PWM Saw 01" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="-0.25" enabled="1" dstId="osc1pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc1pos" val="100.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="flttype" val="3.0"/>
+  <param uid="fltfreq" val="110.2501068115234"/>
+  <param uid="fltamount" val="0.1535998582839966"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="attack" val="0.0006755415233783424"/>
+  <param uid="decay" val="0.1120437607169151"/>
+  <param uid="sustain" val="22.4000129699707"/>
+</state>

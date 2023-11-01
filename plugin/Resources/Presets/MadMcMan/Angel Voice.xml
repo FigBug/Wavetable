@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Angel Voice" author="MadMcMan" tags="Lead">
+  <state wt1="Analog PWM Square 01" wt2="NK - CONVENT" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="0.01999999955296516" enabled="1" dstId="osc1finetune"/>
+      <MODITEM srcId="mlfo1" depth="-0.02999999932944775" enabled="1" dstId="osc1level"/>
+      <MODITEM srcId="mlfo1" depth="0.1500000059604645" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="mlfo1" depth="0.05000000074505806" enabled="1" dstId="osc1detune"/>
+      <MODITEM srcId="mlfo1" depth="-0.07999999821186066" enabled="1" dstId="osc1spread"/>
+      <MODITEM srcId="mlfo1" depth="-0.03999999910593033" enabled="1" dstId="osc1pan"/>
+      <MODITEM srcId="mlfo2" depth="-0.05999999865889549" enabled="1" dstId="osc1pan"/>
+      <MODITEM srcId="mlfo1" depth="-0.1000000014901161" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="mlfo1" depth="0.03999999910593033" enabled="1" dstId="osc1bend"/>
+      <MODITEM srcId="mlfo2" depth="-0.05000000074505806" enabled="1" dstId="osc1bend"/>
+      <MODITEM srcId="mlfo1" depth="0.03999999910593033" enabled="1" dstId="osc2finetune"/>
+      <MODITEM srcId="mlfo1" depth="-0.05999999865889549" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="mlfo1" depth="-0.1000000014901161" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="mlfo1" depth="0.09000000357627869" enabled="1" dstId="osc2detune"/>
+      <MODITEM srcId="mlfo1" depth="0.07999999821186066" enabled="1" dstId="osc2spread"/>
+      <MODITEM srcId="mlfo1" depth="0.07000000029802322" enabled="1" dstId="osc2pan"/>
+      <MODITEM srcId="mlfo2" depth="-0.07399982213973999" enabled="1" dstId="osc2pan"/>
+      <MODITEM srcId="mlfo1" depth="0.03999999910593033" enabled="1" dstId="osc2formant"/>
+      <MODITEM srcId="mlfo1" depth="0.02999999932944775" enabled="1" dstId="osc2bend"/>
+      <MODITEM srcId="mlfo2" depth="0.07799995690584183" enabled="1" dstId="osc2bend"/>
+      <MODITEM srcId="mlfo2" depth="-0.05000003799796104" enabled="1" dstId="lfo2rate"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1finetune" val="11.51998901367188"/>
+  <param uid="osc1level" val="-25.0"/>
+  <param uid="osc1detune" val="0.04800000041723251"/>
+  <param uid="osc1spread" val="56.95999145507812"/>
+  <param uid="osc1pan" val="1.0"/>
+  <param uid="osc1formant" val="0.646399974822998"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2retrig" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2finetune" val="23.67999267578125"/>
+  <param uid="osc2level" val="-23.0"/>
+  <param uid="osc2pos" val="67.84000396728516"/>
+  <param uid="osc2pan" val="1.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-32.0"/>
+  <param uid="noisepan" val="1.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltvel" val="70.239990234375"/>
+  <param uid="fltfreq" val="84.31543731689453"/>
+  <param uid="fltres" val="28.15999412536621"/>
+  <param uid="fltamount" val="0.1215997934341431"/>
+  <param uid="fltattack" val="0.0156551655381918"/>
+  <param uid="fltdecay" val="0.2168856114149094"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1rate" val="0.06130893528461456"/>
+  <param uid="lfo1beat" val="28.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2rate" val="0.5069693922996521"/>
+  <param uid="attack" val="0.08389651030302048"/>
+  <param uid="decay" val="0.5887867212295532"/>
+  <param uid="sustain" val="54.23997497558594"/>
+  <param uid="release" val="0.118485726416111"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlTime" val="0.06230361014604568"/>
+  <param uid="dlFb" val="-22.47183990478516"/>
+  <param uid="dlCf" val="-15.70528411865234"/>
+  <param uid="dlMix" val="8.18000602722168"/>
+  <param uid="dlDelay" val="0.06230361014604568"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.8634814023971558"/>
+  <param uid="rvbDecay" val="0.2463997602462769"/>
+  <param uid="rvbLowpass" val="4820.3525390625"/>
+  <param uid="rvbMix" val="0.2272000908851624"/>
+  <param uid="distMode" val="2.0"/>
+  <param uid="firegain" val="0.6727999448776245"/>
+  <param uid="firetone" val="0.9352000951766968"/>
+  <param uid="fireoutput" val="1.0"/>
+</state>

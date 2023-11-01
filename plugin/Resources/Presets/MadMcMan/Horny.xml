@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="Horny" author="MadMcMan" tags="Brass">
+  <state wt1="Analog PWM Custom 02" wt2="Analog PWM Saw 01" wt1Size="-1"
+         wt2Size="-1" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="0.05000000074505806" enabled="1" dstId="osc1finetune"/>
+      <MODITEM srcId="mlfo1" depth="-0.07999999821186066" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="mlfo1" depth="0.1299999952316284" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="env1" depth="0.7099999785423279" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="env1" depth="0.3199999928474426" enabled="1" dstId="dsAmount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc1pos" val="79.04000854492188"/>
+  <param uid="osc1formant" val="0.03999996185302734"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subretrig" val="1.0"/>
+  <param uid="subwave" val="2.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="sublevel" val="-19.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="fltkey" val="26.8799991607666"/>
+  <param uid="fltfreq" val="58.81306838989258"/>
+  <param uid="fltamount" val="0.1856000423431396"/>
+  <param uid="fltattack" val="0.9346251487731934"/>
+  <param uid="fltdecay" val="0.4217635691165924"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="1.47556483745575"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.002612431067973375"/>
+  <param uid="env1decay" val="0.5887892842292786"/>
+  <param uid="env1sustain" val="100.0"/>
+  <param uid="env1release" val="1.525769948959351"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1rate" val="0.06633295118808746"/>
+  <param uid="lfo1depth" val="0.6031998991966248"/>
+  <param uid="attack" val="0.5441288352012634"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="2.533127546310425"/>
+  <param uid="gMode" val="2.0"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatebeat" val="13.0"/>
+  <param uid="gatelength" val="4.0"/>
+  <param uid="gateattack" val="0.000458946538856253"/>
+  <param uid="gaterelease" val="0.3033628761768341"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="9.515524864196777"/>
+  <param uid="chDepth" val="5.712320804595947"/>
+  <param uid="chSpeed" val="1.067519307136536"/>
+  <param uid="chWidth" val="0.8392000794410706"/>
+  <param uid="chMix" val="0.2663999199867249"/>
+  <param uid="dsAmount" val="0.2851094305515289"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlCf" val="-29.87302589416504"/>
+  <param uid="dlMix" val="17.46001052856445"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.6687995791435242"/>
+  <param uid="distMode" val="2.0"/>
+  <param uid="firegain" val="1.0"/>
+  <param uid="firetone" val="0.2728001475334167"/>
+  <param uid="fireoutput" val="1.0"/>
+</state>
