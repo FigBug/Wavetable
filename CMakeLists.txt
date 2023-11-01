@@ -97,9 +97,6 @@ set_property (DIRECTORY APPEND PROPERTY LABELS Assets)
 file (GLOB_RECURSE binary_files CONFIGURE_DEPENDS
 	"./plugin/Resources/layout.json"
 	"./plugin/Resources/WavetablesFLAC/*.wt2048"
-	"./plugin/Resources/Presets/*.xml"
-	"./plugin/Resources/Presets/*.xml"
-	"./plugin/Resources/Presets/*.xml"
 	"./plugin/Resources/Presets/*.xml")
 
 juce_add_binary_data (${PLUGIN_NAME}_Assets SOURCES ${binary_files})
