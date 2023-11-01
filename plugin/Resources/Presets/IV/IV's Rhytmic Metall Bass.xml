@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="IV's Rhytmic Metall Bass" author="IV" tags="Basses">
+  <state wt1="Dist - Downsample" wt2="Analog PWM Saw 01" wt1Size="-1"
+         wt2Size="-1" wt1Data="0." wt2Data="0." editorScale="1.141579747200012">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="-1.0" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="0.5" enabled="1" dstId="dlMix"/>
+      <MODITEM srcId="env1" depth="0.4000000059604645" enabled="1" dstId="rvbMix"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1pos" val="100.0"/>
+  <param uid="osc1detune" val="0.1000000014901161"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="sublevel" val="-6.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-25.0"/>
+  <param uid="fltfreq" val="60.75817108154297"/>
+  <param uid="fltres" val="100.0"/>
+  <param uid="fltamount" val="0.2399998903274536"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="24.62045288085938"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="1.009428739547729"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1retrig" val="0.0"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="24.62043571472168"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="1.049463629722595"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="vel" val="20.0"/>
+  <param uid="attack" val="0.0404040738940239"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.05478058010339737"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gMode" val="1.0"/>
+  <param uid="gRate" val="0.1022705361247063"/>
+  <param uid="level" val="-12.0"/>
+  <param uid="uiMOD" val="1.0"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatebeat" val="4.0"/>
+  <param uid="gatelength" val="16.0"/>
+  <param uid="gateattack" val="0.002429999876767397"/>
+  <param uid="gaterelease" val="0.301825612783432"/>
+  <param uid="gatel2" val="1.0"/>
+  <param uid="gater2" val="1.0"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gatel10" val="1.0"/>
+  <param uid="gater10" val="1.0"/>
+  <param uid="gatel16" val="0.0"/>
+  <param uid="gater16" val="0.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlFb" val="-20.05819702148438"/>
+  <param uid="dlCf" val="-14.68454742431641"/>
+  <param uid="dlMix" val="5.010714054107666"/>
+  <param uid="dlDelay" val="0.4000000059604645"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.9033271670341492"/>
+  <param uid="rvbDecay" val="0.796000063419342"/>
+  <param uid="rvbLowpass" val="3344.132080078125"/>
+  <param uid="rvbDamping" val="5019.65966796875"/>
+  <param uid="rvbMix" val="0.1040000021457672"/>
+  <param uid="fxOrder1" val="2.0"/>
+  <param uid="fxOrder2" val="4.0"/>
+  <param uid="fxOrder3" val="0.0"/>
+  <param uid="fxOrder4" val="1.0"/>
+  <param uid="fxOrder5" val="3.0"/>
+  <param uid="distMode" val="2.0"/>
+  <param uid="firegain" val="0.6959999799728394"/>
+  <param uid="firetone" val="0.6959999799728394"/>
+  <param uid="fireoutput" val="1.0"/>
+  <param uid="firemix" val="0.5"/>
+</state>

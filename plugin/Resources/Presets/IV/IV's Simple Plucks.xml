@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="IV's Simple Plucks" author="IV" tags="Plucks">
+  <state wt1="Growl 03" wt2="Growl 03" wt1Size="-1" wt2Size="-1" wt1Data="0."
+         wt2Data="0." editorScale="1.141579747200012">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="0.2000000029802322" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="env1" depth="0.1500000059604645" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="env1" depth="-0.2199999988079071" enabled="1" dstId="osc2pos"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1finetune" val="-5.020530700683594"/>
+  <param uid="osc1level" val="-3.0"/>
+  <param uid="osc1detune" val="0.1019999906420708"/>
+  <param uid="osc1formant" val="-0.2033233642578125"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2retrig" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2finetune" val="4.0"/>
+  <param uid="osc2pos" val="51.20000076293945"/>
+  <param uid="osc2detune" val="0.1240000054240227"/>
+  <param uid="osc2spread" val="-10.40000152587891"/>
+  <param uid="osc2formant" val="-0.2033233493566513"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subretrig" val="1.0"/>
+  <param uid="subwave" val="5.0"/>
+  <param uid="sublevel" val="-10.0"/>
+  <param uid="noiselevel" val="-30.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltkey" val="39.61301422119141"/>
+  <param uid="fltvel" val="70.20259857177734"/>
+  <param uid="fltfreq" val="81.00274658203125"/>
+  <param uid="fltres" val="10.16617393493652"/>
+  <param uid="fltamount" val="0.3760000765323639"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="0.1457623839378357"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.01584229990839958"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="2.811780691146851"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.6969028115272522"/>
+  <param uid="env2attack" val="0.0006000002031214535"/>
+  <param uid="env2decay" val="1.01129949092865"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="1.014576196670532"/>
+  <param uid="env3attack" val="0.0007299923454411328"/>
+  <param uid="env3decay" val="1.014576196670532"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="env3release" val="1.014576196670532"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="slfobeat" val="10.0"/>
+  <param uid="slfostep1" val="1.0"/>
+  <param uid="slfostep2" val="-1.0"/>
+  <param uid="slfostep3" val="1.0"/>
+  <param uid="slfostep4" val="-1.0"/>
+  <param uid="slfostep5" val="1.0"/>
+  <param uid="slfostep6" val="-1.0"/>
+  <param uid="slfostep7" val="1.0"/>
+  <param uid="slfostep8" val="-1.0"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="8.027945518493652"/>
+  <param uid="sustain" val="19.98177528381348"/>
+  <param uid="release" val="1.014576196670532"/>
+  <param uid="uiMOD" val="1.0"/>
+  <param uid="gatebeat" val="10.0"/>
+  <param uid="gateattack" val="0.0006721097161062062"/>
+  <param uid="gaterelease" val="0.0006721097161062062"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="chDelay" val="3.687999248504639"/>
+  <param uid="chDepth" val="0.2008392214775085"/>
+  <param uid="chSpeed" val="3.079200029373169"/>
+  <param uid="chWidth" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlFb" val="-20.08129119873047"/>
+  <param uid="dlMix" val="10.45053768157959"/>
+  <param uid="dlDelay" val="0.4000000059604645"/>
+  <param uid="rvbSize" val="0.4857982993125916"/>
+  <param uid="rvbDamping" val="252.0529479980469"/>
+  <param uid="rvbMix" val="0.5839999914169312"/>
+  <param uid="fxOrder3" val="3.0"/>
+  <param uid="fxOrder4" val="2.0"/>
+  <param uid="distMode" val="1.0"/>
+  <param uid="crushrate" val="0.0"/>
+  <param uid="crushrez" val="0.8959999680519104"/>
+  <param uid="crushhard" val="0.1960000097751617"/>
+  <param uid="firemix" val="0.3519999980926514"/>
+  <param uid="grindmix" val="0.4440000057220459"/>
+</state>

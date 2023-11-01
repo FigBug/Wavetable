@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="IV's Init" author="IV" tags="Initial">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0.">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1retrig" val="1.0"/>
+  <param uid="osc1detune" val="0.1019999980926514"/>
+  <param uid="osc2retrig" val="1.0"/>
+  <param uid="osc2detune" val="0.1000000014901161"/>
+  <param uid="subretrig" val="1.0"/>
+  <param uid="flttype" val="1.0"/>
+  <param uid="fltfreq" val="135.0762329101562"/>
+  <param uid="fltattack" val="0.0007299923454411328"/>
+  <param uid="fltdecay" val="4.984410285949707"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="1.014576196670532"/>
+  <param uid="env1attack" val="0.0008815967012196779"/>
+  <param uid="env1decay" val="1.01457667350769"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="1.014576196670532"/>
+  <param uid="env2attack" val="0.0006000002031214535"/>
+  <param uid="env2decay" val="1.01129949092865"/>
+  <param uid="env2sustain" val="0.0"/>
+  <param uid="env2release" val="1.014576196670532"/>
+  <param uid="env3attack" val="0.0007299923454411328"/>
+  <param uid="env3decay" val="1.014576196670532"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="env3release" val="1.014576196670532"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="slfobeat" val="10.0"/>
+  <param uid="slfostep1" val="1.0"/>
+  <param uid="slfostep2" val="-1.0"/>
+  <param uid="slfostep3" val="1.0"/>
+  <param uid="slfostep4" val="-1.0"/>
+  <param uid="slfostep5" val="1.0"/>
+  <param uid="slfostep6" val="-1.0"/>
+  <param uid="slfostep7" val="1.0"/>
+  <param uid="slfostep8" val="-1.0"/>
+  <param uid="attack" val="0.0006000002031214535"/>
+  <param uid="decay" val="5.034289360046387"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="1.014576196670532"/>
+  <param uid="gatebeat" val="10.0"/>
+  <param uid="gateattack" val="0.0006721097161062062"/>
+  <param uid="gaterelease" val="0.0006721097161062062"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="chDelay" val="30.0"/>
+  <param uid="chDepth" val="0.9968392252922058"/>
+  <param uid="chSpeed" val="3.079200029373169"/>
+  <param uid="chWidth" val="0.2000000029802322"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlMix" val="30.5"/>
+  <param uid="dlDelay" val="0.5"/>
+  <param uid="rvbSize" val="0.7014271020889282"/>
+  <param uid="rvbDecay" val="0.699999988079071"/>
+  <param uid="rvbMix" val="0.2000000029802322"/>
+</state>
