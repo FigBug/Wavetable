@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Bwaing" author="DoubleTap" tags="Bass Noise Formants DoubleTap">
+  <state wt1="FM 07" wt2="FM 05" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="-0.3499999940395355" dstId="osc1formant"/>
+      <MODITEM srcId="env1" depth="-0.6000000238418579" dstId="osc1bend"/>
+      <MODITEM srcId="env1" depth="-0.1099999994039536" dstId="osc2pos"/>
+      <MODITEM srcId="env3" depth="0.3199999928474426" dstId="noiselevel"/>
+      <MODITEM srcId="env2" depth="0.300000011920929" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="2.0"/>
+  <param uid="osc1tune" val="12.0"/>
+  <param uid="osc1pos" val="37.63489151000977"/>
+  <param uid="osc1detune" val="0.1515901237726212"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc1formant" val="0.2959238588809967"/>
+  <param uid="osc1bend" val="1.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="2.0"/>
+  <param uid="osc2tune" val="12.0"/>
+  <param uid="osc2pos" val="51.49921798706055"/>
+  <param uid="osc2detune" val="0.1137533262372017"/>
+  <param uid="osc2spread" val="100.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-17.0"/>
+  <param uid="fltfreq" val="50.62736892700195"/>
+  <param uid="fltres" val="32.46033477783203"/>
+  <param uid="fltamount" val="1.0"/>
+  <param uid="fltattack" val="1.026856899261475"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="fltsub" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="58.52947235107422"/>
+  <param uid="env1sustain" val="34.3283576965332"/>
+  <param uid="env1release" val="60.0"/>
+  <param uid="env2enable" val="1.0"/>
+  <param uid="env2attack" val="1.454623699188232"/>
+  <param uid="env2decay" val="60.0"/>
+  <param uid="env2sustain" val="100.0"/>
+  <param uid="env2release" val="60.0"/>
+  <param uid="env3enable" val="1.0"/>
+  <param uid="env3attack" val="5.665616512298584"/>
+  <param uid="env3decay" val="3.657032012939453"/>
+  <param uid="env3sustain" val="0.0"/>
+  <param uid="env3release" val="0.0"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.7028142809867859"/>
+  <param uid="sustain" val="0.05859375"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="uiENV" val="2.0"/>
+  <param uid="uiMOD" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.8117822408676147"/>
+  <param uid="dlFb" val="-10.00000190734863"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbDecay" val="0.4692180156707764"/>
+  <param uid="rvbLowpass" val="16.0"/>
+  <param uid="rvbDamping" val="16.0"/>
+  <param uid="rvbPredelay" val="0.02195058576762676"/>
+  <param uid="rvbMix" val="0.478254646062851"/>
+</state>

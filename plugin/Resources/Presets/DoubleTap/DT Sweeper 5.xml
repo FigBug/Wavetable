@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Sweeper 5" author="DoubleTap" tags="FX">
+  <state wt1="Dist - Lin.Fold" wt2="Analog Classic" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0." editorScale="1.384941697120667">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc1detune"/>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc1spread"/>
+      <MODITEM srcId="lfo1" depth="0.4199999868869781" enabled="1" dstId="osc1pan"/>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc2detune"/>
+      <MODITEM srcId="fenv" depth="1.0" enabled="1" dstId="osc2spread"/>
+      <MODITEM srcId="lfo1" depth="-0.4199999868869781" enabled="1" dstId="osc2pan"/>
+      <MODITEM srcId="lfo1" depth="0.2099999934434891" enabled="1" dstId="subpan"/>
+      <MODITEM srcId="lfo1" depth="0.2099999934434891" enabled="1" dstId="noisepan"/>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="fltfreq"/>
+      <MODITEM srcId="env1" depth="0.2800000011920929" enabled="1" dstId="lfo1rate"/>
+      <MODITEM srcId="env1" depth="-0.8899999856948853" enabled="1" dstId="rvbDecay"/>
+      <MODITEM srcId="env1" depth="-0.5199999809265137" enabled="1" dstId="rvbMix"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="4.0"/>
+  <param uid="osc1tune" val="24.0"/>
+  <param uid="osc1pos" val="47.67656326293945"/>
+  <param uid="osc1detune" val="0.09979687631130219"/>
+  <param uid="osc1spread" val="-51.05937576293945"/>
+  <param uid="osc1pan" val="0.00175774097442627"/>
+  <param uid="osc1formant" val="-1.0"/>
+  <param uid="osc1bend" val="-1.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="4.0"/>
+  <param uid="osc2tune" val="24.0"/>
+  <param uid="osc2pos" val="50.34918975830078"/>
+  <param uid="osc2detune" val="0.0560312494635582"/>
+  <param uid="osc2formant" val="-0.8362833261489868"/>
+  <param uid="osc2bend" val="-0.7760937213897705"/>
+  <param uid="subpan" val="-0.01230466365814209"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-4.0"/>
+  <param uid="fltfreq" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="2.052099227905273"/>
+  <param uid="env1decay" val="0.0250249020755291"/>
+  <param uid="env1sustain" val="1.106762647628784"/>
+  <param uid="env1release" val="0.0400175079703331"/>
+  <param uid="lfo1wave" val="5.0"/>
+  <param uid="lfo1rate" val="1.865492463111877"/>
+  <param uid="attack" val="5.743048191070557"/>
+  <param uid="decay" val="0.01917154528200626"/>
+  <param uid="sustain" val="21.0489501953125"/>
+  <param uid="release" val="0.002149872248992324"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.1640654355287552"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4834959805011749"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlMix" val="0.0"/>
+  <param uid="rvbSize" val="1.0"/>
+  <param uid="rvbDecay" val="0.8801022171974182"/>
+  <param uid="rvbLowpass" val="66.05268096923828"/>
+  <param uid="rvbMix" val="0.3106430768966675"/>
+</state>

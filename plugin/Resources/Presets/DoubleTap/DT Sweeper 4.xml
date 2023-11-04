@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Sweeper 4" author="DoubleTap" tags="FX">
+  <state wt1="Dist - Filter Drive" wt2="Dist - Hard Clipping Extra" wt1Size="-1"
+         wt2Size="-1" wt1Data="0." wt2Data="0." editorScale="1.384941697120667">
+    <MODMATRIX>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc1detune"/>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc1spread"/>
+      <MODITEM srcId="lfo1" depth="0.4199999868869781" enabled="1" dstId="osc1pan"/>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="env1" depth="0.6299999952316284" enabled="1" dstId="osc1bend"/>
+      <MODITEM srcId="env1" depth="-0.3100000023841858" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="env1" depth="1.0" enabled="1" dstId="osc2detune"/>
+      <MODITEM srcId="fenv" depth="1.0" enabled="1" dstId="osc2spread"/>
+      <MODITEM srcId="lfo1" depth="-0.4199999868869781" enabled="1" dstId="osc2pan"/>
+      <MODITEM srcId="env1" depth="0.6800000071525574" enabled="1" dstId="osc2formant"/>
+      <MODITEM srcId="env1" depth="0.6200000047683716" enabled="1" dstId="osc2bend"/>
+      <MODITEM srcId="lfo1" depth="0.2099999934434891" enabled="1" dstId="subpan"/>
+      <MODITEM srcId="lfo1" depth="0.2099999934434891" enabled="1" dstId="noisepan"/>
+      <MODITEM srcId="env1" depth="0.6600000262260437" enabled="1" dstId="fltfreq"/>
+      <MODITEM srcId="env1" depth="0.2800000011920929" enabled="1" dstId="lfo1rate"/>
+      <MODITEM srcId="env1" depth="-0.8899999856948853" enabled="1" dstId="rvbDecay"/>
+      <MODITEM srcId="env1" depth="-0.5199999809265137" enabled="1" dstId="rvbMix"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="4.0"/>
+  <param uid="osc1pos" val="47.67656326293945"/>
+  <param uid="osc1detune" val="0.09979687631130219"/>
+  <param uid="osc1spread" val="-51.05937576293945"/>
+  <param uid="osc1formant" val="-1.0"/>
+  <param uid="osc1bend" val="-1.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="4.0"/>
+  <param uid="osc2pos" val="43.85749435424805"/>
+  <param uid="osc2detune" val="0.0560312494635582"/>
+  <param uid="osc2formant" val="-0.8362833261489868"/>
+  <param uid="osc2bend" val="-0.7760937213897705"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subpan" val="-0.01230466365814209"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noisetype" val="1.0"/>
+  <param uid="noiselevel" val="-4.0"/>
+  <param uid="fltfreq" val="0.0"/>
+  <param uid="fltwt1" val="0.0"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="2.052099227905273"/>
+  <param uid="env1decay" val="0.00005827306813444011"/>
+  <param uid="env1sustain" val="1.106762647628784"/>
+  <param uid="env1release" val="0.0"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1wave" val="5.0"/>
+  <param uid="lfo1rate" val="1.865492463111877"/>
+  <param uid="attack" val="5.743048191070557"/>
+  <param uid="decay" val="0.00002276007580803707"/>
+  <param uid="sustain" val="5.805761814117432"/>
+  <param uid="release" val="0.0004473056760616601"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chMix" val="0.1640654355287552"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlMix" val="0.0"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="1.0"/>
+  <param uid="rvbDecay" val="0.8801022171974182"/>
+  <param uid="rvbLowpass" val="66.05268096923828"/>
+  <param uid="rvbMix" val="0.3106430768966675"/>
+</state>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Pluck 1" author="DoubleTap" tags="Filtered pluck">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0." editorScale="1.420996785163879">
+    <MODMATRIX/>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1finetune" val="-10.37344360351562"/>
+  <param uid="osc1pos" val="23.73444175720215"/>
+  <param uid="osc1detune" val="0.09914917498826981"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc1pan" val="-0.1822648793458939"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2finetune" val="9.621345520019531"/>
+  <param uid="osc2pos" val="17.87257385253906"/>
+  <param uid="osc2detune" val="0.08495361357927322"/>
+  <param uid="osc2spread" val="100.0"/>
+  <param uid="osc2pan" val="0.2041698694229126"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="flttype" val="3.0"/>
+  <param uid="fltkey" val="45.81731033325195"/>
+  <param uid="fltfreq" val="59.18677520751953"/>
+  <param uid="fltres" val="32.79498672485352"/>
+  <param uid="fltattack" val="0.00204612547531724"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.1590998917818069"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.9922230839729309"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.215834453701973"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="11.0"/>
+  <param uid="dlFb" val="-9.379142761230469"/>
+  <param uid="dlCf" val="-25.22752952575684"/>
+  <param uid="dlMix" val="43.96966171264648"/>
+  <param uid="dlDelay" val="0.2586206793785095"/>
+</state>

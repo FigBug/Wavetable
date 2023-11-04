@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Seq 1" author="DoubleTap" tags="DoubleTap Sequence">
+  <state wt1="NK - MODIFY" wt2="Analog PWM Saw 01" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="mstep" depth="1.0" enabled="1" dstId="osc1level"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="osc1bend"/>
+      <MODITEM srcId="mstep" depth="1.0" enabled="1" dstId="osc2level"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="osc2pos"/>
+      <MODITEM srcId="mlfo1" depth="-0.5" enabled="1" dstId="osc2formant"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="osc2bend"/>
+      <MODITEM srcId="mstep" depth="1.0" enabled="1" dstId="sublevel"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="noiselevel"/>
+      <MODITEM srcId="mstep" depth="1.0" enabled="1" dstId="noiselevel"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="fltfreq"/>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="fltattack"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-12.0"/>
+  <param uid="osc1level" val="-16.0"/>
+  <param uid="osc1pos" val="77.80300140380859"/>
+  <param uid="osc1formant" val="-1.0"/>
+  <param uid="osc1bend" val="-1.0"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2level" val="-8.0"/>
+  <param uid="osc2pos" val="49.87474822998047"/>
+  <param uid="osc2formant" val="0.2489230632781982"/>
+  <param uid="osc2bend" val="0.252133846282959"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-24.0"/>
+  <param uid="sublevel" val="-100.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-100.0"/>
+  <param uid="fltvel" val="100.0"/>
+  <param uid="fltfreq" val="17.91238212585449"/>
+  <param uid="fltres" val="57.87420654296875"/>
+  <param uid="fltamount" val="0.3656740188598633"/>
+  <param uid="fltattack" val="0.0003218717174604535"/>
+  <param uid="fltdecay" val="0.1455638706684113"/>
+  <param uid="fltrelease" val="1.44363260269165"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1rate" val="0.9910293817520142"/>
+  <param uid="lfo1beat" val="16.0"/>
+  <param uid="lfo1depth" val="0.3308175802230835"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="10.0"/>
+  <param uid="slfolength" val="16.0"/>
+  <param uid="slfostep1" val="-1.0"/>
+  <param uid="slfostep2" val="1.0"/>
+  <param uid="slfostep3" val="0.01204818487167358"/>
+  <param uid="slfostep4" val="-1.0"/>
+  <param uid="slfostep5" val="1.0"/>
+  <param uid="slfostep6" val="-1.0"/>
+  <param uid="slfostep7" val="1.0"/>
+  <param uid="slfostep8" val="-0.01204824447631836"/>
+  <param uid="slfostep9" val="1.0"/>
+  <param uid="slfostep10" val="0.03614455461502075"/>
+  <param uid="slfostep11" val="0.590361475944519"/>
+  <param uid="slfostep12" val="0.7831325531005859"/>
+  <param uid="slfostep13" val="0.349397599697113"/>
+  <param uid="slfostep14" val="0.518072247505188"/>
+  <param uid="slfostep15" val="-0.4216867685317993"/>
+  <param uid="slfostep16" val="1.0"/>
+  <param uid="vel" val="53.60978698730469"/>
+  <param uid="attack" val="0.0006746967555955052"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="0.09999998658895493"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gRate" val="0.06966331601142883"/>
+  <param uid="pitchbend" val="12.0"/>
+  <param uid="gateenable" val="1.0"/>
+  <param uid="gatelength" val="16.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="gatel3" val="0.0"/>
+  <param uid="gater3" val="0.0"/>
+  <param uid="gatel4" val="1.0"/>
+  <param uid="gater4" val="1.0"/>
+  <param uid="gatel6" val="0.0"/>
+  <param uid="gater6" val="0.0"/>
+  <param uid="gatel7" val="0.0"/>
+  <param uid="gater7" val="0.0"/>
+  <param uid="gatel8" val="1.0"/>
+  <param uid="gater8" val="1.0"/>
+  <param uid="gatel11" val="0.0"/>
+  <param uid="gater11" val="0.0"/>
+  <param uid="gatel12" val="1.0"/>
+  <param uid="gater12" val="1.0"/>
+  <param uid="gatel15" val="0.0"/>
+  <param uid="gater15" val="0.0"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="1.0"/>
+  <param uid="dlFb" val="-10.00000190734863"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbMix" val="0.08912109583616257"/>
+</state>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Kick 2" author="DoubleTap" tags="Kick Drum DoubleTap">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Data="0." wt2Data="0."
+         editorScale="1.430700421333313">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="1.0" dstId="osc1level"/>
+      <MODITEM srcId="env1" depth="-0.7799999713897705" dstId="noiselevel"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1level" val="-10.0"/>
+  <param uid="osc1formant" val="0.4173000156879425"/>
+  <param uid="osc1bend" val="0.3627094924449921"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2level" val="-13.0"/>
+  <param uid="osc2formant" val="0.7202986478805542"/>
+  <param uid="osc2bend" val="-0.3123469352722168"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subwave" val="0.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="noiselevel" val="-5.0"/>
+  <param uid="fltenable" val="0.0"/>
+  <param uid="flttype" val="3.0"/>
+  <param uid="fltkey" val="34.29193878173828"/>
+  <param uid="fltvel" val="100.0"/>
+  <param uid="fltfreq" val="29.03475189208984"/>
+  <param uid="fltres" val="55.76800537109375"/>
+  <param uid="fltattack" val="0.0"/>
+  <param uid="fltdecay" val="1.430855751037598"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="60.0"/>
+  <param uid="env1enable" val="1.0"/>
+  <param uid="env1attack" val="0.0"/>
+  <param uid="env1decay" val="0.8891822099685669"/>
+  <param uid="env1sustain" val="0.0"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="slfobeat" val="0.0"/>
+  <param uid="slfolength" val="32.0"/>
+  <param uid="slfostep1" val="-0.01204824447631836"/>
+  <param uid="slfostep2" val="0.3253012299537659"/>
+  <param uid="slfostep3" val="-0.518072247505188"/>
+  <param uid="slfostep4" val="0.8072289228439331"/>
+  <param uid="slfostep5" val="-0.9518072605133057"/>
+  <param uid="slfostep6" val="0.8072289228439331"/>
+  <param uid="slfostep7" val="-0.7831325531005859"/>
+  <param uid="slfostep8" val="0.6626505851745605"/>
+  <param uid="slfostep9" val="-0.3975903987884521"/>
+  <param uid="slfostep10" val="0.2771084308624268"/>
+  <param uid="slfostep11" val="0.108433723449707"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.004940880928188562"/>
+  <param uid="decay" val="0.105355903506279"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.03135992214083672"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="level" val="-6.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.2796465456485748"/>
+  <param uid="dlFb" val="-10.00000190734863"/>
+  <param uid="rvbSize" val="0.6598547697067261"/>
+  <param uid="rvbLowpass" val="16.0"/>
+  <param uid="rvbDamping" val="927.8848876953125"/>
+  <param uid="rvbMix" val="0.1379773020744324"/>
+</state>

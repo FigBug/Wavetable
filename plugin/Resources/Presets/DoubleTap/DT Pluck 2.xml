@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Pluck 2" author="DoubleTap" tags="Pluck 2">
+  <state wt1="Analog Classic" wt2="Analog Classic" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0." editorScale="1.336810708045959">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo2" depth="0.3199999928474426" enabled="1" dstId="fltamount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1finetune" val="-10.37344360351562"/>
+  <param uid="osc1pos" val="23.73444175720215"/>
+  <param uid="osc1detune" val="0.09914917498826981"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc1pan" val="-0.1822648793458939"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="3.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2finetune" val="9.621345520019531"/>
+  <param uid="osc2pos" val="17.87257385253906"/>
+  <param uid="osc2detune" val="0.08495361357927322"/>
+  <param uid="osc2spread" val="100.0"/>
+  <param uid="osc2pan" val="0.2041698694229126"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltkey" val="45.81731033325195"/>
+  <param uid="fltfreq" val="58.84366226196289"/>
+  <param uid="fltres" val="53.4176139831543"/>
+  <param uid="fltamount" val="0.06148028373718262"/>
+  <param uid="fltattack" val="0.00204612547531724"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2rate" val="0.2381725907325745"/>
+  <param uid="lfo2beat" val="23.0"/>
+  <param uid="lfo2depth" val="0.4397343695163727"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.1490055918693542"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="0.1486150473356247"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.215834453701973"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="11.0"/>
+  <param uid="dlFb" val="-9.379142761230469"/>
+  <param uid="dlCf" val="-25.22752952575684"/>
+  <param uid="dlMix" val="43.96966171264648"/>
+  <param uid="dlDelay" val="0.2586206793785095"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.745496928691864"/>
+  <param uid="rvbDecay" val="0.3399882912635803"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbDamping" val="16.00000190734863"/>
+  <param uid="rvbMix" val="0.06359452754259109"/>
+</state>

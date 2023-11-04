@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Pad 2" author="DoubleTap" tags="Pad">
+  <state wt1="Analog Classic" wt2="Analog PWM Saw 02" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0." editorScale="0.9388971924781799">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo2" depth="0.2899999916553497" enabled="1" dstId="osc1detune"/>
+      <MODITEM srcId="mlfo3" depth="1.0" enabled="1" dstId="osc1pan"/>
+      <MODITEM srcId="mlfo2" depth="0.1400000005960464" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="mlfo3" depth="0.1400000005960464" enabled="1" dstId="osc1bend"/>
+      <MODITEM srcId="lfo3" depth="0.7799999713897705" enabled="1" dstId="osc2detune"/>
+      <MODITEM srcId="mlfo3" depth="-1.0" enabled="1" dstId="osc2pan"/>
+      <MODITEM srcId="mlfo3" depth="-0.1899999976158142" enabled="1" dstId="osc2formant"/>
+      <MODITEM srcId="lfo2" depth="1.0" enabled="1" dstId="osc2formant"/>
+      <MODITEM srcId="mlfo3" depth="-0.1400000005960464" enabled="1" dstId="osc2bend"/>
+      <MODITEM srcId="mlfo3" depth="1.0" enabled="1" dstId="fltkey"/>
+      <MODITEM srcId="mlfo3" depth="1.0" enabled="1" dstId="fltres"/>
+      <MODITEM srcId="mlfo2" depth="0.3199999928474426" enabled="1" dstId="fltamount"/>
+      <MODITEM srcId="mlfo3" depth="0.1700000017881393" enabled="1" dstId="decay"/>
+      <MODITEM srcId="mlfo3" depth="1.0" enabled="1" dstId="dsAmount"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="3.0"/>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1finetune" val="-10.37344360351562"/>
+  <param uid="osc1level" val="-2.0"/>
+  <param uid="osc1pos" val="23.73444175720215"/>
+  <param uid="osc1detune" val="0.09914917498826981"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc1pan" val="-0.1822648793458939"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="5.0"/>
+  <param uid="osc2tune" val="-12.0"/>
+  <param uid="osc2finetune" val="9.621345520019531"/>
+  <param uid="osc2level" val="-7.0"/>
+  <param uid="osc2pos" val="74.87257385253906"/>
+  <param uid="osc2detune" val="0.1907026469707489"/>
+  <param uid="osc2spread" val="100.0"/>
+  <param uid="osc2pan" val="0.2041698694229126"/>
+  <param uid="osc2formant" val="-0.6895725131034851"/>
+  <param uid="subenable" val="1.0"/>
+  <param uid="subtune" val="-12.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="flttype" val="4.0"/>
+  <param uid="fltkey" val="49.11527252197266"/>
+  <param uid="fltfreq" val="58.84366226196289"/>
+  <param uid="fltres" val="48.34023284912109"/>
+  <param uid="fltamount" val="0.06148028373718262"/>
+  <param uid="fltattack" val="0.0000436662849097047"/>
+  <param uid="fltdecay" val="18.40092468261719"/>
+  <param uid="fltsustain" val="100.0"/>
+  <param uid="fltrelease" val="3.262975931167603"/>
+  <param uid="fltwt2" val="0.0"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo2enable" val="1.0"/>
+  <param uid="lfo2sync" val="1.0"/>
+  <param uid="lfo2rate" val="0.2381725907325745"/>
+  <param uid="lfo2beat" val="25.0"/>
+  <param uid="lfo2depth" val="0.3254870176315308"/>
+  <param uid="lfo2offset" val="0.2181458473205566"/>
+  <param uid="lfo3enable" val="1.0"/>
+  <param uid="lfo3sync" val="1.0"/>
+  <param uid="lfo3beat" val="28.0"/>
+  <param uid="lfo3depth" val="0.2515494823455811"/>
+  <param uid="lfo3phase" val="-0.7337424159049988"/>
+  <param uid="lfo3offset" val="0.03971695899963379"/>
+  <param uid="slfostep3" val="-0.3253011703491211"/>
+  <param uid="attack" val="0.04513686522841454"/>
+  <param uid="decay" val="3.284437417984009"/>
+  <param uid="sustain" val="100.0"/>
+  <param uid="release" val="5.074620723724365"/>
+  <param uid="level" val="-8.0"/>
+  <param uid="uiLFO" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4961193799972534"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlSync" val="1.0"/>
+  <param uid="dlBeat" val="11.0"/>
+  <param uid="dlFb" val="-9.379142761230469"/>
+  <param uid="dlCf" val="-19.82343292236328"/>
+  <param uid="dlMix" val="10.79700565338135"/>
+  <param uid="dlDelay" val="0.2586206793785095"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="rvbSize" val="0.7335563898086548"/>
+  <param uid="rvbDecay" val="0.4970893561840057"/>
+  <param uid="rvbLowpass" val="20000.0"/>
+  <param uid="rvbDamping" val="16.00000190734863"/>
+  <param uid="rvbMix" val="0.2946687340736389"/>
+  <param uid="fxOrder2" val="2.0"/>
+  <param uid="fxOrder3" val="3.0"/>
+  <param uid="fxOrder4" val="4.0"/>
+  <param uid="fxOrder5" val="1.0"/>
+</state>

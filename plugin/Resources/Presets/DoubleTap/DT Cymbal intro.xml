@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Cymbal intro" author="DoubleTap" tags="wip">
+  <state wt1="FM 12" wt2="FM 05" wt1Size="-1" wt2Size="-1" wt1Data="0."
+         wt2Data="0." editorScale="1.418875932693481">
+    <MODMATRIX>
+      <MODITEM srcId="step" depth="0.009999999776482582" enabled="1" dstId="osc1formant"/>
+      <MODITEM srcId="step" depth="0.009999999776482582" enabled="1" dstId="osc2formant"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1unison" val="8.0"/>
+  <param uid="osc1finetune" val="30.0325756072998"/>
+  <param uid="osc1pos" val="100.0"/>
+  <param uid="osc1detune" val="0.5"/>
+  <param uid="osc1spread" val="100.0"/>
+  <param uid="osc1formant" val="0.6617475748062134"/>
+  <param uid="osc1bend" val="-0.7316092848777771"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2unison" val="8.0"/>
+  <param uid="osc2finetune" val="42.59757232666016"/>
+  <param uid="osc2pos" val="100.0"/>
+  <param uid="osc2detune" val="0.5"/>
+  <param uid="osc2spread" val="100.0"/>
+  <param uid="osc2formant" val="0.4071445167064667"/>
+  <param uid="osc2bend" val="-0.3987091183662415"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="flttype" val="3.0"/>
+  <param uid="fltfreq" val="63.36724853515625"/>
+  <param uid="fltres" val="42.68452072143555"/>
+  <param uid="fltamount" val="0.1955119371414185"/>
+  <param uid="fltattack" val="0.0001108716605813242"/>
+  <param uid="fltdecay" val="0.02055238001048565"/>
+  <param uid="fltrelease" val="1.035839200019836"/>
+  <param uid="slfoenable" val="1.0"/>
+  <param uid="slfobeat" val="0.0"/>
+  <param uid="slfolength" val="2.0"/>
+  <param uid="slfostep1" val="1.0"/>
+  <param uid="slfostep2" val="-1.0"/>
+  <param uid="slfostep3" val="1.0"/>
+  <param uid="slfostep4" val="-1.0"/>
+  <param uid="slfostep5" val="1.0"/>
+  <param uid="slfostep6" val="-1.0"/>
+  <param uid="vel" val="0.0"/>
+  <param uid="attack" val="0.0001800604804884642"/>
+  <param uid="decay" val="0.8195800185203552"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="2.070690870285034"/>
+  <param uid="chEnable" val="1.0"/>
+  <param uid="chDelay" val="0.1000000014901161"/>
+  <param uid="chDepth" val="14.2568941116333"/>
+  <param uid="chSpeed" val="0.1000000014901161"/>
+  <param uid="chWidth" val="0.688992440700531"/>
+  <param uid="chMix" val="0.2727846801280975"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dsAmount" val="0.4348630309104919"/>
+  <param uid="dlEnable" val="1.0"/>
+  <param uid="dlTime" val="0.0"/>
+  <param uid="dlFb" val="-8.767670631408691"/>
+  <param uid="dlMix" val="1.9998779296875"/>
+  <param uid="dlDelay" val="0.0"/>
+  <param uid="rvEnable" val="1.0"/>
+  <param uid="fxOrder2" val="3.0"/>
+  <param uid="fxOrder3" val="4.0"/>
+  <param uid="fxOrder4" val="2.0"/>
+  <param uid="fxOrder5" val="1.0"/>
+  <param uid="distMode" val="3.0"/>
+  <param uid="crushrate" val="0.0"/>
+  <param uid="crushhard" val="0.3290395736694336"/>
+  <param uid="grindgain" val="0.88728928565979"/>
+  <param uid="grindtone" val="0.9762353301048279"/>
+  <param uid="grindoutput" val="0.5931860208511353"/>
+  <param uid="grindmix" val="0.1531804203987122"/>
+</state>

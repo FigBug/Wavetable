@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Siren 1" author="DoubleTap" tags="Siren FX">
+  <state wt1="NK - VIEW" wt2="Analog PWM Saw 01" wt1Size="-1" wt2Size="-1"
+         wt1Data="0." wt2Data="0." editorScale="1.420996785163879">
+    <MODMATRIX>
+      <MODITEM srcId="mlfo1" depth="1.0" enabled="1" dstId="osc1pos"/>
+      <MODITEM srcId="mlfo1" depth="0.6700000166893005" enabled="1" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="-24.0"/>
+  <param uid="osc1pos" val="51.15357208251953"/>
+  <param uid="osc1formant" val="0.2597812414169312"/>
+  <param uid="flttype" val="2.0"/>
+  <param uid="fltkey" val="100.0"/>
+  <param uid="fltfreq" val="56.20684814453125"/>
+  <param uid="fltres" val="27.71825981140137"/>
+  <param uid="fltattack" val="0.09999998658895493"/>
+  <param uid="fltdecay" val="0.09999998658895493"/>
+  <param uid="fltrelease" val="0.09999998658895493"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1enable" val="1.0"/>
+  <param uid="lfo1sync" val="1.0"/>
+  <param uid="lfo1rate" val="1.050662159919739"/>
+  <param uid="lfo1beat" val="16.0"/>
+  <param uid="lfo1depth" val="0.2153618335723877"/>
+  <param uid="attack" val="0.09999998658895493"/>
+  <param uid="decay" val="0.09999998658895493"/>
+  <param uid="release" val="4.196608066558838"/>
+  <param uid="mono" val="1.0"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dlFb" val="-10.00000190734863"/>
+</state>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<state name="DT Snare 2" author="DoubleTap" tags="Snare Drums DoubleTap">
+  <state wt1="Hyper 07" wt2="Hyper 05" wt1Data="0." wt2Data="0.">
+    <MODMATRIX>
+      <MODITEM srcId="fenv" depth="-1.0" dstId="osc1finetune"/>
+      <MODITEM srcId="fenv" depth="-0.5" dstId="osc1pos"/>
+      <MODITEM srcId="fenv" depth="-0.3499999940395355" dstId="osc2finetune"/>
+      <MODITEM srcId="fenv" depth="-0.4199999868869781" dstId="osc2pos"/>
+      <MODITEM srcId="lfo1" depth="0.05000000074505806" dstId="fltfreq"/>
+    </MODMATRIX>
+  </state>
+  <param uid="osc1tune" val="12.0"/>
+  <param uid="osc1level" val="-19.0"/>
+  <param uid="osc1pos" val="39.77915191650391"/>
+  <param uid="osc2enable" val="1.0"/>
+  <param uid="osc2level" val="-18.0"/>
+  <param uid="osc2pos" val="35.22834014892578"/>
+  <param uid="subwave" val="3.0"/>
+  <param uid="subtune" val="24.0"/>
+  <param uid="sublevel" val="-19.0"/>
+  <param uid="noiseenable" val="1.0"/>
+  <param uid="fltfreq" val="108.8041305541992"/>
+  <param uid="fltres" val="50.05655670166016"/>
+  <param uid="fltamount" val="0.1939399242401123"/>
+  <param uid="fltattack" val="0.4449463188648224"/>
+  <param uid="fltdecay" val="0.1067072004079819"/>
+  <param uid="fltsustain" val="0.0"/>
+  <param uid="fltrelease" val="0.03960679471492767"/>
+  <param uid="env1attack" val="0.09999998658895493"/>
+  <param uid="env1decay" val="0.09999998658895493"/>
+  <param uid="env1release" val="0.09999998658895493"/>
+  <param uid="env2attack" val="0.09999998658895493"/>
+  <param uid="env2decay" val="0.09999998658895493"/>
+  <param uid="env2release" val="0.09999998658895493"/>
+  <param uid="env3attack" val="0.09999998658895493"/>
+  <param uid="env3decay" val="0.09999998658895493"/>
+  <param uid="env3release" val="0.09999998658895493"/>
+  <param uid="lfo1wave" val="8.0"/>
+  <param uid="lfo1depth" val="0.971875011920929"/>
+  <param uid="attack" val="0.0"/>
+  <param uid="decay" val="0.09152672439813614"/>
+  <param uid="sustain" val="0.0"/>
+  <param uid="release" val="1.375487565994263"/>
+  <param uid="gateattack" val="0.1000000238418579"/>
+  <param uid="gaterelease" val="0.1000000238418579"/>
+  <param uid="dsEnable" val="1.0"/>
+  <param uid="dlFb" val="-10.00000190734863"/>
+  <param uid="rvbDecay" val="0.02129661478102207"/>
+  <param uid="rvbLowpass" val="73.45810699462891"/>
+  <param uid="rvbDamping" val="16.0"/>
+  <param uid="rvbPredelay" val="0.06577358394861221"/>
+  <param uid="rvbMix" val="0.5007873773574829"/>
+</state>
