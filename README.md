@@ -1,5 +1,5 @@
 # Wavetable
-Wavetable VST3 / AU / LV plugin
+Wavetable VST3 / AU / LV2 plugin
 
 ![Build](https://github.com/FigBug/Wavetable/workflows/Build/badge.svg)
 
