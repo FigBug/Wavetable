@@ -1,3 +1,7 @@
+1.0.20:
+
+- Added Adventure Kit Wavetables
+
 1.0.19:
 
 - Patch browser saves selection when close / reopen editor
