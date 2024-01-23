@@ -28,7 +28,7 @@ Editor::Editor (WavetableAudioProcessor& proc_)
             return true;
         return false;
     };
-    fx.onOrderChanged = [this]
+    fx.onOrderChanged = [this] (int, int)
     {
         proc.fxParams.fx1->setUserValue (fx.getChildComponent(0)->getProperties()["fxId"]);
         proc.fxParams.fx2->setUserValue (fx.getChildComponent(1)->getProperties()["fxId"]);
