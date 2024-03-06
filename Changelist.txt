@@ -1,3 +1,9 @@
+1.0.21:
+- Improved audio quality
+- Added unipolar/bipolar mappings to mod matrix
+- Added linear, quadratic, exponential, sine functions to mod matrix
+- Preset menu/arrows now match selection in preset browser
+
 1.0.20:
 
 - Added Adventure Kit Wavetables
