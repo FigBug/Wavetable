@@ -474,3 +474,8 @@ gin::WTOscillator::Params WavetableVoice::getLiveWTParams (int osc)
     p.bend = getValue (proc.oscParams[osc].bend);
     return p;
 }
+
+float WavetableVoice::getCurrentNote()
+{
+	return noteSmoother.getCurrentValue() * 127.0f;
+}

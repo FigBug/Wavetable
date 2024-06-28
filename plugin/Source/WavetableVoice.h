@@ -20,7 +20,9 @@ public:
     void noteTimbreChanged() override;
     void notePitchbendChanged() override;
     void noteKeyStateChanged() override     {}
-    
+
+	float getCurrentNote() override;
+
     void setCurrentSampleRate (double newRate) override;
 
     void renderNextBlock (juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples) override;
