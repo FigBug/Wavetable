@@ -894,9 +894,7 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
         scopeFifo.write (buffer);
 
     endBlock (buffer.getNumSamples());
-    
-    jassert (buffer.getMagnitude(0, buffer.getNumSamples()) < 0.0001);
-    
+       
     dspLock.exit();
 }
 
