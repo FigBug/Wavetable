@@ -10,3 +10,6 @@
 [submodule "modules/melatonin_inspector"]
 	path = modules/melatonin_inspector
 	url = git@github.com:sudara/melatonin_inspector.git
+[submodule "modules/MTS-ESP"]
+	path = modules/MTS-ESP
+	url = git@github.com:ODDSound/MTS-ESP.git
