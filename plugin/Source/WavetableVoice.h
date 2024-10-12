@@ -61,7 +61,5 @@ public:
     
     gin::EasedValueSmoother<float> noteSmoother;
     
-    float ampKeyTrack = 1.0f;
-    
-    MTSClient* mtsClient = nullptr;
+    float ampKeyTrack = 1.0f;    
 };

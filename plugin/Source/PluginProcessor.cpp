@@ -522,6 +522,7 @@ WavetableAudioProcessor::WavetableAudioProcessor()
                     extractProgram (BinaryData::originalFilenames[i], data, sz);
     }
 
+	mtsClient = MTS_RegisterClient();
     enableLegacyMode();
     setVoiceStealingEnabled (true);
 
@@ -577,6 +578,8 @@ WavetableAudioProcessor::WavetableAudioProcessor()
 
 WavetableAudioProcessor::~WavetableAudioProcessor()
 {
+	MTS_DeregisterClient (mtsClient);
+	mtsClient = nullptr;
 }
 
 void WavetableAudioProcessor::reloadWavetables()
@@ -843,6 +846,11 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     
     if (buffer.getNumChannels() != 2)
         return;
+
+	if (mtsClient)
+		for (auto itr : midi)
+			if (auto m = itr.getMessage(); m.isSysEx())
+				MTS_ParseMIDIDataU (mtsClient, itr.data, itr.numBytes);
 
     if (blockMissed || presetLoaded || lastMono != globalParams.mono->isOn())
     {

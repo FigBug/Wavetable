@@ -348,6 +348,8 @@ public:
     juce::CriticalSection dspLock;
     juce::Random rng;
 
+	MTSClient* mtsClient = nullptr;
+
 private:
     bool isParamLocked (gin::Parameter* p) override;
     float getSmoothingTime (gin::Parameter*);
