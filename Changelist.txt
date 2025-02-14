@@ -1,3 +1,9 @@
+1.0.23:
+- Fixed crash
+
+1.0.22: 
+- Added microtonal support
+
 1.0.21:
 - Improved audio quality
 - Added unipolar/bipolar mappings to mod matrix
