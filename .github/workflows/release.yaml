@@ -42,9 +42,9 @@ jobs:
           APPLE_USER: ${{ secrets.APPLE_USER }}
           APIKEY: ${{ secrets.APIKEY }}
       - name: Upload Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: Binaries
+          name: Binaries ${{ matrix.name }}
           path: ci/bin/*.zip
           retention-days: 30
 
