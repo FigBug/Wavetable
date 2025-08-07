@@ -50,7 +50,7 @@ void GrindAmp::processReplacing(float **inputs, float **outputs, VstInt32 sample
 	fixE[fix_reso] = 0.52972649;
 	fixF[fix_reso] = 0.50316379;
 	
-	double K = tan(M_PI * fixA[fix_freq]); //lowpass
+	double K = tan(juce::MathConstants<float>::pi * fixA[fix_freq]); //lowpass
 	double norm = 1.0 / (1.0 + K / fixA[fix_reso] + K * K);
 	fixA[fix_a0] = K * K * norm;
 	fixA[fix_a1] = 2.0 * fixA[fix_a0];
@@ -58,7 +58,7 @@ void GrindAmp::processReplacing(float **inputs, float **outputs, VstInt32 sample
 	fixA[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixA[fix_b2] = (1.0 - K / fixA[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixB[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixB[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixB[fix_reso] + K * K);
 	fixB[fix_a0] = K * K * norm;
 	fixB[fix_a1] = 2.0 * fixB[fix_a0];
@@ -66,7 +66,7 @@ void GrindAmp::processReplacing(float **inputs, float **outputs, VstInt32 sample
 	fixB[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixB[fix_b2] = (1.0 - K / fixB[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixC[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixC[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixC[fix_reso] + K * K);
 	fixC[fix_a0] = K * K * norm;
 	fixC[fix_a1] = 2.0 * fixC[fix_a0];
@@ -74,7 +74,7 @@ void GrindAmp::processReplacing(float **inputs, float **outputs, VstInt32 sample
 	fixC[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixC[fix_b2] = (1.0 - K / fixC[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixD[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixD[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixD[fix_reso] + K * K);
 	fixD[fix_a0] = K * K * norm;
 	fixD[fix_a1] = 2.0 * fixD[fix_a0];
@@ -82,7 +82,7 @@ void GrindAmp::processReplacing(float **inputs, float **outputs, VstInt32 sample
 	fixD[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixD[fix_b2] = (1.0 - K / fixD[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixE[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixE[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixE[fix_reso] + K * K);
 	fixE[fix_a0] = K * K * norm;
 	fixE[fix_a1] = 2.0 * fixE[fix_a0];
@@ -90,7 +90,7 @@ void GrindAmp::processReplacing(float **inputs, float **outputs, VstInt32 sample
 	fixE[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixE[fix_b2] = (1.0 - K / fixE[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixF[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixF[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixF[fix_reso] + K * K);
 	fixF[fix_a0] = K * K * norm;
 	fixF[fix_a1] = 2.0 * fixF[fix_a0];
@@ -873,7 +873,7 @@ void GrindAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt3
 	fixE[fix_reso] = 0.52972649;
 	fixF[fix_reso] = 0.50316379;
 	
-	double K = tan(M_PI * fixA[fix_freq]); //lowpass
+	double K = tan(juce::MathConstants<float>::pi * fixA[fix_freq]); //lowpass
 	double norm = 1.0 / (1.0 + K / fixA[fix_reso] + K * K);
 	fixA[fix_a0] = K * K * norm;
 	fixA[fix_a1] = 2.0 * fixA[fix_a0];
@@ -881,7 +881,7 @@ void GrindAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt3
 	fixA[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixA[fix_b2] = (1.0 - K / fixA[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixB[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixB[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixB[fix_reso] + K * K);
 	fixB[fix_a0] = K * K * norm;
 	fixB[fix_a1] = 2.0 * fixB[fix_a0];
@@ -889,7 +889,7 @@ void GrindAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt3
 	fixB[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixB[fix_b2] = (1.0 - K / fixB[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixC[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixC[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixC[fix_reso] + K * K);
 	fixC[fix_a0] = K * K * norm;
 	fixC[fix_a1] = 2.0 * fixC[fix_a0];
@@ -897,7 +897,7 @@ void GrindAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt3
 	fixC[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixC[fix_b2] = (1.0 - K / fixC[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixD[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixD[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixD[fix_reso] + K * K);
 	fixD[fix_a0] = K * K * norm;
 	fixD[fix_a1] = 2.0 * fixD[fix_a0];
@@ -905,7 +905,7 @@ void GrindAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt3
 	fixD[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixD[fix_b2] = (1.0 - K / fixD[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixE[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixE[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixE[fix_reso] + K * K);
 	fixE[fix_a0] = K * K * norm;
 	fixE[fix_a1] = 2.0 * fixE[fix_a0];
@@ -913,7 +913,7 @@ void GrindAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt3
 	fixE[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixE[fix_b2] = (1.0 - K / fixE[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixF[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixF[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixF[fix_reso] + K * K);
 	fixF[fix_a0] = K * K * norm;
 	fixF[fix_a1] = 2.0 * fixF[fix_a0];
