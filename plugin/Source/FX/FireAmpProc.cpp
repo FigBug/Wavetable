@@ -56,7 +56,7 @@ void FireAmp::processReplacing(float **inputs, float **outputs, VstInt32 sampleF
 	fixE[fix_reso] = 0.52972649;
 	fixF[fix_reso] = 0.50316379;
 	
-	double K = tan(M_PI * fixA[fix_freq]); //lowpass
+	double K = tan(juce::MathConstants<float>::pi * fixA[fix_freq]); //lowpass
 	double norm = 1.0 / (1.0 + K / fixA[fix_reso] + K * K);
 	fixA[fix_a0] = K * K * norm;
 	fixA[fix_a1] = 2.0 * fixA[fix_a0];
@@ -64,7 +64,7 @@ void FireAmp::processReplacing(float **inputs, float **outputs, VstInt32 sampleF
 	fixA[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixA[fix_b2] = (1.0 - K / fixA[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixB[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixB[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixB[fix_reso] + K * K);
 	fixB[fix_a0] = K * K * norm;
 	fixB[fix_a1] = 2.0 * fixB[fix_a0];
@@ -72,7 +72,7 @@ void FireAmp::processReplacing(float **inputs, float **outputs, VstInt32 sampleF
 	fixB[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixB[fix_b2] = (1.0 - K / fixB[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixC[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixC[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixC[fix_reso] + K * K);
 	fixC[fix_a0] = K * K * norm;
 	fixC[fix_a1] = 2.0 * fixC[fix_a0];
@@ -80,7 +80,7 @@ void FireAmp::processReplacing(float **inputs, float **outputs, VstInt32 sampleF
 	fixC[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixC[fix_b2] = (1.0 - K / fixC[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixD[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixD[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixD[fix_reso] + K * K);
 	fixD[fix_a0] = K * K * norm;
 	fixD[fix_a1] = 2.0 * fixD[fix_a0];
@@ -88,7 +88,7 @@ void FireAmp::processReplacing(float **inputs, float **outputs, VstInt32 sampleF
 	fixD[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixD[fix_b2] = (1.0 - K / fixD[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixE[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixE[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixE[fix_reso] + K * K);
 	fixE[fix_a0] = K * K * norm;
 	fixE[fix_a1] = 2.0 * fixE[fix_a0];
@@ -96,7 +96,7 @@ void FireAmp::processReplacing(float **inputs, float **outputs, VstInt32 sampleF
 	fixE[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixE[fix_b2] = (1.0 - K / fixE[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixF[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixF[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixF[fix_reso] + K * K);
 	fixF[fix_a0] = K * K * norm;
 	fixF[fix_a1] = 2.0 * fixF[fix_a0];
@@ -907,7 +907,7 @@ void FireAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt32
 	fixE[fix_reso] = 0.52972649;
 	fixF[fix_reso] = 0.50316379;
 	
-	double K = tan(M_PI * fixA[fix_freq]); //lowpass
+	double K = tan(juce::MathConstants<float>::pi * fixA[fix_freq]); //lowpass
 	double norm = 1.0 / (1.0 + K / fixA[fix_reso] + K * K);
 	fixA[fix_a0] = K * K * norm;
 	fixA[fix_a1] = 2.0 * fixA[fix_a0];
@@ -915,7 +915,7 @@ void FireAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt32
 	fixA[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixA[fix_b2] = (1.0 - K / fixA[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixB[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixB[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixB[fix_reso] + K * K);
 	fixB[fix_a0] = K * K * norm;
 	fixB[fix_a1] = 2.0 * fixB[fix_a0];
@@ -923,7 +923,7 @@ void FireAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt32
 	fixB[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixB[fix_b2] = (1.0 - K / fixB[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixC[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixC[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixC[fix_reso] + K * K);
 	fixC[fix_a0] = K * K * norm;
 	fixC[fix_a1] = 2.0 * fixC[fix_a0];
@@ -931,7 +931,7 @@ void FireAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt32
 	fixC[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixC[fix_b2] = (1.0 - K / fixC[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixD[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixD[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixD[fix_reso] + K * K);
 	fixD[fix_a0] = K * K * norm;
 	fixD[fix_a1] = 2.0 * fixD[fix_a0];
@@ -939,7 +939,7 @@ void FireAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt32
 	fixD[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixD[fix_b2] = (1.0 - K / fixD[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixE[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixE[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixE[fix_reso] + K * K);
 	fixE[fix_a0] = K * K * norm;
 	fixE[fix_a1] = 2.0 * fixE[fix_a0];
@@ -947,7 +947,7 @@ void FireAmp::processDoubleReplacing(double **inputs, double **outputs, VstInt32
 	fixE[fix_b1] = 2.0 * (K * K - 1.0) * norm;
 	fixE[fix_b2] = (1.0 - K / fixE[fix_reso] + K * K) * norm;
 	
-	K = tan(M_PI * fixF[fix_freq]);
+	K = tan(juce::MathConstants<float>::pi * fixF[fix_freq]);
 	norm = 1.0 / (1.0 + K / fixF[fix_reso] + K * K);
 	fixF[fix_a0] = K * K * norm;
 	fixF[fix_a1] = 2.0 * fixF[fix_a0];
