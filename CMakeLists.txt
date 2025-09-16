@@ -29,7 +29,7 @@ set_property (DIRECTORY APPEND PROPERTY LABELS ${PLUGIN_NAME})
 set_property (DIRECTORY APPEND PROPERTY LABELS SocaLabs)
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PLUGIN_NAME}_Standalone)
 
-set (CMAKE_OSX_DEPLOYMENT_TARGET 10.11)
+set (CMAKE_OSX_DEPLOYMENT_TARGET 10.13)
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION ON)
@@ -132,8 +132,8 @@ file (GLOB_RECURSE source_files CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/plugin/*.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/plugin/*.h)
 
-target_sources (${PLUGIN_NAME} PRIVATE 
-	${source_files} 
+target_sources (${PLUGIN_NAME} PRIVATE
+	${source_files}
 	${CMAKE_CURRENT_SOURCE_DIR}/modules/MTS-ESP/Client/libMTSClient.h
 	${CMAKE_CURRENT_SOURCE_DIR}/modules/MTS-ESP/Client/libMTSClient.cpp)
 source_group (TREE ${CMAKE_CURRENT_SOURCE_DIR}/plugin PREFIX Source FILES ${source_files})
@@ -195,8 +195,6 @@ target_compile_definitions (${PLUGIN_NAME} PRIVATE
 							)
 
 if (APPLE)
-	set_target_properties("juce_vst3_helper" PROPERTIES XCODE_ATTRIBUTE_CLANG_LINK_OBJC_RUNTIME NO)
-
     foreach(t ${FORMATS} "Assets" "All" "")
         set(tgt ${CMAKE_PROJECT_NAME})
         if (NOT t STREQUAL "")
