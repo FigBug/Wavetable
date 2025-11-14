@@ -34,3 +34,4 @@ xcuserdata
 Builds
 JuceLibraryCode
 ci/bin
+.DS_Store

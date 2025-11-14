@@ -26,7 +26,6 @@ public:
     static constexpr int kNumPrograms = 0;
     static constexpr int kNumInputs = 2;
     static constexpr int kNumOutputs = 2;
-    static constexpr unsigned long kUniqueId = 'fira';    //Change this to what the AU identity is!
     
     FireAmp(audioMasterCallback audioMaster);
     ~FireAmp();

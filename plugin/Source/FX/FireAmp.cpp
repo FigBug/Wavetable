@@ -120,7 +120,6 @@ FireAmp::FireAmp(audioMasterCallback audioMaster) :
     _canDo.insert("x2in2out"); 
     setNumInputs(kNumInputs);
     setNumOutputs(kNumOutputs);
-    setUniqueID(kUniqueId);
     canProcessReplacing();     // supports output replacing
     canDoubleReplacing();      // supports double precision processing
 	programsAreChunks(true);
