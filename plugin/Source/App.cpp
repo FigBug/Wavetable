@@ -1,6 +1,8 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
+#if 0
+
 static void profile (juce::PropertiesFile& settings)
 {
     WavetableAudioProcessor proc;
@@ -67,3 +69,5 @@ juce::JUCEApplicationBase* juce_CreateApplication()
         return true;
     });
 }
+
+#endif
