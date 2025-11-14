@@ -1144,7 +1144,7 @@ void WavetableAudioProcessor::updateParams (int newBlockSize)
     outputGain.setGain (modMatrix.getValue (globalParams.level));
 }
 
-bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format, int size)
+bool WavetableAudioProcessor::loadWaveTable (gin::Wavetable& table, double sr, const juce::MemoryBlock& wav, const juce::String& format, int size)
 {
     auto is = new juce::MemoryInputStream (wav, false);
 
@@ -1165,7 +1165,7 @@ bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLo
                 juce::AudioSampleBuffer buf (1, samplesToUse);
                 reader->read (&buf, 0, samplesToUse, 0, true, false);
 
-                juce::OwnedArray<gin::BandLimitedLookupTable> t;
+                gin::Wavetable t;
                 loadWavetables (t, sr, buf, reader->sampleRate, size);
 
                 juce::ScopedLock sl (dspLock);
@@ -1182,12 +1182,12 @@ bool WavetableAudioProcessor::loadWaveTable (juce::OwnedArray<gin::BandLimitedLo
             juce::AudioSampleBuffer buf (1, int (reader->lengthInSamples));
             reader->read (&buf, 0, int (reader->lengthInSamples), 0, true, false);
 
-            juce::OwnedArray<gin::BandLimitedLookupTable> t;
+            gin::Wavetable t;
             loadWavetables (t, sr, buf, reader->sampleRate, 2048);
-            
+
             juce::ScopedLock sl (dspLock);
             std::swap (t, table);
-            
+
             return true;
         }
     }

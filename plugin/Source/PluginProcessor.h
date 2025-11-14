@@ -56,7 +56,7 @@ public:
     void applyEffects (juce::AudioSampleBuffer& buffer);
     void applyEffect (juce::AudioSampleBuffer& buffer, int fxId);
 
-    bool loadWaveTable (juce::OwnedArray<gin::BandLimitedLookupTable>& table, double sr, const juce::MemoryBlock& wav, const juce::String& format, int size);
+    bool loadWaveTable (gin::Wavetable& table, double sr, const juce::MemoryBlock& wav, const juce::String& format, int size);
 
     // Voice Params
     struct OSCParams
@@ -317,8 +317,8 @@ public:
     FireAmp fireAmp;
     GrindAmp grindAmp;
 
-    juce::OwnedArray<gin::BandLimitedLookupTable> osc1Tables;
-    juce::OwnedArray<gin::BandLimitedLookupTable> osc2Tables;
+    gin::Wavetable osc1Tables;
+    gin::Wavetable osc2Tables;
 
     gin::BandLimitedLookupTables analogTables;
 
