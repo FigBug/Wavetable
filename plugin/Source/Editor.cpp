@@ -100,7 +100,7 @@ void Editor::resized()
 
     layout.setLayout ({f});
    #else
-    layout.setLayout ({"layout.json"});
+    layout.setLayout (juce::StringArray ("layout.json"));
    #endif
     
     handleAsyncUpdate();
