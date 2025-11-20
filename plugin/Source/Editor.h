@@ -44,5 +44,5 @@ private:
 
     gin::ComponentGrid fx { "fx" };
 
-    gin::Layout layout { *this };
+    gin::LayoutSupport layout { *this };
 };

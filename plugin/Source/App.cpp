@@ -57,17 +57,4 @@ static void profile (juce::PropertiesFile& settings)
     printf ("Elapsed time: %.2fs\n", (end - start) / 1000);
 }
 
-juce::JUCEApplicationBase* juce_CreateApplication()
-{
-    return new gin::StandaloneApp([] (juce::PropertiesFile& settings)
-    {
-        if (juce::JUCEApplication::getCommandLineParameters ().contains ("-profile"))
-        {
-            profile (settings);
-            return false;
-        }
-        return true;
-    });
-}
-
 #endif
