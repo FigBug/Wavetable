@@ -91,7 +91,7 @@ public:
         if (sz <= 0)
         {
             auto w = std::make_shared<gin::PluginAlertWindow> ("Import Wavetable", "Wav file does not contain Wavetable metadata. What is the wavetable size?", juce::AlertWindow::NoIcon, getParentComponent());
-            w->setLookAndFeel (proc.lf.get());
+            w->setLookAndFeel (proc.processorOptions.lookAndFeel.get());
             w->addComboBox ("size", { "256", "512", "1024", "2048" }, "Samples per table:");
             w->getComboBoxComponent ("size")->setSelectedItemIndex (3);
 
