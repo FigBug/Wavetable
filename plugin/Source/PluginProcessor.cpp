@@ -508,8 +508,15 @@ void extractWavetables()
 #endif
 
 //==============================================================================
+static gin::ProcessorOptions createProcessorOptions()
+{
+    gin::ProcessorOptions opts;
+    opts.hasMidiLearn = true;
+    return opts;
+}
+
 WavetableAudioProcessor::WavetableAudioProcessor()
-  : gin::Processor (juce::AudioProcessor::BusesProperties().withOutput ("Output", juce::AudioChannelSet::stereo(), true), false),
+  : gin::Processor (juce::AudioProcessor::BusesProperties().withOutput ("Output", juce::AudioChannelSet::stereo(), true), false, createProcessorOptions()),
     bitcrusher (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); })),
     fireAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); })),
     grindAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); }))
@@ -846,6 +853,8 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     
     if (buffer.getNumChannels() != 2)
         return;
+
+    midiLearn->processBlock (midi, buffer.getNumSamples());
 
 	if (mtsClient)
 		for (auto itr : midi)

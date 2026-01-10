@@ -176,6 +176,7 @@ public:
 
             juce::PopupMenu m;
             m.setLookAndFeel (&getLookAndFeel());
+            
             for (auto itr : menus)
                 m.addSubMenu (itr.first, itr.second);
 
