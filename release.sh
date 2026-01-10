@@ -23,4 +23,4 @@ fi
 
 echo "$NOTES" > /tmp/release_notes.txt
 
-gh release create "$VER" -F /tmp/release_notes.txt ./Binaries\ Linux/*.zip ./Binaries\ Windows/*.zip ./Binaries\ macOS/*.zip
+gh release create "$VER" --title "$VER" -F /tmp/release_notes.txt ./Binaries\ Linux/*.zip ./Binaries\ Windows/*.zip ./Binaries\ macOS/*.zip
