@@ -9,8 +9,8 @@ VER="$GITHUB_REF_NAME"
 # Extract the changelog section for the current version
 # Matches version with optional colon, captures until the next version line or EOF
 NOTES=$(awk -v ver="$VER" '
-    BEGIN { found=0; printing=0 }
-    $0 ~ "^"ver":?"$ { found=1; printing=1; next }
+    BEGIN { found=0; printing=0; pattern="^"ver":?$" }
+    $0 ~ pattern { found=1; printing=1; next }
     printing && /^[0-9]+\.[0-9]+\.[0-9]+:?$/ { printing=0 }
     printing { print }
     END { if (!found) exit 1 }
