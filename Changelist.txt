@@ -1,8 +1,11 @@
-1.0.24
+1.0.24:
 - Added MIDI learn
+- Fixed glitch in noise LFO
+- Made LFO more random
+- Minimum macOS requirement is now 10.13
 
 1.0.23:
-- Fixed crash
+- Fixed mod matrix crash
 
 1.0.22:
 - Added microtonal support
