@@ -854,7 +854,8 @@ void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, ju
     if (buffer.getNumChannels() != 2)
         return;
 
-    midiLearn->processBlock (midi, buffer.getNumSamples());
+    if (midiLearn)
+        midiLearn->processBlock (midi, buffer.getNumSamples());
 
 	if (mtsClient)
 		for (auto itr : midi)
