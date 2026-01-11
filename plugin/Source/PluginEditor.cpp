@@ -22,7 +22,8 @@ WavetableAudioProcessorEditor::WavetableAudioProcessorEditor (WavetableAudioProc
     addAndMakeVisible (usage);
     
     addChildComponent (modOverview);
-    
+    addAndMakeVisible (modOverlay);
+
     usage.setBounds (45, 12, 80, 16);
     modOverview.setBounds (usage.getRight() + 10, 12, 150, 16);
     scope.setBounds (704, 5, 187, 30);
@@ -70,6 +71,7 @@ void WavetableAudioProcessorEditor::resized()
 
     editor.setBounds (rc);
     patchBrowser.setBounds (rc);
+    modOverlay.setBounds (getLocalBounds());
 }
 
 void WavetableAudioProcessorEditor::addMenuItems (juce::PopupMenu& m)
@@ -97,4 +99,8 @@ void WavetableAudioProcessorEditor::addMenuItems (juce::PopupMenu& m)
     um.addItem ("200%", [setSize] { setSize (2.00f); });
 
     m.addSubMenu ("UI Size", um);
+
+    m.addSeparator();
+
+    m.addItem ("Manual", [] { juce::URL ("https://github.com/FigBug/Wavetable/blob/master/Manual.md").launchInDefaultBrowser(); });
 }

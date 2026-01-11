@@ -26,7 +26,8 @@ private:
     gin::TriggeredScope scope { wtProc.scopeFifo };
     gin::SynthesiserUsage usage { wtProc };
     gin::ModulationOverview modOverview { wtProc.modMatrix };
-    
+    gin::ModOverlay modOverlay { wtProc.modMatrix };
+
     Editor editor { wtProc };
 
    #if JUCE_DEBUG
