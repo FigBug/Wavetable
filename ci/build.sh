@@ -97,6 +97,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
   cd "$ROOT/ci/bin"
 
+  # Strip debug symbols
+  strip $PLUGIN.so
+  strip $PLUGIN.vst3/Contents/x86_64-linux/$PLUGIN.so
+  strip $PLUGIN.lv2/lib$PLUGIN.so
+
   # Upload
   cd "$ROOT/ci/bin"
   zip -r ${PLUGIN}_Linux.zip $PLUGIN.so $PLUGIN.vst3 $PLUGIN.lv2
