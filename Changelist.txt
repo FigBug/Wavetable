@@ -1,3 +1,6 @@
+1.0.26:
+- Fixed crash with midi learn
+
 1.0.25:
 - Added manual
 - Added cable when dragging mod sources
