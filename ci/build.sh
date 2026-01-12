@@ -51,15 +51,19 @@ if [ "$(uname)" == "Darwin" ]; then
   cmake --preset xcode
   cmake --build --preset xcode --config Release
 
-  cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/AU/$PLUGIN.component" "$ROOT/ci/bin"
-  cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/VST/$PLUGIN.vst" "$ROOT/ci/bin"
-  cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin"
+  mkdir -p "$ROOT/ci/bin/au"
+  mkdir -p "$ROOT/ci/bin/vst"
+  mkdir -p "$ROOT/ci/bin/vst3"
+
+  cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/AU/$PLUGIN.component" "$ROOT/ci/bin/au"
+  cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/VST/$PLUGIN.vst" "$ROOT/ci/bin/vst"
+  cp -R "$ROOT/Builds/xcode/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin/vst3"
 
   cd "$ROOT/ci/bin"
   if [ -n "$APPLICATION" ]; then
-    codesign -s "$DEV_APP_ID" -v $PLUGIN.vst --options=runtime --timestamp --force
-    codesign -s "$DEV_APP_ID" -v $PLUGIN.vst3 --options=runtime --timestamp --force
-    codesign -s "$DEV_APP_ID" -v $PLUGIN.component --options=runtime --timestamp --force
+    codesign -s "$DEV_APP_ID" -v vst/$PLUGIN.vst --options=runtime --timestamp --force
+    codesign -s "$DEV_APP_ID" -v vst3/$PLUGIN.vst3 --options=runtime --timestamp --force
+    codesign -s "$DEV_APP_ID" -v au/$PLUGIN.component --options=runtime --timestamp --force
   else
     echo "Not signing"
   fi
@@ -68,43 +72,47 @@ if [ "$(uname)" == "Darwin" ]; then
   cd "$ROOT/ci/bin"
 
   if [[ -n "$APPLE_USER" ]]; then
-    zip -r ${PLUGIN}_Mac.zip $PLUGIN.vst $PLUGIN.vst3 $PLUGIN.component
+    zip -r ${PLUGIN}_Mac.zip vst/$PLUGIN.vst vst3/$PLUGIN.vst3 au/$PLUGIN.component
     xcrun notarytool submit --verbose --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "3FS7DJDG38" --wait --timeout 30m ${PLUGIN}_Mac.zip
 
     rm ${PLUGIN}_Mac.zip
-    xcrun stapler staple $PLUGIN.vst
-    xcrun stapler staple $PLUGIN.vst3
-    xcrun stapler staple $PLUGIN.component
+    xcrun stapler staple vst/$PLUGIN.vst
+    xcrun stapler staple vst3/$PLUGIN.vst3
+    xcrun stapler staple au/$PLUGIN.component
   else
     echo "Not notarizing"
   fi
 
-  zip -r ${PLUGIN}_Mac.zip $PLUGIN.vst $PLUGIN.vst3 $PLUGIN.component
-  
+  zip -r ${PLUGIN}_Mac.zip vst/$PLUGIN.vst vst3/$PLUGIN.vst3 au/$PLUGIN.component
+
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Mac.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
   fi
 # Build linux version
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   cd "$ROOT"
-  
+
   cmake --preset ninja-gcc
   cmake --build --preset ninja-gcc --config Release
 
-  cp -R "$ROOT/Builds/ninja-gcc/${PLUGIN}_artefacts/Release/LV2/$PLUGIN.lv2" "$ROOT/ci/bin"
-  cp -R "$ROOT/Builds/ninja-gcc/${PLUGIN}_artefacts/Release/VST/lib$PLUGIN.so" "$ROOT/ci/bin/$PLUGIN.so"
-  cp -R "$ROOT/Builds/ninja-gcc/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin"
+  mkdir -p "$ROOT/ci/bin/lv2"
+  mkdir -p "$ROOT/ci/bin/vst"
+  mkdir -p "$ROOT/ci/bin/vst3"
+
+  cp -R "$ROOT/Builds/ninja-gcc/${PLUGIN}_artefacts/Release/LV2/$PLUGIN.lv2" "$ROOT/ci/bin/lv2"
+  cp -R "$ROOT/Builds/ninja-gcc/${PLUGIN}_artefacts/Release/VST/lib$PLUGIN.so" "$ROOT/ci/bin/vst/$PLUGIN.so"
+  cp -R "$ROOT/Builds/ninja-gcc/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin/vst3"
 
   cd "$ROOT/ci/bin"
 
   # Strip debug symbols
-  strip $PLUGIN.so
-  strip $PLUGIN.vst3/Contents/x86_64-linux/$PLUGIN.so
-  strip $PLUGIN.lv2/lib$PLUGIN.so
+  strip vst/$PLUGIN.so
+  strip vst3/$PLUGIN.vst3/Contents/x86_64-linux/$PLUGIN.so
+  strip lv2/$PLUGIN.lv2/lib$PLUGIN.so
 
   # Upload
   cd "$ROOT/ci/bin"
-  zip -r ${PLUGIN}_Linux.zip $PLUGIN.so $PLUGIN.vst3 $PLUGIN.lv2
+  zip -r ${PLUGIN}_Linux.zip vst/$PLUGIN.so vst3/$PLUGIN.vst3 lv2/$PLUGIN.lv2
 
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Linux.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
@@ -116,12 +124,14 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
   cmake --preset vs
   cmake --build --preset vs --config Release
 
+  mkdir -p "$ROOT/ci/bin/vst"
+  mkdir -p "$ROOT/ci/bin/vst3"
+
+  cp -R "$ROOT/Builds/vs/${PLUGIN}_artefacts/Release/VST/$PLUGIN.dll" "$ROOT/ci/bin/vst"
+  cp -R "$ROOT/Builds/vs/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin/vst3"
+
   cd "$ROOT/ci/bin"
-
-  cp -R "$ROOT/Builds/vs/${PLUGIN}_artefacts/Release/VST/$PLUGIN.dll" "$ROOT/ci/bin"
-  cp -R "$ROOT/Builds/vs/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin"
-
-  7z a ${PLUGIN}_Win.zip $PLUGIN.dll $PLUGIN.vst3
+  7z a ${PLUGIN}_Win.zip vst/$PLUGIN.dll vst3/$PLUGIN.vst3
 
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Win.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
