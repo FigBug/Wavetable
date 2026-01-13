@@ -1,15 +1,15 @@
 [submodule "modules/gin"]
 	path = modules/gin
-	url = git@github.com:FigBug/Gin.git
+	url = https://github.com/FigBug/Gin.git
 [submodule "modules/juce"]
 	path = modules/juce
-	url = git@github.com:juce-framework/JUCE.git
+	url = https://github.com/juce-framework/JUCE.git
 [submodule "modules/plugin_sdk"]
 	path = modules/plugin_sdk
-	url = git@github.com:TurnipHat/plugin_sdk.git
+	url = https://github.com/TurnipHat/plugin_sdk.git
 [submodule "modules/melatonin_inspector"]
 	path = modules/melatonin_inspector
-	url = git@github.com:sudara/melatonin_inspector.git
+	url = https://github.com/sudara/melatonin_inspector.git
 [submodule "modules/MTS-ESP"]
 	path = modules/MTS-ESP
-	url = git@github.com:ODDSound/MTS-ESP.git
+	url = https://github.com/ODDSound/MTS-ESP.git
