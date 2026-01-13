@@ -90,18 +90,14 @@ endforeach()
 juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/modules/melatonin_inspector")
 set_property (TARGET melatonin_inspector APPEND PROPERTY LABELS melatonin)
 
-# Binary Data
+# Binary Data (only layout.json - wavetables and presets are loaded from disk)
 
 set_property (DIRECTORY APPEND PROPERTY LABELS Assets)
 
 file (GLOB_RECURSE binary_files CONFIGURE_DEPENDS
-	"./plugin/Resources/layout.json"
-	"./plugin/Resources/WavetablesFLAC/*.wt2048"
-	"./plugin/Resources/Presets/*.xml")
+	"./plugin/Resources/layout.json")
 
 juce_add_binary_data (${PLUGIN_NAME}_Assets SOURCES ${binary_files})
-
-set_target_properties(${PLUGIN_NAME}_Assets PROPERTIES UNITY_BUILD ON UNITY_BUILD_MODE BATCH UNITY_BUILD_BATCH_SIZE 10)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 

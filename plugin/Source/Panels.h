@@ -143,12 +143,7 @@ public:
         }
         else if (e.originalComponent == &h && e.mouseWasClicked() && e.x >= prevButton.getRight() && e.x <= nextButton.getX())
         {
-            juce::StringArray tables;
-            for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
-                if (juce::String (BinaryData::originalFilenames[i]).endsWith (".wt2048"))
-                    tables.add (juce::String (BinaryData::originalFilenames[i]).upToLastOccurrenceOf (".wt2048", false, false));
-
-            tables.sortNatural();
+            juce::StringArray tables = proc.getWavetableList();
 
             std::map<juce::String, juce::PopupMenu> menus;
 

@@ -2,6 +2,7 @@
 set +x
 
 PLUGIN="Wavetable"
+VERSION=$(cat VERSION)
 
 # linux specific stiff
 if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -83,10 +84,22 @@ if [ "$(uname)" == "Darwin" ]; then
     echo "Not notarizing"
   fi
 
+  # Build installer package
+  echo "Building macOS installer..."
+  export VERSION
+  export DEV_INST_ID
+  "$ROOT/Installer/macOS/build_pkg.sh"
+
+  # Copy installer to bin
+  cp "$ROOT/Installer/macOS/output/${PLUGIN}_${VERSION}_Mac.pkg" "$ROOT/ci/bin/"
+
+  # Also create zip of plugins for backwards compatibility
+  cd "$ROOT/ci/bin"
   zip -r ${PLUGIN}_Mac.zip vst/$PLUGIN.vst vst3/$PLUGIN.vst3 au/$PLUGIN.component
 
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Mac.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
+    curl -F "files=@${PLUGIN}_${VERSION}_Mac.pkg" "https://socalabs.com/files/set.php?key=$APIKEY"
   fi
 # Build linux version
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -110,12 +123,21 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   strip vst3/$PLUGIN.vst3/Contents/x86_64-linux/$PLUGIN.so
   strip lv2/$PLUGIN.lv2/lib$PLUGIN.so
 
-  # Upload
+  # Build .deb package
+  echo "Building Linux .deb package..."
+  export VERSION
+  "$ROOT/Installer/linux/build_deb.sh"
+
+  # Copy deb to bin
+  cp "$ROOT/Installer/linux/output/"*.deb "$ROOT/ci/bin/"
+
+  # Also create zip for backwards compatibility
   cd "$ROOT/ci/bin"
   zip -r ${PLUGIN}_Linux.zip vst/$PLUGIN.so vst3/$PLUGIN.vst3 lv2/$PLUGIN.lv2
 
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Linux.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
+    curl -F "files=@wavetable_${VERSION}_amd64.deb" "https://socalabs.com/files/set.php?key=$APIKEY"
   fi
 # Build Win version
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
@@ -126,14 +148,44 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
 
   mkdir -p "$ROOT/ci/bin/vst"
   mkdir -p "$ROOT/ci/bin/vst3"
+  mkdir -p "$ROOT/ci/bin/Wavetables"
+  mkdir -p "$ROOT/ci/bin/Presets"
 
   cp -R "$ROOT/Builds/vs/${PLUGIN}_artefacts/Release/VST/$PLUGIN.dll" "$ROOT/ci/bin/vst"
   cp -R "$ROOT/Builds/vs/${PLUGIN}_artefacts/Release/VST3/$PLUGIN.vst3" "$ROOT/ci/bin/vst3"
 
+  # Copy assets for installer
+  cp -R "$ROOT/plugin/Resources/WavetablesFLAC/"* "$ROOT/ci/bin/Wavetables/"
+  cp -R "$ROOT/plugin/Resources/Presets/"* "$ROOT/ci/bin/Presets/"
+
+  # Build installer with Inno Setup
+  echo "Building Windows installer..."
+  cd "$ROOT/Installer/win"
+  mkdir -p bin
+  cp -R "$ROOT/ci/bin/vst" bin/
+  cp -R "$ROOT/ci/bin/vst3" bin/
+  cp -R "$ROOT/ci/bin/Wavetables" bin/
+  cp -R "$ROOT/ci/bin/Presets" bin/
+  mkdir -p output
+
+  # Set version for Inno Setup
+  export VERSION
+
+  # Run Inno Setup (iscc is the command-line compiler)
+  iscc "Wavetable.iss"
+
+  # Copy installer to ci/bin
+  cp output/*.exe "$ROOT/ci/bin/"
+
+  # Cleanup
+  rm -rf bin output
+
+  # Also create zip for backwards compatibility
   cd "$ROOT/ci/bin"
   7z a ${PLUGIN}_Win.zip vst/$PLUGIN.dll vst3/$PLUGIN.vst3
 
   if [ "$BRANCH" = "release" ]; then
     curl -F "files=@${PLUGIN}_Win.zip" "https://socalabs.com/files/set.php?key=$APIKEY"
+    curl -F "files=@${PLUGIN}_${VERSION}_Win.exe" "https://socalabs.com/files/set.php?key=$APIKEY"
   fi
 fi

@@ -53,6 +53,14 @@ public:
     void incWavetable (int osc, int delta);
     bool loadUserWavetable (int osc, const juce::File& f, int sz);
 
+    juce::File getFactoryWavetableDirectory();
+    juce::File getFactoryPresetDirectory();
+    juce::File getProgramDirectory() override;
+    juce::File getLegacyProgramDirectory();
+    void loadAllPrograms() override;
+    void migrateUserPresets();
+    juce::StringArray getWavetableList();
+
     void applyEffects (juce::AudioSampleBuffer& buffer);
     void applyEffect (juce::AudioSampleBuffer& buffer, int fxId);
 
