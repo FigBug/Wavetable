@@ -115,7 +115,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   strip vst/$PLUGIN.so
   strip vst3/$PLUGIN.vst3/Contents/x86_64-linux/$PLUGIN.so
   strip lv2/$PLUGIN.lv2/lib$PLUGIN.so
-  strip clap/$PLUGIN.clap/$PLUGIN.so
+  strip clap/$PLUGIN.clap
 
   # Upload
   cd "$ROOT/ci/bin"
