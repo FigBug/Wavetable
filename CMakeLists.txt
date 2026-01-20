@@ -71,6 +71,7 @@ set (JUCE_BUILD_EXTRAS OFF)
 set (JUCE_BUILD_EXAMPLES OFF)
 
 add_subdirectory (modules/juce)
+add_subdirectory (modules/clap-juce-extensions EXCLUDE_FROM_ALL)
 
 set_property (DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/modules/juce" APPEND PROPERTY LABELS JUCE)
 
@@ -125,6 +126,10 @@ juce_add_plugin (${PLUGIN_NAME}
 				 AU_EXPORT_PREFIX ${AU_ID}
 				 AU_SANDBOX_SAFE FALSE
 				 LV2URI ${LV2_URI})
+
+clap_juce_extensions_plugin (TARGET ${PLUGIN_NAME}
+				 CLAP_ID "${BUNDLE_ID}"
+				 CLAP_FEATURES instrument synthesizer)
 
 file (GLOB_RECURSE source_files CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/plugin/*.cpp
