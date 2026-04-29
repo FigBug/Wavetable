@@ -1,0 +1,17 @@
+Wavetable by SocaLabs
+=====================
+
+This installer places the Wavetable plug-in in your system audio plug-in
+folders along with the factory wavetable bank and factory presets.
+
+Components:
+  • VST                  /Library/Audio/Plug-Ins/VST
+  • VST3                 /Library/Audio/Plug-Ins/VST3
+  • Audio Unit           /Library/Audio/Plug-Ins/Components
+  • CLAP                 /Library/Audio/Plug-Ins/CLAP
+  • Factory content      /Library/Audio/Presets/SocaLabs/Wavetable
+
+User-saved presets live under
+  ~/Library/Audio/Presets/SocaLabs/Wavetable
+
+and are not touched by this installer.

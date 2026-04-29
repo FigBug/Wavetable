@@ -1,0 +1,5 @@
+{
+	"Endpoint": "https://wus.codesigning.azure.net/",
+	"CodeSigningAccountName": "Signing2025",
+	"CertificateProfileName": "rabien"
+}

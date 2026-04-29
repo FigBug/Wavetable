@@ -1,0 +1,6 @@
+#!/bin/sh
+# Force the AU host registrar to rescan so the freshly installed Component is
+# visible without a logout/reboot.
+killall -9 AudioComponentRegistrar >/dev/null 2>&1
+
+exit 0

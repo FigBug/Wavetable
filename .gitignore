@@ -33,6 +33,8 @@
 xcuserdata
 Builds
 JuceLibraryCode
-ci/bin
+bin
+Installer/macOS/bin
+Installer/win/bin
 .DS_Store
 .claude

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>Wavetable</title>
+    <organization>com.socalabs</organization>
+    <domains enable_anywhere="false" enable_currentUserHome="false" enable_localSystem="true"/>
+    <options customize="always" require-scripts="false" rootVolumeOnly="true"/>
+    <license file="EULA.rtf"/>
+    <welcome    file="welcome.txt"   mime-type="text/plain"/>
+
+    <choices-outline>
+        <line choice="com.socalabs.wavetable.vst"/>
+        <line choice="com.socalabs.wavetable.vst3"/>
+        <line choice="com.socalabs.wavetable.au"/>
+        <line choice="com.socalabs.wavetable.clap"/>
+        <line choice="com.socalabs.wavetable.resources"/>
+    </choices-outline>
+
+    <choice id="com.socalabs.wavetable.vst"
+            title="VST"
+            description="Install the VST plug-in to /Library/Audio/Plug-Ins/VST"
+            visible="true">
+        <pkg-ref id="com.socalabs.wavetable.vst.pkg"/>
+    </choice>
+
+    <choice id="com.socalabs.wavetable.vst3"
+            title="VST3"
+            description="Install the VST3 plug-in to /Library/Audio/Plug-Ins/VST3"
+            visible="true">
+        <pkg-ref id="com.socalabs.wavetable.vst3.pkg"/>
+    </choice>
+
+    <choice id="com.socalabs.wavetable.au"
+            title="Audio Unit"
+            description="Install the Audio Unit plug-in to /Library/Audio/Plug-Ins/Components"
+            visible="true">
+        <pkg-ref id="com.socalabs.wavetable.au.pkg"/>
+    </choice>
+
+    <choice id="com.socalabs.wavetable.clap"
+            title="CLAP"
+            description="Install the CLAP plug-in to /Library/Audio/Plug-Ins/CLAP"
+            visible="true">
+        <pkg-ref id="com.socalabs.wavetable.clap.pkg"/>
+    </choice>
+
+    <choice id="com.socalabs.wavetable.resources"
+            title="Factory Wavetables &amp; Presets"
+            description="Install factory content to /Library/Audio/Presets/SocaLabs/Wavetable"
+            visible="true"
+            enabled="false"
+            selected="true">
+        <pkg-ref id="com.socalabs.wavetable.resources.pkg"/>
+    </choice>
+
+    <pkg-ref id="com.socalabs.wavetable.vst.pkg"       version="0">vst.pkg</pkg-ref>
+    <pkg-ref id="com.socalabs.wavetable.vst3.pkg"      version="0">vst3.pkg</pkg-ref>
+    <pkg-ref id="com.socalabs.wavetable.au.pkg"        version="0">au.pkg</pkg-ref>
+    <pkg-ref id="com.socalabs.wavetable.clap.pkg"      version="0">clap.pkg</pkg-ref>
+    <pkg-ref id="com.socalabs.wavetable.resources.pkg" version="0">resources.pkg</pkg-ref>
+</installer-gui-script>

@@ -508,6 +508,49 @@ void extractWavetables()
 #endif
 
 //==============================================================================
+namespace
+{
+    juce::File userResourceRoot()
+    {
+       #if JUCE_MAC
+        return juce::File::getSpecialLocation (juce::File::userHomeDirectory)
+                  .getChildFile ("Library/Audio/Presets/SocaLabs/Wavetable");
+       #elif JUCE_WINDOWS
+        return juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory)
+                  .getChildFile ("SocaLabs/Wavetable");
+       #else
+        return juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory)
+                  .getChildFile ("SocaLabs/Wavetable");
+       #endif
+    }
+
+    juce::File systemResourceRoot()
+    {
+       #if JUCE_MAC
+        return juce::File ("/Library/Audio/Presets/SocaLabs/Wavetable");
+       #elif JUCE_WINDOWS
+        return juce::File::getSpecialLocation (juce::File::commonApplicationDataDirectory)
+                  .getChildFile ("SocaLabs/Wavetable");
+       #else
+        return juce::File ("/usr/share/SocaLabs/Wavetable");
+       #endif
+    }
+
+    // Pre-installer location used when factory presets were embedded and gin's
+    // default getProgramDirectory() chose a "programs" folder under devId.
+    juce::File legacyUserProgramDirectory()
+    {
+       #if JUCE_MAC
+        return juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory)
+                  .getChildFile ("Application Support/com.socalabs/Wavetable/programs");
+       #else
+        return juce::File::getSpecialLocation (juce::File::userApplicationDataDirectory)
+                  .getChildFile ("com.socalabs/Wavetable/programs");
+       #endif
+    }
+}
+
+//==============================================================================
 static gin::ProcessorOptions createProcessorOptions()
 {
     return gin::ProcessorOptions()
@@ -520,12 +563,20 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     fireAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); })),
     grindAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); }))
 {
-   {
-        auto sz = 0;
-        for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
-            if (juce::String (BinaryData::originalFilenames[i]).endsWith (".xml"))
-                if (auto data = BinaryData::getNamedResource (BinaryData::namedResourceList[i], sz))
-                    extractProgram (BinaryData::originalFilenames[i], data, sz);
+    // One-time migration of any user presets from the pre-installer location.
+    // Factory presets now live in systemResourceRoot()/Presets and are surfaced
+    // via getFactoryProgramDirectories(). User saves go to userResourceRoot()/Presets.
+    {
+        auto oldDir = legacyUserProgramDirectory();
+        auto newDir = userResourceRoot().getChildFile ("Presets");
+        if (oldDir.isDirectory()
+            && newDir.findChildFiles (juce::File::findFiles, false, "*.xml").isEmpty())
+        {
+            if (! newDir.isDirectory())
+                newDir.createDirectory();
+            for (auto f : oldDir.findChildFiles (juce::File::findFiles, false, "*.xml"))
+                f.copyFileTo (newDir.getChildFile (f.getFileName()));
+        }
     }
 
 	mtsClient = MTS_RegisterClient();
@@ -592,14 +643,12 @@ void WavetableAudioProcessor::reloadWavetables()
 {
     auto loadMemory = [&] (const juce::String& name) -> juce::MemoryBlock
     {
-        for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
+        auto file = systemResourceRoot().getChildFile ("Wavetables").getChildFile (name + ".wt2048");
+        if (file.existsAsFile())
         {
-            if ((name + ".wt2048").equalsIgnoreCase (BinaryData::originalFilenames[i]))
-            {
-                int sz = 0;
-                if (auto data = BinaryData::getNamedResource (BinaryData::namedResourceList[i], sz))
-                    return juce::MemoryBlock (data, sz);
-            }
+            juce::MemoryBlock mb;
+            if (file.loadFileAsData (mb))
+                return mb;
         }
         return {};
     };
@@ -651,12 +700,7 @@ void WavetableAudioProcessor::incWavetable (int osc, int delta)
     else
         userTable2.reset();
 
-    juce::StringArray tables;
-    for (auto i = 0; i < BinaryData::namedResourceListSize; i++)
-        if (juce::String (BinaryData::originalFilenames[i]).endsWith (".wt2048"))
-            tables.add (juce::String (BinaryData::originalFilenames[i]).upToLastOccurrenceOf (".wt2048", false, false));
-
-    tables.sortNatural();
+    auto tables = getWavetableNames();
 
     auto idx = tables.indexOf (table.toString());
 
@@ -723,6 +767,34 @@ void WavetableAudioProcessor::updateState()
 
     state.setProperty ("wt1Data", userTable1.toBase64Encoding(), nullptr);
     state.setProperty ("wt2Data", userTable2.toBase64Encoding(), nullptr);
+}
+
+//==============================================================================
+juce::File WavetableAudioProcessor::getProgramDirectory()
+{
+    auto dir = userResourceRoot().getChildFile ("Presets");
+
+    if (! dir.isDirectory())
+        dir.createDirectory();
+
+    return dir;
+}
+
+juce::Array<juce::File> WavetableAudioProcessor::getFactoryProgramDirectories()
+{
+    return { systemResourceRoot().getChildFile ("Presets") };
+}
+
+juce::StringArray WavetableAudioProcessor::getWavetableNames() const
+{
+    juce::StringArray tables;
+    auto wtDir = systemResourceRoot().getChildFile ("Wavetables");
+    if (wtDir.isDirectory())
+        for (auto f : wtDir.findChildFiles (juce::File::findFiles, false, "*.wt2048"))
+            tables.add (f.getFileNameWithoutExtension());
+
+    tables.sortNatural();
+    return tables;
 }
 
 //==============================================================================

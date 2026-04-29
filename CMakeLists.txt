@@ -13,7 +13,10 @@ set (PLUGIN_CODE Wave)
 set (CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 set (CMAKE_SUPPRESS_REGENERATION true)
-set (CMAKE_SKIP_INSTALL_RULES YES)
+# Skip install rules everywhere except Linux, where CPack/DEB needs them.
+if (NOT (UNIX AND NOT APPLE))
+	set (CMAKE_SKIP_INSTALL_RULES YES)
+endif()
 set (CMAKE_POSITION_INDEPENDENT_CODE ON)
 set_property (GLOBAL PROPERTY DEBUG_CONFIGURATIONS "Debug")
 
@@ -96,9 +99,7 @@ set_property (TARGET melatonin_inspector APPEND PROPERTY LABELS melatonin)
 set_property (DIRECTORY APPEND PROPERTY LABELS Assets)
 
 file (GLOB_RECURSE binary_files CONFIGURE_DEPENDS
-	"./plugin/Resources/layout.json"
-	"./plugin/Resources/WavetablesFLAC/*.wt2048"
-	"./plugin/Resources/Presets/*.xml")
+	"./plugin/Resources/layout.json")
 
 juce_add_binary_data (${PLUGIN_NAME}_Assets SOURCES ${binary_files})
 
@@ -242,10 +243,57 @@ if(UNIX AND NOT APPLE)
 endif()
 
 
-if(WIN32)
-	set (dest "Program Files")
-else()
-	set (dest "Applications")
-endif()
+#
+# Install + CPack (Linux only — macOS uses pkgbuild/productbuild, Windows uses Inno Setup)
+#
+if (UNIX AND NOT APPLE)
+	set (_artefact_dir "${CMAKE_BINARY_DIR}/${PLUGIN_NAME}_artefacts/$<CONFIG>")
 
-install (TARGETS ${PLUGIN_NAME} DESTINATION "${dest}")
+	install (FILES "${_artefact_dir}/VST/lib${PLUGIN_NAME}.so"
+			 DESTINATION lib/vst
+			 RENAME "${PLUGIN_NAME}.so"
+			 COMPONENT VST)
+
+	install (DIRECTORY "${_artefact_dir}/VST3/${PLUGIN_NAME}.vst3"
+			 DESTINATION lib/vst3
+			 COMPONENT VST3
+			 USE_SOURCE_PERMISSIONS)
+
+	install (DIRECTORY "${_artefact_dir}/LV2/${PLUGIN_NAME}.lv2"
+			 DESTINATION lib/lv2
+			 COMPONENT LV2
+			 USE_SOURCE_PERMISSIONS)
+
+	install (FILES "${_artefact_dir}/CLAP/${PLUGIN_NAME}.clap"
+			 DESTINATION lib/clap
+			 COMPONENT CLAP)
+
+	install (DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/plugin/Resources/Presets/"
+			 DESTINATION share/SocaLabs/${PLUGIN_NAME}/Presets
+			 COMPONENT Resources
+			 FILES_MATCHING PATTERN "*.xml")
+
+	install (DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/plugin/Resources/WavetablesFLAC/"
+			 DESTINATION share/SocaLabs/${PLUGIN_NAME}/Wavetables
+			 COMPONENT Resources
+			 FILES_MATCHING PATTERN "*.wt2048")
+
+	set (CPACK_PACKAGE_NAME "wavetable")
+	set (CPACK_PACKAGE_VERSION "${PLUGIN_VERSION}")
+	set (CPACK_PACKAGE_VENDOR "SocaLabs")
+	set (CPACK_PACKAGE_HOMEPAGE_URL "https://socalabs.com/")
+	set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "Wavetable synthesizer plugin")
+	set (CPACK_PACKAGE_CONTACT "support@socalabs.com")
+	set (CPACK_PACKAGING_INSTALL_PREFIX "/usr")
+	set (CPACK_GENERATOR "DEB")
+	set (CPACK_DEB_COMPONENT_INSTALL OFF)
+	set (CPACK_COMPONENTS_ALL VST VST3 LV2 CLAP Resources)
+	set (CPACK_COMPONENTS_GROUPING ALL_COMPONENTS_IN_ONE)
+	set (CPACK_DEBIAN_PACKAGE_MAINTAINER "Roland Rabien <support@socalabs.com>")
+	set (CPACK_DEBIAN_PACKAGE_SECTION "sound")
+	set (CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
+	set (CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+	set (CPACK_DEBIAN_FILE_NAME "Wavetable.deb")
+
+	include (CPack)
+endif()

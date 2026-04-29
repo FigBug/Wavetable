@@ -1,0 +1,14 @@
+#!/bin/sh
+# Remove any prior install of Wavetable so the new bundle takes its place cleanly.
+
+rm -Rf "/Library/Audio/Plug-Ins/VST/Wavetable.vst"
+rm -Rf "/Library/Audio/Plug-Ins/VST3/Wavetable.vst3"
+rm -Rf "/Library/Audio/Plug-Ins/Components/Wavetable.component"
+rm -Rf "/Library/Audio/Plug-Ins/CLAP/Wavetable.clap"
+
+# Wipe the previous shipped factory content so removed wavetables/presets from
+# the old version don't linger. User content lives under ~/Library and is left alone.
+rm -Rf "/Library/Audio/Presets/SocaLabs/Wavetable/Presets"
+rm -Rf "/Library/Audio/Presets/SocaLabs/Wavetable/Wavetables"
+
+exit 0

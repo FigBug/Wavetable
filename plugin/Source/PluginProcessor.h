@@ -24,6 +24,9 @@ public:
 
     bool supportsMPE() const override { return true; }
 
+    juce::File getProgramDirectory() override;
+    juce::Array<juce::File> getFactoryProgramDirectories() override;
+
     void stateUpdated() override;
     void updateState() override;
 
@@ -52,6 +55,7 @@ public:
     void reloadWavetables();
     void incWavetable (int osc, int delta);
     bool loadUserWavetable (int osc, const juce::File& f, int sz);
+    juce::StringArray getWavetableNames() const;
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
     void applyEffect (juce::AudioSampleBuffer& buffer, int fxId);

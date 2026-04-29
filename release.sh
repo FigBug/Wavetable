@@ -23,4 +23,19 @@ fi
 
 echo "$NOTES" > /tmp/release_notes.txt
 
-gh release create "$VER" --title "$VER" -F /tmp/release_notes.txt ./Binaries\ Linux/*.zip ./Binaries\ Windows/*.zip ./Binaries\ macOS/*.zip
+ASSETS=(
+  "./Binaries Linux"/*.deb
+  "./Binaries Windows"/*.exe
+  "./Binaries macOS"/*.pkg
+)
+if [ -f "./Binaries macOS/Symbols_Mac.zip" ]; then
+  ASSETS+=("./Binaries macOS/Symbols_Mac.zip")
+fi
+
+gh release create "$VER" --title "$VER" -F /tmp/release_notes.txt "${ASSETS[@]}"
+
+for f in "./Binaries Linux"/*.deb \
+         "./Binaries Windows"/*.exe \
+         "./Binaries macOS"/*.pkg; do
+  curl -F "files=@${f}" "https://socalabs.com/files/set.php?key=$APIKEY"
+done
