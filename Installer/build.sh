@@ -95,13 +95,13 @@ if [ "$PLATFORM" = "macOS" ]; then
   cp -R "$PROJECT_ROOT/plugin/Resources/WavetablesFLAC" "$STAGE/resources/Library/Audio/Presets/$VENDOR/$PLUGIN/Wavetables"
   find "$STAGE/resources" -name ".DS_Store" -delete
 
-  if security find-identity -v -p codesigning | grep -q "$DEV_APP_ID"; then
+  if [ -n "${APPLICATION:-}" ]; then
     codesign -s "$DEV_APP_ID" --options=runtime --timestamp --force -v "$STAGE/vst/$PLUGIN.vst"
     codesign -s "$DEV_APP_ID" --options=runtime --timestamp --force -v "$STAGE/vst3/$PLUGIN.vst3"
     codesign -s "$DEV_APP_ID" --options=runtime --timestamp --force -v "$STAGE/au/$PLUGIN.component"
     codesign -s "$DEV_APP_ID" --options=runtime --timestamp --force -v "$STAGE/clap/$PLUGIN.clap"
   else
-    echo "Skipping codesign — Developer ID Application not in keychain"
+    echo "Skipping codesign — APPLICATION secret not set"
   fi
 
   # Component packages
@@ -148,18 +148,23 @@ if [ "$PLATFORM" = "macOS" ]; then
                --version "$VERSION" \
                "$PKG_OUT.unsigned"
 
-  if security find-identity -v | grep -q "$DEV_INST_ID"; then
+  if [ -n "${INSTALLER:-}" ]; then
     productsign --sign "$DEV_INST_ID" "$PKG_OUT.unsigned" "$PKG_OUT"
     rm "$PKG_OUT.unsigned"
   else
-    echo "Skipping productsign — Developer ID Installer not in keychain"
+    echo "Skipping productsign — INSTALLER secret not set"
     mv "$PKG_OUT.unsigned" "$PKG_OUT"
   fi
 
   if [ -n "${APPLE_USER:-}" ] && [ -n "${APPLE_PASS:-}" ]; then
-    xcrun notarytool submit --verbose \
-      --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "$TEAM_ID" \
-      --wait --timeout 30m "$PKG_OUT"
+    SUBMISSION_OUTPUT=$(xcrun notarytool submit --verbose --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "$TEAM_ID" --wait --timeout 30m "$PKG_OUT" 2>&1) || NOTARY_FAILED=1
+    echo "$SUBMISSION_OUTPUT"
+    SUBMISSION_ID=$(echo "$SUBMISSION_OUTPUT" | awk "/^  id:/ { print \$2; exit }")
+    if [ "${NOTARY_FAILED:-0}" = "1" ] && [ -n "$SUBMISSION_ID" ]; then
+      echo "Notarization failed — fetching log for $SUBMISSION_ID"
+      xcrun notarytool log "$SUBMISSION_ID" --apple-id "$APPLE_USER" --password "$APPLE_PASS" --team-id "$TEAM_ID" || true
+      exit 1
+    fi
     xcrun stapler staple "$PKG_OUT"
   else
     echo "Skipping notarization — APPLE_USER / APPLE_PASS not set"
