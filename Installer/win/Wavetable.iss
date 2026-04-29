@@ -71,5 +71,6 @@ Source: "bin\VST3\Wavetable.vst3\*"; DestDir: "{commoncf64}\VST3\Wavetable.vst3\
 Source: "bin\CLAP\Wavetable.clap";   DestDir: "{commoncf64}\CLAP";                  Flags: ignoreversion overwritereadonly; Components: clap
 
 ; Factory content (Wavetables, Presets) → C:\ProgramData\SocaLabs\Wavetable\
-Source: "..\..\plugin\Resources\Presets\*.xml";          DestDir: "{commonappdata}\SocaLabs\Wavetable\Presets\";    Flags: ignoreversion;                              Components: resources
+; Presets are flattened by Installer/build.sh into Installer/_flat_presets/.
+Source: "..\_flat_presets\*.xml";                         DestDir: "{commonappdata}\SocaLabs\Wavetable\Presets\";    Flags: ignoreversion;                                 Components: resources
 Source: "..\..\plugin\Resources\WavetablesFLAC\*.wt2048"; DestDir: "{commonappdata}\SocaLabs\Wavetable\Wavetables\"; Flags: ignoreversion recursesubdirs createallsubdirs; Components: resources

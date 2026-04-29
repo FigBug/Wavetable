@@ -29,6 +29,16 @@ mkdir -p "$PROJECT_ROOT/Installer/$PLATFORM/bin"
 rm -Rf "$PROJECT_ROOT/bin"
 mkdir -p "$PROJECT_ROOT/bin"
 
+#
+# Flatten the nested Presets/<category>/*.xml tree into a single flat directory.
+# gin's loadDirectory() doesn't recurse, and the legacy BinaryData flow stored
+# presets flat in the user directory — keeping flat matches what users see.
+#
+FLAT_PRESETS="$PROJECT_ROOT/Installer/_flat_presets"
+rm -Rf "$FLAT_PRESETS"
+mkdir -p "$FLAT_PRESETS"
+find "$PROJECT_ROOT/plugin/Resources/Presets" -name "*.xml" -type f -exec cp {} "$FLAT_PRESETS/" \;
+
 ############################################################
 # macOS — pkgbuild + productbuild
 ############################################################
@@ -79,8 +89,9 @@ if [ "$PLATFORM" = "macOS" ]; then
   cp -RL "$ART_DIR/AU/$PLUGIN.component" "$STAGE/au/"
   cp -RL "$ART_DIR/CLAP/$PLUGIN.clap"    "$STAGE/clap/"
 
-  # Resources component: factory Wavetables and Presets
-  cp -R "$PROJECT_ROOT/plugin/Resources/Presets"        "$STAGE/resources/Library/Audio/Presets/$VENDOR/$PLUGIN/Presets"
+  # Resources component: factory Wavetables and Presets (presets flattened above)
+  mkdir -p "$STAGE/resources/Library/Audio/Presets/$VENDOR/$PLUGIN/Presets"
+  cp "$FLAT_PRESETS/"*.xml "$STAGE/resources/Library/Audio/Presets/$VENDOR/$PLUGIN/Presets/"
   cp -R "$PROJECT_ROOT/plugin/Resources/WavetablesFLAC" "$STAGE/resources/Library/Audio/Presets/$VENDOR/$PLUGIN/Wavetables"
   find "$STAGE/resources" -name ".DS_Store" -delete
 

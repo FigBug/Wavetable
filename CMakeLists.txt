@@ -268,10 +268,12 @@ if (UNIX AND NOT APPLE)
 			 DESTINATION lib/clap
 			 COMPONENT CLAP)
 
-	install (DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/plugin/Resources/Presets/"
+	# Presets ship flat — gin's loadDirectory doesn't recurse, and the pre-installer
+	# BinaryData flow stored them flat in the user dir.
+	file (GLOB_RECURSE _preset_xmls "${CMAKE_CURRENT_SOURCE_DIR}/plugin/Resources/Presets/*.xml")
+	install (FILES ${_preset_xmls}
 			 DESTINATION share/SocaLabs/${PLUGIN_NAME}/Presets
-			 COMPONENT Resources
-			 FILES_MATCHING PATTERN "*.xml")
+			 COMPONENT Resources)
 
 	install (DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/plugin/Resources/WavetablesFLAC/"
 			 DESTINATION share/SocaLabs/${PLUGIN_NAME}/Wavetables

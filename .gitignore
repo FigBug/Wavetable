@@ -36,5 +36,6 @@ JuceLibraryCode
 bin
 Installer/macOS/bin
 Installer/win/bin
+Installer/_flat_presets
 .DS_Store
 .claude
