@@ -34,8 +34,13 @@ fi
 
 gh release create "$VER" --title "$VER" -F /tmp/release_notes.txt "${ASSETS[@]}"
 
+PLUGIN=wavetable
 for f in "./Binaries Linux"/*.deb \
          "./Binaries Windows"/*.exe \
          "./Binaries macOS"/*.pkg; do
-  curl -F "files=@${f}" "https://socalabs.com/files/set.php?key=$APIKEY"
+  curl -sS -F "files=@${f}" \
+          -F "plugin=${PLUGIN}" \
+          -F "version=${VER}" \
+          -F "changelog=${NOTES}" \
+          "https://socalabs.com/files/upload.php?key=$APIKEY"
 done
