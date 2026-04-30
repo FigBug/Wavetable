@@ -13,5 +13,5 @@ if ! grep -q "^${VER}:*$" Changelist.txt; then
     exit 1
 fi
 
-echo "Tagging [$VER]"
-git tag "$VER" && git push origin "$VER"
+echo "Tagging [v$VER]"
+git tag "v$VER" && git push origin "v$VER"
