@@ -942,14 +942,15 @@ bool WavetableAudioProcessor::isBusesLayoutSupported (const BusesLayout& layout)
 void WavetableAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midi)
 {
     juce::ScopedNoDenormals noDenormals;
+
+    if (buffer.getNumChannels() != 2)
+        return;
+
     if (! dspLock.tryEnter())
     {
         blockMissed = true;
         return;
     }
-    
-    if (buffer.getNumChannels() != 2)
-        return;
 
     if (midiLearn)
         midiLearn->processBlock (midi, buffer.getNumSamples());
