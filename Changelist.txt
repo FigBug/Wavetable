@@ -1,3 +1,6 @@
+1.0.31:
+- Fixed ADSR attack when time is 0
+
 1.0.30:
 - VST2 install path
 
