@@ -58,7 +58,7 @@ Name: "clap";      Description: "CLAP plug-in";                   Types: full cu
 Name: "resources"; Description: "Factory wavetables and presets"; Types: full custom; Flags: fixed
 
 [InstallDelete]
-Type: files;          Name: "{commoncf64}\VST2\Wavetable.dll";                    Components: vst
+Type: files;          Name: "{commoncf64}\VST2\Wavetable.dll";                   Components: vst
 Type: filesandordirs; Name: "{commoncf64}\VST3\Wavetable.vst3";                  Components: vst3
 Type: files;          Name: "{commoncf64}\CLAP\Wavetable.clap";                  Components: clap
 Type: filesandordirs; Name: "{commonappdata}\SocaLabs\Wavetable\Presets";        Components: resources
@@ -66,7 +66,7 @@ Type: filesandordirs; Name: "{commonappdata}\SocaLabs\Wavetable\Wavetables";    
 
 [Files]
 ; Plug-in formats
-Source: "bin\VST\Wavetable.dll";    DestDir: "{commoncf64}\VST2";                    Flags: ignoreversion overwritereadonly; Components: vst
+Source: "bin\VST\Wavetable.dll";     DestDir: "{commoncf64}\VST2";                  Flags: ignoreversion overwritereadonly; Components: vst
 Source: "bin\VST3\Wavetable.vst3\*"; DestDir: "{commoncf64}\VST3\Wavetable.vst3\";  Flags: ignoreversion overwritereadonly recursesubdirs; Components: vst3
 Source: "bin\CLAP\Wavetable.clap";   DestDir: "{commoncf64}\CLAP";                  Flags: ignoreversion overwritereadonly; Components: clap
 
