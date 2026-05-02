@@ -643,12 +643,15 @@ void WavetableAudioProcessor::reloadWavetables()
 {
     auto loadMemory = [&] (const juce::String& name) -> juce::MemoryBlock
     {
-        auto file = systemResourceRoot().getChildFile ("Wavetables").getChildFile (name + ".wt2048");
-        if (file.existsAsFile())
+        auto wtDir = systemResourceRoot().getChildFile ("Wavetables");
+        if (wtDir.isDirectory())
         {
-            juce::MemoryBlock mb;
-            if (file.loadFileAsData (mb))
-                return mb;
+            for (auto& file : wtDir.findChildFiles (juce::File::findFiles, true, name + ".wt2048"))
+            {
+                juce::MemoryBlock mb;
+                if (file.loadFileAsData (mb))
+                    return mb;
+            }
         }
         return {};
     };
@@ -788,13 +791,36 @@ juce::Array<juce::File> WavetableAudioProcessor::getFactoryProgramDirectories()
 juce::StringArray WavetableAudioProcessor::getWavetableNames() const
 {
     juce::StringArray tables;
-    auto wtDir = systemResourceRoot().getChildFile ("Wavetables");
-    if (wtDir.isDirectory())
-        for (auto f : wtDir.findChildFiles (juce::File::findFiles, false, "*.wt2048"))
-            tables.add (f.getFileNameWithoutExtension());
+    for (auto& f : getWavetableFiles())
+        tables.add (f.getFileNameWithoutExtension());
 
     tables.sortNatural();
     return tables;
+}
+
+juce::Array<juce::File> WavetableAudioProcessor::getWavetableFiles() const
+{
+    juce::Array<juce::File> files;
+    auto wtDir = systemResourceRoot().getChildFile ("Wavetables");
+    if (wtDir.isDirectory())
+        files = wtDir.findChildFiles (juce::File::findFiles, true, "*.wt2048");
+
+    struct Sorter
+    {
+        static int compareElements (const juce::File& a, const juce::File& b)
+        {
+            auto categoryCmp = a.getParentDirectory().getFileName()
+                                .compareNatural (b.getParentDirectory().getFileName());
+            if (categoryCmp != 0)
+                return categoryCmp;
+            return a.getFileNameWithoutExtension()
+                    .compareNatural (b.getFileNameWithoutExtension());
+        }
+    };
+    Sorter sorter;
+    files.sort (sorter);
+
+    return files;
 }
 
 //==============================================================================

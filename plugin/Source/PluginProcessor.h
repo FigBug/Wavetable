@@ -56,6 +56,7 @@ public:
     void incWavetable (int osc, int delta);
     bool loadUserWavetable (int osc, const juce::File& f, int sz);
     juce::StringArray getWavetableNames() const;
+    juce::Array<juce::File> getWavetableFiles() const;
 
     void applyEffects (juce::AudioSampleBuffer& buffer);
     void applyEffect (juce::AudioSampleBuffer& buffer, int fxId);

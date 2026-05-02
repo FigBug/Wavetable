@@ -143,16 +143,16 @@ public:
         }
         else if (e.originalComponent == &h && e.mouseWasClicked() && e.x >= prevButton.getRight() && e.x <= nextButton.getX())
         {
-            auto tables = proc.getWavetableNames();
+            auto files = proc.getWavetableFiles();
 
             std::map<juce::String, juce::PopupMenu> menus;
 
-            for (auto t : tables)
+            for (auto& f : files)
             {
-                auto prefix = t.upToFirstOccurrenceOf (" ", false, false);
-                auto suffix = t.fromFirstOccurrenceOf (" ", false, false);
+                auto t = f.getFileNameWithoutExtension();
+                auto category = f.getParentDirectory().getFileName();
 
-                menus[prefix].addItem (t, [this, t]
+                menus[category].addItem (t, [this, t]
                 {
                     if (idx == 0)
                     {
@@ -171,7 +171,7 @@ public:
 
             juce::PopupMenu m;
             m.setLookAndFeel (&getLookAndFeel());
-            
+
             for (auto itr : menus)
                 m.addSubMenu (itr.first, itr.second);
 
