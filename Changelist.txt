@@ -1,3 +1,7 @@
+1.0.32:
+- Fixed fix wavetable menus
+- Fixed deadlock
+
 1.0.31:
 - Fixed ADSR attack when time is 0
 
