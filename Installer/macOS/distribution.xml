@@ -13,6 +13,7 @@
         <line choice="com.socalabs.wavetable.au"/>
         <line choice="com.socalabs.wavetable.clap"/>
         <line choice="com.socalabs.wavetable.resources"/>
+        <line choice="com.socalabs.wavetable.crashreporter"/>
     </choices-outline>
 
     <choice id="com.socalabs.wavetable.vst"
@@ -52,9 +53,19 @@
         <pkg-ref id="com.socalabs.wavetable.resources.pkg"/>
     </choice>
 
+    <choice id="com.socalabs.wavetable.crashreporter"
+            title="Crash Reporter"
+            description="Install the shared crash reporter that sends crash reports to SocaLabs. Recommended; only updated if newer."
+            visible="true"
+            enabled="true"
+            selected="true">
+        <pkg-ref id="com.socalabs.wavetable.crashreporter.pkg"/>
+    </choice>
+
     <pkg-ref id="com.socalabs.wavetable.vst.pkg"       version="0">vst.pkg</pkg-ref>
     <pkg-ref id="com.socalabs.wavetable.vst3.pkg"      version="0">vst3.pkg</pkg-ref>
     <pkg-ref id="com.socalabs.wavetable.au.pkg"        version="0">au.pkg</pkg-ref>
     <pkg-ref id="com.socalabs.wavetable.clap.pkg"      version="0">clap.pkg</pkg-ref>
     <pkg-ref id="com.socalabs.wavetable.resources.pkg" version="0">resources.pkg</pkg-ref>
+    <pkg-ref id="com.socalabs.wavetable.crashreporter.pkg" version="0">reporter.pkg</pkg-ref>
 </installer-gui-script>

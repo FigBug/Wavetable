@@ -2,6 +2,29 @@
 #include "PluginEditor.h"
 #include "WavetableVoice.h"
 
+#include <mutex>
+
+// If the shared CrashReporter is installed, launch it once per process (on the
+// first plugin instance) so it can scan and upload any crash from last session.
+static void launchCrashReporterOnce()
+{
+    static std::once_flag flag;
+    std::call_once (flag, []
+    {
+       #if JUCE_MAC
+        juce::File app ("/Library/Application Support/Rabien Software/Crash Reporter/CrashReporter.app");
+       #elif JUCE_WINDOWS
+        auto app = juce::File::getSpecialLocation (juce::File::globalApplicationsDirectory)
+                       .getChildFile ("Rabien Software").getChildFile ("Crash Reporter").getChildFile ("CrashReporter.exe");
+       #else
+        juce::File app;
+       #endif
+
+        if (app.exists())
+            juce::Process::openDocument (app.getFullPathName(), {});
+    });
+}
+
 static juce::String subTextFunction (const gin::Parameter&, float v)
 {
     switch (int (v))
@@ -563,6 +586,8 @@ WavetableAudioProcessor::WavetableAudioProcessor()
     fireAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); })),
     grindAmp (FXBaseCallback ([this] { return gin::Processor::getSampleRate(); }))
 {
+    launchCrashReporterOnce();
+
     // One-time migration of any user presets from the pre-installer location.
     // Factory presets now live in systemResourceRoot()/Presets and are surfaced
     // via getFactoryProgramDirectories(). User saves go to userResourceRoot()/Presets.

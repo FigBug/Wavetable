@@ -213,6 +213,7 @@ if (APPLE)
 				XCODE_ATTRIBUTE_CLANG_LINK_OBJC_RUNTIME NO
 				#XCODE_ATTRIBUTE_DEPLOYMENT_POSTPROCESSING[variant=Release] YES
 				XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH[variant=Debug] "YES"
+				XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT[variant=Release] "dwarf-with-dsym"
 				)
 			if (NOT t STREQUAL "All")
 				target_compile_options(${tgt} PRIVATE
@@ -235,6 +236,22 @@ if (WIN32)
         if (TARGET ${tgt})
 			set_property(TARGET ${tgt} APPEND_STRING PROPERTY LINK_FLAGS_DEBUG " /INCREMENTAL:NO")
 			set_target_properties(${tgt} PROPERTIES LINK_FLAGS "/ignore:4099")
+		endif()
+	endforeach()
+
+	# Generate debug symbols (PDBs) for Release builds so crashes can be symbolicated.
+	# /Zi emits full debug info; /DEBUG produces the .pdb; /OPT:REF and /OPT:ICF
+	# restore the size optimisations that /DEBUG otherwise disables.
+	foreach(t ${FORMATS} "CLAP" "")
+		set(tgt ${CMAKE_PROJECT_NAME})
+		if (NOT t STREQUAL "")
+			set(tgt ${tgt}_${t})
+		endif()
+		if (TARGET ${tgt})
+			target_compile_options(${tgt} PRIVATE "$<$<CONFIG:Release>:/Zi>")
+			target_link_options(${tgt} PRIVATE "$<$<CONFIG:Release>:/DEBUG>")
+			target_link_options(${tgt} PRIVATE "$<$<CONFIG:Release>:/OPT:REF>")
+			target_link_options(${tgt} PRIVATE "$<$<CONFIG:Release>:/OPT:ICF>")
 		endif()
 	endforeach()
 endif()

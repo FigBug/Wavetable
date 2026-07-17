@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# CrashReporter is a SHARED component across all SocaLabs/Rabien plugins, so we
+# never downgrade it and never remove it. The pkg payload stages the incoming
+# app under .incoming; here we promote it to the live location only if it is
+# strictly newer than what's already installed (or nothing is installed yet).
+#
+set -e
+
+BASE="/Library/Application Support/Rabien Software/Crash Reporter"
+NEW="$BASE/.incoming/CrashReporter.app"
+LIVE="$BASE/CrashReporter.app"
+PB="/usr/libexec/PlistBuddy"
+
+version_of () { # $1 = .app path -> prints CFBundleShortVersionString or 0
+  if [ -d "$1" ]; then
+    "$PB" -c "Print :CFBundleShortVersionString" "$1/Contents/Info.plist" 2>/dev/null || echo 0
+  else
+    echo 0
+  fi
+}
+
+if [ -d "$NEW" ]; then
+  newver="$(version_of "$NEW")"
+  livever="$(version_of "$LIVE")"
+
+  # Promote if nothing installed, or the incoming build is strictly newer.
+  highest="$(printf '%s\n%s\n' "$livever" "$newver" | sort -V | tail -1)"
+  if [ ! -d "$LIVE" ] || { [ "$highest" = "$newver" ] && [ "$newver" != "$livever" ]; }; then
+    rm -rf "$LIVE"
+    mv "$NEW" "$LIVE"
+  fi
+fi
+
+# Always clear the staging area.
+rm -rf "$BASE/.incoming"
+
+exit 0

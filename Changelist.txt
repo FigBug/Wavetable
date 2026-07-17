@@ -1,3 +1,6 @@
+1.0.33:
+- Added crash reporting
+
 1.0.32:
 - Fixed fix wavetable menus
 - Fixed deadlock
