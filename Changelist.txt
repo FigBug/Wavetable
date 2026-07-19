@@ -1,3 +1,6 @@
+1.0.34:
+- Crash reporting improvements
+
 1.0.33:
 - Added crash reporting
 

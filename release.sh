@@ -26,6 +26,23 @@ fi
 
 echo "$NOTES" > /tmp/release_notes.txt
 
+# --- Debug symbols -> crash server -------------------------------------------
+# Uploaded here (not the build job) so a failed upload fails the release. The
+# server stores symbols write-once per (plugin, platform, version): a re-tagged
+# or rebuilt version whose symbols already exist returns 409 and fails the
+# release loudly — delete the stale symbols in the crash site, then re-run.
+CRASH_BASE="https://crashreports.rabiensoftware.com"
+upload_symbols () { # $1 platform, $2 zip
+  if [ ! -f "$2" ]; then echo "Error: expected symbols $2 not found"; exit 1; fi
+  echo "Uploading $1 symbols for $VER"
+  curl -sS --fail-with-body -H "X-API-Key: $SYMBOL_API_KEY" \
+    -F "platform=$1" -F "version=$VER" -F "files[]=@$2" \
+    "$CRASH_BASE/symbols/"
+  echo
+}
+upload_symbols mac "./Binaries macOS/Symbols_Mac.zip"
+upload_symbols win "./Binaries Windows/Symbols_Win.zip"
+
 ASSETS=(
   "./Binaries Linux"/*.deb
   "./Binaries Windows"/*.exe

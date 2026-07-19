@@ -23,8 +23,8 @@ VERSION=$(cat "$PROJECT_ROOT/VERSION")
 
 #
 # Crash reporting: bundle the latest CrashReporter app + this plugin's
-# registration JSON, and upload debug symbols so crashes can be symbolicated.
-#   SYMBOL_API_KEY - CI secret, authorises symbol upload for this plugin.
+# registration JSON. Debug symbols are zipped into bin/ and uploaded later by
+# the release job (release.sh), never from this build.
 # The CrashReporter download is a public distribution channel (no key needed).
 #
 CRASH_BASE="https://crashreports.rabiensoftware.com"
@@ -43,18 +43,6 @@ fetch_reporter () { # $1 platform, $2 output file
   fi
   echo "WARNING: could not fetch CrashReporter for $1 (none published yet?)"
   return 1
-}
-
-# Upload a symbols archive for this plugin/version. Skipped if the key is unset.
-upload_symbols () { # $1 platform, $2 zip file
-  if [ -z "${SYMBOL_API_KEY:-}" ]; then echo "SYMBOL_API_KEY not set — skipping symbol upload"; return 0; fi
-  if [ ! -f "$2" ]; then echo "No symbol archive $2 — skipping"; return 0; fi
-  echo "Uploading $1 symbols for $VERSION"
-  # Non-fatal: a symbol-upload failure must never break a release build.
-  curl -fsS -H "X-API-Key: $SYMBOL_API_KEY" \
-    -F "platform=$1" -F "version=$VERSION" -F "files[]=@$(curl_path "$2")" \
-    "$CRASH_BASE/symbols/" || echo "WARNING: symbol upload failed"
-  echo
 }
 
 #
@@ -268,8 +256,6 @@ if [ "$PLATFORM" = "macOS" ]; then
     VST3/$PLUGIN.vst3.dSYM \
     CLAP/$PLUGIN.clap.dSYM 2>/dev/null || true
 
-  upload_symbols mac "$PROJECT_ROOT/bin/Symbols_Mac.zip"
-
 ############################################################
 # Linux — cpack DEB (VST + VST3 + LV2 + CLAP + Resources)
 ############################################################
@@ -378,6 +364,4 @@ else
   cp "$ART_DIR/VST3/$PLUGIN.pdb" "$SYM_DIR/VST3/" 2>/dev/null || true
   cp "$ART_DIR/CLAP/$PLUGIN.pdb" "$SYM_DIR/CLAP/" 2>/dev/null || true
   ( cd "$SYM_DIR" && 7z a "$PROJECT_ROOT/bin/Symbols_Win.zip" VST VST3 CLAP )
-
-  upload_symbols win "$PROJECT_ROOT/bin/Symbols_Win.zip"
 fi
