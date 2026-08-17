@@ -1,5 +1,6 @@
 1.0.35:
 - Fix Linux packages including JUCE source files
+- General bug fixes and improvements
 
 1.0.34:
 - Crash reporting improvements
