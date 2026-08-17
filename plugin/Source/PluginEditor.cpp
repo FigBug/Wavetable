@@ -57,7 +57,8 @@ void WavetableAudioProcessorEditor::paint (juce::Graphics& g)
 {
     ProcessorEditor::paint (g);
 
-    titleBar.setShowBrowser (true);
+    if (titleBar != nullptr)
+        titleBar->setShowBrowser (true);
 
     g.fillAll (findColour (gin::PluginLookAndFeel::blackColourId));
 }
