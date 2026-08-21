@@ -264,7 +264,8 @@ void WavetableVoice::updateParams (int blockSize)
         oscParams[i].pan        = getValue (proc.oscParams[i].pan);
         oscParams[i].spread     = getValue (proc.oscParams[i].spread) / 100.0f;
         oscParams[i].detune     = getValue (proc.oscParams[i].detune);
-        oscParams[i].gain       = getValue (proc.oscParams[i].level);
+        // 0.5 compensates for gin's wavetable amplitude fix, keeping existing projects at the same level
+        oscParams[i].gain       = getValue (proc.oscParams[i].level) * 0.5f;
         oscParams[i].formant    = getValue (proc.oscParams[i].formant);
         oscParams[i].bend       = getValue (proc.oscParams[i].bend);
     }
