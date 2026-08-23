@@ -25,111 +25,98 @@ static void launchCrashReporterOnce()
     });
 }
 
-static juce::String subTextFunction (const gin::Parameter&, float v)
+// Builds a conversion function for a choice parameter: the value is an index into
+// names, and typed text maps back to the index of the matching name
+static gin::Parameter::ConversionFunction choicesConversion (juce::StringArray names)
 {
-    switch (int (v))
+    return [names] (const gin::Parameter&, const std::variant<float, juce::String>& in) -> std::variant<float, juce::String>
     {
-        case 0: return "Sine";
-        case 1: return "Triangle";
-        case 2: return "Saw";
-        case 3: return "Pulse 50%";
-        case 4: return "Pulse 25%";
-        case 5: return "Pulse 12%";
-        default:
+        if (auto v = std::get_if<float> (&in))
+        {
+            auto idx = int (*v);
+            if (juce::isPositiveAndBelow (idx, names.size()))
+                return names[idx];
+
             jassertfalse;
-            return {};
-    }
+            return juce::String();
+        }
+
+        auto t = std::get<juce::String> (in).trim();
+        for (int i = 0; i < names.size(); i++)
+            if (t.equalsIgnoreCase (names[i]))
+                return float (i);
+        return t.getFloatValue();
+    };
 }
 
-static juce::String noiseTextFunction (const gin::Parameter&, float v)
+static gin::Parameter::ConversionFunction subTextFunction()
 {
-    switch (int (v))
-    {
-        case 0: return "White";
-        case 1: return "Pink";
-        default:
-            jassertfalse;
-            return {};
-    }
+    return choicesConversion ({ "Sine", "Triangle", "Saw", "Pulse 50%", "Pulse 25%", "Pulse 12%" });
 }
 
-static juce::String lfoTextFunction (const gin::Parameter&, float v)
+static gin::Parameter::ConversionFunction noiseTextFunction()
 {
-    switch ((gin::LFO::WaveShape)int (v))
-    {
-        case gin::LFO::WaveShape::none:          return "None";
-        case gin::LFO::WaveShape::sine:          return "Sine";
-        case gin::LFO::WaveShape::triangle:      return "Triangle";
-        case gin::LFO::WaveShape::sawUp:         return "Saw Up";
-        case gin::LFO::WaveShape::sawDown:       return "Saw Down";
-        case gin::LFO::WaveShape::square:        return "Square";
-        case gin::LFO::WaveShape::squarePos:     return "Square+";
-        case gin::LFO::WaveShape::sampleAndHold: return "S&H";
-        case gin::LFO::WaveShape::noise:         return "Noise";
-        case gin::LFO::WaveShape::stepUp3:       return "Step Up 3";
-        case gin::LFO::WaveShape::stepUp4:       return "Step Up 4";
-        case gin::LFO::WaveShape::stepup8:       return "Step Up 8";
-        case gin::LFO::WaveShape::stepDown3:     return "Step Down 3";
-        case gin::LFO::WaveShape::stepDown4:     return "Step Down 4";
-        case gin::LFO::WaveShape::stepDown8:     return "Step Down 8";
-        case gin::LFO::WaveShape::pyramid3:      return "Pyramid 3";
-        case gin::LFO::WaveShape::pyramid5:      return "Pyramid 5";
-        case gin::LFO::WaveShape::pyramid9:      return "Pyramid 9";
-        default:
-            jassertfalse;
-            return {};
-    }
+    return choicesConversion ({ "White", "Pink" });
 }
 
-static juce::String enableTextFunction (const gin::Parameter&, float v)
+static gin::Parameter::ConversionFunction lfoTextFunction()
 {
-    return v > 0.0f ? "On" : "Off";
+    // Indexed by gin::LFO::WaveShape
+    return choicesConversion ({ "None", "Sine", "Triangle", "Saw Up", "Saw Down", "Square", "Square+",
+                                "S&H", "Noise", "Step Up 3", "Step Up 4", "Step Up 8",
+                                "Step Down 3", "Step Down 4", "Step Down 8",
+                                "Pyramid 3", "Pyramid 5", "Pyramid 9" });
 }
 
-static juce::String durationTextFunction (const gin::Parameter&, float v)
+static std::variant<float, juce::String> enableTextFunction (const gin::Parameter&, const std::variant<float, juce::String>& in)
 {
-    return gin::NoteDuration::getNoteDurations()[size_t (v)].getName();
+    if (auto v = std::get_if<float> (&in))
+        return juce::String (*v > 0.0f ? "On" : "Off");
+
+    auto t = std::get<juce::String> (in).trim();
+    if (t.equalsIgnoreCase ("On"))  return 1.0f;
+    if (t.equalsIgnoreCase ("Off")) return 0.0f;
+    return t.getFloatValue();
 }
 
-static juce::String distortionAmountTextFunction (const gin::Parameter&, float v)
+static std::variant<float, juce::String> durationTextFunction (const gin::Parameter&, const std::variant<float, juce::String>& in)
 {
-    return juce::String (v * 5.0f - 1.0f, 1);
+    auto& durations = gin::NoteDuration::getNoteDurations();
+
+    if (auto v = std::get_if<float> (&in))
+        return durations[size_t (*v)].getName();
+
+    auto t = std::get<juce::String> (in).trim();
+    for (size_t i = 0; i < durations.size(); i++)
+        if (t.equalsIgnoreCase (durations[i].getName()))
+            return float (i);
+    return t.getFloatValue();
 }
 
-static juce::String filterTextFunction (const gin::Parameter&, float v)
+static std::variant<float, juce::String> distortionAmountTextFunction (const gin::Parameter&, const std::variant<float, juce::String>& in)
 {
-    switch (int (v))
-    {
-        case 0: return "LP 12";
-        case 1: return "LP 24";
-        case 2: return "HP 12";
-        case 3: return "HP 24";
-        case 4: return "BP 12";
-        case 5: return "BP 24";
-        case 6: return "NT 12";
-        case 7: return "NT 24";
-        default:
-            jassertfalse;
-            return {};
-    }
+    if (auto v = std::get_if<float> (&in))
+        return juce::String (*v * 5.0f - 1.0f, 1);
+
+    return (std::get<juce::String> (in).getFloatValue() + 1.0f) / 5.0f;
 }
 
-static juce::String freqTextFunction (const gin::Parameter&, float v)
+static gin::Parameter::ConversionFunction filterTextFunction()
 {
-    return juce::String (int (gin::getMidiNoteInHertz (v)));
+    return choicesConversion ({ "LP 12", "LP 24", "HP 12", "HP 24", "BP 12", "BP 24", "NT 12", "NT 24" });
 }
 
-static juce::String glideModeTextFunction (const gin::Parameter&, float v)
+static std::variant<float, juce::String> freqTextFunction (const gin::Parameter&, const std::variant<float, juce::String>& in)
 {
-    switch (int (v))
-    {
-        case 0: return "Off";
-        case 1: return "Glissando";
-        case 2: return "Portamento";
-        default:
-            jassertfalse;
-            return {};
-    }
+    if (auto v = std::get_if<float> (&in))
+        return juce::String (int (gin::getMidiNoteInHertz (*v)));
+
+    return gin::getMidiNoteFromHertz (std::get<juce::String> (in).getFloatValue());
+}
+
+static gin::Parameter::ConversionFunction glideModeTextFunction()
+{
+    return choicesConversion ({ "Off", "Glissando", "Portamento" });
 }
 
 //==============================================================================
@@ -162,7 +149,7 @@ void WavetableAudioProcessor::SubParams::setup (WavetableAudioProcessor& p)
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
     retrig     = p.addIntParam (id + "retrig",     nm + "Retrig",      "Retrig",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
-    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 0.0, 5.0, 1.0, 1.0 }, 1.0, 0.0f, subTextFunction);
+    wave       = p.addIntParam (id + "wave",       nm + "Wave",        "Wave",      "", { 0.0, 5.0, 1.0, 1.0 }, 1.0, 0.0f, subTextFunction());
     tune       = p.addExtParam (id + "tune",       nm + "Tune",        "Tune",      "st", { -36.0, 36.0, 1.0, 1.0 }, 0.0, 0.0f);
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
     pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
@@ -177,7 +164,7 @@ void WavetableAudioProcessor::NoiseParams::setup (WavetableAudioProcessor& p)
     juce::String nm = "Noise ";
 
     enable     = p.addIntParam (id + "enable",     nm + "Enable",      "Enable",    "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f);
-    type       = p.addIntParam (id + "type",       nm + "Type",        "Type",      "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, noiseTextFunction);
+    type       = p.addIntParam (id + "type",       nm + "Type",        "Type",      "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, noiseTextFunction());
     level      = p.addExtParam (id + "level",      nm + "Level",       "Level",     "db", { -100.0, 0.0, 1.0, 4.0 }, 0.0, 0.0f);
     pan        = p.addExtParam (id + "pan",        nm + "Pan",         "Pan",       "", { -1.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f);
 
@@ -194,7 +181,7 @@ void WavetableAudioProcessor::FilterParams::setup (WavetableAudioProcessor& p)
 
     enable           = p.addIntParam (id + "enable",  nm + "Enable",  "",           "", { 0.0, 1.0, 1.0, 1.0 }, 1.0f, 0.0f);
     retrig           = p.addIntParam (id + "retrig",  nm + "Retrig",   "Retrig",    "", { 0.0, 1.0, 1.0, 1.0 }, 1.0, 0.0f, enableTextFunction);
-    type             = p.addIntParam (id + "type",    nm + "Type",    "Type",       "", { 0.0, 7.0, 1.0, 1.0 }, 0.0, 0.0f, filterTextFunction);
+    type             = p.addIntParam (id + "type",    nm + "Type",    "Type",       "", { 0.0, 7.0, 1.0, 1.0 }, 0.0, 0.0f, filterTextFunction());
     keyTracking      = p.addExtParam (id + "key",     nm + "Key",     "Key",        "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
     velocityTracking = p.addExtParam (id + "vel",     nm + "Vel",     "Vel",        "%", { 0.0, 100.0, 0.0, 1.0 }, 0.0, 0.0f);
     frequency        = p.addExtParam (id + "freq",    nm + "Freq",    "Freq",       "Hz", { 0.0, maxFreq, 0.0, 1.0 }, 64.0, 0.0f, freqTextFunction);
@@ -241,7 +228,7 @@ void WavetableAudioProcessor::LFOParams::setup (WavetableAudioProcessor& p, int 
     enable           = p.addIntParam (id + "enable",  nm + "Enable",  "Enable", "", { 0.0, 1.0, 1.0, 1.0 }, 0.0f, 0.0f, enableTextFunction);
     sync             = p.addIntParam (id + "sync",    nm + "Sync",    "Sync",   "", { 0.0, 1.0, 1.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
     retrig           = p.addIntParam (id + "retrig",  nm + "Retrig",  "Retrig", "", { 0.0, 1.0, 1.0, 1.0 }, 1.0, 0.0f, enableTextFunction);
-    wave             = p.addIntParam (id + "wave",    nm + "Wave",    "Wave",   "", { 1.0, 17.0, 1.0, 1.0 }, 1.0, 0.0f, lfoTextFunction);
+    wave             = p.addIntParam (id + "wave",    nm + "Wave",    "Wave",   "", { 1.0, 17.0, 1.0, 1.0 }, 1.0, 0.0f, lfoTextFunction());
     rate             = p.addExtParam (id + "rate",    nm + "Rate",    "Rate",   "Hz", { 0.0, 50.0, 0.0, 0.3f }, 10.0, 0.0f);
     beat             = p.addIntParam (id + "beat",    nm + "Beat",    "Beat",   "", { 0.0, float (notes.size() - 1), 1.0, 1.0 }, 13.0, 0.0f, durationTextFunction);
     depth            = p.addExtParam (id + "depth",   nm + "Depth",   "Depth",  "", { -1.0, 1.0, 0.0, 1.0 }, 1.0, 0.0f);
@@ -313,7 +300,7 @@ void WavetableAudioProcessor::ADSRParams::setup (WavetableAudioProcessor& p)
 void WavetableAudioProcessor::GlobalParams::setup (WavetableAudioProcessor& p)
 {
     mono        = p.addIntParam ("mono",        "Mono",       "",         "",   { 0.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
-    glideMode   = p.addIntParam ("gMode",       "Glide Mode", "Glide",    "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f, glideModeTextFunction);
+    glideMode   = p.addIntParam ("gMode",       "Glide Mode", "Glide",    "",   { 0.0, 2.0, 0.0, 1.0 }, 0.0f, 0.0f, glideModeTextFunction());
     glideRate   = p.addExtParam ("gRate",       "Glide Time", "Time",     "s",  { 0.001f, 20.0, 0.0, 0.2f }, 0.3f, 0.0f);
     legato      = p.addIntParam ("legato",      "Legato",     "",         "",   { 0.0, 1.0, 0.0, 1.0 }, 0.0, 0.0f, enableTextFunction);
     level       = p.addExtParam ("level",       "Level",      "",         "db", { -100.0, 0.0, 1.0, 4.0f }, 0.0, 0.0f);
