@@ -465,7 +465,7 @@ Custom wavetables are embedded in presets when saved.
 
 ## System Requirements
 
-- macOS 10.13 or later
+- macOS 12.0 or later
 - Windows 10 or later
 - Linux (Ubuntu 20.04 or compatible)
 
