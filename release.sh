@@ -31,12 +31,14 @@ echo "$NOTES" > /tmp/release_notes.txt
 # server stores symbols write-once per (plugin, platform, version): a re-tagged
 # or rebuilt version whose symbols already exist returns 409 and fails the
 # release loudly — delete the stale symbols in the crash site, then re-run.
+# prune_older=1 deletes that platform's symbols for every older version once the
+# new ones are stored: we only support the latest release.
 CRASH_BASE="https://crashreports.rabiensoftware.com"
 upload_symbols () { # $1 platform, $2 zip
   if [ ! -f "$2" ]; then echo "Error: expected symbols $2 not found"; exit 1; fi
   echo "Uploading $1 symbols for $VER"
   curl -sS --fail-with-body -H "X-API-Key: $SYMBOL_API_KEY" \
-    -F "platform=$1" -F "version=$VER" -F "files[]=@$2" \
+    -F "platform=$1" -F "version=$VER" -F "prune_older=1" -F "files[]=@$2" \
     "$CRASH_BASE/symbols/"
   echo
 }
